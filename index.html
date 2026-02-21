@@ -127,28 +127,45 @@ style="width:100%; height:calc(100% - 60px); border:none; border-radius:10px;">
 
 <script>
 
+function toggleAbout() { 
+    var x = document.getElementById("about"); 
+    if (x.style.display === "none") { 
+        x.style.display = "block"; 
+        x.scrollIntoView({behavior:'smooth'}); 
+    } else { 
+        x.style.display = "none"; 
+    } 
+}
+
 function openRequests() {
-document.getElementById('requestFrame').src =
-"https://a13.asurahosting.com/public/wish_booster_radio/embed-requests";
-document.getElementById('requestModal').style.display = 'flex';
-document.body.style.overflow = 'hidden';
+    document.getElementById('requestFrame').src =
+    "https://a13.asurahosting.com/public/wish_booster_radio/embed-requests";
+    document.getElementById('requestModal').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
 }
 
 function closeRequests() {
-document.getElementById('requestModal').style.display = 'none';
-document.getElementById('requestFrame').src = ""; // reset iframe
-document.body.style.overflow = 'auto';
+    document.getElementById('requestModal').style.display = 'none';
+    document.getElementById('requestFrame').src = "";
+    document.body.style.overflow = 'auto';
 }
 
-function toggleAbout() {
-alert("K-BOOST - Profesionalni DJ & Radio ekipa.");
+function acceptCookies() { 
+    document.getElementById('cookie-banner').style.display = 'none'; 
+    localStorage.setItem('cookiesAccepted', 'true'); 
 }
 
-function showPhone() {
-alert("Pokliči: 041 772 470");
+window.onload = function() { 
+    if(localStorage.getItem('cookiesAccepted')) { 
+        document.getElementById('cookie-banner').style.display = 'none'; 
+    } 
+}
+
+function showPhone() { 
+    document.getElementById('bookingBtn').style.display = 'none'; 
+    document.getElementById('phoneLink').style.display = 'inline-flex'; 
 }
 
 </script>
-
 </body>
 </html>
