@@ -1,228 +1,409 @@
 <!DOCTYPE html>
 <html lang="sl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WISH BOOSTER ONLINE & Dj Booking</title>
-    <link rel="icon" type="image/png" href="star.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        body { 
-            font-family: 'Poppins', sans-serif; 
-            margin: 0; 
-            background: #000; 
-            color: #fff; 
-            line-height: 1.6; 
-            padding-bottom: 100px;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>WISH BOOSTER ONLINE & Dj Booking</title>
+<link rel="icon" type="image/png" href="star.png" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet" />
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background: #000;
+    color: #fff;
+    line-height: 1.6;
+    padding-bottom: 100px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
 
-        .radio-status { text-align: center; margin-top: 20px; }
-        .rotate-text { 
-            display: inline-block; 
-            font-size: 1.6rem; 
-            font-weight: 900;
-            letter-spacing: 3px; 
-            color: #00d4ff;
-            text-transform: uppercase;
-            animation: neonFlicker 5s infinite; /* Počasnejše utripanje */
-        }
+  /* Header */
+  header {
+    background: #111;
+    padding: 20px;
+    border-bottom: 2px solid #8a2be2;
+    text-align: center;
+  }
+  header h1 {
+    margin: 0;
+    color: #00d4ff;
+    font-size: 2rem;
+    font-weight: 900;
+  }
 
-        @keyframes neonFlicker {
-            0%, 10%, 12%, 14%, 50%, 100% { text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff; opacity: 1; }
-            11%, 13% { text-shadow: none; opacity: 0.6; }
-        }
+  /* Navigation buttons */
+  .btn-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px;
+  }
+  .btn {
+    padding: 15px 30px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 800;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .btn-about { background: linear-gradient(45deg, #8a2be2, #00d4ff); color: #fff; }
+  .btn-request { background: #ff00ff; color: #fff; box-shadow: 0 0 15px rgba(255, 0, 255, 0.7); }
+  .btn-request:hover { transform: scale(1.05); box-shadow: 0 0 25px rgba(255, 0, 255, 1); }
+  .btn-booking { background: #25d366; color: #000; }
 
-.btn-container { display:flex; justify-content:center; gap:15px; margin:10px 0 25px 0; padding:20px; flex-wrap:wrap;}
-.btn { padding:15px 30px; border-radius:12px; text-decoration:none; font-weight:800; text-transform:uppercase; display:inline-flex; align-items:center; gap:12px; border:none; cursor:pointer; transition:0.3s all ease; }
+  /* Main content container */
+  .main-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+  }
 
-.btn-about { background:linear-gradient(45deg,#8a2be2,#00d4ff); color:white; }
-.btn-request { background:#ff00ff; color:white; box-shadow:0 0 15px rgba(255,0,255,0.7); border:2px solid #fff;}
-.btn-request:hover { transform:scale(1.05); box-shadow:0 0 25px rgba(255,0,255,1);}
-.btn-booking { background:#25d366; color:#000; }
+  /* Sections */
+  .purple-frame {
+    border: 2px solid #8a2be2;
+    border-radius: 20px;
+    padding: 35px;
+    margin-bottom: 30px;
+    background: rgba(15, 15, 15, 0.95);
+    position: relative;
+  }
+  .purple-frame h3 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+  }
+  .purple-frame h3 i {
+    margin-right: 10px;
+    color: #00d4ff;
+  }
+  /* Responsive iframe */
+  .iframe-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+  .iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 12px;
+  }
 
-.main-content { max-width:1100px; margin:0 auto; padding:20px;}
-.purple-frame { border:2px solid #8a2be2; border-radius:20px; padding:35px; margin-bottom:30px; background:rgba(15,15,15,0.95); }
+  /* Radio status text */
+  .radio-status {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .rotate-text {
+    display: inline-block;
+    font-size: 1.6rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: #00d4ff;
+    text-transform: uppercase;
+    animation: neonFlicker 5s infinite, pulse 2s infinite;
+  }
 
-.custom-player { background:#111; border:3px solid #8a2be2; border-radius:30px; padding:5px; text-align:center; margin-bottom:40px;}
-.player-title { color:#00d4ff; font-weight:bold; text-transform:uppercase; margin-bottom:15px; display:block; padding-top:10px;}
+  /* Neon flicker animation */
+  @keyframes neonFlicker {
+    0%, 10%, 12%, 14%, 50%, 100% {
+      text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff;
+      opacity: 1;
+    }
+    11%, 13% {
+      text-shadow: none;
+      opacity: 0.6;
+    }
+  }
+  /* Pulse animation for glow */
+  @keyframes pulse {
+    0% { box-shadow: 0 0 10px #00d4ff; }
+    50% { box-shadow: 0 0 20px #00d4ff; }
+    100% { box-shadow: 0 0 10px #00d4ff; }
+  }
 
-.footer-content { background:#111; padding:40px 20px; border-top:2px solid #8a2be2; text-align:center; margin-top:50px;}
-.owner-txt { color:yellow; font-weight:900; text-transform:uppercase;}
+  /* Footer styles */
+  footer {
+    background: #111;
+    padding: 40px 20px;
+    border-top: 2px solid #8a2be2;
+    text-align: center;
+    margin-top: 50px;
+  }
+  .owner-txt {
+    color: yellow;
+    font-weight: 900;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+  }
 
-#requestModal {
-    display:none;
-    position:fixed;
-    top:0; left:0;
-    width:100%; height:100%;
-    background:rgba(0,0,0,0.9);
-    z-index:10000;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-}
+  /* Social icons */
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  .social-icons a {
+    font-size: 1.8rem;
+    color: #fff;
+    transition: color 0.3s;
+  }
+  .social-icons a:hover {
+    color: #00d4ff;
+  }
 
-.modal-content {
-    width:100%;
-    max-width:800px;
-    height:85%;
-    position:relative;
-    background:#111;
-    border:2px solid #ff00ff;
-    box-shadow:0 0 30px rgba(255,0,255,0.5);
-    border-radius:20px;
-    animation:fadeIn 0.3s ease-in-out;
-}
+  /* TikTok Live button */
+  .tiktok-live-wrap {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .btn-tt-live {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #000;
+    border: 2px solid #8a2be2;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .btn-tt-live:hover {
+    background-color: #8a2be2;
+  }
 
-@keyframes fadeIn {
-    from { opacity:0; transform:scale(0.95); }
-    to { opacity:1; transform:scale(1); }
-}
+  /* Cookie banner */
+  #cookie-banner {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #222;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999;
+  }
+  .cookie-btn {
+    background: #8a2be2;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .cookie-btn:hover {
+    background: #a52be2;
+  }
+
+  /* Responsive adjustments */
+  @media(max-width:768px){
+    .btn-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    iframe {
+      height: auto;
+    }
+  }
 </style>
 </head>
-
 <body>
 
+<header>
+  <h1>WISH BOOSTER ONLINE & Dj Booking</h1>
+</header>
 
-</head>
-<body oncontextmenu="return false;" ondragstart="return false;" onselectstart="return false;">
-
+<!-- Cookie Banner -->
 <div id="cookie-banner">
-    <span>To spletno mesto uporablja piškotke za boljšo izkušnjo.</span>
-    <button class="cookie-btn" onclick="acceptCookies()">Sprejmem</button>
+  <span>To spletno mesto uporablja piškotke za boljšo izkušnjo.</span>
+  <button class="cookie-btn" onclick="acceptCookies()">Sprejmem</button>
 </div>
 
+<!-- Radio Status -->
 <div class="radio-status">
-    <span class="rotate-text">WISH BOOSTER ONLINE RADIO - 24/7</span>
+  <span class="rotate-text">WISH BOOSTER ONLINE RADIO - 24/7</span>
 </div>
 
+<!-- Navigacija -->
 <div class="btn-container">
-    <button class="btn btn-about" onclick="toggleAbout()"><i class="fas fa-fire"></i> KDO SMO?</button>
-    
-    <button class="btn btn-request" onclick="openRequests()"><i class="fas fa-music"></i> GLASBENA ŽELJA</button>
-    
-    <button id="bookingBtn" class="btn btn-booking" onclick="showPhone()"><i class="fas fa-calendar-check"></i> BOOKING</button>
-    <a id="phoneLink" href="tel:041772470" class="phone-link"><i class="fas fa-phone-alt"></i> 041 772 470</a>
+  <button class="btn btn-about" onclick="toggleAbout()"><i class="fas fa-fire"></i> KDO SMO?</button>
+  <button class="btn btn-request" onclick="openRequests()"><i class="fas fa-music"></i> GLASBENA ŽELJA</button>
+  <button id="bookingBtn" class="btn btn-booking" onclick="showPhone()"><i class="fas fa-calendar-check"></i> BOOKING</button>
+  <a id="phoneLink" href="tel:041772470" class="phone-link" style="display:none;"><i class="fas fa-phone-alt"></i> 041 772 470</a>
 </div>
 
 <div class="main-content">
-    <div id="about" style="display:none;" class="purple-frame">
-        <span style="position:absolute; top:20px; right:25px; cursor:pointer; font-size: 1.8rem; color: #ff00ff; z-index: 10;" onclick="toggleAbout()"><i class="fas fa-times-circle"></i></span>
-        <div class="about-header" style="text-align:center;">
-            <h2 style="margin:0; font-size: 2.8rem; text-shadow: 0 0 15px #8a2be2; font-weight: 900;">DISKO JOCKER K-BOOST</h2>
-            <p style="color:#00d4ff; font-weight: bold; text-transform: uppercase; letter-spacing: 5px;">Kjer glasba oživi</p>
-        </div>
-        <div style="text-align:center; max-width:900px; margin:20px auto;">
-            <p>Smo ekipa <span style="color:#00d4ff; font-weight:800;">K-BOOST</span>, ki že več kot 25 let premika meje zabave. Z vrhunsko opremo poskrbimo za nepozabno atmosfero!</p>
-        </div>
-    </div>
 
-    <div class="social-icons">
-        <a href="https://www.facebook.com/profile.php?id=61584601392280" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.youtube.com/@SLOdrumer/videos" target="_blank"><i class="fab fa-youtube"></i></a>
-        <a href="https://www.tiktok.com/@wishbooster" target="_blank"><i class="fab fa-tiktok"></i></a>
-        <a href="https://www.youtube.com/@RadioWishbooster" target="_blank"><i class="fab fa-youtube"></i></a>
-        <a href="https://www.facebook.com/profile.php?id=100094446477993" target="_blank"><i class="fab fa-facebook"></i></a>
+  <!-- O nas -->
+  <div id="about" style="display:none;" class="purple-frame">
+    <span style="position:absolute; top:20px; right:25px; cursor:pointer; font-size: 1.8rem; color: #ff00ff; z-index: 10;" onclick="toggleAbout()"><i class="fas fa-times-circle"></i></span>
+    <div class="about-header" style="text-align:center;">
+      <h2 style="margin:0; font-size: 2.8rem; text-shadow: 0 0 15px #8a2be2; font-weight: 900;">DISKO JOCKER K-BOOST</h2>
+      <p style="color:#00d4ff; font-weight: bold; text-transform: uppercase; letter-spacing: 5px;">Kjer glasba oživi</p>
     </div>
+    <div style="text-align:center; max-width:900px; margin:20px auto;">
+      <p>Smo ekipa <span style="color:#00d4ff; font-weight:800;">K-BOOST</span>, ki že več kot 25 let premika meje zabave. Z vrhunsko opremo poskrbimo za nepozabno atmosfero!</p>
+    </div>
+  </div>
 
-    <div class="tiktok-live-wrap">
-        <a href="https://www.tiktok.com/@wishbooster/live" target="_blank" class="btn-tt-live"><i class="fab fa-tiktok"></i> TIKTOK LIVE (V ŽIVO)</a>
-    </div>
+  <!-- Socialni ikoni -->
+  <div class="social-icons" style="text-align:center; margin:20px 0;">
+    <a href="https://www.facebook.com/profile.php?id=61584601392280" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.youtube.com/@SLOdrumer/videos" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.tiktok.com/@wishbooster" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="https://www.youtube.com/@RadioWishbooster" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.facebook.com/profile.php?id=100094446477993" target="_blank"><i class="fab fa-facebook"></i></a>
+  </div>
 
-    <div class="custom-player">
-        <span class="player-title">WISH BOOSTER RADIO</span>
-        <iframe src="https://a13.asurahosting.com/public/wish_booster_radio" style="width: 100%; height: 650px; border: 0; border-radius: 20px;"></iframe>
-    </div>
+  <!-- TikTok Live -->
+  <div class="tiktok-live-wrap">
+    <a href="https://www.tiktok.com/@wishbooster/live" target="_blank" class="btn-tt-live"><i class="fab fa-tiktok"></i> TIKTOK LIVE (V ŽIVO)</a>
+  </div>
 
-    <div class="purple-frame">
-        <h3><i class="fas fa-play"></i> PROMO VIDEO</h3>
-        <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius: 12px;">
-            <iframe src="https://www.youtube.com/embed/1DKleFLa8Yg" style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;" allowfullscreen></iframe>
-        </div>
+  <!-- Radio predvajalnik -->
+  <div class="custom-player purple-frame">
+    <span class="player-title">WISH BOOSTER RADIO</span>
+    <div class="iframe-container">
+      <iframe src="https://a13.asurahosting.com/public/wish_booster_radio"></iframe>
     </div>
+  </div>
 
-    <div class="purple-frame" style="min-height: 850px;">
-        <h3><i class="fas fa-poll-h"></i> RADIJSKA ANKETA</h3>
-        <iframe src="https://forms.gle/CeEsDj29RdEivJD37" style="width: 100%; height: 800px; border: none; border-radius: 12px;">Nalaganje…</iframe>
+  <!-- Promo video -->
+  <div class="purple-frame">
+    <h3><i class="fas fa-play"></i> PROMO VIDEO</h3>
+    <div class="iframe-container" style="border-radius:12px;">
+      <iframe src="https://www.youtube.com/embed/1DKleFLa8Yg" allowfullscreen></iframe>
     </div>
+  </div>
 
-    <div class="purple-frame">
-        <h3><i class="fas fa-calendar-alt"></i> RADIJSKI URNIK</h3>
-        <div class="urnik-info"><i class="fas fa-broadcast-tower"></i> Vse sočasno oddaje na Youtube in TikToku!</div>
-        <div class="urnik-table">
-            <div class="urnik-row"><span class="day">Torek</span><span>FLASHBACK 80-90 <span class="live-tag">V ŽIVO!</span></span><span>18:00 - 22:00</span></div>
-            <div class="urnik-row"><span class="day">Četrtek</span><span>GLASBENI VRTILJAK <span class="live-tag">V ŽIVO!</span></span><span>18:00 - 22:00</span></div>
-            <div class="urnik-row"><span class="day">Nedelja</span><span>NEDELJSKI VEČER <span class="live-tag">V ŽIVO!</span></span><span>18:00 - 22:00</span></div>
-        </div>
-    </div>
+  <!-- Radio urnik -->
+  <div class="purple-frame" style="min-height:850px;">
+    <h3><i class="fas fa-poll-h"></i> RADIJSKA ANKETA</h3>
+    <iframe src="https://forms.gle/CeEsDj29RdEivJD37" style="width:100%; height:800px; border:none; border-radius:12px;"></iframe>
+  </div>
 
-    <div class="purple-frame">
-        <h3><i class="fas fa-comments"></i> KLEPETALNICA</h3>
-        <iframe src="https://www5.cbox.ws/box/?boxid=961432&boxtag=Lu3k7m" width="100%" height="450" frameborder="0" style="border-radius:15px;"></iframe>
+  <!-- Radio urnik -->
+  <div class="purple-frame">
+    <h3><i class="fas fa-calendar-alt"></i> RADIJSKI URNIK</h3>
+    <div class="urnik-info"><i class="fas fa-broadcast-tower"></i> Vse sočasno oddaje na Youtube in TikToku!</div>
+    <div class="urnik-table" style="margin-top:15px;">
+      <div class="urnik-row" style="display:flex; justify-content:space-between; padding:10px; background:#222; border-radius:8px; margin-bottom:5px;">
+        <span class="day">Torek</span>
+        <span>FLASHBACK 80-90 <span class="live-tag" style="color:#ff0;">V ŽIVO!</span></span>
+        <span>18:00 - 22:00</span>
+      </div>
+      <div class="urnik-row" style="display:flex; justify-content:space-between; padding:10px; background:#222; border-radius:8px; margin-bottom:5px;">
+        <span class="day">Četrtek</span>
+        <span>GLASBENI VRTILJAK <span class="live-tag" style="color:#ff0;">V ŽIVO!</span></span>
+        <span>18:00 - 22:00</span>
+      </div>
+      <div class="urnik-row" style="display:flex; justify-content:space-between; padding:10px; background:#222; border-radius:8px; margin-bottom:5px;">
+        <span class="day">Nedelja</span>
+        <span>NEDELJSKI VEČER <span class="live-tag" style="color:#ff0;">V ŽIVO!</span></span>
+        <span>18:00 - 22:00</span>
+      </div>
     </div>
+  </div>
+
+  <!-- Klepetalnica -->
+  <div class="purple-frame">
+    <h3><i class="fas fa-comments"></i> KLEPETALNICA</h3>
+    <iframe src="https://www5.cbox.ws/box/?boxid=961432&boxtag=Lu3k7m" width="100%" height="450" style="border-radius:15px; border:none;"></iframe>
+  </div>
+
+  <!-- Kontakt -->
+  <div class="purple-frame" style="text-align:center;">
+    <h3><i class="fas fa-envelope"></i> Kontakt</h3>
+    <form style="display:flex; flex-direction:column; gap:10px; max-width:400px; margin:auto;">
+      <input type="text" placeholder="Ime" style="padding:10px; border-radius:8px; border:none;">
+      <input type="email" placeholder="Email" style="padding:10px; border-radius:8px; border:none;">
+      <textarea placeholder="Sporočilo" style="padding:10px; border-radius:8px; border:none; height:100px;"></textarea>
+      <button type="submit" style="padding:12px; background:#8a2be2; color:#fff; border:none; border-radius:8px; font-weight:bold;">Pošlji</button>
+    </form>
+  </div>
+
 </div>
 
-     <div class="purple-frame">
-  <h3><i class="fas fa-envelope"></i> KONTAKT</h3>
-  <form style="display:flex; flex-direction:column; gap:10px; max-width:400px; margin:auto;">
-    <input type="text" placeholder="Ime" style="padding:10px; border-radius:8px; border:none;">
-    <input type="email" placeholder="Email" style="padding:10px; border-radius:8px; border:none;">
-    <textarea placeholder="Sporočilo" style="padding:10px; border-radius:8px; border:none; height:100px;"></textarea>
-    <button type="submit" style="padding:12px; background:#8a2be2; color:#fff; border:none; border-radius:8px; font-weight:bold;">Pošlji</button>
-  </form>
-</div>  
-
-<footer class="footer-content">
-    <span class="owner-txt">Owner: Boris</span>
-    <div class="footer-legal">
-        <p>Wish Booster Radio je ljubiteljski projekt ekipe K-BOOST. &copy; 2024-2026.</p>
-    </div>
+<!-- Footer -->
+<footer>
+  <span class="owner-txt">Owner: Boris</span>
+  <div class="footer-legal" style="margin-top:10px;">
+    <p style="font-size:0.9rem;">Wish Booster Radio je ljubiteljski projekt ekipe K-BOOST. &copy; 2024-2026.</p>
+  </div>
 </footer>
 
-<script>
+<!-- Modal za želje -->
+<div id="requestModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:10000; justify-content:center; align-items:center; padding:20px;">
+  <div class="modal-content" style="width:100%; max-width:800px; height:85%; position:relative; background:#111; border:2px solid #ff00ff; border-radius:20px; padding:20px; overflow:auto;">
+    <span style="position:absolute; top:10px; right:15px; font-size:1.8rem; cursor:pointer; color:#ff00ff;" onclick="closeRequests()"><i class="fas fa-times-circle"></i></span>
+    <iframe id="requestFrame" src="" style="width:100%; height:100%; border:none; border-radius:10px;"></iframe>
+  </div>
+</div>
 
-function toggleAbout() { 
-    var x = document.getElementById("about"); 
-    if (x.style.display === "none") { 
-        x.style.display = "block"; 
-        x.scrollIntoView({behavior:'smooth'}); 
-    } else { 
-        x.style.display = "none"; 
-    } 
+<!-- JavaScript -->
+<script>
+function toggleAbout() {
+  const about = document.getElementById("about");
+  about.style.display = (about.style.display === "none") ? "block" : "none";
+  if(about.style.display === "block") {
+    about.scrollIntoView({behavior:'smooth'});
+  }
 }
 
 function openRequests() {
-    document.getElementById('requestFrame').src =
-    "https://a13.asurahosting.com/public/wish_booster_radio/embed-requests";
-    document.getElementById('requestModal').style.display = 'flex';
-    document.body.style.overflow = 'hidden';
+  document.getElementById('requestFrame').src = "https://a13.asurahosting.com/public/wish_booster_radio/embed-requests";
+  document.getElementById('requestModal').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
 }
 
 function closeRequests() {
-    document.getElementById('requestModal').style.display = 'none';
-    document.getElementById('requestFrame').src = "";
-    document.body.style.overflow = 'auto';
+  document.getElementById('requestModal').style.display = 'none';
+  document.getElementById('requestFrame').src = "";
+  document.body.style.overflow = 'auto';
 }
 
-function acceptCookies() { 
-    document.getElementById('cookie-banner').style.display = 'none'; 
-    localStorage.setItem('cookiesAccepted', 'true'); 
+function acceptCookies() {
+  document.getElementById('cookie-banner').style.display = 'none';
+  localStorage.setItem('cookiesAccepted', 'true');
 }
 
-window.onload = function() { 
-    if(localStorage.getItem('cookiesAccepted')) { 
-        document.getElementById('cookie-banner').style.display = 'none'; 
-    } 
+window.onload = function() {
+  if(localStorage.getItem('cookiesAccepted')) {
+    document.getElementById('cookie-banner').style.display = 'none';
+  }
 }
 
-function showPhone() { 
-    document.getElementById('bookingBtn').style.display = 'none'; 
-    document.getElementById('phoneLink').style.display = 'inline-flex'; 
+function showPhone() {
+  document.getElementById('bookingBtn').style.display = 'none';
+  document.getElementById('phoneLink').style.display = 'inline-flex';
 }
 
+// Zaprti modal s tipko ESC
+window.addEventListener('keydown', function(e) {
+  if(e.key === 'Escape') closeRequests();
+});
 </script>
 </body>
 </html>
