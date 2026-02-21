@@ -27,7 +27,18 @@
     animation: breatheText 3s ease-in-out infinite;
     text-transform: uppercase;
 }
-        @keyframes rotateFull { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
+       @keyframes breatheText {
+    0%, 100% { 
+        transform: scale(1); 
+        text-shadow: 0 0 15px #00d4ff;
+        opacity: 0.8;
+    }
+    50% { 
+        transform: scale(1.1); 
+        text-shadow: 0 0 30px #00d4ff, 0 0 50px #00d4ff; 
+        opacity: 1;
+    }
+}
 
         .btn-container { display: flex; justify-content: center; gap: 15px; margin: 10px 0 25px 0; padding: 20px; flex-wrap: wrap; }
         .btn { padding: 15px 30px; border-radius: 12px; text-decoration: none; font-weight: 800; text-transform: uppercase; display: inline-flex; align-items: center; gap: 12px; border: none; cursor: pointer; transition: 0.3s all ease; text-align: center; }
