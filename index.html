@@ -7,71 +7,50 @@
     <link rel="icon" href="star.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { 
-            font-family: 'Poppins', sans-serif; 
-            margin: 0; 
-            background: #000; 
-            color: #fff; 
-            line-height: 1.6; 
-            padding-bottom: 50px;
-            overflow-x: hidden; 
+        body { font-family: 'Poppins', sans-serif; margin: 0; background: #000; color: #fff; line-height: 1.6; padding-bottom: 50px; overflow-x: hidden; }
 
-        .radio-status { 
-    text-align: center; 
-    margin-top: 30px; 
-    margin-bottom: 10px;
-}
-        .rotate-text { 
-    display: inline-block; 
-    font-size: 1.8rem;
-    font-weight: 900;
-    letter-spacing: 4px; 
-    color: #00d4ff;
-    text-shadow: 0 0 15px rgba(0, 212, 255, 0.7);
-    animation: breatheText 3s ease-in-out infinite;
-    text-transform: uppercase;
-}
-       @keyframes breatheText {
-    0%, 100% { 
-        transform: scale(1); 
-        text-shadow: 0 0 15px #00d4ff;
-        opacity: 0.8;
-    }
-    50% { 
-        transform: scale(1.1); 
-        text-shadow: 0 0 30px #00d4ff, 0 0 50px #00d4ff; 
-        opacity: 1;
-    }
-}
+        .radio-status { text-align: center; margin-top: 30px; margin-bottom: 10px; }
+        .rotate-text { display: inline-block; font-size: 1.8rem; font-weight: 900; letter-spacing: 4px; color: #00d4ff; text-shadow: 0 0 15px rgba(0, 212, 255, 0.7); animation: breatheText 3s ease-in-out infinite; text-transform: uppercase; }
 
-   <div class="btn-container">
-    <button class="btn btn-about" onclick="toggleAbout()">
-        <i class="fas fa-fire"></i> KDO SMO?
-    </button>
-    
-    <button class="btn btn-request" onclick="openRequests()">
-        <i class="fas fa-music"></i> GLASBENA ŽELJA
-    </button>
-    
-    <button id="bookingBtn" class="btn btn-booking" onclick="showPhone()">
-        <i class="fas fa-calendar-check"></i> BOOKING
-    </button>
-    <a id="phoneLink" href="tel:041772470" class="phone-link"><i class="fas fa-phone-alt"></i> 041 772 470</a>
+        /* CENTRIRANJE GUMBOV */
+        .btn-container { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 15px; 
+            margin: 20px auto; 
+            flex-wrap: wrap; 
+            width: 100%;
+        }
+
+        /* STILI ZA VSE GUMBE */
+        .btn { 
+            padding: 15px 25px; border-radius: 12px; font-weight: 800; text-transform: uppercase; 
+            display: inline-flex; align-items: center; gap: 10px; border: none; cursor: pointer; 
+            font-size: 0.95rem; min-width: 180px; justify-content: center; transition: 0.3s;
+        }
+        .btn-about { background: linear-gradient(45deg, #8a2be2, #00d4ff); color: white; }
+        
+        /* PINK NEON GUMB */
+        .btn-request { 
+            background: #ff00ff !important; color: white !important; 
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.7); border: 2px solid #fff !important; 
+        }
+        .btn-booking { background: #25d366; color: #000 !important; }
+
+        @keyframes breatheText { 0%, 100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.1); opacity: 1; } }
+    </style>
+</head>
+<body>
+
+<div class="radio-status"><span class="rotate-text">RADIO 24/7</span></div>
+
+<div class="btn-container">
+    <button class="btn btn-about" onclick="toggleAbout()"><i class="fas fa-fire"></i> KDO SMO?</button>
+    <button class="btn btn-request" onclick="openRequests()"><i class="fas fa-music"></i> GLASBENA ŽELJA</button>
+    <button id="bookingBtn" class="btn btn-booking" onclick="showPhone()"><i class="fas fa-calendar-check"></i> BOOKING</button>
+    <a id="phoneLink" href="tel:041772470" class="phone-link" style="display:none;"><i class="fas fa-phone-alt"></i> 041 772 470</a>
 </div>
-
-    .btn { 
-    padding: 15px 25px; 
-    border-radius: 12px; 
-    font-weight: 800; 
-    text-transform: uppercase; 
-    display: inline-flex; 
-    align-items: center; 
-    gap: 10px; 
-    border: none; 
-    cursor: pointer; 
-    font-size: 0.95rem;
-    min-width: 180px; /* Enotna velikost gumbov */
-    justify-content: center;
 }
 
 /* Poseben stil za rožnat gumb, da bo sijal */
