@@ -44,10 +44,34 @@
     }
 }
 
-        .btn-container <button class="btn btn-request" onclick="openRequests()">
-    <i class="fas fa-music"></i> GLASBENA ŽELJA
-</button>
-        .btn { padding: 15px 30px; border-radius: 12px; text-decoration: none; font-weight: 800; text-transform: uppercase; display: inline-flex; align-items: center; gap: 12px; border: none; cursor: pointer; transition: 0.3s all ease; text-align: center; }
+       .btn-container { 
+    display: flex; 
+    justify-content: center; /* Postavi gumbe na sredino */
+    align-items: center; 
+    gap: 20px; /* Razmik med gumbi */
+    margin: 30px auto; /* Razmik zgoraj/spodaj in centriranje kontejnerja */
+    padding: 0 20px;
+    flex-wrap: wrap; /* Da se na telefonu zložijo eden pod drugega */
+    width: 100%; 
+    box-sizing: border-box;
+}
+
+.btn { 
+    padding: 15px 30px; 
+    border-radius: 12px; 
+    text-decoration: none; 
+    font-weight: 800; 
+    text-transform: uppercase; 
+    display: inline-flex; 
+    align-items: center; 
+    gap: 12px; 
+    border: none; 
+    cursor: pointer; 
+    transition: 0.3s;
+    font-size: 1rem;
+    min-width: 200px; /* Zagotovi, da so gumbi dovolj veliki */
+    justify-content: center;
+}
         .btn-about { background: linear-gradient(45deg, #8a2be2, #00d4ff); color: white; border: 2px solid transparent; }
         .btn-about:hover { border-color: #fff; transform: translateY(-3px); }
         .btn-booking { background: #25d366; color: #000 !important; font-size: 1.2rem; min-width: 200px; justify-content: center; }
