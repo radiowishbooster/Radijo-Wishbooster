@@ -16,46 +16,75 @@
     color: #fff;
     line-height: 1.6;
     padding-bottom: 100px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
   }
 
-  /* Header */
   header {
     background: #111;
     padding: 20px;
     border-bottom: 2px solid #8a2be2;
     text-align: center;
   }
-  header h1 {
-    margin: 0;
-    color: #00d4ff;
-    font-size: 2rem;
-    font-weight: 900;
+  header h1 { margin: 0; color: #00d4ff; font-size: 2rem; font-weight: 900; }
+
+  .btn-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin: 20px; }
+  .btn {
+    padding: 15px 30px; border-radius: 12px; text-decoration: none; font-weight: 800;
+    text-transform: uppercase; display: inline-flex; align-items: center; gap: 12px;
+    border: none; cursor: pointer; transition: all 0.3s ease;
+  }
+  .btn-about { background: linear-gradient(45deg, #8a2be2, #00d4ff); color: #fff; }
+  .btn-request { background: #ff00ff; color: #fff; box-shadow: 0 0 15px rgba(255, 0, 255, 0.7); }
+  .btn-request:hover { transform: scale(1.05); box-shadow: 0 0 25px rgba(255, 0, 255, 1); }
+  .btn-booking { background: #25d366; color: #000; }
+
+  .main-content { max-width: 1100px; margin: 0 auto; padding: 20px; overflow-x: hidden; }
+
+  .purple-frame {
+    border: 2px solid #8a2be2; border-radius: 20px; padding: 35px;
+    margin-bottom: 30px; background: rgba(15, 15, 15, 0.95); position: relative;
   }
 
-  /* Navigation buttons */
-  .btn-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin: 20px;
-  }
-  .btn {
-    padding: 15px 30px;
+  /* Standardni kontejner za YouTube (velik) */
+  .iframe-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
     border-radius: 12px;
-    text-decoration: none;
-    font-weight: 800;
-    text-transform: uppercase;
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  }
+  .iframe-container iframe {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
+  }
+
+  /* POSEBEN POPRAVEK ZA RADIO (majhen) */
+  .radio-box {
+    padding-bottom: 0 !important;
+    height: 160px !important; /* To skrajša okvir na glavni strani */
+  }
+  .radio-box iframe {
+    position: relative !important;
+    height: 160px !important;
+  }
+
+  .service-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-top: 30px; }
+  .service-card {
+    background: rgba(138, 43, 226, 0.1); border: 1px solid rgba(138, 43, 226, 0.4);
+    border-radius: 15px; padding: 20px; width: 140px; text-align: center;
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+  }
+  .service-card i { font-size: 2.5rem; color: #ff00ff; }
+  .service-card span { font-size: 0.75rem; font-weight: bold; text-transform: uppercase; }
+
+  /* Animacije in ostalo */
+  .radio-status { text-align: center; margin-top: 20px; }
+  .rotate-text { display: inline-block; font-size: 1.6rem; font-weight: 900; color: #00d4ff; animation: neonFlicker 5s infinite; }
+  @keyframes neonFlicker { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+
+  footer { background: #111; padding: 40px 20px; border-top: 2px solid #8a2be2; text-align: center; }
+  .social-icons { display: flex; justify-content: center; gap: 15px; margin: 20px 0; }
+  .social-icons a { font-size: 1.8rem; color: #fff; }
+</style>
   }
   .btn-about { background: linear-gradient(45deg, #8a2be2, #00d4ff); color: #fff; }
   .btn-request { background: #ff00ff; color: #fff; box-shadow: 0 0 15px rgba(255, 0, 255, 0.7); }
@@ -331,12 +360,12 @@
   </div>
 
   <!-- Radio predvajalnik -->
-<div class="custom-player purple-frame">
-    <span class="player-title">WISH BOOSTER RADIO</span>
-    <div class="iframe-container">
+<div class="custom-player purple-frame" style="text-align: center;">
+    <h3 style="justify-content: center;"><i class="fas fa-broadcast-tower"></i> WISH BOOSTER RADIO</h3>
+    <div class="iframe-container radio-box">
       <iframe src="https://a13.asurahosting.com/public/wish_booster_radio"></iframe>
     </div>
-  </div>
+</div>
 
 
   <!-- Promo video -->
