@@ -138,7 +138,44 @@
     50% { box-shadow: 0 0 20px #00d4ff; }
     100% { box-shadow: 0 0 10px #00d4ff; }
   }
+.service-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+    padding: 10px;
+  }
 
+  /* Stil za posamezno kartico */
+  .service-card {
+    background: rgba(138, 43, 226, 0.1); 
+    border: 1px solid rgba(138, 43, 226, 0.4);
+    border-radius: 15px;
+    padding: 20px;
+    width: 140px; /* Širina posamezne ikone */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
+  }
+
+  /* Barva in velikost ikon */
+  .service-card i {
+    font-size: 2.5rem;
+    color: #ff00ff; /* Neon roza/vijolična */
+  }
+
+  /* Besedilo pod ikono */
+  .service-card span {
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  
   /* Footer styles */
   footer {
     background: #111;
