@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WISH BOOSTER RADIO | K-BOOST</title>
+    <title>24/7 oONLINE - Dj Booking</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body { 
@@ -12,21 +12,43 @@
             background: #000; 
             color: #fff; 
             line-height: 1.6; 
-            padding-bottom: 50px;
-            overflow-x: hidden; /* Prepreči drsenje vstran */
+            padding-bottom: 100px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
 
-        /* Status vrstica */
         .radio-status { text-align: center; margin-top: 20px; font-weight: 900; letter-spacing: 2px; color: #00d4ff; font-size: 1.1rem; }
-        .rotate-text { display: inline-block; animation: rotateFull 4s linear infinite; }
-        @keyframes rotateFull { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
+        .rotate-text { 
+    display: inline-block; 
+    font-size: 2rem; /* Napis ostaja velik */
+    font-weight: 900;
+    letter-spacing: 5px; 
+    color: #00d4ff;
+    text-transform: uppercase;
+    /* Nova animacija za neonsko utripanje */
+    animation: neonFlicker 2s infinite;
+}
+        @keyframes neonFlicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        /* Stanje, ko neon močno sveti */
+        text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 40px #00d4ff;
+        opacity: 1;
+    }
+    20%, 22%, 24%, 55% {
+        /* Stanje, ko neon za trenutek "pomežikne" ali ugasne */
+        text-shadow: none;
+        opacity: 0.4;
+    }
+}
 
-        /* Gumbi */
-        .btn-container { display: flex; justify-content: center; gap: 15px; margin: 20px 0; padding: 0 20px; flex-wrap: wrap; }
-        .btn { padding: 15px 30px; border-radius: 12px; text-decoration: none; font-weight: 800; text-transform: uppercase; display: inline-flex; align-items: center; gap: 12px; border: none; cursor: pointer; transition: 0.3s; }
-        .btn-about { background: linear-gradient(45deg, #8a2be2, #00d4ff); color: white; }
-        .btn-booking { background: #25d366; color: #000 !important; }
-        .phone-link { display: none; background: #fff; color: #000 !important; padding: 15px 30px; border-radius: 12px; font-weight: 900; text-decoration: none; }
+        .btn-container { display: flex; justify-content: center; gap: 15px; margin: 10px 0 25px 0; padding: 20px; flex-wrap: wrap; }
+        .btn { padding: 15px 30px; border-radius: 12px; text-decoration: none; font-weight: 800; text-transform: uppercase; display: inline-flex; align-items: center; gap: 12px; border: none; cursor: pointer; transition: 0.3s all ease; text-align: center; }
+        .btn-about { background: linear-gradient(45deg, #8a2be2, #00d4ff); color: white; border: 2px solid transparent; }
+        .btn-about:hover { border-color: #fff; transform: translateY(-3px); }
+        .btn-booking { background: #25d366; color: #000 !important; font-size: 1.2rem; min-width: 200px; justify-content: center; }
+        .phone-link { display: none; background: #fff; color: #000 !important; padding: 15px 30px; border-radius: 12px; font-weight: 900; font-size: 1.4rem; text-decoration: none; animation: slideIn 0.3s ease-out; }
 
         .social-icons { display: flex; justify-content: center; gap: 25px; margin-bottom: 20px; }
         .social-icons a { color: #fff; font-size: 2.8rem; transition: 0.4s ease; text-decoration: none; }
