@@ -1,37 +1,39 @@
 <!DOCTYPE html>
 <html lang="sl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>24/7-ONLINE & Dj Booking</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WISH BOOSTER ONLINE & Dj Booking</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            margin: 0; 
+            background: #000; 
+            color: #fff; 
+            line-height: 1.6; 
+            padding-bottom: 100px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
 
-<style>
-body { 
-    font-family: 'Poppins', sans-serif; 
-    margin: 0; 
-    background: #000; 
-    color: #fff; 
-    line-height: 1.6; 
-    padding-bottom: 100px;
-    user-select: none;
-}
+        .radio-status { text-align: center; margin-top: 20px; }
+        .rotate-text { 
+            display: inline-block; 
+            font-size: 1.6rem; 
+            font-weight: 900;
+            letter-spacing: 3px; 
+            color: #00d4ff;
+            text-transform: uppercase;
+            animation: neonFlicker 5s infinite; /* Počasnejše utripanje */
+        }
 
-.radio-status { text-align: center; margin-top: 20px; }
-.rotate-text { 
-    display: inline-block; 
-    font-size: 1.6rem; 
-    font-weight: 900;
-    letter-spacing: 3px; 
-    color: #00d4ff;
-    text-transform: uppercase;
-    animation: neonFlicker 5s infinite;
-}
-
-@keyframes neonFlicker {
-    0%,10%,12%,14%,50%,100% { text-shadow: 0 0 10px #00d4ff,0 0 20px #00d4ff; opacity:1;}
-    11%,13% { text-shadow:none; opacity:0.6;}
-}
+        @keyframes neonFlicker {
+            0%, 10%, 12%, 14%, 50%, 100% { text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff; opacity: 1; }
+            11%, 13% { text-shadow: none; opacity: 0.6; }
+        }
 
 .btn-container { display:flex; justify-content:center; gap:15px; margin:10px 0 25px 0; padding:20px; flex-wrap:wrap;}
 .btn { padding:15px 30px; border-radius:12px; text-decoration:none; font-weight:800; text-transform:uppercase; display:inline-flex; align-items:center; gap:12px; border:none; cursor:pointer; transition:0.3s all ease; }
