@@ -14,15 +14,18 @@
             color: #fff; 
             line-height: 1.6; 
             padding-bottom: 50px;
-            overflow-x: hidden; /* Prepreči drsenje vstran */
-        }
+            overflow-x: hidden; 
 
         .radio-status { text-align: center; margin-top: 20px; font-weight: 900; letter-spacing: 2px; color: #00d4ff; font-size: 1.1rem; }
         .rotate-text { 
     display: inline-block; 
-    animation: breatheText 3s ease-in-out infinite; 
-    text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff; /* Neonski sijaj */
+    font-size: 1.8rem;
     font-weight: 900;
+    letter-spacing: 4px; 
+    color: #00d4ff;
+    text-shadow: 0 0 15px rgba(0, 212, 255, 0.7);
+    animation: breatheText 3s ease-in-out infinite;
+    text-transform: uppercase;
 }
         @keyframes rotateFull { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
 
