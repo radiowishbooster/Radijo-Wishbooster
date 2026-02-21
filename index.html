@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Radio & Dj Booking</title>
+<title>WISH BOOSTER ONLINE & Dj Booking</title>
 <link rel="icon" type="image/png" href="star.png" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 <!-- Google Fonts -->
@@ -62,14 +62,33 @@
   .btn-request:hover { transform: scale(1.05); box-shadow: 0 0 25px rgba(255, 0, 255, 1); }
   .btn-booking { background: #25d366; color: #000; }
 
-  .main-content { max-width: 1100px; margin: 0 auto; padding: 20px; overflow-x: hidden; }
-
-  .purple-frame {
-    border: 2px solid #8a2be2; border-radius: 20px; padding: 35px;
-    margin-bottom: 30px; background: rgba(15, 15, 15, 0.95); position: relative;
+  /* Main content container */
+  .main-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
   }
 
-  /* Standardni kontejner za YouTube (velik) */
+  /* Sections */
+  .purple-frame {
+    border: 2px solid #8a2be2;
+    border-radius: 20px;
+    padding: 35px;
+    margin-bottom: 30px;
+    background: rgba(15, 15, 15, 0.95);
+    position: relative;
+  }
+  .purple-frame h3 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+  }
+  .purple-frame h3 i {
+    margin-right: 10px;
+    color: #00d4ff;
+  }
+  /* Responsive iframe */
   .iframe-container {
     position: relative;
     padding-bottom: 56.25%;
@@ -78,44 +97,142 @@
     border-radius: 12px;
   }
   .iframe-container iframe {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 12px;
   }
 
-  /* POSEBEN POPRAVEK ZA RADIO (majhen) */
-  .radio-box {
-    padding-bottom: 0 !important;
-    height: 160px !important; /* To skrajša okvir na glavni strani */
+  /* Radio status text */
+  .radio-status {
+    text-align: center;
+    margin-top: 20px;
   }
-  .radio-box iframe {
-    position: relative !important;
-    height: 160px !important;
+  .rotate-text {
+    display: inline-block;
+    font-size: 1.6rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: #00d4ff;
+    text-transform: uppercase;
+    animation: neonFlicker 5s infinite, pulse 2s infinite;
   }
 
-  .service-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-top: 30px; }
-  .service-card {
-    background: rgba(138, 43, 226, 0.1); border: 1px solid rgba(138, 43, 226, 0.4);
-    border-radius: 15px; padding: 20px; width: 140px; text-align: center;
-    display: flex; flex-direction: column; align-items: center; gap: 10px;
+  /* Neon flicker animation */
+  @keyframes neonFlicker {
+    0%, 10%, 12%, 14%, 50%, 100% {
+      text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff;
+      opacity: 1;
+    }
+    11%, 13% {
+      text-shadow: none;
+      opacity: 0.6;
+    }
   }
-  .service-card i { font-size: 2.5rem; color: #ff00ff; }
-  .service-card span { font-size: 0.75rem; font-weight: bold; text-transform: uppercase; }
+  /* Pulse animation for glow */
+  @keyframes pulse {
+    0% { box-shadow: 0 0 10px #00d4ff; }
+    50% { box-shadow: 0 0 20px #00d4ff; }
+    100% { box-shadow: 0 0 10px #00d4ff; }
+  }
 
-  /* Animacije in ostalo */
-  .radio-status { text-align: center; margin-top: 20px; }
-  .rotate-text { display: inline-block; font-size: 1.6rem; font-weight: 900; color: #00d4ff; animation: neonFlicker 5s infinite; }
-  @keyframes neonFlicker { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+  /* Footer styles */
+  footer {
+    background: #111;
+    padding: 40px 20px;
+    border-top: 2px solid #8a2be2;
+    text-align: center;
+    margin-top: 50px;
+  }
+  .owner-txt {
+    color: yellow;
+    font-weight: 900;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+  }
 
-  footer { background: #111; padding: 40px 20px; border-top: 2px solid #8a2be2; text-align: center; }
-  .social-icons { display: flex; justify-content: center; gap: 15px; margin: 20px 0; }
-  .social-icons a { font-size: 1.8rem; color: #fff; }
-</style>
+  /* Social icons */
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  .social-icons a {
+    font-size: 1.8rem;
+    color: #fff;
+    transition: color 0.3s;
+  }
+  .social-icons a:hover {
+    color: #00d4ff;
+  }
+
+  /* TikTok Live button */
+  .tiktok-live-wrap {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .btn-tt-live {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #000;
+    border: 2px solid #8a2be2;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .btn-tt-live:hover {
+    background-color: #8a2be2;
+  }
+
+  /* Cookie banner */
+  #cookie-banner {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #222;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999;
+  }
+  .cookie-btn {
+    background: #8a2be2;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .cookie-btn:hover {
+    background: #a52be2;
+  }
+
+  /* Responsive adjustments */
+  @media(max-width:768px){
+    .btn-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    iframe {
+      height: auto;
+    }
   }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>RADIO & Dj Booking</h1>
+  <h1>WISH BOOSTER ONLINE & Dj Booking</h1>
 </header>
 
 <!-- Cookie Banner -->
@@ -126,7 +243,7 @@
 
 <!-- Radio Status -->
 <div class="radio-status">
-  <span class="rotate-text"> 24/7 Hours With You</span>
+  <span class="rotate-text">WISH BOOSTER ONLINE RADIO - 24/7</span>
 </div>
 
 <!-- Navigacija -->
@@ -150,14 +267,6 @@
       <p>Smo ekipa <span class="about-highlight">K-BOOST</span>, ki že več kot <span class="about-highlight">25 let</span> premika meje zabave na terenu na Štajerskem in Prekmurju. Naše poslanstvo ni zgolj predvajanje glasbe, temveč ustvarjanje nepozabne atmosfere, ki se je boste spominjali celo življenje.</p>
             <p style="margin-top: 15px;">Z vrhunsko opremo, profesionalnim pristopom in občutkom za publiko poskrbimo, da vsak dogodek postane legenda. Od romantičnih začetkov na porokah do nore energije na obletnicah – <span class="about-highlight">mi smo tisti, ki držimo ritem do jutranjih ur!</span></p>
         </div>
-   <div class="service-grid">
-            <div class="service-card"><i class="fas fa-heart"></i><span>Nepozabne Poroke</span></div>
-            <div class="service-card"><i class="fas fa-glass-cheers"></i><span>Obletnice</span></div>
-            <div class="service-card"><i class="fas fa-birthday-cake"></i><span>Rojstni Dnevi</span></div>
-            <div class="service-card"><i class="fas fa-rocket"></i><span>Poslovni Dogodki</span></div>
-            <div class="service-card"><i class="fas fa-music"></i><span>Valete in Maturanti</span></div>
-        </div>
-    </div>
 
   </div>
 
@@ -171,18 +280,17 @@
   </div>
 
   <!-- TikTok Live -->
-<div class="tiktok-live-wrap">
-<a href="https://www.tiktok.com/@wishbooster/live" target="_blank" class="btn-tt-live"><i class="fab fa-tiktok"></i> TIKTOK LIVE (V ŽIVO)</a>
+  <div class="tiktok-live-wrap">
+    <a href="https://www.tiktok.com/@wishbooster/live" target="_blank" class="btn-tt-live"><i class="fab fa-tiktok"></i> TIKTOK LIVE (V ŽIVO)</a>
   </div>
 
   <!-- Radio predvajalnik -->
-<div class="custom-player purple-frame" style="text-align: center;">
-    <h3 style="justify-content: center;"><i class="fas fa-broadcast-tower"></i> WISH BOOSTER RADIO</h3>
-    <div class="iframe-container radio-box">
+  <div class="custom-player purple-frame">
+    <span class="player-title">WISH BOOSTER RADIO</span>
+    <div class="iframe-container">
       <iframe src="https://a13.asurahosting.com/public/wish_booster_radio"></iframe>
     </div>
-</div>
-
+  </div>
 
   <!-- Promo video -->
   <div class="purple-frame">
