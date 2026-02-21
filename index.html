@@ -16,22 +16,46 @@
     color: #fff;
     line-height: 1.6;
     padding-bottom: 100px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     user-select: none;
   }
 
+  /* Header */
   header {
     background: #111;
     padding: 20px;
     border-bottom: 2px solid #8a2be2;
     text-align: center;
   }
-  header h1 { margin: 0; color: #00d4ff; font-size: 2rem; font-weight: 900; }
+  header h1 {
+    margin: 0;
+    color: #00d4ff;
+    font-size: 2rem;
+    font-weight: 900;
+  }
 
-  .btn-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin: 20px; }
+  /* Navigation buttons */
+  .btn-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px;
+  }
   .btn {
-    padding: 15px 30px; border-radius: 12px; text-decoration: none; font-weight: 800;
-    text-transform: uppercase; display: inline-flex; align-items: center; gap: 12px;
-    border: none; cursor: pointer; transition: all 0.3s ease;
+    padding: 15px 30px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 800;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
   }
   .btn-about { background: linear-gradient(45deg, #8a2be2, #00d4ff); color: #fff; }
   .btn-request { background: #ff00ff; color: #fff; box-shadow: 0 0 15px rgba(255, 0, 255, 0.7); }
