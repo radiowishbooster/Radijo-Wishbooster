@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WISH BOOSTER ONLINE & Dj Booking</title>
+<title>24/7-ONLINE & Dj Booking</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <style>
@@ -82,6 +82,118 @@ body {
 </head>
 
 <body>
+
+  /* Urnik */
+        .urnik-info { background: rgba(0, 212, 255, 0.05); padding: 12px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid #00d4ff; text-align: center; }
+        .urnik-row { display: flex; flex-direction: column; padding: 12px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .day { font-weight: bold; color: #8a2be2; text-transform: uppercase; }
+        .live-tag { color: #ff00ff; font-weight: bold; animation: pulse 1.5s infinite; }
+
+        /* MODAL ZA ŽELJE */
+        #requestModal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 10000; justify-content: center; align-items: center; padding: 20px; }
+        .modal-content { width: 100%; max-width: 700px; height: 85%; position: relative; background: #111; border: 2px solid #ff00ff; box-shadow: 0 0 30px rgba(255, 0, 255, 0.5); border-radius: 20px; }
+
+        /* Footer */
+        .footer-content { background: #111; padding: 40px 20px; border-top: 2px solid #8a2be2; text-align: center; margin-top: 50px; }
+        .owner-txt { color: yellow; font-weight: 900; text-transform: uppercase; }
+        .footer-legal { font-size: 0.75rem; color: #666; margin-top: 15px; line-height: 1.4; max-width: 800px; margin-left: auto; margin-right: auto; }
+
+        #cookie-banner { position: fixed; bottom: 0; left: 0; width: 100%; background: #111; color: #fff; padding: 15px; text-align: center; z-index: 1000; border-top: 2px solid #8a2be2; }
+        .cookie-btn { background: #8a2be2; color: white; border: none; padding: 8px 20px; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body oncontextmenu="return false;" ondragstart="return false;" onselectstart="return false;">
+
+<div id="cookie-banner">
+    <span>To spletno mesto uporablja piškotke za boljšo izkušnjo.</span>
+    <button class="cookie-btn" onclick="acceptCookies()">Sprejmem</button>
+</div>
+
+<div class="radio-status">
+    <span class="rotate-text">WISH BOOSTER ONLINE RADIO - 24/7</span>
+</div>
+
+<div class="btn-container">
+    <button class="btn btn-about" onclick="toggleAbout()"><i class="fas fa-fire"></i> KDO SMO?</button>
+    
+    <button class="btn btn-request" onclick="openRequests()"><i class="fas fa-music"></i> GLASBENA ŽELJA</button>
+    
+    <button id="bookingBtn" class="btn btn-booking" onclick="showPhone()"><i class="fas fa-calendar-check"></i> BOOKING</button>
+    <a id="phoneLink" href="tel:041772470" class="phone-link"><i class="fas fa-phone-alt"></i> 041 772 470</a>
+</div>
+
+<div class="main-content">
+    <div id="about" style="display:none;" class="purple-frame">
+        <span style="position:absolute; top:20px; right:25px; cursor:pointer; font-size: 1.8rem; color: #ff00ff; z-index: 10;" onclick="toggleAbout()"><i class="fas fa-times-circle"></i></span>
+        <div class="about-header" style="text-align:center;">
+            <h2 style="margin:0; font-size: 2.8rem; text-shadow: 0 0 15px #8a2be2; font-weight: 900;">DISKO JOCKER K-BOOST</h2>
+            <p style="color:#00d4ff; font-weight: bold; text-transform: uppercase; letter-spacing: 5px;">Kjer glasba oživi</p>
+        </div>
+        <div style="text-align:center; max-width:900px; margin:20px auto;">
+            <p>Smo ekipa <span style="color:#00d4ff; font-weight:800;">K-BOOST</span>, ki že več kot 25 let premika meje zabave. Z vrhunsko opremo poskrbimo za nepozabno atmosfero!</p>
+        </div>
+    </div>
+
+    <div class="social-icons">
+        <a href="https://www.facebook.com/profile.php?id=61584601392280" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.youtube.com/@SLOdrumer/videos" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@wishbooster" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.youtube.com/@RadioWishbooster" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=100094446477993" target="_blank"><i class="fab fa-facebook"></i></a>
+    </div>
+
+    <div class="tiktok-live-wrap">
+        <a href="https://www.tiktok.com/@wishbooster/live" target="_blank" class="btn-tt-live"><i class="fab fa-tiktok"></i> TIKTOK LIVE (V ŽIVO)</a>
+    </div>
+
+    <div class="custom-player">
+        <span class="player-title">WISH BOOSTER RADIO</span>
+        <iframe src="https://a13.asurahosting.com/public/wish_booster_radio" style="width: 100%; height: 650px; border: 0; border-radius: 20px;"></iframe>
+    </div>
+
+    <div class="purple-frame">
+        <h3><i class="fas fa-play"></i> PROMO VIDEO</h3>
+        <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius: 12px;">
+            <iframe src="https://www.youtube.com/embed/1DKleFLa8Yg" style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="purple-frame" style="min-height: 850px;">
+        <h3><i class="fas fa-poll-h"></i> RADIJSKA ANKETA</h3>
+        <iframe src="https://forms.gle/CeEsDj29RdEivJD37" style="width: 100%; height: 800px; border: none; border-radius: 12px;">Nalaganje…</iframe>
+    </div>
+
+    <div class="purple-frame">
+        <h3><i class="fas fa-calendar-alt"></i> RADIJSKI URNIK</h3>
+        <div class="urnik-info"><i class="fas fa-broadcast-tower"></i> Vse sočasno oddaje na Youtube in TikToku!</div>
+        <div class="urnik-table">
+            <div class="urnik-row"><span class="day">Torek</span><span>FLASHBACK 80-90 <span class="live-tag">V ŽIVO!</span></span><span>18:00 - 22:00</span></div>
+            <div class="urnik-row"><span class="day">Četrtek</span><span>GLASBENI VRTILJAK <span class="live-tag">V ŽIVO!</span></span><span>18:00 - 22:00</span></div>
+            <div class="urnik-row"><span class="day">Nedelja</span><span>NEDELJSKI VEČER <span class="live-tag">V ŽIVO!</span></span><span>18:00 - 22:00</span></div>
+        </div>
+    </div>
+
+    <div class="purple-frame">
+        <h3><i class="fas fa-comments"></i> KLEPETALNICA</h3>
+        <iframe src="https://www5.cbox.ws/box/?boxid=961432&boxtag=Lu3k7m" width="100%" height="450" frameborder="0" style="border-radius:15px;"></iframe>
+    </div>
+</div>
+
+<footer class="footer-content">
+    <span class="owner-txt">Owner: Boris</span>
+    <div class="footer-legal">
+        <p>Wish Booster Radio je ljubiteljski projekt ekipe K-BOOST. &copy; 2024-2026.</p>
+    </div>
+</footer>
+
+<div id="requestModal">
+    <div class="modal-content">
+        <span onclick="closeRequests()" style="position:absolute; top:10px; right:20px; color:#ff00ff; font-size:35px; cursor:pointer; font-weight:bold;">&times;</span>
+        <h3 style="margin-top:15px; color:#ff00ff; text-align:center;">ODDAJ SVOJO ŽELJO</h3>
+        <iframe src="https://a13.asurahosting.com/public/wish_booster_radio" style="width:100%; height:calc(100% - 60px); border:none; border-radius:10px;"></iframe>
+    </div>
+</div>
+   
 
 <div class="radio-status">
 <span class="rotate-text">WISH BOOSTER ONLINE RADIO - 24/7</span>
