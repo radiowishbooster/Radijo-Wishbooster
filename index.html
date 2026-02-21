@@ -18,7 +18,12 @@
         }
 
         .radio-status { text-align: center; margin-top: 20px; font-weight: 900; letter-spacing: 2px; color: #00d4ff; font-size: 1.1rem; }
-        .rotate-text { display: inline-block; animation: rotateFull 4s linear infinite; }
+        .rotate-text { 
+    display: inline-block; 
+    animation: breatheText 3s ease-in-out infinite; 
+    text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff; /* Neonski sijaj */
+    font-weight: 900;
+}
         @keyframes rotateFull { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
 
         .btn-container { display: flex; justify-content: center; gap: 15px; margin: 10px 0 25px 0; padding: 20px; flex-wrap: wrap; }
