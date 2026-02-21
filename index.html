@@ -44,33 +44,42 @@
     }
 }
 
-       .btn-container { 
-    display: flex; 
-    justify-content: center; /* Postavi gumbe na sredino */
-    align-items: center; 
-    gap: 20px; /* Razmik med gumbi */
-    margin: 30px auto; /* Razmik zgoraj/spodaj in centriranje kontejnerja */
-    padding: 0 20px;
-    flex-wrap: wrap; /* Da se na telefonu zložijo eden pod drugega */
-    width: 100%; 
-    box-sizing: border-box;
-}
+   <div class="btn-container">
+    <button class="btn btn-about" onclick="toggleAbout()">
+        <i class="fas fa-fire"></i> KDO SMO?
+    </button>
+    
+    <button class="btn btn-request" onclick="openRequests()">
+        <i class="fas fa-music"></i> GLASBENA ŽELJA
+    </button>
+    
+    <button id="bookingBtn" class="btn btn-booking" onclick="showPhone()">
+        <i class="fas fa-calendar-check"></i> BOOKING
+    </button>
+    <a id="phoneLink" href="tel:041772470" class="phone-link"><i class="fas fa-phone-alt"></i> 041 772 470</a>
+</div>
 
-.btn { 
-    padding: 15px 30px; 
+    .btn { 
+    padding: 15px 25px; 
     border-radius: 12px; 
-    text-decoration: none; 
     font-weight: 800; 
     text-transform: uppercase; 
     display: inline-flex; 
     align-items: center; 
-    gap: 12px; 
+    gap: 10px; 
     border: none; 
     cursor: pointer; 
-    transition: 0.3s;
-    font-size: 1rem;
-    min-width: 200px; /* Zagotovi, da so gumbi dovolj veliki */
+    font-size: 0.95rem;
+    min-width: 180px; /* Enotna velikost gumbov */
     justify-content: center;
+}
+
+/* Poseben stil za rožnat gumb, da bo sijal */
+.btn-request { 
+    background: #ff00ff; 
+    color: white !important; 
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.7); 
+    border: 2px solid #fff !important;
 }
         .btn-about { background: linear-gradient(45deg, #8a2be2, #00d4ff); color: white; border: 2px solid transparent; }
         .btn-about:hover { border-color: #fff; transform: translateY(-3px); }
