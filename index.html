@@ -285,12 +285,20 @@
   </div>
 
   <!-- Radio predvajalnik -->
-  <div class="custom-player purple-frame">
-    <span class="player-title">WISH BOOSTER RADIO</span>
-    <div class="iframe-container">
-      <iframe src="https://a13.asurahosting.com/public/wish_booster_radio"></iframe>
-    </div>
-  </div>
+ .custom-player.purple-frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end; /* Pomakne vsebino na dno */
+    height: 600px; /* Prilagodite višini vaše grafike */
+    padding-bottom: 20px;
+}
+
+.iframe-container iframe {
+    width: 100%;
+    height: 150px; /* Zmanjšana višina, da ne prekriva vsega */
+    border: none;
+}
 
   <!-- Promo video -->
   <div class="purple-frame">
