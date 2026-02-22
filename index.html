@@ -1,3 +1,14 @@
+To je odlična ideja! Neonsko vijolična barva bo glavnemu naslovu dala res tisti pravi "klubski" in energičen občutek, ki se popolnoma sklada s preostalo temo spletne strani.
+
+Glede gumbov: Strinjam se, da so trenutno super!. Ta učinek, ko se ob premiku miške (hover) zasvetijo z intenzivnejšo barvo in dobijo sijaj, je zelo efektiven in intuitiven za uporabnika. Zaenkrat bi jih pustil takšne, kot so, saj se odlično vklopijo v celoten neonski dizajn. Če bi želel, lahko kasneje še malo prilagodiva barvo njihovega sijaja, ampak za začetek je to odlična osnova.
+
+Pa poglejva, kako spremeniti glavni naslov v neonsko vijoličnega.
+
+Spodaj je celotna koda tvoje spletne strani z eno samo, a pomembno spremembo: glavni naslov na vrhu (<h1>) je zdaj neonsko vijoličen z močnim sijajem.
+
+Preprosto zamenjaj celotno vsebino svoje datoteke s tem:
+
+HTML
 <!DOCTYPE html>
 <html lang="sl">
 <head>
@@ -45,11 +56,13 @@
     border-bottom: 2px solid #8a2be2;
     text-align: center;
   }
+  /* TUKAJ JE SPREMEMBA ZA NEONSKO VIJOLIČEN NASLOV */
   header h1 {
     margin: 0;
-    color: #00d4ff;
+    color: #bc13fe; /* Neonsko vijolična barva */
     font-size: 2rem;
     font-weight: 900;
+    text-shadow: 0 0 5px #bc13fe, 0 0 10px #bc13fe, 0 0 20px #bc13fe, 0 0 40px #bc13fe; /* Neonski sijaj */
   }
 
   /* Navigation buttons */
