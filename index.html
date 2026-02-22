@@ -305,20 +305,44 @@
 
   <!-- Radio predvajalnik -->
  <style>
+/* Definira animacijo premikanja od desne proti levi */
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0); /* Začetni položaj (z zamikom padding-a) */
+    }
+    100% {
+        transform: translateX(-100%); /* Končni položaj (popolnoma levo) */
+    }
+}
+
+/* Ovoj za naslov, ki skrije besedilo izven meja */
+.scrolling-container {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap; /* Prepreči prelom besedila v novo vrstico */
+    margin-bottom: 15px;
+}
+
+/* Stil za naslov z animacijo */
 .custom-player .player-title {
-    font-size: 1.8em; /* Povečana pisava */
-    font-weight: bold; /* Ojačano besedilo */
+    font-family: sans-serif;
+    font-size: 1.8em;
+    font-weight: bold;
     color: #00f6ff; /* Svetlo modra barva */
-    text-shadow: 0 0 5px #00f6ff, 0 0 10px #00f6ff, 0 0 20px #00f6ff, 0 0 40px #00f6ff; /* Neonski sijaj */
-    display: block; /* Postavi naslov v svojo vrstico */
-    text-align: center; /* Sredinska poravnava (po želji lahko spremeniš v 'left') */
-    margin-bottom: 15px; /* Odmik med naslovom in predvajalnikom */
-    font-family: sans-serif; /* Lepša pisava, če tvoja stran še nima določene */
+    /* ZMANJŠAN neonski sijaj za bolj subtilen učinek */
+    text-shadow: 0 0 2px #00f6ff, 0 0 5px #00f6ff, 0 0 10px #00f6ff;
+    
+    display: inline-block; /* Potrebno za animacijo */
+    padding-left: 100%; /* Začetni zamik, da besedilo priteče z desne */
+    /* Animacija: ime, trajanje (hitrost), način, ponavljanje */
+    animation: scroll-left 30s linear infinite; 
 }
 </style>
 
 <div class="custom-player">
-    <span class="player-title">Wish Booster Radio – Interaktivni predvajalnik</span>
+    <div class="scrolling-container">
+        <span class="player-title">Wish Booster Radio – Interaktivni predvajalnik</span>
+    </div>
     <iframe src="https://a13.asurahosting.com/public/wish_booster_radio" style="width: 100%; height: 650px; border: 0; border-radius: 20px;" scrolling="yes"></iframe>
 </div>
 
