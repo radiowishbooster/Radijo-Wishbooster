@@ -266,94 +266,100 @@
 </div>
 
 <!-- Navigacija -->
-<div class="btn-container">
-  <button class="btn btn-about" onclick="toggleAbout()"><i class="fas fa-fire"></i> KDO SMO?</button>
-  <button class="btn btn-request" onclick="openRequests()"><i class="fas fa-music"></i> GLASBENA ŽELJA</button>
-  <button id="bookingBtn" class="btn btn-booking" onclick="showPhone()"><i class="fas fa-calendar-check"></i> BOOKING</button>
-  <a id="phoneLink" href="tel:041772470" class="phone-link" style="display:none;"><i class="fas fa-phone-alt"></i> 041 772 470</a>
-</div>
+<style>
+/* CSS ZA LEBDEČE OKNO (MODAL) */
+#about {
+    position: fixed !important; /* To okno "odtrga" od preostale strani */
+    top: 50% !important; /* Postavi na sredino po višini */
+    left: 50% !important; /* Postavi na sredino po širini */
+    transform: translate(-50%, -50%) !important; /* Natančno centriranje */
+    width: 90%;
+    max-width: 950px;
+    background-color: #0b0312; /* Temno ozadje, da zakrije predvajalnik spodaj */
+    z-index: 9999 !important; /* Zagotovi, da je to okno čisto na vrhu (nad vsem) */
+    padding: 40px;
+    border: 2px solid #8a2be2; /* Vijolična obroba */
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(138, 43, 226, 0.6), 0 0 100px rgba(0, 0, 0, 0.9); /* Vijoličen sijaj in temna senca */
+    max-height: 90vh; /* Če je ekran majhen, se okno ne bo raztegnilo čez robove */
+    overflow-y: auto; /* Omogoči drsenje, če bi bilo besedila preveč */
+}
 
-<div class="main-content">
+/* MODRI NEONSKI POUDARKI V BESEDILU */
+.about-highlight {
+    color: #00d4ff; /* Neonsko modra barva */
+    font-weight: bold;
+    text-shadow: 0 0 8px rgba(0, 212, 255, 0.7); /* Modri sijaj */
+}
 
-  <!-- O nas -->
-  <div id="about" style="display:none;" class="purple-frame">
-    <span style="position:absolute; top:20px; right:25px; cursor:pointer; font-size: 1.8rem; color: #ff00ff; z-index: 10;" onclick="toggleAbout()"><i class="fas fa-times-circle"></i></span>
-    <div class="about-header" style="text-align:center;">
-      <h2 style="margin:0; font-size: 2.8rem; text-shadow: 0 0 15px #8a2be2; font-weight: 900;">DISKO JOCKER K-BOOST</h2>
-      <p style="color:#00d4ff; font-weight: bold; text-transform: uppercase; letter-spacing: 5px;">Kjer glasba oživi</p>
-    </div>
-    <div style="text-align:center; max-width:900px; margin:20px auto;">
-      <p>Smo ekipa <span class="about-highlight">K-BOOST</span>, ki že več kot <span class="about-highlight">25 let</span> premika meje zabave na terenu na Štajerskem in Prekmurju. Naše poslanstvo ni zgolj predvajanje glasbe, temveč ustvarjanje nepozabne atmosfere, ki se je boste spominjali celo življenje.</p>
-            <p style="margin-top: 15px;">Z vrhunsko opremo, profesionalnim pristopom in občutkom za publiko poskrbimo, da vsak dogodek postane legenda. Od romantičnih začetkov na porokah do nore energije na obletnicah – <span class="about-highlight">mi smo tisti, ki držimo ritem do jutranjih ur!</span></p>
-      <style>
+/* CSS ZA KARTICE Z IKONAMI */
 .service-grid {
     display: flex;
     justify-content: space-between;
-    gap: 15px; /* Razmak med karticami */
-    margin-top: 30px; /* Odmik od besedila zgoraj */
-    flex-wrap: wrap; /* Da se na telefonih lepo zloži ena pod drugo */
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap;
 }
 
 .service-card {
-    background-color: rgba(25, 10, 45, 0.4); /* Zelo temno vijolična podlaga */
-    border: 1px solid #6b21a8; /* Vijolična obroba */
-    border-radius: 12px; /* Zaobljeni robovi */
+    background-color: rgba(25, 10, 45, 0.4);
+    border: 1px solid #6b21a8;
+    border-radius: 12px;
     padding: 20px 10px;
-    flex: 1; /* Vse kartice bodo enako široke */
-    min-width: 100px; /* Minimalna širina za mobilnike */
+    flex: 1;
+    min-width: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Za animacijo ob lebdenju miške */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Učinek, ko greš z miško čez kartico */
 .service-card:hover {
-    transform: translateY(-5px); /* Kartica se rahlo dvigne */
-    box-shadow: 0 5px 15px rgba(186, 85, 211, 0.3); /* Vijoličen sijaj pod kartico */
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(186, 85, 211, 0.3);
 }
 
 .service-card i {
-    color: #a855f7; /* Svetla vijolična barva za ikone */
-    font-size: 24px; /* Velikost ikone */
-    margin-bottom: 12px; /* Odmik ikone od besedila */
+    color: #a855f7;
+    font-size: 24px;
+    margin-bottom: 12px;
 }
 
 .service-card span {
-    color: #ffffff; /* Belo besedilo */
+    color: #ffffff;
     font-size: 11px;
     font-weight: bold;
-    text-transform: uppercase; /* Vse velike črke */
+    text-transform: uppercase;
     letter-spacing: 1px;
     line-height: 1.4;
 }
 </style>
 
-<div class="service-grid">
-    <div class="service-card">
-        <i class="fas fa-heart"></i>
-        <span>Nepozabne<br>Poroke</span>
+<div id="about" style="display:none;" class="purple-frame">
+    <span style="position:absolute; top:15px; right:20px; cursor:pointer; font-size: 2rem; color: #ff00ff; z-index: 10; transition: transform 0.2s;" onclick="toggleAbout()" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+        <i class="fas fa-times-circle"></i>
+    </span>
+    
+    <div class="about-header" style="text-align:center;">
+        <h2 style="margin:0; font-size: 2.8rem; text-shadow: 0 0 15px #8a2be2; font-weight: 900;">DISKO JOCKER K-BOOST</h2>
+        <p style="color:#00d4ff; font-weight: bold; text-transform: uppercase; letter-spacing: 5px;">Kjer glasba oživi</p>
     </div>
-    <div class="service-card">
-        <i class="fas fa-glass-cheers"></i>
-        <span>Obletnice</span>
-    </div>
-    <div class="service-card">
-        <i class="fas fa-birthday-cake"></i>
-        <span>Rojstni<br>Dnevi</span>
-    </div>
-    <div class="service-card">
-        <i class="fas fa-rocket"></i>
-        <span>Poslovni<br>Dogodki</span>
-    </div>
-    <div class="service-card">
-        <i class="fas fa-music"></i>
-        <span>Valete in<br>Maturanti</span>
+    
+    <div style="text-align:center; max-width:900px; margin:20px auto; line-height: 1.6;">
+        <p>Smo ekipa <span class="about-highlight">K-BOOST</span>, ki že več kot <span class="about-highlight">25 let</span> premika meje zabave na terenu na Štajerskem in Prekmurju. Naše poslanstvo ni zgolj predvajanje glasbe, temveč ustvarjanje nepozabne atmosfere, ki se je boste spominjali celo življenje.</p>
+        <p style="margin-top: 15px;">Z vrhunsko opremo, profesionalnim pristopom in občutkom za publiko poskrbimo, da vsak dogodek postane legenda. Od romantičnih začetkov na porokah do nore energije na obletnicah – <span class="about-highlight">mi smo tisti, ki držimo ritem do jutranjih ur!</span></p>
+        
+        <div class="service-grid">
+            <div class="service-card"><i class="fas fa-heart"></i><span>Nepozabne<br>Poroke</span></div>
+            <div class="service-card"><i class="fas fa-glass-cheers"></i><span>Obletnice</span></div>
+            <div class="service-card"><i class="fas fa-birthday-cake"></i><span>Rojstni<br>Dnevi</span></div>
+            <div class="service-card"><i class="fas fa-rocket"></i><span>Poslovni<br>Dogodki</span></div>
+            <div class="service-card"><i class="fas fa-music"></i><span>Valete in<br>Maturanti</span></div>
+        </div>
     </div>
 </div>
 
-  </div>
 
   <!-- Socialni ikoni -->
   <div class="social-icons" style="text-align:center; margin:20px 0;">
