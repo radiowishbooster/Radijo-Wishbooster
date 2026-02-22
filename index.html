@@ -54,28 +54,54 @@
     text-shadow: 0 0 5px #bc13fe, 0 0 15px #bc13fe; 
   }
 
-  /* Navigation buttons */
+  /* Navigation buttons - POPRAVLJENO ZA PORAVNAVO */
   .btn-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 15px;
-    margin: 20px;
-    align-items: flex-start;
+    margin: 20px auto;
+    max-width: 1200px;
+    align-items: stretch; /* Prisili wrapperje v isto višino */
   }
+
+  .btn-wrapper {
+    flex: 1;
+    min-width: 220px;
+    max-width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .btn {
-    padding: 15px 30px;
+    width: 100%;
+    min-height: 65px;
+    padding: 15px 20px;
     border-radius: 12px;
     text-decoration: none;
     font-weight: 800;
     text-transform: uppercase;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 12px;
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
+    box-sizing: border-box;
   }
+
+  .btn-hint {
+    font-size: 0.75rem;
+    color: #888;
+    margin-top: 10px;
+    font-style: italic;
+    line-height: 1.2;
+    text-align: center;
+    min-height: 40px; /* Rezerviran prostor, da gumbi ostanejo v liniji */
+  }
+
   .btn-about { background: linear-gradient(45deg, #8a2be2, #00d4ff); color: #fff; }
   .btn-about:hover { transform: scale(1.05); box-shadow: 0 0 20px #8a2be2; }
   .btn-request { background: #ff00ff; color: #fff; box-shadow: 0 0 15px rgba(255, 0, 255, 0.7); }
@@ -282,6 +308,10 @@
       flex-direction: column;
       align-items: center;
     }
+    .btn-wrapper {
+        min-width: 100%;
+        max-width: 100%;
+    }
     iframe {
       height: auto;
     }
@@ -304,29 +334,33 @@
 </div>
 
 <div class="btn-container">
-  <button class="btn btn-about" onclick="toggleAbout()"><i class="fas fa-fire"></i> KDO SMO?</button>
+  <div class="btn-wrapper">
+    <button class="btn btn-about" onclick="toggleAbout()"><i class="fas fa-fire"></i> KDO SMO?</button>
+    <p class="btn-hint">&nbsp;</p>
+  </div>
   
-  <div style="text-align: center;">
+  <div class="btn-wrapper">
       <a id="sms-button" href="sms:+38641772470?&body=Moje ime:%0APozdravi:%0AZaželel sem si pesem od: " class="btn sms-inactive">
         <i class="fas fa-comment-dots"></i> SMS ŽELJA
       </a>
-      <p id="sms-hint" style="font-size: 0.75rem; color: #888; margin-top: 8px; font-style: italic; max-width: 220px; line-height: 1.2; margin-left: auto; margin-right: auto;">
-        SMS želje sprejemamo med oddajo v živo.
+      <p id="sms-hint" class="btn-hint">
+        SMS želje sprejemamo v živo: Tor, Čet in Ned (18:00 - 22:00).
       </p>
   </div>
 
-  <div style="text-align: center;">
+  <div class="btn-wrapper">
       <button class="btn btn-request" onclick="openRequests()">
           <i class="fas fa-music"></i> GLASBENA ŽELJA
       </button>
-      <p style="font-size: 0.75rem; color: #ff00ff; margin-top: 8px; font-style: italic; max-width: 220px; line-height: 1.2; margin-left: auto; margin-right: auto; opacity: 0.8;">
+      <p class="btn-hint" style="color: #ff00ff; opacity: 0.8;">
           Samostojen izbor iz arhiva strežnika (na voljo 24/7).
       </p>
   </div>
 
-  <div style="text-align: center;">
+  <div class="btn-wrapper">
       <button id="bookingBtn" class="btn btn-booking" onclick="showPhone()"><i class="fas fa-calendar-check"></i> BOOKING</button>
       <a id="phoneLink" href="tel:041772470" class="phone-link"><i class="fas fa-phone-alt"></i> 041 772 470</a>
+      <p class="btn-hint">&nbsp;</p>
   </div>
 </div>
 
