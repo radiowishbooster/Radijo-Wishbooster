@@ -61,7 +61,7 @@
     flex-wrap: wrap;
     gap: 15px;
     margin: 20px;
-    align-items: center; 
+    align-items: flex-start; /* Poravna vrhove vsebnikov */
   }
   .btn {
     padding: 15px 30px;
@@ -306,13 +306,28 @@
 <div class="btn-container">
   <button class="btn btn-about" onclick="toggleAbout()"><i class="fas fa-fire"></i> KDO SMO?</button>
   
-  <a id="sms-button" href="sms:+38641772470?&body=Moja glasbena zelja je: " class="btn sms-inactive">
-    <i class="fas fa-comment-dots"></i> SMS ŽELJA
-  </a>
+  <div style="text-align: center;">
+      <a id="sms-button" href="sms:+38641772470?&body=Moja glasbena zelja je: " class="btn sms-inactive">
+        <i class="fas fa-comment-dots"></i> SMS ŽELJA
+      </a>
+      <p id="sms-hint" style="font-size: 0.75rem; color: #888; margin-top: 8px; font-style: italic; max-width: 220px; line-height: 1.2; margin-left: auto; margin-right: auto;">
+        SMS želje sprejemamo med oddajo v živo.
+      </p>
+  </div>
 
-  <button class="btn btn-request" onclick="openRequests()"><i class="fas fa-music"></i> GLASBENA ŽELJA</button>
-  <button id="bookingBtn" class="btn btn-booking" onclick="showPhone()"><i class="fas fa-calendar-check"></i> BOOKING</button>
-  <a id="phoneLink" href="tel:041772470" class="phone-link"><i class="fas fa-phone-alt"></i> 041 772 470</a>
+  <div style="text-align: center;">
+      <button class="btn btn-request" onclick="openRequests()">
+          <i class="fas fa-music"></i> GLASBENA ŽELJA
+      </button>
+      <p style="font-size: 0.75rem; color: #ff00ff; margin-top: 8px; font-style: italic; max-width: 220px; line-height: 1.2; margin-left: auto; margin-right: auto; opacity: 0.8;">
+          Samostojen izbor iz arhiva strežnika (na voljo 24/7).
+      </p>
+  </div>
+
+  <div style="text-align: center;">
+      <button id="bookingBtn" class="btn btn-booking" onclick="showPhone()"><i class="fas fa-calendar-check"></i> BOOKING</button>
+      <a id="phoneLink" href="tel:041772470" class="phone-link"><i class="fas fa-phone-alt"></i> 041 772 470</a>
+  </div>
 </div>
 
 <div class="main-content">
@@ -795,25 +810,30 @@
 </div>
 
 <script>
-// FUNKCIJA ZA SMS GUMB - PREVERJA ČAS
+// FUNKCIJA ZA SMS GUMB - PREVERJA ČAS IN POSODABLJA NAVODILA
 function updateSmsButton() {
   const now = new Date();
   const day = now.getDay(); // 0=Nedelja, 2=Torek, 4=Četrtek
   const hour = now.getHours();
   const smsBtn = document.getElementById('sms-button');
+  const smsHint = document.getElementById('sms-hint');
 
   // Pogoj: Torek(2), Četrtek(4) ali Nedelja(0) od 18:00 do 21:59
   const isLiveDay = (day === 2 || day === 4 || day === 0);
   const isLiveTime = (hour >= 18 && hour < 22);
 
   if (isLiveDay && isLiveTime) {
+    // V ŽIVO - Gumb se vklopi in začne utripati
     smsBtn.classList.remove('sms-inactive');
     smsBtn.classList.add('sms-live');
-    smsBtn.style.pointerEvents = 'auto'; // Omogoči klik
+    smsBtn.style.pointerEvents = 'auto'; 
+    smsHint.innerHTML = "<span style='color: #00d4ff;'>🔴 V ŽIVO! Pošlji SMS željo v studio.</span>";
   } else {
+    // NI ODDAJE - Gumb postane siv in ugasne
     smsBtn.classList.remove('sms-live');
     smsBtn.classList.add('sms-inactive');
-    smsBtn.style.pointerEvents = 'none'; // Onemogoči klik, ko ni v živo
+    smsBtn.style.pointerEvents = 'none'; 
+    smsHint.innerHTML = "SMS želje sprejemamo v živo: Tor, Čet in Ned (18:00 - 22:00).";
   }
 }
 
@@ -848,7 +868,7 @@ window.onload = function() {
   }
   // Zaženi preverjanje gumba ob nalaganju
   updateSmsButton();
-  // Preverjaj vsako minuto (60000 ms)
+  // Preverjaj vsako minuto (60000 ms), da se gumb samodejno vklopi/izklopi
   setInterval(updateSmsButton, 60000);
 }
 
