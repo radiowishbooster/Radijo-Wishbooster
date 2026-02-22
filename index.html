@@ -46,7 +46,6 @@
     text-align: center;
   }
   
-  /* NEONSKO VIJOLIČEN NASLOV */
   header h1 {
     margin: 0;
     color: #bc13fe; 
@@ -62,7 +61,7 @@
     flex-wrap: wrap;
     gap: 15px;
     margin: 20px;
-    align-items: center; /* Poravnava gumbov in telefonske številke */
+    align-items: center; 
   }
   .btn {
     padding: 15px 30px;
@@ -84,21 +83,21 @@
   .btn-booking { background: #25d366; color: #000; }
   .btn-booking:hover { transform: scale(1.05); box-shadow: 0 0 20px #25d366; }
 
-  /* TUKAJ JE NOV STIL ZA TELEFONSKO ŠTEVILKO */
+  /* POPRAVLJEN STIL ZA TELEFONSKO ŠTEVILKO (dodani !important) */
   .phone-link {
-    color: #00d4ff; /* Svetlo modra barva */
-    font-size: 1.5rem; /* Večja pisava */
-    font-weight: 800; /* Krepko besedilo */
-    text-decoration: none; /* Brez podčrtaja */
-    text-shadow: 0 0 10px #00d4ff; /* Neonski sijaj */
-    display: none; /* Skrito na začetku */
+    color: #00d4ff !important; 
+    font-size: 1.5rem !important; 
+    font-weight: 800 !important; 
+    text-decoration: none !important; 
+    text-shadow: 0 0 10px #00d4ff !important; 
+    display: none; 
     align-items: center;
-    gap: 10px; /* Razmak med ikono in številko */
+    gap: 10px; 
     padding: 10px 20px;
     transition: all 0.3s ease;
   }
   .phone-link:hover {
-      text-shadow: 0 0 20px #00d4ff, 0 0 30px #00d4ff; /* Močnejši sijaj ob prehodu z miško */
+      text-shadow: 0 0 20px #00d4ff, 0 0 30px #00d4ff !important; 
       transform: scale(1.05);
   }
 
@@ -294,7 +293,7 @@
 <div class="main-content">
 
   <style>
-  /* CSS ZA LEBDEČE OKNO (MODAL) */
+  /* CSS ZA LEBDEČE OKNO KDO SMO (MODAL) */
   #about {
       position: fixed !important; 
       top: 50% !important; 
@@ -312,14 +311,12 @@
       overflow-y: auto; 
   }
 
-  /* MODRI NEONSKI POUDARKI V BESEDILU */
   .about-highlight {
       color: #00d4ff; 
       font-weight: bold;
       text-shadow: 0 0 8px rgba(0, 212, 255, 0.7); 
   }
 
-  /* CSS ZA KARTICE Z IKONAMI */
   .service-grid {
       display: flex;
       justify-content: space-between;
@@ -526,10 +523,65 @@
   </div>
 </footer>
 
-<div id="requestModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:10000; justify-content:center; align-items:center; padding:20px;">
-  <div class="modal-content" style="width:100%; max-width:800px; height:85%; position:relative; background:#111; border:2px solid #ff00ff; border-radius:20px; padding:20px; overflow:auto;">
-    <span style="position:absolute; top:10px; right:15px; font-size:1.8rem; cursor:pointer; color:#ff00ff;" onclick="closeRequests()"><i class="fas fa-times-circle"></i></span>
-    <iframe id="requestFrame" src="" style="width:100%; height:100%; border:none; border-radius:10px;"></iframe>
+<style>
+  #requestModal {
+      display: none; 
+      position: fixed; 
+      top: 0; left: 0; width: 100%; height: 100%; 
+      background: rgba(0, 0, 0, 0.85); /* Zatemnjeno ozadje */
+      backdrop-filter: blur(5px); /* Učinek zameglitve ozadja */
+      z-index: 10000; 
+      justify-content: center; 
+      align-items: center; 
+      padding: 20px;
+      box-sizing: border-box;
+  }
+
+  .request-content {
+      width: 100%; 
+      max-width: 850px; 
+      height: 80vh; /* Višina se prilagodi 80% zaslona */
+      max-height: 800px;
+      background: #0b0312; /* Temno ozadje kot pri KDO SMO */
+      border: 2px solid #ff00ff; 
+      border-radius: 20px; 
+      box-shadow: 0 0 30px rgba(255, 0, 255, 0.4), 0 0 100px rgba(0,0,0,0.9);
+      padding: 45px 15px 15px 15px; /* Zgoraj je več prostora za "X" */
+      position: relative; 
+      display: flex; /* Flexbox poskrbi, da se iframe perfektno raztegne */
+      flex-direction: column;
+      box-sizing: border-box;
+  }
+
+  .request-content iframe {
+      flex-grow: 1; /* Iframe zasede ves preostali prostor */
+      width: 100%; 
+      border: none; 
+      border-radius: 12px;
+      background: transparent;
+  }
+
+  .close-btn-request {
+      position: absolute; 
+      top: 10px; 
+      right: 15px; 
+      font-size: 2rem; 
+      cursor: pointer; 
+      color: #ff00ff;
+      transition: transform 0.2s, text-shadow 0.2s;
+      z-index: 10;
+  }
+
+  .close-btn-request:hover {
+      transform: scale(1.2);
+      text-shadow: 0 0 15px #ff00ff;
+  }
+</style>
+
+<div id="requestModal">
+  <div class="request-content">
+    <span class="close-btn-request" onclick="closeRequests()"><i class="fas fa-times-circle"></i></span>
+    <iframe id="requestFrame" src=""></iframe>
   </div>
 </div>
 
