@@ -17,19 +17,7 @@
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet" />
 <style>
-  body 
-  <div id="preloader">
-  <div class="loader">
-    <div class="bar bar1"></div>
-    <div class="bar bar2"></div>
-    <div class="bar bar3"></div>
-    <div class="bar bar4"></div>
-    <div class="bar bar5"></div>
-  </div>
-  <p class="loading-text">Nalaganje ritma...</p>
-</div>
-  {
-    
+  body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     background: #000;
@@ -246,56 +234,13 @@
     iframe {
       height: auto;
     }
-  /* Preloader stili */
-  #preloader {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: #000;
-    z-index: 99999;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: opacity 0.5s ease;
-  }
-  .loader {
-    display: flex;
-    gap: 6px;
-    align-items: flex-end;
-    height: 60px;
-  }
-  .bar {
-    width: 12px;
-    background: #00d4ff;
-    border-radius: 4px 4px 0 0;
-    animation: equalize 1s infinite ease-in-out;
-  }
-  .bar1 { animation-delay: 0.1s; height: 20px; }
-  .bar2 { animation-delay: 0.3s; height: 40px; background: #8a2be2; box-shadow: 0 0 10px #8a2be2; }
-  .bar3 { animation-delay: 0.5s; height: 60px; background: #ff00ff; box-shadow: 0 0 10px #ff00ff; }
-  .bar4 { animation-delay: 0.2s; height: 30px; background: #8a2be2; box-shadow: 0 0 10px #8a2be2; }
-  .bar5 { animation-delay: 0.4s; height: 25px; }
-
-  @keyframes equalize {
-    0%, 100% { transform: scaleY(0.5); }
-    50% { transform: scaleY(1.2); }
-  }
-  .loading-text {
-    color: #fff;
-    margin-top: 25px;
-    font-size: 1.2rem;
-    font-weight: 900;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    animation: pulse 1.5s infinite;
   }
 </style>
 </head>
 <body>
 
 <header>
- <h1>Radio Wish Booster & DJ K-Boost</h1>
- <span style="display:block; font-size:1rem; color:#8a2be2; margin-top:5px;">Najboljša glasba 24/7 & Zabava na terenu</span>
+  <h1>Radio Wish Booster & Dj K-Boost</h1>
 </header>
 
 <!-- Cookie Banner -->
@@ -504,15 +449,6 @@ function showPhone() {
 // Zaprti modal s tipko ESC
 window.addEventListener('keydown', function(e) {
   if(e.key === 'Escape') closeRequests();
-});
-
-  // Skrij preloader, ko se stran popolnoma naloži
-window.addEventListener('load', function() {
-  const preloader = document.getElementById('preloader');
-  preloader.style.opacity = '0';
-  setTimeout(() => {
-    preloader.style.display = 'none';
-  }, 500); // Počaka pol sekunde za lepši prehod
 });
 </script>
 </body>
