@@ -19,11 +19,10 @@
 <meta property="og:url" content="https://www.radiowishbooster.com" />
 <meta property="og:title" content="Radio Wishbooster & Dj K-Boost | Kjer glasba oživi" />
 <meta property="og:description" content="Pridruži se najboljši zabavi! Poslušaj Radio Wishbooster 24/7 ali rezerviraj DJ K-Boosta za tvoj naslednji dogodek." />
-<meta property="og:image" content="https://www.radiowishbooster.com/star.png" /> <meta property="og:url" content="https://www.radiowishbooster.com" />
+<meta property="og:image" content="https://www.radiowishbooster.com/star.png" /> 
 <meta property="og:type" content="website" />
 <link rel="icon" type="image/png" href="star.png" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet" />
 <style>
   body {
@@ -254,121 +253,118 @@
   <h1>Radio Wish Booster & Dj K-Boost</h1>
 </header>
 
-<!-- Cookie Banner -->
 <div id="cookie-banner">
   <span>To spletno mesto uporablja piškotke za boljšo izkušnjo.</span>
   <button class="cookie-btn" onclick="acceptCookies()">Sprejmem</button>
 </div>
 
-<!-- Radio Status -->
 <div class="radio-status">
   <span class="rotate-text"> ONLINE RADIO - 24/7</span>
 </div>
 
-<!-- Navigacija -->
-  <div class="btn-container">
+<div class="btn-container">
   <button class="btn btn-about" onclick="toggleAbout()"><i class="fas fa-fire"></i> KDO SMO?</button>
   <button class="btn btn-request" onclick="openRequests()"><i class="fas fa-music"></i> GLASBENA ŽELJA</button>
   <button id="bookingBtn" class="btn btn-booking" onclick="showPhone()"><i class="fas fa-calendar-check"></i> BOOKING</button>
   <a id="phoneLink" href="tel:041772470" class="phone-link" style="display:none;"><i class="fas fa-phone-alt"></i> 041 772 470</a>
-  </div>
-  
-<style>
-/* CSS ZA LEBDEČE OKNO (MODAL) */
-#about {
-    position: fixed !important; /* To okno "odtrga" od preostale strani */
-    top: 50% !important; /* Postavi na sredino po višini */
-    left: 50% !important; /* Postavi na sredino po širini */
-    transform: translate(-50%, -50%) !important; /* Natančno centriranje */
-    width: 90%;
-    max-width: 950px;
-    background-color: #0b0312; /* Temno ozadje, da zakrije predvajalnik spodaj */
-    z-index: 9999 !important; /* Zagotovi, da je to okno čisto na vrhu (nad vsem) */
-    padding: 40px;
-    border: 2px solid #8a2be2; /* Vijolična obroba */
-    border-radius: 20px;
-    box-shadow: 0 0 40px rgba(138, 43, 226, 0.6), 0 0 100px rgba(0, 0, 0, 0.9); /* Vijoličen sijaj in temna senca */
-    max-height: 90vh; /* Če je ekran majhen, se okno ne bo raztegnilo čez robove */
-    overflow-y: auto; /* Omogoči drsenje, če bi bilo besedila preveč */
-}
-
-/* MODRI NEONSKI POUDARKI V BESEDILU */
-.about-highlight {
-    color: #00d4ff; /* Neonsko modra barva */
-    font-weight: bold;
-    text-shadow: 0 0 8px rgba(0, 212, 255, 0.7); /* Modri sijaj */
-}
-
-/* CSS ZA KARTICE Z IKONAMI */
-.service-grid {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
-    margin-top: 30px;
-    flex-wrap: wrap;
-}
-
-.service-card {
-    background-color: rgba(25, 10, 45, 0.4);
-    border: 1px solid #6b21a8;
-    border-radius: 12px;
-    padding: 20px 10px;
-    flex: 1;
-    min-width: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(186, 85, 211, 0.3);
-}
-
-.service-card i {
-    color: #a855f7;
-    font-size: 24px;
-    margin-bottom: 12px;
-}
-
-.service-card span {
-    color: #ffffff;
-    font-size: 11px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    line-height: 1.4;
-}
-</style>
-
-<div id="about" style="display:none;" class="purple-frame">
-    <span style="position:absolute; top:15px; right:20px; cursor:pointer; font-size: 2rem; color: #ff00ff; z-index: 10; transition: transform 0.2s;" onclick="toggleAbout()" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
-        <i class="fas fa-times-circle"></i>
-    </span>
-    
-    <div class="about-header" style="text-align:center;">
-        <h2 style="margin:0; font-size: 2.8rem; text-shadow: 0 0 15px #8a2be2; font-weight: 900;">DISKO JOCKER K-BOOST</h2>
-        <p style="color:#00d4ff; font-weight: bold; text-transform: uppercase; letter-spacing: 5px;">Kjer glasba oživi</p>
-    </div>
-    
-    <div style="text-align:center; max-width:900px; margin:20px auto; line-height: 1.6;">
-        <p>Smo ekipa <span class="about-highlight">K-BOOST</span>, ki že več kot <span class="about-highlight">25 let</span> premika meje zabave na terenu na Štajerskem in Prekmurju. Naše poslanstvo ni zgolj predvajanje glasbe, temveč ustvarjanje nepozabne atmosfere, ki se je boste spominjali celo življenje.</p>
-        <p style="margin-top: 15px;">Z vrhunsko opremo, profesionalnim pristopom in občutkom za publiko poskrbimo, da vsak dogodek postane legenda. Od romantičnih začetkov na porokah do nore energije na obletnicah – <span class="about-highlight">mi smo tisti, ki držimo ritem do jutranjih ur!</span></p>
-        
-        <div class="service-grid">
-            <div class="service-card"><i class="fas fa-heart"></i><span>Nepozabne<br>Poroke</span></div>
-            <div class="service-card"><i class="fas fa-glass-cheers"></i><span>Obletnice</span></div>
-            <div class="service-card"><i class="fas fa-birthday-cake"></i><span>Rojstni<br>Dnevi</span></div>
-            <div class="service-card"><i class="fas fa-rocket"></i><span>Poslovni<br>Dogodki</span></div>
-            <div class="service-card"><i class="fas fa-music"></i><span>Valete in<br>Maturanti</span></div>
-        </div>
-    </div>
 </div>
 
+<div class="main-content">
 
-  <!-- Socialni ikoni -->
+  <style>
+  /* CSS ZA LEBDEČE OKNO (MODAL) */
+  #about {
+      position: fixed !important; 
+      top: 50% !important; 
+      left: 50% !important; 
+      transform: translate(-50%, -50%) !important; 
+      width: 90%;
+      max-width: 950px;
+      background-color: #0b0312; 
+      z-index: 9999 !important; 
+      padding: 40px;
+      border: 2px solid #8a2be2; 
+      border-radius: 20px;
+      box-shadow: 0 0 40px rgba(138, 43, 226, 0.6), 0 0 100px rgba(0, 0, 0, 0.9); 
+      max-height: 90vh; 
+      overflow-y: auto; 
+  }
+
+  /* MODRI NEONSKI POUDARKI V BESEDILU */
+  .about-highlight {
+      color: #00d4ff; 
+      font-weight: bold;
+      text-shadow: 0 0 8px rgba(0, 212, 255, 0.7); 
+  }
+
+  /* CSS ZA KARTICE Z IKONAMI */
+  .service-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+  }
+
+  .service-card {
+      background-color: rgba(25, 10, 45, 0.4);
+      border: 1px solid #6b21a8;
+      border-radius: 12px;
+      padding: 20px 10px;
+      flex: 1;
+      min-width: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(186, 85, 211, 0.3);
+  }
+
+  .service-card i {
+      color: #a855f7;
+      font-size: 24px;
+      margin-bottom: 12px;
+  }
+
+  .service-card span {
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      line-height: 1.4;
+  }
+  </style>
+
+  <div id="about" style="display:none;" class="purple-frame">
+      <span style="position:absolute; top:15px; right:20px; cursor:pointer; font-size: 2rem; color: #ff00ff; z-index: 10; transition: transform 0.2s;" onclick="toggleAbout()" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+          <i class="fas fa-times-circle"></i>
+      </span>
+      
+      <div class="about-header" style="text-align:center;">
+          <h2 style="margin:0; font-size: 2.8rem; text-shadow: 0 0 15px #8a2be2; font-weight: 900;">DISKO JOCKER K-BOOST</h2>
+          <p style="color:#00d4ff; font-weight: bold; text-transform: uppercase; letter-spacing: 5px;">Kjer glasba oživi</p>
+      </div>
+      
+      <div style="text-align:center; max-width:900px; margin:20px auto; line-height: 1.6;">
+          <p>Smo ekipa <span class="about-highlight">K-BOOST</span>, ki že več kot <span class="about-highlight">25 let</span> premika meje zabave na terenu na Štajerskem in Prekmurju. Naše poslanstvo ni zgolj predvajanje glasbe, temveč ustvarjanje nepozabne atmosfere, ki se je boste spominjali celo življenje.</p>
+          <p style="margin-top: 15px;">Z vrhunsko opremo, profesionalnim pristopom in občutkom za publiko poskrbimo, da vsak dogodek postane legenda. Od romantičnih začetkov na porokah do nore energije na obletnicah – <span class="about-highlight">mi smo tisti, ki držimo ritem do jutranjih ur!</span></p>
+          
+          <div class="service-grid">
+              <div class="service-card"><i class="fas fa-heart"></i><span>Nepozabne<br>Poroke</span></div>
+              <div class="service-card"><i class="fas fa-glass-cheers"></i><span>Obletnice</span></div>
+              <div class="service-card"><i class="fas fa-birthday-cake"></i><span>Rojstni<br>Dnevi</span></div>
+              <div class="service-card"><i class="fas fa-rocket"></i><span>Poslovni<br>Dogodki</span></div>
+              <div class="service-card"><i class="fas fa-music"></i><span>Valete in<br>Maturanti</span></div>
+          </div>
+      </div>
+  </div>
+
   <div class="social-icons" style="text-align:center; margin:20px 0;">
     <a href="https://www.facebook.com/profile.php?id=61584601392280" target="_blank"><i class="fab fa-facebook"></i></a>
     <a href="https://www.youtube.com/@SLOdrumer/videos" target="_blank"><i class="fab fa-youtube"></i></a>
@@ -377,55 +373,42 @@
     <a href="https://www.facebook.com/profile.php?id=100094446477993" target="_blank"><i class="fab fa-facebook"></i></a>
   </div>
 
-  <!-- TikTok Live -->
   <div class="tiktok-live-wrap">
     <a href="https://www.tiktok.com/@wishbooster/live" target="_blank" class="btn-tt-live"><i class="fab fa-tiktok"></i> TIKTOK LIVE stream</a>
   </div>
 
-  <!-- Radio predvajalnik -->
- <style>
-/* Definira animacijo premikanja od desne proti levi */
-@keyframes scroll-left {
-    0% {
-        transform: translateX(0); /* Začetni položaj (z zamikom padding-a) */
-    }
-    100% {
-        transform: translateX(-100%); /* Končni položaj (popolnoma levo) */
-    }
-}
+  <style>
+  @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+  }
 
-/* Ovoj za naslov, ki skrije besedilo izven meja */
-.scrolling-container {
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap; /* Prepreči prelom besedila v novo vrstico */
-    margin-bottom: 15px;
-}
+  .scrolling-container {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap; 
+      margin-bottom: 15px;
+  }
 
-/* Stil za naslov z animacijo */
-.custom-player .player-title {
-    font-family: sans-serif;
-    font-size: 1.8em;
-    font-weight: bold;
-    color: #00f6ff; /* Svetlo modra barva */
-    /* ZMANJŠAN neonski sijaj za bolj subtilen učinek */
-    text-shadow: 0 0 2px #00f6ff, 0 0 5px #00f6ff, 0 0 10px #00f6ff;
-    
-    display: inline-block; /* Potrebno za animacijo */
-    padding-left: 100%; /* Začetni zamik, da besedilo priteče z desne */
-    /* Animacija: ime, trajanje (hitrost), način, ponavljanje */
-    animation: scroll-left 30s linear infinite; 
-}
-</style>
+  .custom-player .player-title {
+      font-family: sans-serif;
+      font-size: 1.8em;
+      font-weight: bold;
+      color: #00f6ff; 
+      text-shadow: 0 0 2px #00f6ff, 0 0 5px #00f6ff, 0 0 10px #00f6ff;
+      display: inline-block; 
+      padding-left: 100%; 
+      animation: scroll-left 30s linear infinite; 
+  }
+  </style>
 
-<div class="custom-player">
-    <div class="scrolling-container">
-        <span class="player-title">Interaktivni predvajalnik 🔴 ON AIR - 🎵 Poslušaj v živo! </span>
-    </div>
-    <iframe src="https://a13.asurahosting.com/public/wish_booster_radio" style="width: 100%; height: 650px; border: 0; border-radius: 20px;" scrolling="yes"></iframe>
-</div>
+  <div class="custom-player">
+      <div class="scrolling-container">
+          <span class="player-title">Interaktivni predvajalnik 🔴 ON AIR - 🎵 Poslušaj v živo! </span>
+      </div>
+      <iframe src="https://a13.asurahosting.com/public/wish_booster_radio" style="width: 100%; height: 650px; border: 0; border-radius: 20px;" scrolling="yes"></iframe>
+  </div>
 
-  <!-- Promo video -->
   <div class="purple-frame">
     <h3><i class="fas fa-play"></i> PROMO VIDEO</h3>
     <div class="iframe-container" style="border-radius:12px;">
@@ -433,80 +416,77 @@
     </div>
   </div>
 
- <!-- RADIJSKA ANKETA -->
-<div class="purple-frame" style="min-height:850px;">
-  <h3><i class="fas fa-poll-h"></i> RADIJSKA ANKETA</h3>
-  <iframe src="https://forms.gle/CeEsDj29RdEivJD37" style="width:100%; height:800px; border:none; border-radius:12px;"></iframe>
-</div>
+  <div class="purple-frame" style="min-height:850px;">
+    <h3><i class="fas fa-poll-h"></i> RADIJSKA ANKETA</h3>
+    <iframe src="https://forms.gle/CeEsDj29RdEivJD37" style="width:100%; height:800px; border:none; border-radius:12px;"></iframe>
+  </div>
 
-<!-- RADIJSKI URNIK -->
-<div class="purple-frame">
-  <h3><i class="fas fa-calendar-alt"></i> RADIJSKI URNIK</h3>
-  <div style="margin-top:15px;">
-    <!-- Urnik -->
-    <div style="background-color:#222; border-radius:8px; padding:10px 15px; margin-bottom:8px; display:flex; flex-direction:column; gap:8px;">
-      
-      <div style="display:flex; justify-content:space-between; align-items:center;">
-        <span style="color:#a020f0; font-weight:600;">PONEDELJEK</span>
-        <span style="color:#00ff00; font-weight:600;">PONOVITEV</span>
+  <div class="purple-frame">
+    <h3><i class="fas fa-calendar-alt"></i> RADIJSKI URNIK</h3>
+    <div style="margin-top:15px;">
+      <div style="background-color:#222; border-radius:8px; padding:10px 15px; margin-bottom:8px; display:flex; flex-direction:column; gap:8px;">
+        
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="color:#a020f0; font-weight:600;">PONEDELJEK</span>
+          <span style="color:#00ff00; font-weight:600;">PONOVITEV</span>
+        </div>
+        <div style="font-size:0.95rem;">Flashback 80-90</div>
+        <div style="text-align:right;">18:00 - 22:00 Ure</div>
+        
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="color:#a020f0; font-weight:600;">TOREK</span>
+          <span style="color:#ff00ff; font-weight:600;">V ŽIVO!</span>
+        </div>
+        <div style="font-size:0.95rem;">FLASHBACK 80-90</div>
+        <div style="text-align:right;">18:00 - 22:00 Ure</div>
+        
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="color:#a020f0; font-weight:600;">SREDA</span>
+          <span style="color:#00ff00; font-weight:600;">PONOVITEV</span>
+        </div>
+        <div style="font-size:0.95rem;">Nedeljski večer z Borisom</div>
+        <div style="text-align:right;">18:00 - 22:00 Ure</div>
+        
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="color:#a020f0; font-weight:600;">ČETRTEK</span>
+          <span style="color:#ff00ff; font-weight:600;">V ŽIVO!</span>
+        </div>
+        <div style="font-size:0.95rem;">GLASBENI VRTILJAK</div>
+        <div style="text-align:right;">18:00 - 22:00 Ure</div>
+        
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="color:#a020f0; font-weight:600;">PETEK</span>
+          <span style="color:#ff00ff; font-weight:600;"></span>
+        </div>
+        <div style="font-size:0.95rem;">Weekend Party - MIXI</div>
+        <div style="text-align:right;">18:00 - 06:00 Ure</div>
+        
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="color:#a020f0; font-weight:600;">SOBOTA</span>
+          <span style="color:#00ff00; font-weight:600;">PONOVITEV</span>
+        </div>
+        <div style="font-size:0.95rem;">Glasbeni vrtljak</div>
+        <div style="text-align:right;">13:00 - 15:00 Ure</div>
+        <div style="font-size:0.95rem;">Weekend Party - MIXI</div>
+        <div style="text-align:right;">18:00 - 06:00 Ure</div>
+        
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
+          <span style="color:#a020f0; font-weight:600;">NEDELJA</span>
+          <span style="color:#ff00ff; font-weight:600;">V ŽIVO!</span>
+        </div>
+        <div style="font-size:0.95rem;">Podcast meseca (PONOVITEV)</div>
+        <div style="text-align:right;">15:00 - 17:00 Ure</div>
+        <div style="font-size:0.95rem;">Nedeljski večer</div>
+        <div style="text-align:right;">18:00 - 22:00 Ure</div>
       </div>
-      <div style="font-size:0.95rem;">Flashback 80-90</div>
-      <div style="text-align:right;">18:00 - 22:00 Ure</div>
-      
-      <div style="display:flex; justify-content:space-between; align-items:center;">
-        <span style="color:#a020f0; font-weight:600;">TOREK</span>
-        <span style="color:#ff00ff; font-weight:600;">V ŽIVO!</span>
-      </div>
-      <div style="font-size:0.95rem;">FLASHBACK 80-90</div>
-      <div style="text-align:right;">18:00 - 22:00 Ure</div>
-      
-      <div style="display:flex; justify-content:space-between; align-items:center;">
-        <span style="color:#a020f0; font-weight:600;">SREDA</span>
-        <span style="color:#00ff00; font-weight:600;">PONOVITEV</span>
-      </div>
-      <div style="font-size:0.95rem;">Nedeljski večer z Borisom</div>
-      <div style="text-align:right;">18:00 - 22:00 Ure</div>
-      
-      <div style="display:flex; justify-content:space-between; align-items:center;">
-        <span style="color:#a020f0; font-weight:600;">ČETRTEK</span>
-        <span style="color:#ff00ff; font-weight:600;">V ŽIVO!</span>
-      </div>
-      <div style="font-size:0.95rem;">GLASBENI VRTILJAK</div>
-      <div style="text-align:right;">18:00 - 22:00 Ure</div>
-      
-      <div style="display:flex; justify-content:space-between; align-items:center;">
-        <span style="color:#a020f0; font-weight:600;">PETEK</span>
-        <span style="color:#ff00ff; font-weight:600;"></span>
-      </div>
-      <div style="font-size:0.95rem;">Weekend Party - MIXI</div>
-      <div style="text-align:right;">18:00 - 06:00 Ure</div>
-      
-      <div style="display:flex; justify-content:space-between; align-items:center;">
-        <span style="color:#a020f0; font-weight:600;">SOBOTA</span>
-        <span style="color:#00ff00; font-weight:600;">PONOVITEV</span>
-      </div>
-      <div style="font-size:0.95rem;">Glasbeni vrtljak</div>
-      <div style="text-align:right;">13:00 - 15:00 Ure</div>
-      <div style="font-size:0.95rem;">Weekend Party - MIXI</div>
-      <div style="text-align:right;">18:00 - 06:00 Ure</div>
-      
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
-        <span style="color:#a020f0; font-weight:600;">NEDENJA</span>
-        <span style="color:#ff00ff; font-weight:600;">V ŽIVO!</span>
-      </div>
-      <div style="font-size:0.95rem;">Podcast meseca (PONOVITEV)</div>
-      <div style="text-align:right;">15:00 - 17:00 Ure</div>
-      <div style="font-size:0.95rem;">Nedeljski večer</div>
-      <div style="text-align:right;">18:00 - 22:00 Ure</div>
     </div>
+  </div>
     
-  <!-- Klepetalnica -->
   <div class="purple-frame">
     <h3><i class="fas fa-comments"></i> KLEPETALNICA</h3>
     <iframe src="https://www5.cbox.ws/box/?boxid=961432&boxtag=Lu3k7m" width="100%" height="450" style="border-radius:15px; border:none;"></iframe>
   </div>
 
-  <!-- Kontakt -->
   <div class="purple-frame" style="text-align:center;">
     <h3><i class="fas fa-envelope"></i> Kontakt</h3>
     <form style="display:flex; flex-direction:column; gap:10px; max-width:400px; margin:auto;">
@@ -517,17 +497,13 @@
     </form>
   </div>
 
-</div>
-
-<!-- Footer -->
-<footer>
+</div> <footer>
   <span class="owner-txt"> Lastnik: Boris</span>
   <div class="footer-legal" style="margin-top:10px;">
     <p style="font-size:0.9rem;">Wish Booster Radio je ljubiteljski, nekomercialni in testni projekt ekipe K-BOOST. Spletno mesto je namenjeno izključno promociji glasbene dejavnosti in preizkušanju interaktivnih vsebin. Vse avtorske pravice so last njihovih lastnikov. &copy; 2024-2026. Vse pravice pridržane.</p>
   </div>
 </footer>
 
-<!-- Modal za želje -->
 <div id="requestModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:10000; justify-content:center; align-items:center; padding:20px;">
   <div class="modal-content" style="width:100%; max-width:800px; height:85%; position:relative; background:#111; border:2px solid #ff00ff; border-radius:20px; padding:20px; overflow:auto;">
     <span style="position:absolute; top:10px; right:15px; font-size:1.8rem; cursor:pointer; color:#ff00ff;" onclick="closeRequests()"><i class="fas fa-times-circle"></i></span>
@@ -535,7 +511,6 @@
   </div>
 </div>
 
-<!-- JavaScript -->
 <script>
 function toggleAbout() {
   const about = document.getElementById("about");
