@@ -46,13 +46,12 @@
     text-align: center;
   }
   
-  /* TUKAJ JE SPREMEMBA - ZMANJŠAN SIJAJ */
+  /* NEONSKO VIJOLIČEN NASLOV */
   header h1 {
     margin: 0;
-    color: #bc13fe; /* Neonsko vijolična barva */
+    color: #bc13fe; 
     font-size: 2rem;
     font-weight: 900;
-    /* Zmanjšan neonski sijaj (manj plasti in manjša zameglitev) */
     text-shadow: 0 0 5px #bc13fe, 0 0 15px #bc13fe; 
   }
 
@@ -63,6 +62,7 @@
     flex-wrap: wrap;
     gap: 15px;
     margin: 20px;
+    align-items: center; /* Poravnava gumbov in telefonske številke */
   }
   .btn {
     padding: 15px 30px;
@@ -83,6 +83,24 @@
   .btn-request:hover { transform: scale(1.05); box-shadow: 0 0 25px rgba(255, 0, 255, 1); }
   .btn-booking { background: #25d366; color: #000; }
   .btn-booking:hover { transform: scale(1.05); box-shadow: 0 0 20px #25d366; }
+
+  /* TUKAJ JE NOV STIL ZA TELEFONSKO ŠTEVILKO */
+  .phone-link {
+    color: #00d4ff; /* Svetlo modra barva */
+    font-size: 1.5rem; /* Večja pisava */
+    font-weight: 800; /* Krepko besedilo */
+    text-decoration: none; /* Brez podčrtaja */
+    text-shadow: 0 0 10px #00d4ff; /* Neonski sijaj */
+    display: none; /* Skrito na začetku */
+    align-items: center;
+    gap: 10px; /* Razmak med ikono in številko */
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+  }
+  .phone-link:hover {
+      text-shadow: 0 0 20px #00d4ff, 0 0 30px #00d4ff; /* Močnejši sijaj ob prehodu z miško */
+      transform: scale(1.05);
+  }
 
   /* Main content container */
   .main-content {
@@ -270,7 +288,7 @@
   <button class="btn btn-about" onclick="toggleAbout()"><i class="fas fa-fire"></i> KDO SMO?</button>
   <button class="btn btn-request" onclick="openRequests()"><i class="fas fa-music"></i> GLASBENA ŽELJA</button>
   <button id="bookingBtn" class="btn btn-booking" onclick="showPhone()"><i class="fas fa-calendar-check"></i> BOOKING</button>
-  <a id="phoneLink" href="tel:041772470" class="phone-link" style="display:none;"><i class="fas fa-phone-alt"></i> 041 772 470</a>
+  <a id="phoneLink" href="tel:041772470" class="phone-link"><i class="fas fa-phone-alt"></i> 041 772 470</a>
 </div>
 
 <div class="main-content">
