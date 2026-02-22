@@ -12,7 +12,7 @@
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>24/7-Radio & Dj K-Boost</title>
+<title>TESTIRANJE - Radio Wishbooster</title>
 <meta name="description" content="Radio Wishbooster in DJ K-Boost - več kot 25 let izkušenj z ustvarjanjem nepozabne atmosfere na Štajerskem in v Prekmurju. Poslušaj online radio 24/7 v živo ali rezerviraj DJ-ja!" />
 <meta name="keywords" content="Radio Wishbooster, DJ K-Boost, spletni radio, DJ za poroke, Štajerska, Prekmurje, glasbene želje, najboljša glasba" />
 <meta name="author" content="Boris - Ekipa K-BOOST" />
@@ -61,7 +61,7 @@
     flex-wrap: wrap;
     gap: 15px;
     margin: 20px;
-    align-items: flex-start; /* Poravna vrhove vsebnikov */
+    align-items: flex-start;
   }
   .btn {
     padding: 15px 30px;
@@ -810,30 +810,19 @@
 </div>
 
 <script>
-// FUNKCIJA ZA SMS GUMB - PREVERJA ČAS IN POSODABLJA NAVODILA
+// FUNKCIJA ZA TESTIRANJE - PRISILNO AKTIVEN GUMB
 function updateSmsButton() {
-  const now = new Date();
-  const day = now.getDay(); // 0=Nedelja, 2=Torek, 4=Četrtek
-  const hour = now.getHours();
   const smsBtn = document.getElementById('sms-button');
   const smsHint = document.getElementById('sms-hint');
 
-  // Pogoj: Torek(2), Četrtek(4) ali Nedelja(0) od 18:00 do 21:59
-  const isLiveDay = (day === 2 || day === 4 || day === 0);
-  const isLiveTime = (hour >= 18 && hour < 22);
+  // TESTNI NAČIN: Gumb je VEDNO aktiven
+  const isTestLive = true; 
 
-  if (isLiveDay && isLiveTime) {
-    // V ŽIVO - Gumb se vklopi in začne utripati
+  if (isTestLive) {
     smsBtn.classList.remove('sms-inactive');
     smsBtn.classList.add('sms-live');
     smsBtn.style.pointerEvents = 'auto'; 
-    smsHint.innerHTML = "<span style='color: #00d4ff;'>🔴 V ŽIVO! Pošlji SMS željo v studio.</span>";
-  } else {
-    // NI ODDAJE - Gumb postane siv in ugasne
-    smsBtn.classList.remove('sms-live');
-    smsBtn.classList.add('sms-inactive');
-    smsBtn.style.pointerEvents = 'none'; 
-    smsHint.innerHTML = "SMS želje sprejemamo v živo: Tor, Čet in Ned (18:00 - 22:00).";
+    smsHint.innerHTML = "<span style='color: #00d4ff;'>🔴 TESTIRANJE: Pošlji SMS željo v studio.</span>";
   }
 }
 
@@ -866,10 +855,7 @@ window.onload = function() {
   if(localStorage.getItem('cookiesAccepted')) {
     document.getElementById('cookie-banner').style.display = 'none';
   }
-  // Zaženi preverjanje gumba ob nalaganju
   updateSmsButton();
-  // Preverjaj vsako minuto (60000 ms), da se gumb samodejno vklopi/izklopi
-  setInterval(updateSmsButton, 60000);
 }
 
 function showPhone() {
@@ -877,7 +863,6 @@ function showPhone() {
   document.getElementById('phoneLink').style.display = 'inline-flex';
 }
 
-// Zaprti modal s tipko ESC
 window.addEventListener('keydown', function(e) {
   if(e.key === 'Escape') closeRequests();
 });
