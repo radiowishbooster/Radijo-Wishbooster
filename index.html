@@ -83,6 +83,26 @@
   .btn-booking { background: #25d366; color: #000; }
   .btn-booking:hover { transform: scale(1.05); box-shadow: 0 0 20px #25d366; }
 
+  /* STILI ZA SMS GUMB */
+  .sms-inactive {
+    background: #222 !important;
+    color: #555 !important;
+    border: 1px solid #333 !important;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+  .sms-live {
+    background: linear-gradient(45deg, #00d4ff, #0055ff) !important;
+    color: #fff !important;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.7);
+    animation: smsPulse 1.5s infinite ease-in-out;
+  }
+  @keyframes smsPulse {
+    0% { transform: scale(1); box-shadow: 0 0 10px rgba(0, 212, 255, 0.5); }
+    50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(0, 212, 255, 1); }
+    100% { transform: scale(1); box-shadow: 0 0 10px rgba(0, 212, 255, 0.5); }
+  }
+
   /* TELEFONSKA ŠTEVILKA */
   .phone-link {
     color: #00d4ff !important; 
@@ -285,6 +305,11 @@
 
 <div class="btn-container">
   <button class="btn btn-about" onclick="toggleAbout()"><i class="fas fa-fire"></i> KDO SMO?</button>
+  
+  <a id="sms-button" href="sms:+38641772470?&body=Moja glasbena zelja je: " class="btn sms-inactive">
+    <i class="fas fa-comment-dots"></i> SMS ŽELJA
+  </a>
+
   <button class="btn btn-request" onclick="openRequests()"><i class="fas fa-music"></i> GLASBENA ŽELJA</button>
   <button id="bookingBtn" class="btn btn-booking" onclick="showPhone()"><i class="fas fa-calendar-check"></i> BOOKING</button>
   <a id="phoneLink" href="tel:041772470" class="phone-link"><i class="fas fa-phone-alt"></i> 041 772 470</a>
@@ -770,6 +795,28 @@
 </div>
 
 <script>
+// FUNKCIJA ZA SMS GUMB - PREVERJA ČAS
+function updateSmsButton() {
+  const now = new Date();
+  const day = now.getDay(); // 0=Nedelja, 2=Torek, 4=Četrtek
+  const hour = now.getHours();
+  const smsBtn = document.getElementById('sms-button');
+
+  // Pogoj: Torek(2), Četrtek(4) ali Nedelja(0) od 18:00 do 21:59
+  const isLiveDay = (day === 2 || day === 4 || day === 0);
+  const isLiveTime = (hour >= 18 && hour < 22);
+
+  if (isLiveDay && isLiveTime) {
+    smsBtn.classList.remove('sms-inactive');
+    smsBtn.classList.add('sms-live');
+    smsBtn.style.pointerEvents = 'auto'; // Omogoči klik
+  } else {
+    smsBtn.classList.remove('sms-live');
+    smsBtn.classList.add('sms-inactive');
+    smsBtn.style.pointerEvents = 'none'; // Onemogoči klik, ko ni v živo
+  }
+}
+
 function toggleAbout() {
   const about = document.getElementById("about");
   about.style.display = (about.style.display === "none") ? "block" : "none";
@@ -799,6 +846,10 @@ window.onload = function() {
   if(localStorage.getItem('cookiesAccepted')) {
     document.getElementById('cookie-banner').style.display = 'none';
   }
+  // Zaženi preverjanje gumba ob nalaganju
+  updateSmsButton();
+  // Preverjaj vsako minuto (60000 ms)
+  setInterval(updateSmsButton, 60000);
 }
 
 function showPhone() {
