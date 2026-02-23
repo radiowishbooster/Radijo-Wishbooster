@@ -782,7 +782,7 @@
         <iframe src="https://www5.cbox.ws/box/?boxid=961432&boxtag=Lu3k7m" width="100%" height="450" style="border-radius:15px; border:none;"></iframe>
       </div>
 
-     <div class="purple-frame" style="margin-bottom: 0;">
+    <div class="purple-frame" style="margin-bottom: 0;">
         <h3><i class="fas fa-play"></i> PROMO VIDEO</h3>
         
         <div class="iframe-container" style="border-radius:12px;">
@@ -793,13 +793,25 @@
             <h4 style="color: #00d4ff; font-size: 1.4rem; margin-top: 0; margin-bottom: 10px; text-transform: uppercase;">
                 <i class="fas fa-tshirt" style="color: #ff00ff; text-shadow: 0 0 10px #ff00ff;"></i> Naroči svojo majico!
             </h4>
-            <p style="font-size: 0.95rem; color: #ddd; margin-bottom: 20px; line-height: 1.5;">
+            <p style="font-size: 0.95rem; color: #ddd; margin-bottom: 15px; line-height: 1.5;">
                 Postani del naše zgodbe! Zagotovi si unikatno majico z logotipom <strong>Wish Booster Radija</strong> in nas podpri pri ustvarjanju najboljše zabave. <br>
                 <span style="font-size: 0.8rem; color: #888; font-style: italic;">(Skupinska fotografija ekipe z majicami še pride!)</span>
             </p>
-            <a href="mailto:radiowishbooster@gmail.com?subject=Naročilo%20radijske%20majice" style="display: inline-block; background: #bc13fe; color: #fff; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: all 0.3s; box-shadow: 0 0 15px rgba(188, 19, 254, 0.5);">
+            
+            <div style="margin-bottom: 20px; display: flex; justify-content: center; align-items: center; gap: 10px;">
+                <label for="tshirt-size" style="font-weight: bold; color: #bc13fe;">Izberi velikost:</label>
+                <select id="tshirt-size" style="background: #111; color: #fff; border: 1px solid #00d4ff; padding: 8px 15px; border-radius: 8px; font-family: 'Poppins', sans-serif; font-size: 1rem; outline: none; cursor: pointer; box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);">
+                    <option value="S">S</option>
+                    <option value="M" selected>M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                </select>
+            </div>
+
+            <button onclick="window.location.href='mailto:radiowishbooster@gmail.com?subject=Naročilo radijske majice&body=Pozdravljeni,%0A%0AŽelim naročiti radijsko majico.%0A%0AIzbrana velikost: ' + document.getElementById('tshirt-size').value + '%0A%0AProsim za več informacij glede cene, plačila in dostave.%0A%0ALep pozdrav,'" style="background: #bc13fe; color: #fff; padding: 12px 25px; border: none; border-radius: 8px; font-weight: bold; font-size: 1.1rem; cursor: pointer; transition: all 0.3s; box-shadow: 0 0 15px rgba(188, 19, 254, 0.5); font-family: 'Poppins', sans-serif;">
                 <i class="fas fa-shopping-cart"></i> POŠLJI POVPRAŠEVANJE
-            </a>
+            </button>
         </div>
 
       </div>
