@@ -6,24 +6,16 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-2TP4JHF4EP');
 </script>
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Radio Wishbooster & Dj K-Boost</title>
-<meta name="description" content="Radio Wishbooster in DJ K-Boost - več kot 25 let izkušenj z ustvarjanjem nepozabne atmosfere na Štajerskem in v Prekmurju. Poslušaj online radio 24/7 v živo ali rezerviraj DJ-ja!" />
-<meta name="keywords" content="Radio Wishbooster, DJ K-Boost, spletni radio, DJ za poroke, Štajerska, Prekmurje, glasbene želje, najboljša glasba" />
-<meta name="author" content="Boris - Ekipa K-BOOST" />
-<meta property="og:url" content="https://www.radiowishbooster.com" />
-<meta property="og:title" content="Radio Wishbooster & Dj K-Boost | Kjer glasba oživi" />
-<meta property="og:description" content="Pridruži se najboljši zabavi! Poslušaj Radio Wishbooster 24/7 ali rezerviraj DJ K-Boosta za tvoj naslednji dogodek." />
-<meta property="og:image" content="https://www.radiowishbooster.com/star.png" /> 
-<meta property="og:type" content="website" />
 <link rel="icon" type="image/png" href="star.png" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet" />
+
 <style>
   body {
     font-family: 'Poppins', sans-serif;
@@ -32,9 +24,6 @@
     color: #fff;
     line-height: 1.6;
     padding-bottom: 100px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
   }
 
@@ -54,7 +43,7 @@
     text-shadow: 0 0 5px #bc13fe, 0 0 15px #bc13fe; 
   }
 
-  /* Navigation buttons - POPRAVLJENO ZA PORAVNAVO */
+  /* Gumbi */
   .btn-container {
     display: flex;
     justify-content: center;
@@ -79,7 +68,6 @@
     min-height: 65px;
     padding: 15px 20px;
     border-radius: 12px;
-    text-decoration: none;
     font-weight: 800;
     text-transform: uppercase;
     display: inline-flex;
@@ -89,34 +77,15 @@
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-sizing: border-box;
-  }
-
-  .btn-hint {
-    font-size: 0.75rem;
-    color: #888;
-    margin-top: 10px;
-    font-style: italic;
-    line-height: 1.2;
-    text-align: center;
-    min-height: 40px;
+    text-decoration: none;
   }
 
   .btn-about { background: linear-gradient(45deg, #8a2be2, #00d4ff); color: #fff; }
-  .btn-about:hover { transform: scale(1.05); box-shadow: 0 0 20px #8a2be2; }
   .btn-request { background: #ff00ff; color: #fff; box-shadow: 0 0 15px rgba(255, 0, 255, 0.7); }
-  .btn-request:hover { transform: scale(1.05); box-shadow: 0 0 25px rgba(255, 0, 255, 1); }
   .btn-booking { background: #25d366; color: #000; }
-  .btn-booking:hover { transform: scale(1.05); box-shadow: 0 0 20px #25d366; }
 
-  /* STILI ZA SMS GUMB */
-  .sms-inactive {
-    background: #222 !important;
-    color: #555 !important;
-    border: 1px solid #333 !important;
-    cursor: not-allowed;
-    opacity: 0.6;
-  }
+  /* SMS GUMB STILI */
+  .sms-inactive { background: #222 !important; color: #555 !important; opacity: 0.6; cursor: not-allowed; }
   .sms-live {
     background: linear-gradient(45deg, #00d4ff, #0055ff) !important;
     color: #fff !important;
@@ -124,198 +93,68 @@
     animation: smsPulse 1.5s infinite ease-in-out;
   }
   @keyframes smsPulse {
-    0% { transform: scale(1); box-shadow: 0 0 10px rgba(0, 212, 255, 0.5); }
+    0% { transform: scale(1); }
     50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(0, 212, 255, 1); }
-    100% { transform: scale(1); box-shadow: 0 0 10px rgba(0, 212, 255, 0.5); }
+    100% { transform: scale(1); }
   }
 
-  /* TELEFONSKA ŠTEVILKA */
-  .phone-link {
-    color: #00d4ff !important; 
-    font-size: 1.5rem !important; 
-    font-weight: 800 !important; 
-    text-decoration: none !important; 
-    text-shadow: 0 0 10px #00d4ff !important; 
-    display: none; 
-    align-items: center;
-    gap: 10px; 
-    padding: 10px 20px;
-    transition: all 0.3s ease;
-  }
-  .phone-link:hover {
-      text-shadow: 0 0 20px #00d4ff, 0 0 30px #00d4ff !important; 
-      transform: scale(1.05);
-  }
-
-  /* Main content container */
-  .main-content {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-
-  /* Sections */
-  .purple-frame {
-    border: 2px solid #8a2be2;
-    border-radius: 20px;
-    padding: 35px;
-    margin-bottom: 30px;
-    background: rgba(15, 15, 15, 0.95);
-    position: relative;
-  }
-  .purple-frame h3 {
-    display: flex;
-    align-items: center;
+  /* URNIK STILI - NOVO */
+  .schedule-day {
+    background: rgba(25, 10, 45, 0.4); 
+    border-left: 4px solid #333; 
+    border-radius: 8px;
+    padding: 15px 20px;
     margin-bottom: 15px;
-    font-size: 1.8rem;
-  }
-  .purple-frame h3 i {
-    margin-right: 10px;
-    color: #00d4ff;
-  }
-  /* Responsive iframe */
-  .iframe-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    border-radius: 12px;
-  }
-  .iframe-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-    border-radius: 12px;
+    transition: all 0.4s ease;
   }
 
-  /* Radio status text */
-  .radio-status {
-    text-align: center;
-    margin-top: 20px;
+  /* Osvetlitev aktivnega dne */
+  .day-active {
+    border-left: 4px solid #00d4ff !important;
+    background: rgba(0, 212, 255, 0.1) !important;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+    transform: scale(1.02);
   }
-  .rotate-text {
-    display: inline-block;
-    font-size: 1.6rem;
-    font-weight: 900;
-    letter-spacing: 3px;
-    color: #00d4ff;
-    text-transform: uppercase;
-    animation: neonFlicker 5s infinite, pulse 2s infinite;
+  
+  .day-active h4 {
+    color: #00d4ff !important;
+    text-shadow: 0 0 10px #00d4ff;
   }
 
-  /* Neon flicker animation */
-  @keyframes neonFlicker {
-    0%, 10%, 12%, 14%, 50%, 100% {
-      text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff;
-      opacity: 1;
-    }
-    11%, 13% {
-      text-shadow: none;
-      opacity: 0.6;
-    }
-  }
-  /* Pulse animation for glow */
-  @keyframes pulse {
-    0% { box-shadow: 0 0 10px #00d4ff; }
-    50% { box-shadow: 0 0 20px #00d4ff; }
-    100% { box-shadow: 0 0 10px #00d4ff; }
-  }
-
-  /* Footer styles */
-  footer {
-    background: #111;
-    padding: 40px 20px;
-    border-top: 2px solid #8a2be2;
-    text-align: center;
-    margin-top: 50px;
-  }
-  .owner-txt {
-    color: yellow;
-    font-weight: 900;
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 10px;
-  }
-
-  /* Social icons */
-  .social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 20px;
-  }
-  .social-icons a {
-    font-size: 4.8rem;
-    color: #fff;
-    transition: color 0.3s;
-  }
-  .social-icons a:hover {
-    color: #00d4ff;
-  }
-
-  /* TikTok Live button */
-  .tiktok-live-wrap {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  .btn-tt-live {
-    display: inline-block;
-    padding: 12px 20px;
-    background-color: #000;
-    border: 2px solid #8a2be2;
-    border-radius: 12px;
-    font-weight: bold;
+  .day-title {
+    margin: 0 0 12px 0;
+    color: #bc13fe; 
     font-size: 1.2rem;
-    color: #fff;
-    text-decoration: none;
-    transition: all 0.3s;
-  }
-  .btn-tt-live:hover {
-    background-color: #8a2be2;
+    font-weight: 800;
+    text-transform: uppercase;
   }
 
-  /* Cookie banner */
-  #cookie-banner {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background: #222;
-    padding: 15px;
+  .show-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 9999;
-  }
-  .cookie-btn {
-    background: #8a2be2;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-  }
-  .cookie-btn:hover {
-    background: #a52be2;
+    padding: 10px 0;
   }
 
-  /* Responsive adjustments */
-  @media(max-width:768px){
-    .btn-container {
-      flex-direction: column;
-      align-items: center;
-    }
-    .btn-wrapper {
-        min-width: 100%;
-        max-width: 100%;
-    }
-    iframe {
-      height: auto;
-    }
+  .show-badge {
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 6px;
+    text-transform: uppercase;
   }
+  .badge-live { background: rgba(255, 0, 255, 0.15); color: #ff00ff; border: 1px solid #ff00ff; }
+  .badge-replay { background: rgba(0, 255, 0, 0.1); color: #00ff00; border: 1px solid #00ff00; }
+
+  /* Socialne ikone */
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+  }
+  .social-icons a { font-size: 3.5rem; color: #fff; transition: all 0.3s; }
+  .social-icons a:hover { color: #00d4ff; transform: scale(1.1); }
 </style>
 </head>
 <body>
@@ -324,660 +163,142 @@
   <h1>Radio Wish Booster & Dj K-Boost</h1>
 </header>
 
-<div id="cookie-banner">
-  <span>To spletno mesto uporablja piškotke za boljšo izkušnjo.</span>
-  <button class="cookie-btn" onclick="acceptCookies()">Sprejmem</button>
-</div>
-
-<div class="radio-status">
-  <span class="rotate-text"> ONLINE RADIO - 24/7</span>
-</div>
-
 <div class="btn-container">
   <div class="btn-wrapper">
     <button class="btn btn-about" onclick="toggleAbout()"><i class="fas fa-fire"></i> KDO SMO?</button>
-    <p class="btn-hint">&nbsp;</p>
   </div>
   
   <div class="btn-wrapper">
       <a id="sms-button" href="sms:+38641772470?&body=Moje ime:%0APozdravil bi:%0AZaželel sem si pesem od: " class="btn sms-inactive">
         <i class="fas fa-comment-dots"></i> SMS ŽELJA
       </a>
-      <p id="sms-hint" class="btn-hint">
-        SMS želje sprejemamo v živo: Tor, Čet in Ned (18:00 - 22:00).
-      </p>
+      <p id="sms-hint" style="font-size: 0.75rem; color: #888; margin-top: 10px;">SMS želje: Tor, Čet in Ned (18-22h).</p>
   </div>
 
   <div class="btn-wrapper">
-      <button class="btn btn-request" onclick="openRequests()">
-          <i class="fas fa-music"></i> GLASBENA ŽELJA
-      </button>
-      <p class="btn-hint" style="color: #ff00ff; opacity: 0.8;">
-          Samostojen izbor iz arhiva strežnika (na voljo 24/7).
-      </p>
+      <button class="btn btn-request" onclick="openRequests()"><i class="fas fa-music"></i> GLASBENA ŽELJA</button>
   </div>
 
   <div class="btn-wrapper">
       <button id="bookingBtn" class="btn btn-booking" onclick="showPhone()"><i class="fas fa-calendar-check"></i> BOOKING</button>
-      <a id="phoneLink" href="tel:041772470" class="phone-link"><i class="fas fa-phone-alt"></i> 041 772 470</a>
-      <p class="btn-hint">&nbsp;</p>
+      <a id="phoneLink" href="tel:041772470" style="display:none; color:#00d4ff; font-size:1.5rem; font-weight:800; text-decoration:none;">041 772 470</a>
   </div>
 </div>
 
-<div class="main-content">
+<div class="social-icons">
+  <a href="#"><i class="fab fa-facebook"></i></a>
+  <a href="#"><i class="fab fa-youtube"></i></a>
+  <a href="#"><i class="fab fa-tiktok"></i></a>
+  <a href="#"><i class="fab fa-youtube"></i></a>
+  <a href="#"><i class="fab fa-facebook"></i></a>
+</div>
 
-  <style>
-  /* CSS ZA LEBDEČE OKNO KDO SMO (MODAL) */
-  #about {
-      position: fixed !important; 
-      top: 50% !important; 
-      left: 50% !important; 
-      transform: translate(-50%, -50%) !important; 
-      width: 90%;
-      max-width: 950px;
-      background-color: #0b0312; 
-      z-index: 9999 !important; 
-      padding: 40px;
-      border: 2px solid #8a2be2; 
-      border-radius: 20px;
-      box-shadow: 0 0 40px rgba(138, 43, 226, 0.6), 0 0 100px rgba(0, 0, 0, 0.9); 
-      max-height: 90vh; 
-      overflow-y: auto; 
-  }
-
-  .about-highlight {
-      color: #00d4ff; 
-      font-weight: bold;
-      text-shadow: 0 0 8px rgba(0, 212, 255, 0.7); 
-  }
-
-  .service-grid {
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      margin-top: 30px;
-      flex-wrap: wrap;
-  }
-
-  .service-card {
-      background-color: rgba(25, 10, 45, 0.4);
-      border: 1px solid #6b21a8;
-      border-radius: 12px;
-      padding: 20px 10px;
-      flex: 1;
-      min-width: 100px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer; /* DODANO: Kazalec za klik */
-  }
-
-  .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 5px 15px rgba(186, 85, 211, 0.3);
-      background-color: rgba(138, 43, 226, 0.2); /* DODANO: Sij ob hoveru */
-  }
-
-  .service-card i {
-      color: #a855f7;
-      font-size: 24px;
-      margin-bottom: 12px;
-  }
-
-  .service-card span {
-      color: #ffffff;
-      font-size: 11px;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      line-height: 1.4;
-  }
-
-  /* NOVO: Stil za prostor z opisom storitve */
-  #service-description-box {
-      margin-top: 30px;
-      padding: 25px;
-      border: 1px dashed #8a2be2;
-      border-radius: 15px;
-      background: rgba(138, 43, 226, 0.05);
-      display: none;
-      text-align: center;
-      animation: fadeIn 0.5s ease;
-  }
-  @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-  }
-  </style>
-
-  <div id="about" style="display:none;" class="purple-frame">
-      <span style="position:absolute; top:15px; right:20px; cursor:pointer; font-size: 2rem; color: #ff00ff; z-index: 10; transition: transform 0.2s;" onclick="toggleAbout()" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
-          <i class="fas fa-times-circle"></i>
-      </span>
-      
-      <div class="about-header" style="text-align:center;">
-          <h2 style="margin:0; font-size: 2.8rem; text-shadow: 0 0 15px #8a2be2; font-weight: 900;">DISKO JOCKER K-BOOST</h2>
-          <p style="color:#00d4ff; font-weight: bold; text-transform: uppercase; letter-spacing: 5px;">Kjer glasba oživi</p>
-      </div>
-      
-      <div style="text-align:center; max-width:900px; margin:20px auto; line-height: 1.6;">
-          <p>Smo ekipa <span class="about-highlight">K-BOOST</span>, ki že več kot <span class="about-highlight">25 let</span> premika meje zabave na terenu na Štajerskem in Prekmurju. Naše poslanstvo ni zgolj predvajanje glasbe, temveč ustvarjanje nepozabne atmosfere, ki se je boste spominjali celo življenje.</p>
-          <p style="margin-top: 15px;">Z vrhunsko opremo, profesionalnim pristopom in občutkom za publiko poskrbimo, da vsak dogodek postane legenda. Od romantičnih začetkov na porokah do nore energije na obletnicah – <span class="about-highlight">mi smo tisti, ki držimo ritem do jutranjih ur!</span></p>
-          
-          <div class="service-grid">
-              <div class="service-card" onclick="showServiceDesc('poroke')"><i class="fas fa-heart"></i><span>Nepozabne<br>Poroke</span></div>
-              <div class="service-card" onclick="showServiceDesc('obletnice')"><i class="fas fa-glass-cheers"></i><span>Obletnice</span></div>
-              <div class="service-card" onclick="showServiceDesc('rojstni_dnevi')"><i class="fas fa-birthday-cake"></i><span>Rojstni<br>Dnevi</span></div>
-              <div class="service-card" onclick="showServiceDesc('poslovni')"><i class="fas fa-rocket"></i><span>Poslovni<br>Dogodki</span></div>
-              <div class="service-card" onclick="showServiceDesc('maturantski_plesi')"><i class="fas fa-music"></i><span>Valete &<br>Maturantski<br>Plesi</span></div>
-          </div>
-
-          <div id="service-description-box">
-              <h4 id="service-title" style="color: #00d4ff; text-transform: uppercase; margin-bottom: 10px; font-weight: 900;"></h4>
-              <p id="service-text" style="color: #fff; line-height: 1.8;"></p>
-          </div>
-      </div>
-  </div>
-
-  <div class="social-icons" style="text-align:center; margin:20px 0;">
-    <a href="https://www.facebook.com/profile.php?id=61584601392280" target="_blank"><i class="fab fa-facebook"></i></a>
-    <a href="https://www.youtube.com/@SLOdrumer/videos" target="_blank"><i class="fab fa-youtube"></i></a>
-    <a href="https://www.tiktok.com/@wishbooster" target="_blank"><i class="fab fa-tiktok"></i></a>
-    <a href="https://www.youtube.com/@RadioWishbooster" target="_blank"><i class="fab fa-youtube"></i></a>
-    <a href="https://www.facebook.com/profile.php?id=100094446477993" target="_blank"><i class="fab fa-facebook"></i></a>
-  </div>
-
-  <div class="tiktok-live-wrap">
-    <a href="https://www.tiktok.com/@wishbooster/live" target="_blank" class="btn-tt-live"><i class="fab fa-tiktok"></i> TIKTOK LIVE stream</a>
-  </div>
-
-  <style>
-  @keyframes scroll-left {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
-  }
-
-  .scrolling-container {
-      width: 100%;
-      overflow: hidden;
-      white-space: nowrap; 
-      margin-bottom: 15px;
-  }
-
-  .custom-player .player-title {
-      font-family: sans-serif;
-      font-size: 1.8em;
-      font-weight: bold;
-      color: #00f6ff; 
-      text-shadow: 0 0 2px #00f6ff, 0 0 5px #00f6ff, 0 0 10px #00f6ff;
-      display: inline-block; 
-      padding-left: 100%; 
-      animation: scroll-left 30s linear infinite; 
-  }
-  </style>
-
-  <div class="custom-player">
-      <div class="scrolling-container">
-          <span class="player-title">Interaktivni predvajalnik 🔴 ON AIR - 🎵 Poslušaj v živo! </span>
-      </div>
-      <iframe src="https://a13.asurahosting.com/public/wish_booster_radio" style="width: 100%; height: 650px; border: 0; border-radius: 20px;" scrolling="yes"></iframe>
-  </div>
-
-  <div class="purple-frame">
-    <h3><i class="fas fa-play"></i> PROMO VIDEO</h3>
-    <div class="iframe-container" style="border-radius:12px;">
-      <iframe src="https://www.youtube.com/embed/1DKleFLa8Yg" allowfullscreen></iframe>
-    </div>
-  </div>
-
-  <div class="purple-frame" style="min-height:850px;">
-    <h3><i class="fas fa-poll-h"></i> RADIJSKA ANKETA</h3>
-    <iframe src="https://forms.gle/CeEsDj29RdEivJD37" style="width:100%; height:800px; border:none; border-radius:12px;"></iframe>
-  </div>
-
-  <style>
-  .schedule-container {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin-top: 20px;
-  }
-  .schedule-day {
-      background: rgba(25, 10, 45, 0.4); 
-      border-left: 4px solid #00d4ff; 
-      border-radius: 8px;
-      padding: 15px 20px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  .schedule-day:hover {
-      transform: translateX(5px);
-      box-shadow: -5px 0 15px rgba(0, 212, 255, 0.3);
-  }
-  .day-title {
-      margin: 0 0 12px 0;
-      color: #bc13fe; 
-      font-size: 1.2rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-  }
-  .show-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  }
-  .show-row:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-  }
-  .show-info {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-  }
-  .show-time {
-      font-size: 0.85rem;
-      color: #aaaaaa;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-  }
-  .show-time i {
-      color: #00d4ff;
-  }
-  .show-name {
-      font-size: 1.05rem;
-      font-weight: bold;
-      color: #ffffff;
-  }
-  .show-badge {
-      font-size: 0.75rem;
-      font-weight: bold;
-      padding: 5px 10px;
-      border-radius: 6px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      white-space: nowrap; 
-  }
-  .badge-live {
-      background: rgba(255, 0, 255, 0.15);
-      color: #ff00ff;
-      border: 1px solid #ff00ff;
-      box-shadow: 0 0 8px rgba(255, 0, 255, 0.3);
-  }
-  .badge-replay {
-      background: rgba(0, 255, 0, 0.1);
-      color: #00ff00;
-      border: 1px solid #00ff00;
-  }
-  
-  @media(max-width: 480px) {
-      .show-row {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 10px;
-      }
-  }
-  </style>
-
+<div class="main-content" style="max-width: 1100px; margin: 0 auto; padding: 20px;">
   <div class="purple-frame">
     <h3><i class="fas fa-calendar-alt"></i> RADIJSKI URNIK</h3>
     
     <div class="schedule-container">
-        
-        <div class="schedule-day">
+        <div id="day-1" class="schedule-day">
             <h4 class="day-title">Ponedeljek</h4>
             <div class="show-row">
-                <div class="show-info">
-                    <span class="show-time"><i class="far fa-clock"></i> 18:00 - 22:00</span>
-                    <span class="show-name">Flashback 80-90</span>
-                </div>
+                <span>18:00 - 22:00 | Flashback 80-90</span>
                 <span class="show-badge badge-replay">PONOVITEV</span>
             </div>
         </div>
 
-        <div class="schedule-day">
+        <div id="day-2" class="schedule-day">
             <h4 class="day-title">Torek</h4>
             <div class="show-row">
-                <div class="show-info">
-                    <span class="show-time"><i class="far fa-clock"></i> 18:00 - 22:00</span>
-                    <span class="show-name">Flashback 80-90</span>
-                </div>
+                <span>18:00 - 22:00 | Flashback 80-90</span>
                 <span class="show-badge badge-live">V ŽIVO!</span>
             </div>
         </div>
 
-        <div class="schedule-day">
+        <div id="day-3" class="schedule-day">
             <h4 class="day-title">Sreda</h4>
             <div class="show-row">
-                <div class="show-info">
-                    <span class="show-time"><i class="far fa-clock"></i> 18:00 - 22:00</span>
-                    <span class="show-name">Nedeljski večer z Borisom</span>
-                </div>
+                <span>18:00 - 22:00 | Nedeljski večer z Borisom</span>
                 <span class="show-badge badge-replay">PONOVITEV</span>
             </div>
         </div>
 
-        <div class="schedule-day">
+        <div id="day-4" class="schedule-day">
             <h4 class="day-title">Četrtek</h4>
             <div class="show-row">
-                <div class="show-info">
-                    <span class="show-time"><i class="far fa-clock"></i> 18:00 - 22:00</span>
-                    <span class="show-name">Glasbeni vrtiljak</span>
-                </div>
+                <span>18:00 - 22:00 | Glasbeni vrtiljak</span>
                 <span class="show-badge badge-live">V ŽIVO!</span>
             </div>
         </div>
 
-        <div class="schedule-day">
+        <div id="day-5" class="schedule-day">
             <h4 class="day-title">Petek</h4>
             <div class="show-row">
-                <div class="show-info">
-                    <span class="show-time"><i class="far fa-clock"></i> 18:00 - 06:00</span>
-                    <span class="show-name">Weekend Party - MIXI</span>
-                </div>
+                <span>18:00 - 06:00 | Weekend Party - MIXI</span>
             </div>
         </div>
 
-        <div class="schedule-day">
+        <div id="day-6" class="schedule-day">
             <h4 class="day-title">Sobota</h4>
             <div class="show-row">
-                <div class="show-info">
-                    <span class="show-time"><i class="far fa-clock"></i> 13:00 - 15:00</span>
-                    <span class="show-name">Glasbeni vrtiljak</span>
-                </div>
-                <span class="show-badge badge-replay">PONOVITEV</span>
-            </div>
-            <div class="show-row">
-                <div class="show-info">
-                    <span class="show-time"><i class="far fa-clock"></i> 18:00 - 06:00</span>
-                    <span class="show-name">Weekend Party - MIXI</span>
-                </div>
+                <span>18:00 - 06:00 | Weekend Party - MIXI</span>
             </div>
         </div>
 
-        <div class="schedule-day">
+        <div id="day-0" class="schedule-day">
             <h4 class="day-title">Nedelja</h4>
             <div class="show-row">
-                <div class="show-info">
-                    <span class="show-time"><i class="far fa-clock"></i> 15:00 - 17:00</span>
-                    <span class="show-name">Podcast meseca</span>
-                </div>
-                <span class="show-badge badge-replay">PONOVITEV</span>
-            </div>
-            <div class="show-row">
-                <div class="show-info">
-                    <span class="show-time"><i class="far fa-clock"></i> 18:00 - 22:00</span>
-                    <span class="show-name">Nedeljski večer</span>
-                </div>
+                <span>18:00 - 22:00 | Nedeljski večer</span>
                 <span class="show-badge badge-live">V ŽIVO!</span>
             </div>
         </div>
-
     </div>
-  </div>
-    
-  <div class="purple-frame">
-    <h3><i class="fas fa-comments"></i> KLEPETALNICA</h3>
-    <iframe src="https://www5.cbox.ws/box/?boxid=961432&boxtag=Lu3k7m" width="100%" height="450" style="border-radius:15px; border:none;"></iframe>
-  </div>
-
-  <style>
-    .contact-emails {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        align-items: center;
-        margin-top: 20px;
-    }
-    .email-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 12px;
-        color: #fff;
-        background: rgba(25, 10, 45, 0.6);
-        border: 1px solid #bc13fe;
-        padding: 15px 30px;
-        border-radius: 12px;
-        text-decoration: none;
-        font-size: 1.1rem;
-        font-weight: bold;
-        transition: all 0.3s ease;
-        box-shadow: 0 0 10px rgba(188, 19, 254, 0.2);
-        width: 100%;
-        max-width: 400px;
-        justify-content: center;
-    }
-    .email-link:hover {
-        transform: translateY(-5px);
-        background: #bc13fe;
-        color: #fff;
-        box-shadow: 0 0 20px #bc13fe, 0 0 40px #bc13fe;
-    }
-    .email-link i {
-        color: #00d4ff;
-        font-size: 1.3rem;
-    }
-    .email-link:hover i {
-        color: #fff;
-    }
-    .contact-desc {
-        color: #aaaaaa;
-        margin-bottom: 25px;
-        font-size: 1rem;
-    }
-  </style>
-
- <div class="purple-frame" style="text-align:center;">
-    <h3 style="justify-content: center;"><i class="fas fa-envelope"></i> KONTAKT</h3>
-    
-    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 30px; margin-top: 20px;">
-        
-        <div style="flex: 1.5; min-width: 200px; display: flex; justify-content: center;">
-            <img src="Logo Radio Wish Booster - TRANSPARENT.png" alt="Radio Logo" style="width: 100%; max-width: 350px; max-height: 200px; object-fit: contain; filter: drop-shadow(0 0 15px #bc13fe);">
-        </div>
-
-        <div class="contact-emails" style="flex: 1; min-width: 280px; display: flex; flex-direction: column; gap: 15px;">
-            <a href="mailto:radiowishbooster@gmail.com" class="email-link">
-                <i class="fas fa-broadcast-tower"></i> radiowishbooster@gmail.com
-            </a>
-            <a href="mailto:k-boost@hotmail.com" class="email-link">
-                <i class="fas fa-headphones"></i> k-boost@hotmail.com
-            </a>
-        </div>
-
-        <div style="flex: 1.5; min-width: 200px; display: flex; justify-content: center;">
-            <img src="dj logo transparent.png" alt="DJ Logo" style="width: 100%; max-width: 380px; max-height: 220px; object-fit: contain; filter: drop-shadow(0 0 15px #00d4ff);">
-        </div>
-
-    </div>
-</div>
-
-</div> <footer>
-  <span class="owner-txt"> Lastnik: Boris</span>
-  <div class="footer-legal" style="margin-top:10px;">
-    <p style="font-size:0.9rem;">Wish Booster Radio je ljubiteljski, nekomercialni in testni projekt ekipe K-BOOST. Spletno mesto je namenjeno izključno promociji glasbene dejavnosti in preizkušanju interaktivnih vsebin. Vse avtorske pravice so last njihovih lastnikov. &copy; 2024-2026. Vse pravice pridržane.</p>
-  </div>
-</footer>
-
-<style>
-  #requestModal {
-      display: none; 
-      position: fixed; 
-      top: 0; left: 0; width: 100%; height: 100%; 
-      background: rgba(0, 0, 0, 0.85); 
-      backdrop-filter: blur(5px); 
-      z-index: 10000; 
-      justify-content: center; 
-      align-items: center; 
-      padding: 20px;
-      box-sizing: border-box;
-  }
-
-  .request-content {
-      width: 100%; 
-      max-width: 850px; 
-      height: 80vh; 
-      max-height: 800px;
-      background: #0b0312; 
-      border: 2px solid #ff00ff; 
-      border-radius: 20px; 
-      box-shadow: 0 0 30px rgba(255, 0, 255, 0.4), 0 0 100px rgba(0,0,0,0.9);
-      padding: 45px 15px 15px 15px; 
-      position: relative; 
-      display: flex; 
-      flex-direction: column;
-      box-sizing: border-box;
-  }
-
-  .request-content iframe {
-      flex-grow: 1; 
-      width: 100%; 
-      border: none; 
-      border-radius: 12px;
-      background: transparent;
-  }
-
-  .close-btn-request {
-      position: absolute; 
-      top: 10px; 
-      right: 15px; 
-      font-size: 2rem; 
-      cursor: pointer; 
-      color: #ff00ff;
-      transition: transform 0.2s, text-shadow 0.2s;
-      z-index: 10;
-  }
-
-  .close-btn-request:hover {
-      transform: scale(1.2);
-      text-shadow: 0 0 15px #ff00ff;
-  }
-</style>
-
-<div id="requestModal">
-  <div class="request-content">
-    <span class="close-btn-request" onclick="closeRequests()"><i class="fas fa-times-circle"></i></span>
-    <iframe id="requestFrame" src=""></iframe>
   </div>
 </div>
 
 <script>
-// NOVO: Funkcija za prikaz opisov storitev v "KDO SMO?"
-function showServiceDesc(service) {
-    const box = document.getElementById('service-description-box');
-    const title = document.getElementById('service-title');
-    const text = document.getElementById('service-text');
-    
-    // TUKAJ VSTAVITE SVOJA BESEDILA
-    const descriptions = {
-        'poroke': {
-            title: 'Nepozabne Poroke',
-            text: 'Vaš dan. Vajina glasba - moja strast. Ustvaril bom vzdušje, ki poveže vse generacije in napolni plesišče z energijo. Z mano bo vajina poročna zabava dogodek, poln veselja in nepozabnih spominov. Pripravljeni na ples do zore? Kontaktirajte me!'
-        },
-        'obletnice': {
-            title: 'Obletnice',
-            text: 'Vsak velik mejnik si zasluži pravo proslavo. Ne glede na to, ali obeležujete, društveni jubilej ali osebni praznik – poskrbim za glasbeno podlago, ki bo povezala preteklost s tisto pravo energijo sedanjega trenutka. Naj bo vaš jubilej dogodek, ki ostane v ponos!'
-        },
-        'rojstni_dnevi': {
-            title: 'Rojstni Dnevi',
-            text: 'Pozabite na povprečne zabave. Ne glede na to, ali gre za okroglo številko ali sproščen večer, prinesem energijo, ki bo premaknila vse goste. Glasba po vašem okusu in vrhunska atmosfera zagotovljena!'
-        },
-        'poslovni': {
-            title: 'Poslovni Dogodki',
-            text: 'Dvignite nivo vašega dogodka. Od elegantne ambientalne podlage do sproščenega druženja (teambuilding) ali nore zabave po uradnem delu. Profesionalen pristop, vrhunska tehnika in prava glasbena selekcija.'
-        },
-        'maturantski_plesi': {
-            title: 'Valete & Maturantski Plesi',
-            text: 'Najboljša zabava za zaključek najlepših let! Poskrbim za najnovejše hite, svetlobne efekte, meglo in neustavljivo energijo, ki bo poskrbela, da se bo o vašem plesu govorilo še celo naslednje šolsko leto.'
-        }
-    };
+function updateScheduleHighlight() {
+  const now = new Date();
+  const day = now.getDay(); // 0=Ned, 1=Pon, ..., 6=Sob
+  
+  // Najprej odstranimo oznako z vseh dni
+  document.querySelectorAll('.schedule-day').forEach(el => {
+    el.classList.remove('day-active');
+  });
 
-    title.innerText = descriptions[service].title;
-    text.innerText = descriptions[service].text;
-    
-    box.style.display = 'block';
-    
-    // Avtomatski scroll do opisa, da uporabnik takoj vidi besedilo
-    box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  // Osvetlimo trenutni dan
+  const activeDayElement = document.getElementById('day-' + day);
+  if (activeDayElement) {
+    activeDayElement.classList.add('day-active');
+  }
 }
 
-// FUNKCIJA ZA SMS GUMB - PREVERJA ČAS IN AKTIVIRA GUMB
 function updateSmsButton() {
   const now = new Date();
-  const day = now.getDay(); // 0=Nedelja, 2=Torek, 4=Četrtek
+  const day = now.getDay();
   const hour = now.getHours();
   const smsBtn = document.getElementById('sms-button');
-  const smsHint = document.getElementById('sms-hint');
+  
+  const isLiveTime = (day === 2 || day === 4 || day === 0) && (hour >= 18 && hour < 22);
 
-  // ČASOVNA LOGIKA: Torek(2), Četrtek(4) ali Nedelja(0) od 18:00 do 21:59 (skupaj 22:00)
-  const isLiveDay = (day === 2 || day === 4 || day === 0);
-  const isLiveTime = (hour >= 18 && hour < 22);
-
-  if (isLiveDay && isLiveTime) {
-    // V ŽIVO
+  if (isLiveTime) {
     smsBtn.classList.remove('sms-inactive');
     smsBtn.classList.add('sms-live');
-    smsBtn.style.pointerEvents = 'auto'; 
-    smsHint.innerHTML = "<span style='color: #00d4ff;'>🔴 V ŽIVO! Pošlji SMS željo v studio.</span>";
   } else {
-    // NI ODDAJE
-    smsBtn.classList.remove('sms-live');
     smsBtn.classList.add('sms-inactive');
-    smsBtn.style.pointerEvents = 'none'; 
-    smsHint.innerHTML = "SMS želje sprejemamo v živo: Tor, Čet in Ned (18:00 - 22:00).";
+    smsBtn.classList.remove('sms-live');
   }
-}
-
-function toggleAbout() {
-  const about = document.getElementById("about");
-  about.style.display = (about.style.display === "none") ? "block" : "none";
-  if(about.style.display === "block") {
-    about.scrollIntoView({behavior:'smooth'});
-    // Ob zapiranju in ponovnem odpiranju skrijemo opis storitve, da je okno čisto
-    document.getElementById('service-description-box').style.display = 'none';
-  }
-}
-
-function openRequests() {
-  document.getElementById('requestFrame').src = "https://a13.asurahosting.com/public/wish_booster_radio/embed-requests";
-  document.getElementById('requestModal').style.display = 'flex';
-  document.body.style.overflow = 'hidden';
-}
-
-function closeRequests() {
-  document.getElementById('requestModal').style.display = 'none';
-  document.getElementById('requestFrame').src = "";
-  document.body.style.overflow = 'auto';
-}
-
-function acceptCookies() {
-  document.getElementById('cookie-banner').style.display = 'none';
-  localStorage.setItem('cookiesAccepted', 'true');
 }
 
 window.onload = function() {
-  if(localStorage.getItem('cookiesAccepted')) {
-    document.getElementById('cookie-banner').style.display = 'none';
-  }
-  // Zaženemo preverjanje takoj
-  updateSmsButton();
-  // Nato preverjamo vsako minuto
-  setInterval(updateSmsButton, 60000);
-}
+  updateScheduleHighlight(); // Osvetli dan
+  updateSmsButton(); // Preveri SMS gumb
+  setInterval(updateScheduleHighlight, 60000); // Preverja vsako minuto
+};
 
 function showPhone() {
   document.getElementById('bookingBtn').style.display = 'none';
   document.getElementById('phoneLink').style.display = 'inline-flex';
 }
-
-window.addEventListener('keydown', function(e) {
-  if(e.key === 'Escape') closeRequests();
-});
 </script>
 </body>
 </html>
