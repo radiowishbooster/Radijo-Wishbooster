@@ -580,6 +580,45 @@
       flex-direction: column;
       gap: 4px;
   }
+
+/* ====== AKTIVNI DAN ====== */
+.schedule-day.active-day {
+    background: linear-gradient(90deg, rgba(0,212,255,0.15), rgba(138,43,226,0.15));
+    border-left: 6px solid #00f6ff;
+    box-shadow: 0 0 25px rgba(0, 212, 255, 0.4);
+    transform: scale(1.02);
+}
+
+/* ====== LIVE ODDAJA ====== */
+.schedule-day.live-now {
+    animation: livePulse 1.5s infinite ease-in-out;
+    border-left: 6px solid #ff00ff;
+    box-shadow: 0 0 30px rgba(255, 0, 255, 0.6);
+}
+
+@keyframes livePulse {
+    0% { box-shadow: 0 0 15px rgba(255, 0, 255, 0.4); }
+    50% { box-shadow: 0 0 40px rgba(255, 0, 255, 1); }
+    100% { box-shadow: 0 0 15px rgba(255, 0, 255, 0.4); }
+}
+
+.live-label {
+    margin-top: 10px;
+    display: inline-block;
+    background: #ff00ff;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    animation: blinkLive 1s infinite;
+}
+
+@keyframes blinkLive {
+    0%,100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+    
   .show-time {
       font-size: 0.85rem;
       color: #aaaaaa;
@@ -625,102 +664,102 @@
   }
   </style>
 
-  <div class="purple-frame">
-    <h3><i class="fas fa-calendar-alt"></i> RADIJSKI URNIK</h3>
-    
-    <div class="schedule-container">
-        
-        <div class="schedule-day">
-            <h4 class="day-title">Ponedeljek</h4>
-            <div class="show-row">
-                <div class="show-info">
-                    <span class="show-time"><i class="far fa-clock"></i> 18:00 - 22:00</span>
-                    <span class="show-name">Flashback 80-90</span>
-                </div>
-                <span class="show-badge badge-replay">PONOVITEV</span>
-            </div>
-        </div>
+<div class="purple-frame">
+<h3><i class="fas fa-calendar-alt"></i> RADIJSKI URNIK</h3>
 
-        <div class="schedule-day">
-            <h4 class="day-title">Torek</h4>
-            <div class="show-row">
-                <div class="show-info">
-                    <span class="show-time"><i class="far fa-clock"></i> 18:00 - 22:00</span>
-                    <span class="show-name">Flashback 80-90</span>
-                </div>
-                <span class="show-badge badge-live">V ŽIVO!</span>
-            </div>
-        </div>
+<div class="schedule-container">
 
-        <div class="schedule-day">
-            <h4 class="day-title">Sreda</h4>
-            <div class="show-row">
-                <div class="show-info">
-                    <span class="show-time"><i class="far fa-clock"></i> 18:00 - 22:00</span>
-                    <span class="show-name">Nedeljski večer z Borisom</span>
-                </div>
-                <span class="show-badge badge-replay">PONOVITEV</span>
-            </div>
-        </div>
+<div class="schedule-day" data-day="1">
+<h4 class="day-title">Ponedeljek</h4>
+<div class="show-row" data-start="18" data-end="22">
+<div class="show-info">
+<span class="show-time"><i class="far fa-clock"></i> 18:00 - 22:00</span>
+<span class="show-name">Flashback 80-90</span>
+</div>
+<span class="show-badge badge-replay">PONOVITEV</span>
+</div>
+</div>
 
-        <div class="schedule-day">
-            <h4 class="day-title">Četrtek</h4>
-            <div class="show-row">
-                <div class="show-info">
-                    <span class="show-time"><i class="far fa-clock"></i> 18:00 - 22:00</span>
-                    <span class="show-name">Glasbeni vrtiljak</span>
-                </div>
-                <span class="show-badge badge-live">V ŽIVO!</span>
-            </div>
-        </div>
+<div class="schedule-day" data-day="2">
+<h4 class="day-title">Torek</h4>
+<div class="show-row" data-start="18" data-end="22">
+<div class="show-info">
+<span class="show-time"><i class="far fa-clock"></i> 18:00 - 22:00</span>
+<span class="show-name">Flashback 80-90</span>
+</div>
+<span class="show-badge badge-live">V ŽIVO!</span>
+</div>
+</div>
 
-        <div class="schedule-day">
-            <h4 class="day-title">Petek</h4>
-            <div class="show-row">
-                <div class="show-info">
-                    <span class="show-time"><i class="far fa-clock"></i> 18:00 - 06:00</span>
-                    <span class="show-name">Weekend Party - MIXI</span>
-                </div>
-            </div>
-        </div>
+<div class="schedule-day" data-day="3">
+<h4 class="day-title">Sreda</h4>
+<div class="show-row" data-start="18" data-end="22">
+<div class="show-info">
+<span class="show-time"><i class="far fa-clock"></i> 18:00 - 22:00</span>
+<span class="show-name">Nedeljski večer z Borisom</span>
+</div>
+<span class="show-badge badge-replay">PONOVITEV</span>
+</div>
+</div>
 
-        <div class="schedule-day">
-            <h4 class="day-title">Sobota</h4>
-            <div class="show-row">
-                <div class="show-info">
-                    <span class="show-time"><i class="far fa-clock"></i> 13:00 - 15:00</span>
-                    <span class="show-name">Glasbeni vrtiljak</span>
-                </div>
-                <span class="show-badge badge-replay">PONOVITEV</span>
-            </div>
-            <div class="show-row">
-                <div class="show-info">
-                    <span class="show-time"><i class="far fa-clock"></i> 18:00 - 06:00</span>
-                    <span class="show-name">Weekend Party - MIXI</span>
-                </div>
-            </div>
-        </div>
+<div class="schedule-day" data-day="4">
+<h4 class="day-title">Četrtek</h4>
+<div class="show-row" data-start="18" data-end="22">
+<div class="show-info">
+<span class="show-time"><i class="far fa-clock"></i> 18:00 - 22:00</span>
+<span class="show-name">Glasbeni vrtiljak</span>
+</div>
+<span class="show-badge badge-live">V ŽIVO!</span>
+</div>
+</div>
 
-        <div class="schedule-day">
-            <h4 class="day-title">Nedelja</h4>
-            <div class="show-row">
-                <div class="show-info">
-                    <span class="show-time"><i class="far fa-clock"></i> 15:00 - 17:00</span>
-                    <span class="show-name">Podcast meseca</span>
-                </div>
-                <span class="show-badge badge-replay">PONOVITEV</span>
-            </div>
-            <div class="show-row">
-                <div class="show-info">
-                    <span class="show-time"><i class="far fa-clock"></i> 18:00 - 22:00</span>
-                    <span class="show-name">Nedeljski večer</span>
-                </div>
-                <span class="show-badge badge-live">V ŽIVO!</span>
-            </div>
-        </div>
+<div class="schedule-day" data-day="5">
+<h4 class="day-title">Petek</h4>
+<div class="show-row" data-start="18" data-end="6">
+<div class="show-info">
+<span class="show-time"><i class="far fa-clock"></i> 18:00 - 06:00</span>
+<span class="show-name">Weekend Party - MIXI</span>
+</div>
+</div>
+</div>
 
-    </div>
-  </div>
+<div class="schedule-day" data-day="6">
+<h4 class="day-title">Sobota</h4>
+<div class="show-row" data-start="13" data-end="15">
+<div class="show-info">
+<span class="show-time"><i class="far fa-clock"></i> 13:00 - 15:00</span>
+<span class="show-name">Glasbeni vrtiljak</span>
+</div>
+<span class="show-badge badge-replay">PONOVITEV</span>
+</div>
+<div class="show-row" data-start="18" data-end="6">
+<div class="show-info">
+<span class="show-time"><i class="far fa-clock"></i> 18:00 - 06:00</span>
+<span class="show-name">Weekend Party - MIXI</span>
+</div>
+</div>
+</div>
+
+<div class="schedule-day" data-day="0">
+<h4 class="day-title">Nedelja</h4>
+<div class="show-row" data-start="15" data-end="17">
+<div class="show-info">
+<span class="show-time"><i class="far fa-clock"></i> 15:00 - 17:00</span>
+<span class="show-name">Podcast meseca</span>
+</div>
+<span class="show-badge badge-replay">PONOVITEV</span>
+</div>
+<div class="show-row" data-start="18" data-end="22">
+<div class="show-info">
+<span class="show-time"><i class="far fa-clock"></i> 18:00 - 22:00</span>
+<span class="show-name">Nedeljski večer</span>
+</div>
+<span class="show-badge badge-live">V ŽIVO!</span>
+</div>
+</div>
+
+</div>
+</div>
     
   <div class="purple-frame">
     <h3><i class="fas fa-comments"></i> KLEPETALNICA</h3>
@@ -961,14 +1000,60 @@ function acceptCookies() {
   localStorage.setItem('cookiesAccepted', 'true');
 }
 
+  function highlightTodaySchedule() {
+    const now = new Date();
+    const today = now.getDay();
+    const currentHour = now.getHours();
+
+    const allDays = document.querySelectorAll('.schedule-day');
+
+    allDays.forEach(day => {
+        day.classList.remove('active-day','live-now');
+        const oldLabel = day.querySelector('.live-label');
+        if(oldLabel) oldLabel.remove();
+
+        const dayNumber = parseInt(day.getAttribute('data-day'));
+
+        if (dayNumber === today) {
+            day.classList.add('active-day');
+
+            const shows = day.querySelectorAll('.show-row');
+
+            shows.forEach(show => {
+                const start = parseInt(show.getAttribute('data-start'));
+                const end = parseInt(show.getAttribute('data-end'));
+
+                let isLive = false;
+
+                if (start < end) {
+                    isLive = currentHour >= start && currentHour < end;
+                } else {
+                    isLive = currentHour >= start || currentHour < end;
+                }
+
+                if (isLive) {
+                    day.classList.add('live-now');
+
+                    const label = document.createElement('div');
+                    label.className = 'live-label';
+                    label.innerText = '🔴 TRENUTNO NA SPOREDU';
+                    day.appendChild(label);
+                }
+            });
+        }
+    });
+}
+
 window.onload = function() {
   if(localStorage.getItem('cookiesAccepted')) {
     document.getElementById('cookie-banner').style.display = 'none';
   }
-  // Zaženemo preverjanje takoj
+
   updateSmsButton();
-  // Nato preverjamo vsako minuto
   setInterval(updateSmsButton, 60000);
+
+  highlightTodaySchedule();
+  setInterval(highlightTodaySchedule, 60000);
 }
 
 function showPhone() {
