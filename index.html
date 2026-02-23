@@ -816,15 +816,14 @@
 
       </div>
 
-  <div class="purple-frame" style="text-align:center; margin-bottom: 0;">
+ <div class="purple-frame" style="text-align:center; margin-bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: space-evenly; height: 100%;">
         <style>
           .contact-emails {
               display: flex;
               flex-direction: column;
               gap: 15px; 
               align-items: center;
-              /* Rahel dvig navzgor */
-              margin-top: -15px; 
+              width: 100%;
           }
           .email-link {
               display: inline-flex;
@@ -836,7 +835,7 @@
               padding: 15px 30px;
               border-radius: 12px;
               text-decoration: none;
-              font-size: 1.35rem; /* Zlata sredina za velikost! */
+              font-size: 1.35rem; 
               font-weight: 800;
               transition: all 0.3s ease;
               box-shadow: 0 0 10px rgba(188, 19, 254, 0.3);
@@ -858,38 +857,31 @@
               color: #fff;
           }
           
-          /* VARNOSTNO PRAVILO: Da na manjših ekranih ne gre čez rob */
+          /* VARNOSTNO PRAVILO ZA TELEFONE */
           @media(max-width: 1200px) {
               .email-link {
                   font-size: 1.1rem;
                   padding: 12px 20px;
               }
-              .contact-emails {
-                  margin-top: 0;
-              }
           }
         </style>
-        <h3 style="justify-content: center;"><i class="fas fa-envelope"></i> KONTAKT</h3>
         
-        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 30px; margin-top: 20px;">
-            
-            <div style="flex: 1.5; min-width: 200px; display: flex; justify-content: center;">
-                <img src="Logo Radio Wish Booster - TRANSPARENT.png" alt="Radio Logo" style="width: 100%; max-width: 350px; max-height: 200px; object-fit: contain; filter: drop-shadow(0 0 15px #bc13fe);">
-            </div>
+        <h3 style="justify-content: center; margin: 0;"><i class="fas fa-envelope"></i> KONTAKT</h3>
+        
+        <img src="Logo Radio Wish Booster - TRANSPARENT.png" alt="Radio Logo" style="width: 100%; max-width: 280px; max-height: 160px; object-fit: contain; filter: drop-shadow(0 0 15px #bc13fe);">
 
-            <div class="contact-emails" style="flex: 1; min-width: 320px; display: flex; flex-direction: column;">
-                <a href="mailto:radiowishbooster@gmail.com" class="email-link">
-                    <i class="fas fa-broadcast-tower"></i> radiowishbooster@gmail.com
-                </a>
-                <a href="mailto:k-boost@hotmail.com" class="email-link">
-                    <i class="fas fa-headphones"></i> k-boost@hotmail.com
-                </a>
-            </div>
+        <div class="contact-emails">
+            <a href="mailto:radiowishbooster@gmail.com" class="email-link">
+                <i class="fas fa-broadcast-tower"></i> radiowishbooster@gmail.com
+            </a>
+            <a href="mailto:k-boost@hotmail.com" class="email-link">
+                <i class="fas fa-headphones"></i> k-boost@hotmail.com
+            </a>
+        </div>
 
-            <div style="flex: 1.5; min-width: 200px; display: flex; justify-content: center;">
-                <img src="dj logo transparent.png" alt="DJ Logo" style="width: 100%; max-width: 380px; max-height: 220px; object-fit: contain; filter: drop-shadow(0 0 15px #00d4ff);">
-            </div>
+        <img src="dj logo transparent.png" alt="DJ Logo" style="width: 100%; max-width: 320px; max-height: 180px; object-fit: contain; filter: drop-shadow(0 0 15px #00d4ff);">
 
+      </div>
         </div>
       </div>
   
