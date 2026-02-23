@@ -240,21 +240,20 @@
     margin-bottom: 10px;
   }
 
-  /* Social icons - POVEČANE IKONE */
+  /* Social icons */
   .social-icons {
     display: flex;
     justify-content: center;
-    gap: 30px; /* Malo večji razmik med ikonami */
-    margin: 30px 0;
+    gap: 15px;
+    margin-bottom: 20px;
   }
   .social-icons a {
-    font-size: 4.8rem; /* Povečano z 1.8rem na 2.8rem */
+    font-size: 5.8rem;
     color: #fff;
-    transition: all 0.3s ease;
+    transition: color 0.3s;
   }
   .social-icons a:hover {
     color: #00d4ff;
-    transform: scale(1.1);
   }
 
   /* TikTok Live button */
@@ -316,9 +315,6 @@
     iframe {
       height: auto;
     }
-    .social-icons a {
-      font-size: 2.4rem; /* Na telefonu malenkost manjše, da grejo v vrsto */
-    }
   }
 </style>
 </head>
@@ -344,7 +340,7 @@
   </div>
   
   <div class="btn-wrapper">
-      <a id="sms-button" href="sms:+38641772470?&body=Moje ime:%0APozdravljam:%0AZaželel sem si pesem od: " class="btn sms-inactive">
+      <a id="sms-button" href="sms:+38641772470?&body=Moje ime:%0APozdravil bi:%0AZaželel sem si pesem od: " class="btn sms-inactive">
         <i class="fas fa-comment-dots"></i> SMS ŽELJA
       </a>
       <p id="sms-hint" class="btn-hint">
@@ -462,7 +458,7 @@
       </div>
   </div>
 
-  <div class="social-icons" style="text-align:center;">
+  <div class="social-icons" style="text-align:center; margin:20px 0;">
     <a href="https://www.facebook.com/profile.php?id=61584601392280" target="_blank"><i class="fab fa-facebook"></i></a>
     <a href="https://www.youtube.com/@SLOdrumer/videos" target="_blank"><i class="fab fa-youtube"></i></a>
     <a href="https://www.tiktok.com/@wishbooster" target="_blank"><i class="fab fa-tiktok"></i></a>
@@ -848,19 +844,30 @@
 </div>
 
 <script>
-// FUNKCIJA ZA SMS GUMB - TESTIRANJE
+// FUNKCIJA ZA SMS GUMB - PREVERJA ČAS IN AKTIVIRA GUMB
 function updateSmsButton() {
+  const now = new Date();
+  const day = now.getDay(); // 0=Nedelja, 2=Torek, 4=Četrtek
+  const hour = now.getHours();
   const smsBtn = document.getElementById('sms-button');
   const smsHint = document.getElementById('sms-hint');
 
-  // TESTNI NAČIN: Prisilno aktiven gumb
-  const isTestLive = true; 
+  // ČASOVNA LOGIKA: Torek(2), Četrtek(4) ali Nedelja(0) od 18:00 do 21:59 (skupaj 22:00)
+  const isLiveDay = (day === 2 || day === 4 || day === 0);
+  const isLiveTime = (hour >= 18 && hour < 22);
 
-  if (isTestLive) {
+  if (isLiveDay && isLiveTime) {
+    // V ŽIVO
     smsBtn.classList.remove('sms-inactive');
     smsBtn.classList.add('sms-live');
     smsBtn.style.pointerEvents = 'auto'; 
-    smsHint.innerHTML = "<span style='color: #00d4ff;'>🔴 TESTIRANJE: Preveri SMS besedilo in nove vrstice.</span>";
+    smsHint.innerHTML = "<span style='color: #00d4ff;'>🔴 V ŽIVO! Pošlji SMS željo v studio.</span>";
+  } else {
+    // NI ODDAJE
+    smsBtn.classList.remove('sms-live');
+    smsBtn.classList.add('sms-inactive');
+    smsBtn.style.pointerEvents = 'none'; 
+    smsHint.innerHTML = "SMS želje sprejemamo v živo: Tor, Čet in Ned (18:00 - 22:00).";
   }
 }
 
@@ -893,7 +900,10 @@ window.onload = function() {
   if(localStorage.getItem('cookiesAccepted')) {
     document.getElementById('cookie-banner').style.display = 'none';
   }
+  // Zaženemo preverjanje takoj
   updateSmsButton();
+  // Nato preverjamo vsako minuto
+  setInterval(updateSmsButton, 60000);
 }
 
 function showPhone() {
