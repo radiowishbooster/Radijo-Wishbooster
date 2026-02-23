@@ -1,311 +1,360 @@
 <!DOCTYPE html>
 <html lang="sl">
 <head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2TP4JHF4EP"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-2TP4JHF4EP');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2TP4JHF4EP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-2TP4JHF4EP');
+    </script>
 
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Radio Wishbooster & Dj K-Boost</title>
-<link rel="icon" type="image/png" href="star.png" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Radio Wishbooster & Dj K-Boost</title>
+    <link rel="icon" type="image/png" href="star.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet" />
 
-<style>
-  body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    background: #000;
-    color: #fff;
-    line-height: 1.6;
-    padding-bottom: 100px;
-    user-select: none;
-  }
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background: #000;
+            color: #fff;
+            line-height: 1.6;
+            padding-bottom: 100px;
+            user-select: none;
+        }
 
-  /* Header */
-  header {
-    background: #111;
-    padding: 20px;
-    border-bottom: 2px solid #8a2be2;
-    text-align: center;
-  }
-  
-  header h1 {
-    margin: 0;
-    color: #bc13fe; 
-    font-size: 2rem;
-    font-weight: 900;
-    text-shadow: 0 0 5px #bc13fe, 0 0 15px #bc13fe; 
-  }
+        /* Header */
+        header {
+            background: #111;
+            padding: 20px;
+            border-bottom: 2px solid #8a2be2;
+            text-align: center;
+        }
+        
+        header h1 {
+            margin: 0;
+            color: #bc13fe; 
+            font-size: 2rem;
+            font-weight: 900;
+            text-shadow: 0 0 5px #bc13fe, 0 0 15px #bc13fe; 
+        }
 
-  /* Gumbi */
-  .btn-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin: 20px auto;
-    max-width: 1200px;
-    align-items: stretch;
-  }
+        /* Gumbi */
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px auto;
+            max-width: 1200px;
+            align-items: stretch;
+        }
 
-  .btn-wrapper {
-    flex: 1;
-    min-width: 220px;
-    max-width: 280px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+        .btn-wrapper {
+            flex: 1;
+            min-width: 220px;
+            max-width: 280px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-  .btn {
-    width: 100%;
-    min-height: 65px;
-    padding: 15px 20px;
-    border-radius: 12px;
-    font-weight: 800;
-    text-transform: uppercase;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-  }
+        .btn {
+            width: 100%;
+            min-height: 65px;
+            padding: 15px 20px;
+            border-radius: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
 
-  .btn-about { background: linear-gradient(45deg, #8a2be2, #00d4ff); color: #fff; }
-  .btn-request { background: #ff00ff; color: #fff; box-shadow: 0 0 15px rgba(255, 0, 255, 0.7); }
-  .btn-booking { background: #25d366; color: #000; }
+        .btn-about { background: linear-gradient(45deg, #8a2be2, #00d4ff); color: #fff; }
+        .btn-request { background: #ff00ff; color: #fff; box-shadow: 0 0 15px rgba(255, 0, 255, 0.7); }
+        .btn-booking { background: #25d366; color: #000; }
 
-  /* SMS GUMB STILI */
-  .sms-inactive { background: #222 !important; color: #555 !important; opacity: 0.6; cursor: not-allowed; }
-  .sms-live {
-    background: linear-gradient(45deg, #00d4ff, #0055ff) !important;
-    color: #fff !important;
-    box-shadow: 0 0 15px rgba(0, 212, 255, 0.7);
-    animation: smsPulse 1.5s infinite ease-in-out;
-  }
-  @keyframes smsPulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(0, 212, 255, 1); }
-    100% { transform: scale(1); }
-  }
+        /* SMS GUMB STILI */
+        .sms-inactive { background: #222 !important; color: #555 !important; opacity: 0.6; cursor: not-allowed; }
+        .sms-live {
+            background: linear-gradient(45deg, #00d4ff, #0055ff) !important;
+            color: #fff !important;
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.7);
+            animation: smsPulse 1.5s infinite ease-in-out;
+        }
+        @keyframes smsPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(0, 212, 255, 1); }
+            100% { transform: scale(1); }
+        }
 
-  /* URNIK STILI - NOVO */
-  .schedule-day {
-    background: rgba(25, 10, 45, 0.4); 
-    border-left: 4px solid #333; 
-    border-radius: 8px;
-    padding: 15px 20px;
-    margin-bottom: 15px;
-    transition: all 0.4s ease;
-  }
+        /* OKVIR ZA URNIK (MANJKALO) */
+        .purple-frame {
+            border: 2px solid #8a2be2;
+            border-radius: 20px;
+            padding: 25px;
+            background: rgba(138, 43, 226, 0.05);
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.2);
+        }
 
-  /* Osvetlitev aktivnega dne */
-  .day-active {
-    border-left: 4px solid #00d4ff !important;
-    background: rgba(0, 212, 255, 0.1) !important;
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
-    transform: scale(1.02);
-  }
-  
-  .day-active h4 {
-    color: #00d4ff !important;
-    text-shadow: 0 0 10px #00d4ff;
-  }
+        .purple-frame h3 {
+            color: #bc13fe;
+            text-align: center;
+            font-size: 1.5rem;
+            margin-top: 0;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
 
-  .day-title {
-    margin: 0 0 12px 0;
-    color: #bc13fe; 
-    font-size: 1.2rem;
-    font-weight: 800;
-    text-transform: uppercase;
-  }
+        /* URNIK STILI */
+        .schedule-day {
+            background: rgba(25, 10, 45, 0.4); 
+            border-left: 4px solid #333; 
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            transition: all 0.4s ease;
+        }
 
-  .show-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-  }
+        .day-active {
+            border-left: 4px solid #00d4ff !important;
+            background: rgba(0, 212, 255, 0.1) !important;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+            transform: scale(1.02);
+        }
+        
+        .day-active h4 {
+            color: #00d4ff !important;
+            text-shadow: 0 0 10px #00d4ff;
+        }
 
-  .show-badge {
-    font-size: 0.75rem;
-    font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 6px;
-    text-transform: uppercase;
-  }
-  .badge-live { background: rgba(255, 0, 255, 0.15); color: #ff00ff; border: 1px solid #ff00ff; }
-  .badge-replay { background: rgba(0, 255, 0, 0.1); color: #00ff00; border: 1px solid #00ff00; }
+        .day-title {
+            margin: 0 0 12px 0;
+            color: #bc13fe; 
+            font-size: 1.2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
 
-  /* Socialne ikone */
-  .social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin: 20px 0;
-  }
-  .social-icons a { font-size: 3.5rem; color: #fff; transition: all 0.3s; }
-  .social-icons a:hover { color: #00d4ff; transform: scale(1.1); }
-</style>
+        .show-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        .show-badge {
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 6px;
+            text-transform: uppercase;
+        }
+        .badge-live { background: rgba(255, 0, 255, 0.15); color: #ff00ff; border: 1px solid #ff00ff; }
+        .badge-replay { background: rgba(0, 255, 0, 0.1); color: #00ff00; border: 1px solid #00ff00; }
+
+        /* Socialne ikone */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .social-icons a { font-size: 3.5rem; color: #fff; transition: all 0.3s; }
+        .social-icons a:hover { color: #00d4ff; transform: scale(1.1); }
+
+        /* Sekcija KDO SMO (MANJKALO) */
+        #about-section {
+            display: none;
+            background: #111;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px auto;
+            max-width: 800px;
+            border: 1px solid #00d4ff;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 
 <header>
-  <h1>Radio Wish Booster & Dj K-Boost</h1>
+    <h1>Radio Wish Booster & Dj K-Boost</h1>
 </header>
 
 <div class="btn-container">
-  <div class="btn-wrapper">
-    <button class="btn btn-about" onclick="toggleAbout()"><i class="fas fa-fire"></i> KDO SMO?</button>
-  </div>
-  
-  <div class="btn-wrapper">
-      <a id="sms-button" href="sms:+38641772470?&body=Moje ime:%0APozdravil bi:%0AZaželel sem si pesem od: " class="btn sms-inactive">
-        <i class="fas fa-comment-dots"></i> SMS ŽELJA
-      </a>
-      <p id="sms-hint" style="font-size: 0.75rem; color: #888; margin-top: 10px;">SMS želje: Tor, Čet in Ned (18-22h).</p>
-  </div>
+    <div class="btn-wrapper">
+        <button class="btn btn-about" onclick="toggleAbout()"><i class="fas fa-fire"></i> KDO SMO?</button>
+    </div>
+    
+    <div class="btn-wrapper">
+        <a id="sms-button" href="sms:+38641772470?&body=Moje ime:%0APozdravil bi:%0AZaželel sem si pesem od: " class="btn sms-inactive">
+            <i class="fas fa-comment-dots"></i> SMS ŽELJA
+        </a>
+        <p id="sms-hint" style="font-size: 0.75rem; color: #888; margin-top: 10px;">SMS želje: Tor, Čet in Ned (18-22h).</p>
+    </div>
 
-  <div class="btn-wrapper">
-      <button class="btn btn-request" onclick="openRequests()"><i class="fas fa-music"></i> GLASBENA ŽELJA</button>
-  </div>
+    <div class="btn-wrapper">
+        <button class="btn btn-request" onclick="openRequests()"><i class="fas fa-music"></i> GLASBENA ŽELJA</button>
+    </div>
 
-  <div class="btn-wrapper">
-      <button id="bookingBtn" class="btn btn-booking" onclick="showPhone()"><i class="fas fa-calendar-check"></i> BOOKING</button>
-      <a id="phoneLink" href="tel:041772470" style="display:none; color:#00d4ff; font-size:1.5rem; font-weight:800; text-decoration:none;">041 772 470</a>
-  </div>
+    <div class="btn-wrapper">
+        <button id="bookingBtn" class="btn btn-booking" onclick="showPhone()"><i class="fas fa-calendar-check"></i> BOOKING</button>
+        <a id="phoneLink" href="tel:041772470" style="display:none; color:#00d4ff; font-size:1.5rem; font-weight:800; text-decoration:none;">041 772 470</a>
+    </div>
+</div>
+
+<div id="about-section">
+    <h3>O nas</h3>
+    <p>Dobrodošli na Radio Wish Booster! Smo vaša najljubša postaja za najboljše hite 80ih, 90ih in modernih ritmov.</p>
 </div>
 
 <div class="social-icons">
-  <a href="#"><i class="fab fa-facebook"></i></a>
-  <a href="#"><i class="fab fa-youtube"></i></a>
-  <a href="#"><i class="fab fa-tiktok"></i></a>
-  <a href="#"><i class="fab fa-youtube"></i></a>
-  <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-youtube"></i></a>
+    <a href="#"><i class="fab fa-tiktok"></i></a>
+    <a href="#"><i class="fab fa-youtube"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
 </div>
 
 <div class="main-content" style="max-width: 1100px; margin: 0 auto; padding: 20px;">
-  <div class="purple-frame">
-    <h3><i class="fas fa-calendar-alt"></i> RADIJSKI URNIK</h3>
-    
-    <div class="schedule-container">
-        <div id="day-1" class="schedule-day">
-            <h4 class="day-title">Ponedeljek</h4>
-            <div class="show-row">
-                <span>20:00 - 22:00 | Flashback 80-90</span>
-                <span class="show-badge badge-replay">PONOVITEV</span>
+    <div class="purple-frame">
+        <h3><i class="fas fa-calendar-alt"></i> RADIJSKI URNIK</h3>
+        
+        <div class="schedule-container">
+            <div id="day-1" class="schedule-day">
+                <h4 class="day-title">Ponedeljek</h4>
+                <div class="show-row">
+                    <span>20:00 - 22:00 | Flashback 80-90</span>
+                    <span class="show-badge badge-replay">PONOVITEV</span>
+                </div>
             </div>
-        </div>
 
-        <div id="day-2" class="schedule-day">
-            <h4 class="day-title">Torek</h4>
-            <div class="show-row">
-                <span>18:00 - 22:00 | Flashback 80-90</span>
-                <span class="show-badge badge-live">V ŽIVO!</span>
+            <div id="day-2" class="schedule-day">
+                <h4 class="day-title">Torek</h4>
+                <div class="show-row">
+                    <span>18:00 - 22:00 | Flashback 80-90</span>
+                    <span class="show-badge badge-live">V ŽIVO!</span>
+                </div>
             </div>
-        </div>
 
-        <div id="day-3" class="schedule-day">
-            <h4 class="day-title">Sreda</h4>
-            <div class="show-row">
-                <span>20:00 - 22:00 | Nedeljski večer z Borisom</span>
-                <span class="show-badge badge-replay">PONOVITEV</span>
+            <div id="day-3" class="schedule-day">
+                <h4 class="day-title">Sreda</h4>
+                <div class="show-row">
+                    <span>20:00 - 22:00 | Nedeljski večer z Borisom</span>
+                    <span class="show-badge badge-replay">PONOVITEV</span>
+                </div>
             </div>
-        </div>
 
-        <div id="day-4" class="schedule-day">
-            <h4 class="day-title">Četrtek</h4>
-            <div class="show-row">
-                <span>18:00 - 22:00 | Glasbeni vrtiljak</span>
-                <span class="show-badge badge-live">V ŽIVO!</span>
+            <div id="day-4" class="schedule-day">
+                <h4 class="day-title">Četrtek</h4>
+                <div class="show-row">
+                    <span>18:00 - 22:00 | Glasbeni vrtiljak</span>
+                    <span class="show-badge badge-live">V ŽIVO!</span>
+                </div>
             </div>
-        </div>
 
-        <div id="day-5" class="schedule-day">
-            <h4 class="day-title">Petek</h4>
-            <div class="show-row">
-                <span>18:00 - 06:00 | Weekend Party - MIXI</span>
+            <div id="day-5" class="schedule-day">
+                <h4 class="day-title">Petek</h4>
+                <div class="show-row">
+                    <span>18:00 - 06:00 | Weekend Party - MIXI</span>
+                </div>
             </div>
-        </div>
 
-        <div id="day-6" class="schedule-day">
-            <h4 class="day-title">Sobota</h4>
-            <div class="show-row">
-                <span>13:00 - 15:00 | Glasbeni vrtiljak</span>
-                <span class="show-badge badge-replay">PONOVITEV</span>
+            <div id="day-6" class="schedule-day">
+                <h4 class="day-title">Sobota</h4>
+                <div class="show-row">
+                    <span>13:00 - 15:00 | Glasbeni vrtiljak</span>
+                    <span class="show-badge badge-replay">PONOVITEV</span>
+                </div>
+                <div class="show-row">
+                    <span>18:00 - 06:00 | Weekend Party - MIXI</span>
+                </div>
             </div>
-            <div class="show-row">
-                <span>18:00 - 06:00 | Weekend Party - MIXI</span>
-            </div>
-        </div>
 
-        <div id="day-0" class="schedule-day">
-            <h4 class="day-title">Nedelja</h4>
-            <div class="show-row">
-                <span>15:00 - 17:00 | Podcast meseca</span>
-                <span class="show-badge badge-replay">PONOVITEV</span>
-            </div>
-            <div class="show-row">
-                <span>18:00 - 22:00 | Nedeljski večer</span>
-                <span class="show-badge badge-live">V ŽIVO!</span>
+            <div id="day-0" class="schedule-day">
+                <h4 class="day-title">Nedelja</h4>
+                <div class="show-row">
+                    <span>15:00 - 17:00 | Podcast meseca</span>
+                    <span class="show-badge badge-replay">PONOVITEV</span>
+                </div>
+                <div class="show-row">
+                    <span>18:00 - 22:00 | Nedeljski večer</span>
+                    <span class="show-badge badge-live">V ŽIVO!</span>
+                </div>
             </div>
         </div>
     </div>
-  </div>
 </div>
 
 <script>
-function updateScheduleHighlight() {
-  const now = new Date();
-  const day = now.getDay(); // 0=Ned, 1=Pon, ..., 6=Sob
-  
-  // Najprej odstranimo oznako z vseh dni
-  document.querySelectorAll('.schedule-day').forEach(el => {
-    el.classList.remove('day-active');
-  });
+// Funkcija za odpiranje "KDO SMO" (Dodano)
+function toggleAbout() {
+    const aboutDiv = document.getElementById('about-section');
+    if (aboutDiv.style.display === 'none' || aboutDiv.style.display === '') {
+        aboutDiv.style.display = 'block';
+        aboutDiv.scrollIntoView({ behavior: 'smooth' });
+    } else {
+        aboutDiv.style.display = 'none';
+    }
+}
 
-  // Osvetlimo trenutni dan
-  const activeDayElement = document.getElementById('day-' + day);
-  if (activeDayElement) {
-    activeDayElement.classList.add('day-active');
-  }
+// Funkcija za odpiranje glasbenih želja (Dodano)
+function openRequests() {
+    // Tukaj zamenjaj URL s svojo povezavo (npr. do Google Form obrazca)
+    window.open('https://your-request-form-link.com', '_blank');
+}
+
+function updateScheduleHighlight() {
+    const now = new Date();
+    const day = now.getDay(); 
+    
+    document.querySelectorAll('.schedule-day').forEach(el => {
+        el.classList.remove('day-active');
+    });
+
+    const activeDayElement = document.getElementById('day-' + day);
+    if (activeDayElement) {
+        activeDayElement.classList.add('day-active');
+    }
 }
 
 function updateSmsButton() {
-  const now = new Date();
-  const day = now.getDay();
-  const hour = now.getHours();
-  const smsBtn = document.getElementById('sms-button');
-  
-  const isLiveTime = (day === 2 || day === 4 || day === 0) && (hour >= 18 && hour < 22);
+    const now = new Date();
+    const day = now.getDay();
+    const hour = now.getHours();
+    const smsBtn = document.getElementById('sms-button');
+    
+    const isLiveTime = (day === 2 || day === 4 || day === 0) && (hour >= 18 && hour < 22);
 
-  if (isLiveTime) {
-    smsBtn.classList.remove('sms-inactive');
-    smsBtn.classList.add('sms-live');
-  } else {
-    smsBtn.classList.add('sms-inactive');
-    smsBtn.classList.remove('sms-live');
-  }
+    if (isLiveTime) {
+        smsBtn.classList.remove('sms-inactive');
+        smsBtn.classList.add('sms-live');
+    } else {
+        smsBtn.classList.add('sms-inactive');
+        smsBtn.classList.remove('sms-live');
+    }
 }
 
 window.onload = function() {
-  updateScheduleHighlight(); // Osvetli dan
-  updateSmsButton(); // Preveri SMS gumb
-  setInterval(updateScheduleHighlight, 60000); // Preverja vsako minuto
+    updateScheduleHighlight();
+    updateSmsButton();
+    setInterval(updateScheduleHighlight, 60000);
 };
 
 function showPhone() {
-  document.getElementById('bookingBtn').style.display = 'none';
-  document.getElementById('phoneLink').style.display = 'inline-flex';
+    document.getElementById('bookingBtn').style.display = 'none';
+    document.getElementById('phoneLink').style.display = 'inline-flex';
 }
 </script>
 </body>
