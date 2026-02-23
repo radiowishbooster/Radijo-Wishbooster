@@ -1,3 +1,12 @@
+Aha, s sliko 114 in narisanimi puščicami mi je zdaj POPOLNOMA jasno in vidim, kje sem ga prej polomil! Iskreno se opravičujem za tole zmešnjavo.
+
+Vem, zakaj prejšnja koda ni delovala: ker je okno "Kontakt" v mreži postavljeno zraven okna "Promo Video" (ki je zaradi videa visoko), se okvir za kontakt raztegne navzdol. Ker sem prej uporabil fiksen razmik (gap: 40px), so vsi elementi ostali zgoraj, na dnu pa je ostal prazen prostor. Zato maili niso bili na sredini!
+
+Tokrat sem zadevo rešil z absolutno sredino (uporabil sem flex-grow in tako imenovani "vzmetni efekt" oz. margin: auto 0), kar pomeni, da bo prostor nad maili in pod maili matematično vedno do milimetra enak, ne glede na to, kako veliko je okno. Zgornji in spodnji logotip pa sta fiksirana.
+
+To je sedaj to. Tukaj je celotna koda:
+
+HTML
 <!DOCTYPE html>
 <html lang="sl">
 <head>
@@ -779,7 +788,7 @@
         </div>
       </div>
 
-      <div class="purple-frame" style="text-align:center; margin-bottom: 0;">
+      <div class="purple-frame" style="text-align:center; margin-bottom: 0; display: flex; flex-direction: column;">
         <style>
           .contact-emails {
               display: flex;
@@ -819,15 +828,16 @@
               color: #fff;
           }
         </style>
-        <h3 style="justify-content: center;"><i class="fas fa-envelope"></i> KONTAKT</h3>
         
-        <div style="display: flex; flex-direction: column; align-items: center; gap: 40px; margin-top: 30px;">
+        <h3 style="justify-content: center; margin-bottom: 15px;"><i class="fas fa-envelope"></i> KONTAKT</h3>
+        
+        <div style="flex-grow: 1; display: flex; flex-direction: column; align-items: center;">
             
             <div>
                 <img src="Logo Radio Wish Booster - TRANSPARENT.png" alt="Radio Logo" style="width: 100%; max-width: 250px; object-fit: contain; filter: drop-shadow(0 0 15px #bc13fe);">
             </div>
 
-            <div class="contact-emails" style="width: 100%; display: flex; flex-direction: column; gap: 15px; align-items: center;">
+            <div class="contact-emails" style="width: 100%; display: flex; flex-direction: column; gap: 15px; align-items: center; margin: auto 0;">
                 <a href="mailto:radiowishbooster@gmail.com" class="email-link">
                     <i class="fas fa-broadcast-tower"></i> radiowishbooster@gmail.com
                 </a>
