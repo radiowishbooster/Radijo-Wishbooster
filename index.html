@@ -816,14 +816,15 @@
 
       </div>
 
-   <div class="purple-frame" style="text-align:center; margin-bottom: 0;">
+  <div class="purple-frame" style="text-align:center; margin-bottom: 0;">
         <style>
           .contact-emails {
               display: flex;
               flex-direction: column;
-              gap: 15px;
+              gap: 15px; 
               align-items: center;
-              margin-top: 20px;
+              /* Rahel dvig navzgor */
+              margin-top: -15px; 
           }
           .email-link {
               display: inline-flex;
@@ -835,12 +836,12 @@
               padding: 15px 30px;
               border-radius: 12px;
               text-decoration: none;
-              font-size: 1.1rem;
-              font-weight: bold;
+              font-size: 1.35rem; /* Zlata sredina za velikost! */
+              font-weight: 800;
               transition: all 0.3s ease;
-              box-shadow: 0 0 10px rgba(188, 19, 254, 0.2);
+              box-shadow: 0 0 10px rgba(188, 19, 254, 0.3);
               width: 100%;
-              max-width: 400px;
+              max-width: 480px;
               justify-content: center;
           }
           .email-link:hover {
@@ -851,15 +852,21 @@
           }
           .email-link i {
               color: #00d4ff;
-              font-size: 1.3rem;
+              font-size: 1.5rem;
           }
           .email-link:hover i {
               color: #fff;
           }
-          .contact-desc {
-              color: #aaaaaa;
-              margin-bottom: 25px;
-              font-size: 1rem;
+          
+          /* VARNOSTNO PRAVILO: Da na manjših ekranih ne gre čez rob */
+          @media(max-width: 1200px) {
+              .email-link {
+                  font-size: 1.1rem;
+                  padding: 12px 20px;
+              }
+              .contact-emails {
+                  margin-top: 0;
+              }
           }
         </style>
         <h3 style="justify-content: center;"><i class="fas fa-envelope"></i> KONTAKT</h3>
@@ -870,7 +877,7 @@
                 <img src="Logo Radio Wish Booster - TRANSPARENT.png" alt="Radio Logo" style="width: 100%; max-width: 350px; max-height: 200px; object-fit: contain; filter: drop-shadow(0 0 15px #bc13fe);">
             </div>
 
-            <div class="contact-emails" style="flex: 1; min-width: 280px; display: flex; flex-direction: column; gap: 15px;">
+            <div class="contact-emails" style="flex: 1; min-width: 320px; display: flex; flex-direction: column;">
                 <a href="mailto:radiowishbooster@gmail.com" class="email-link">
                     <i class="fas fa-broadcast-tower"></i> radiowishbooster@gmail.com
                 </a>
