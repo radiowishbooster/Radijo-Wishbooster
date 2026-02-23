@@ -240,20 +240,21 @@
     margin-bottom: 10px;
   }
 
-  /* Social icons */
+  /* Social icons - NOVO POZICIONIRANJE */
   .social-icons {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    margin-bottom: 20px;
+    gap: 20px;
+    margin: 10px 0 30px 0; /* Razmik: zgoraj 10px, spodaj 30px */
   }
   .social-icons a {
-    font-size: 4.8rem;
+    font-size: 3.5rem; /* Prilagojena velikost */
     color: #fff;
-    transition: color 0.3s;
+    transition: color 0.3s, transform 0.3s;
   }
   .social-icons a:hover {
     color: #00d4ff;
+    transform: scale(1.1);
   }
 
   /* TikTok Live button */
@@ -312,6 +313,9 @@
         min-width: 100%;
         max-width: 100%;
     }
+    .social-icons a {
+      font-size: 2.5rem; /* Manjše ikone na telefonu */
+    }
     iframe {
       height: auto;
     }
@@ -362,6 +366,18 @@
       <a id="phoneLink" href="tel:041772470" class="phone-link"><i class="fas fa-phone-alt"></i> 041 772 470</a>
       <p class="btn-hint">&nbsp;</p>
   </div>
+</div>
+
+<div class="social-icons">
+  <a href="https://www.facebook.com/profile.php?id=61584601392280" target="_blank"><i class="fab fa-facebook"></i></a>
+  <a href="https://www.youtube.com/@SLOdrumer/videos" target="_blank"><i class="fab fa-youtube"></i></a>
+  <a href="https://www.tiktok.com/@wishbooster" target="_blank"><i class="fab fa-tiktok"></i></a>
+  <a href="https://www.youtube.com/@RadioWishbooster" target="_blank"><i class="fab fa-youtube"></i></a>
+  <a href="https://www.facebook.com/profile.php?id=100094446477993" target="_blank"><i class="fab fa-facebook"></i></a>
+</div>
+
+<div class="tiktok-live-wrap">
+  <a href="https://www.tiktok.com/@wishbooster/live" target="_blank" class="btn-tt-live"><i class="fab fa-tiktok"></i> TIKTOK LIVE stream</a>
 </div>
 
 <div class="main-content">
@@ -456,18 +472,6 @@
               <div class="service-card"><i class="fas fa-music"></i><span>Valete in<br>Maturanti</span></div>
           </div>
       </div>
-  </div>
-
-  <div class="social-icons" style="text-align:center; margin:20px 0;">
-    <a href="https://www.facebook.com/profile.php?id=61584601392280" target="_blank"><i class="fab fa-facebook"></i></a>
-    <a href="https://www.youtube.com/@SLOdrumer/videos" target="_blank"><i class="fab fa-youtube"></i></a>
-    <a href="https://www.tiktok.com/@wishbooster" target="_blank"><i class="fab fa-tiktok"></i></a>
-    <a href="https://www.youtube.com/@RadioWishbooster" target="_blank"><i class="fab fa-youtube"></i></a>
-    <a href="https://www.facebook.com/profile.php?id=100094446477993" target="_blank"><i class="fab fa-facebook"></i></a>
-  </div>
-
-  <div class="tiktok-live-wrap">
-    <a href="https://www.tiktok.com/@wishbooster/live" target="_blank" class="btn-tt-live"><i class="fab fa-tiktok"></i> TIKTOK LIVE stream</a>
   </div>
 
   <style>
