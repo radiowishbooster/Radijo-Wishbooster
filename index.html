@@ -52,7 +52,8 @@
     color: #bc13fe; 
     font-size: 2rem;
     font-weight: 900;
-    text-shadow: 0 0 5px #bc13fe, 0 0 15px #bc13fe; 
+    /* POPRAVEK 1: Zmanjšan sijaj (text-shadow) */
+    text-shadow: 0 0 2px #bc13fe, 0 0 8px #bc13fe; 
   }
 
   /* Navigation buttons - POPRAVLJENO ZA PORAVNAVO */
@@ -77,16 +78,18 @@
 
   .btn {
     width: 100%;
-    min-height: 65px;
+    min-height: 70px; /* Malenkost višji gumbi za večji tekst */
     padding: 15px 20px;
     border-radius: 12px;
     text-decoration: none;
-    font-weight: 800;
+    /* POPRAVEK 2: Povečana pisava in debelina */
+    font-size: 1.25rem; 
+    font-weight: 900;
     text-transform: uppercase;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    gap: 15px; /* Malo večji razmik med ikono in tekstom */
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -135,8 +138,8 @@
   /* TELEFONSKA ŠTEVILKA */
   .phone-link {
     color: #00d4ff !important; 
-    font-size: 1.5rem !important; 
-    font-weight: 800 !important; 
+    font-size: 1.6rem !important; /* Povečano, da se ujema z gumbi */
+    font-weight: 900 !important; 
     text-decoration: none !important; 
     text-shadow: 0 0 10px #00d4ff !important; 
     display: none; 
