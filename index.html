@@ -93,12 +93,14 @@
     box-sizing: border-box;
   }
 
+  /* TUKAJ JE BILA POVEČANA PISAVA ZA NAPIS POD GUMBI */
   .btn-hint {
-    font-size: 0.75rem;
-    color: #888;
+    font-size: 0.95rem; /* Povečana pisava */
+    font-weight: 600; /* Močnejša (bolj debela) pisava */
+    color: #ddd; /* Svetlejša barva, da bolj izstopa na črni podlagi */
     margin-top: 10px;
     font-style: italic;
-    line-height: 1.2;
+    line-height: 1.4;
     text-align: center;
     min-height: 40px;
   }
@@ -371,7 +373,7 @@
       <button class="btn btn-request" onclick="openRequests()">
           <i class="fas fa-music"></i> GLASBENA ŽELJA
       </button>
-      <p class="btn-hint" style="color: #ff00ff; opacity: 0.8;">
+      <p class="btn-hint" style="color: #ff00ff; opacity: 0.9;">
           Samostojen izbor iz arhiva strežnika (na voljo 24/7).
       </p>
   </div>
