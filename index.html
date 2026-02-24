@@ -52,10 +52,11 @@
     color: #bc13fe; 
     font-size: 2rem;
     font-weight: 900;
+    /* POPRAVEK 1: Zmanjšan sijaj (text-shadow) */
     text-shadow: 0 0 2px #bc13fe, 0 0 8px #bc13fe; 
   }
 
-  /* Navigation buttons */
+  /* Navigation buttons - POPRAVLJENO ZA PORAVNAVO */
   .btn-container {
     display: flex;
     justify-content: center;
@@ -77,27 +78,29 @@
 
   .btn {
     width: 100%;
-    min-height: 70px;
+    min-height: 70px; /* Malenkost višji gumbi za večji tekst */
     padding: 15px 20px;
     border-radius: 12px;
     text-decoration: none;
+    /* POPRAVEK 2: Povečana pisava in debelina */
     font-size: 1.25rem; 
     font-weight: 900;
     text-transform: uppercase;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    gap: 15px; /* Malo večji razmik med ikono in tekstom */
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
     box-sizing: border-box;
   }
 
+  /* TUKAJ JE BILA POVEČANA PISAVA ZA NAPIS POD GUMBI */
   .btn-hint {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #ddd;
+    font-size: 0.95rem; /* Povečana pisava */
+    font-weight: 600; /* Močnejša (bolj debela) pisava */
+    color: #ddd; /* Svetlejša barva, da bolj izstopa na črni podlagi */
     margin-top: 10px;
     font-style: italic;
     line-height: 1.4;
@@ -135,7 +138,7 @@
   /* TELEFONSKA ŠTEVILKA */
   .phone-link {
     color: #00d4ff !important; 
-    font-size: 1.6rem !important;
+    font-size: 1.6rem !important; /* Povečano, da se ujema z gumbi */
     font-weight: 900 !important; 
     text-decoration: none !important; 
     text-shadow: 0 0 10px #00d4ff !important; 
@@ -210,6 +213,7 @@
     animation: neonFlicker 5s infinite, pulse 2s infinite;
   }
 
+  /* Neon flicker animation */
   @keyframes neonFlicker {
     0%, 10%, 12%, 14%, 50%, 100% {
       text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff;
@@ -220,12 +224,14 @@
       opacity: 0.6;
     }
   }
+  /* Pulse animation for glow */
   @keyframes pulse {
     0% { box-shadow: 0 0 10px #00d4ff; }
     50% { box-shadow: 0 0 20px #00d4ff; }
     100% { box-shadow: 0 0 10px #00d4ff; }
   }
 
+  /* NOVO: Mrežna postavitev (Grid) za okvirje */
   .content-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -235,6 +241,7 @@
   .full-width-box {
     grid-column: 1 / -1;
   }
+  /* Na telefonih in tablicah (pod 992px širine) zložimo nazaj v 1 stolpec */
   @media(max-width: 992px) {
     .content-grid {
       grid-template-columns: 1fr;
@@ -319,6 +326,7 @@
     background: #a52be2;
   }
 
+  /* Responsive adjustments */
   @media(max-width:768px){
     .btn-container {
       flex-direction: column;
@@ -383,6 +391,7 @@
 <div class="main-content">
 
   <style>
+  /* CSS ZA LEBDEČE OKNO KDO SMO (MODAL) */
   #about {
       position: fixed !important; 
       top: 50% !important; 
@@ -516,18 +525,18 @@
       font-weight: bold;
       color: #00f6ff; 
       text-shadow: 0 0 2px #00f6ff, 0 0 5px #00f6ff, 0 0 10px #00f6ff;
-      text-align: center; 
+      text-align: center; /* Postavi na sredino */
       display: block; 
       margin-bottom: 15px;
   }
 
   .blink-on-air {
-      animation: blinkOnAir 1.5s infinite ease-in-out; 
+      animation: blinkOnAir 1.5s infinite ease-in-out; /* Animacija za utripanje */
   }
 
   @keyframes blinkOnAir {
       0%, 100% { opacity: 1; }
-      50% { opacity: 0.2; } 
+      50% { opacity: 0.2; } /* Besedilo obledi, nato se vrne */
   }
   </style>
 
@@ -809,13 +818,14 @@
 
       </div>
 
-  <div class="purple-frame" style="text-align:center; margin-bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 40px; height: 100%;">
+  <div class="purple-frame" style="text-align:center; margin-bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: space-evenly; height: 100%;">
         <style>
-          .contact-group {
+          /* Skupina za Radio, da ostaneta logo in mail skupaj */
+          .radio-group {
               display: flex;
               flex-direction: column;
               align-items: center;
-              gap: 15px; /* Enakomerna razdalja med sliko in gumbom za obe skupini */
+              gap: 5px; /* Tesen razmik med radiom in mailom */
               width: 100%;
           }
           .email-link {
@@ -833,7 +843,6 @@
               transition: all 0.3s ease;
               box-shadow: 0 0 10px rgba(188, 19, 254, 0.3);
               justify-content: center;
-              word-break: break-all;
           }
           .email-link:hover {
               transform: translateY(-5px);
@@ -854,21 +863,20 @@
           }
         </style>
         
-        <h3 style="margin: 0;"><i class="fas fa-envelope"></i> KONTAKT</h3>
+        <h3 style="justify-content: center; margin: 0;"><i class="fas fa-envelope"></i> KONTAKT</h3>
         
-        <div class="contact-group">
+        <div class="radio-group">
             <img src="Logo Radio Wish Booster - TRANSPARENT.png" alt="Radio Logo" style="width: 100%; max-width: 500px; max-height: 260px; object-fit: contain; filter: drop-shadow(0 0 15px #bc13fe);">
-            <a href="mailto:radiowishbooster@gmail.com" class="email-link" style="margin-top: -20px;">
+            <a href="mailto:radiowishbooster@gmail.com" class="email-link">
                 <i class="fas fa-broadcast-tower"></i> radiowishbooster@gmail.com
             </a>
         </div>
 
-        <div class="contact-group">
-            <img src="dj logo transparent.png" alt="DJ Logo" style="width: 100%; max-width: 420px; max-height: 220px; object-fit: contain; filter: drop-shadow(0 0 15px #00d4ff);">
-            <a href="mailto:k-boost@hotmail.com" class="email-link">
-                <i class="fas fa-headphones"></i> k-boost@hotmail.com
-            </a>
-        </div>
+        <img src="dj logo transparent.png" alt="DJ Logo" style="width: 100%; max-width: 420px; max-height: 220px; object-fit: contain; filter: drop-shadow(0 0 15px #00d4ff);">
+
+        <a href="mailto:k-boost@hotmail.com" class="email-link">
+            <i class="fas fa-headphones"></i> k-boost@hotmail.com
+        </a>
 
       </div>
       </div>
@@ -951,11 +959,13 @@
 </div>
 
 <script>
+// NOVO: Funkcija za prikaz opisov storitev v "KDO SMO?"
 function showServiceDesc(service) {
     const box = document.getElementById('service-description-box');
     const title = document.getElementById('service-title');
     const text = document.getElementById('service-text');
     
+    // TUKAJ VSTAVITE SVOJA BESEDILA
     const descriptions = {
         'poroke': {
             title: 'Nepozabne Poroke',
@@ -984,25 +994,30 @@ function showServiceDesc(service) {
     
     box.style.display = 'block';
     
+    // Avtomatski scroll do opisa, da uporabnik takoj vidi besedilo
     box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
+// FUNKCIJA ZA SMS GUMB - PREVERJA ČAS IN AKTIVIRA GUMB
 function updateSmsButton() {
   const now = new Date();
-  const day = now.getDay(); 
+  const day = now.getDay(); // 0=Nedelja, 2=Torek, 4=Četrtek
   const hour = now.getHours();
   const smsBtn = document.getElementById('sms-button');
   const smsHint = document.getElementById('sms-hint');
 
+  // ČASOVNA LOGIKA: Torek(2), Četrtek(4) ali Nedelja(0) od 18:00 do 21:59 (skupaj 22:00)
   const isLiveDay = (day === 2 || day === 4 || day === 0);
   const isLiveTime = (hour >= 18 && hour < 22);
 
   if (isLiveDay && isLiveTime) {
+    // V ŽIVO
     smsBtn.classList.remove('sms-inactive');
     smsBtn.classList.add('sms-live');
     smsBtn.style.pointerEvents = 'auto'; 
     smsHint.innerHTML = "<span style='color: #00d4ff;'>🔴 V ŽIVO! Pošlji SMS željo v studio.</span>";
   } else {
+    // NI ODDAJE
     smsBtn.classList.remove('sms-live');
     smsBtn.classList.add('sms-inactive');
     smsBtn.style.pointerEvents = 'none'; 
@@ -1015,6 +1030,7 @@ function toggleAbout() {
   about.style.display = (about.style.display === "none") ? "block" : "none";
   if(about.style.display === "block") {
     about.scrollIntoView({behavior:'smooth'});
+    // Ob zapiranju in ponovnem odpiranju skrijemo opis storitve, da je okno čisto
     document.getElementById('service-description-box').style.display = 'none';
   }
 }
@@ -1080,6 +1096,7 @@ function acceptCookies() {
     });
 }
 
+// FUNKCIJA ZA STUDIJSKO URO
 function updateClock() {
     const now = new Date();
     const h = now.getHours().toString().padStart(2, '0');
@@ -1091,8 +1108,8 @@ function updateClock() {
         clockElement.innerText = `${h}:${m}:${s}`;
     }
 }
-setInterval(updateClock, 1000); 
-updateClock(); 
+setInterval(updateClock, 1000); // Osveži vsako sekundo
+updateClock(); // Zaženi takoj
   
 window.onload = function() {
   if(localStorage.getItem('cookiesAccepted')) {
