@@ -524,8 +524,8 @@
       width: 140px;
       height: 140px;
       object-fit: contain;
-      display: block; /* Centering fix */
-      margin: 0 auto 15px auto; /* Centering fix */
+      display: block;
+      margin: 0 auto 15px auto;
       filter: drop-shadow(0 0 10px rgba(0,212,255,0.3));
   }
   .show-card h4 {
@@ -538,7 +538,7 @@
   .show-card p {
       color: #fff;
       font-size: 0.95rem;
-      font-weight: 500; /* Ojačano besedilo */
+      font-weight: 500;
       line-height: 1.6;
       margin: 0;
   }
@@ -633,18 +633,18 @@
       font-weight: bold;
       color: #00f6ff; 
       text-shadow: 0 0 2px #00f6ff, 0 0 5px #00f6ff, 0 0 10px #00f6ff;
-      text-align: center; /* Postavi na sredino */
+      text-align: center;
       display: block; 
       margin-bottom: 15px;
   }
 
   .blink-on-air {
-      animation: blinkOnAir 1.5s infinite ease-in-out; /* Animacija za utripanje */
+      animation: blinkOnAir 1.5s infinite ease-in-out;
   }
 
   @keyframes blinkOnAir {
       0%, 100% { opacity: 1; }
-      50% { opacity: 0.2; } /* Besedilo obledi, nato se vrne */
+      50% { opacity: 0.2; } 
   }
   </style>
 
@@ -926,12 +926,10 @@
 
     <div class="purple-frame" style="text-align:center; margin-bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 70px; height: 100%;">
         <style>
-          /* Skupina za Radio in DJ, da ostaneta logo in mail skupaj */
           .contact-group {
               display: flex;
               flex-direction: column;
               align-items: center;
-              /* TUKAJ SPREMINJAŠ RAZMIK MED SLIKO IN MAILOM (sedaj je 10px) */
               gap: 10px; 
               width: 100%;
           }
@@ -1017,8 +1015,8 @@
   .request-content {
       width: 100%; 
       max-width: 850px; 
-      height: 80vh; 
-      max-height: 800px;
+      height: 95vh; /* Povečano na 95% višine zaslona */
+      max-height: 1200px; /* Močno povečana maksimalna višina */
       background: #0b0312; 
       border: 2px solid #ff00ff; 
       border-radius: 20px; 
