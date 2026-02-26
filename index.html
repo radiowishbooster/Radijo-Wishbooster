@@ -744,16 +744,28 @@
             50% { opacity: 0.4; }
         }
             
+        /* STILI ZA URE V URNIKU */
         .show-time {
-            font-size: 0.85rem;
-            color: #aaaaaa;
+            font-size: 1.15rem; /* Ojačana vidljivost */
+            font-weight: 900;   /* Močnejši text */
             display: flex;
             align-items: center;
             gap: 6px;
+            text-shadow: none !important; /* Brez sijaja */
         }
         .show-time i {
-            color: #00d4ff;
+            color: inherit; /* Ikona prevzame enako barvo kot besedilo ure */
         }
+        .time-replay {
+            color: #00ff00; /* Zelena barva */
+        }
+        .time-live {
+            color: #ff00ff; /* Roza barva */
+        }
+        .time-mixi {
+            color: #ffffff; /* Bela barva */
+        }
+
         .show-name {
             font-size: 1.05rem;
             font-weight: bold;
@@ -794,7 +806,7 @@
                 <h4 class="day-title">Ponedeljek</h4>
                 <div class="show-row" data-start="18" data-end="22">
                     <div class="show-info">
-                        <span class="show-time"><i class="far fa-clock"></i> 20:00 - 22:00</span>
+                        <span class="show-time time-replay"><i class="far fa-clock"></i> 20:00 - 22:00</span>
                         <span class="show-name">FLASH⚡BACK - 80 & 90</span>
                     </div>
                     <span class="show-badge badge-replay">PONOVITEV</span>
@@ -805,7 +817,7 @@
                 <h4 class="day-title">Torek</h4>
                 <div class="show-row" data-start="18" data-end="22">
                     <div class="show-info">
-                        <span class="show-time"><i class="far fa-clock"></i> 18:00 - 22:00</span>
+                        <span class="show-time time-live"><i class="far fa-clock"></i> 18:00 - 22:00</span>
                         <span class="show-name">FLASH⚡BACK - 80 & 90</span>
                     </div>
                     <span class="show-badge badge-live">V ŽIVO!</span>
@@ -816,7 +828,7 @@
                 <h4 class="day-title">Sreda</h4>
                 <div class="show-row" data-start="18" data-end="22">
                     <div class="show-info">
-                        <span class="show-time"><i class="far fa-clock"></i> 20:00 - 22:00</span>
+                        <span class="show-time time-replay"><i class="far fa-clock"></i> 20:00 - 22:00</span>
                         <span class="show-name">♥️ NEDELJSKI ꨄ︎ VEČER ♥️</span>
                     </div>
                     <span class="show-badge badge-replay">PONOVITEV</span>
@@ -827,7 +839,7 @@
                 <h4 class="day-title">Četrtek</h4>
                 <div class="show-row" data-start="18" data-end="22">
                     <div class="show-info">
-                        <span class="show-time"><i class="far fa-clock"></i> 18:00 - 22:00</span>
+                        <span class="show-time time-live"><i class="far fa-clock"></i> 18:00 - 22:00</span>
                         <span class="show-name">⭐ GLASBENI 🎸 VRTILJAK ⭐</span>
                     </div>
                     <span class="show-badge badge-live">V ŽIVO!</span>
@@ -838,7 +850,7 @@
                 <h4 class="day-title">Petek</h4>
                 <div class="show-row" data-start="18" data-end="6">
                     <div class="show-info">
-                        <span class="show-time"><i class="far fa-clock"></i> 18:00 - 06:00</span>
+                        <span class="show-time time-mixi"><i class="far fa-clock"></i> 18:00 - 06:00</span>
                         <span class="show-name">🎧 WEEKEND PARTY 💥 MIXI 🎧</span>
                     </div>
                 </div>
@@ -848,14 +860,14 @@
                 <h4 class="day-title">Sobota</h4>
                 <div class="show-row" data-start="13" data-end="15">
                     <div class="show-info">
-                        <span class="show-time"><i class="far fa-clock"></i> 13:00 - 15:00</span>
+                        <span class="show-time time-replay"><i class="far fa-clock"></i> 13:00 - 15:00</span>
                         <span class="show-name">⭐ GLASBENI 🎸 VRTILJAK ⭐</span>
                     </div>
                     <span class="show-badge badge-replay">PONOVITEV</span>
                 </div>
                 <div class="show-row" data-start="18" data-end="6">
                     <div class="show-info">
-                        <span class="show-time"><i class="far fa-clock"></i> 18:00 - 06:00</span>
+                        <span class="show-time time-mixi"><i class="far fa-clock"></i> 18:00 - 06:00</span>
                         <span class="show-name">🎧 WEEKEND PARTY 💥 MIXI 🎧</span>
                     </div>
                 </div>
@@ -865,14 +877,14 @@
                 <h4 class="day-title">Nedelja</h4>
                 <div class="show-row" data-start="15" data-end="17">
                     <div class="show-info">
-                        <span class="show-time"><i class="far fa-clock"></i> 15:00 - 17:00</span>
+                        <span class="show-time time-replay"><i class="far fa-clock"></i> 15:00 - 17:00</span>
                         <span class="show-name">🎙️ PODCAST 🔴 MESECA 🎙️</span>
                     </div>
                     <span class="show-badge badge-replay">PONOVITEV</span>
                 </div>
                 <div class="show-row" data-start="18" data-end="22">
                     <div class="show-info">
-                        <span class="show-time"><i class="far fa-clock"></i> 18:00 - 22:00</span>
+                        <span class="show-time time-live"><i class="far fa-clock"></i> 18:00 - 22:00</span>
                         <span class="show-name">♥️ NEDELJSKI ꨄ︎ VEČER ♥️</span>
                     </div>
                     <span class="show-badge badge-live">V ŽIVO!</span>
