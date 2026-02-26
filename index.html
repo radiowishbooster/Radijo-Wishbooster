@@ -251,32 +251,41 @@
     }
   }
   
-  /* --- CUSTOM RADIO PREDVAJALNIK --- */
+  /* --- CUSTOM RADIO PREDVAJALNIK Z OZADJEM --- */
   .custom-audio-player {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     text-align: center;
-    background: rgba(10, 5, 20, 0.95);
+    /* TUKAJ NASTAVLJAMO NOVO SLIKO IN TEMNITEV PREKO NJE DA SE VIDI TEKST */
+    background: linear-gradient(rgba(10, 5, 20, 0.4), rgba(10, 5, 20, 0.8)), url('ozadje-radio.jpg') no-repeat center center;
+    background-size: cover;
+    min-height: 450px; /* Malo več prostora da slika pride do izraza */
+    padding: 50px 20px;
+    box-shadow: inset 0 0 50px rgba(0,0,0,0.8); /* Notranja senca za globino */
   }
 
   .now-playing-container {
     font-size: 1.4rem;
     font-weight: bold;
     color: #fff;
-    background: rgba(188, 19, 254, 0.15);
+    background: rgba(188, 19, 254, 0.25);
     border: 1px dashed #bc13fe;
     padding: 15px 25px;
     border-radius: 12px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     width: 90%;
     max-width: 600px;
     box-shadow: 0 0 15px rgba(188, 19, 254, 0.3);
+    /* Glassmorphism efekt */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
 
   #now-playing-text {
     margin-left: 10px;
-    text-shadow: 0 0 5px #bc13fe;
+    text-shadow: 0 0 5px #bc13fe, 0 0 10px #000;
   }
 
   .player-controls {
@@ -300,7 +309,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-left: 10px; /* Centriranje ikone za play */
+    padding-left: 10px; 
   }
 
   .btn-play:hover {
@@ -312,7 +321,7 @@
     background: linear-gradient(45deg, #ff00ff, #ff8c00);
     box-shadow: 0 0 30px rgba(255, 0, 255, 0.8);
     animation: pulsePlay 1.5s infinite ease-in-out;
-    padding-left: 0; /* Centriranje ikone za stop */
+    padding-left: 0; 
   }
 
   @keyframes pulsePlay {
@@ -325,11 +334,14 @@
     display: flex;
     align-items: center;
     gap: 15px;
-    background: #111;
+    background: rgba(17, 17, 17, 0.5); /* Stekleno prosojno namesto polne črne */
     padding: 15px 25px;
     border-radius: 30px;
     border: 2px solid #00d4ff;
     box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+    /* Glassmorphism efekt */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
 
   #volume-slider {
@@ -339,6 +351,7 @@
   }
 
   @media(max-width: 768px) {
+    .custom-audio-player { min-height: 350px; padding: 40px 15px; }
     .now-playing-container { font-size: 1.1rem; }
     .btn-play { width: 80px; height: 80px; font-size: 2.2rem; }
   }
