@@ -258,12 +258,24 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    /* TUKAJ NASTAVLJAMO NOVO SLIKO IN TEMNITEV PREKO NJE DA SE VIDI TEKST */
     background: linear-gradient(rgba(10, 5, 20, 0.4), rgba(10, 5, 20, 0.8)), url('ozadje-radio.jpg') no-repeat center center;
     background-size: cover;
-    min-height: 700px; /* Malo več prostora da slika pride do izraza */
+    min-height: 700px; 
     padding: 50px 20px;
-    box-shadow: inset 0 0 50px rgba(0,0,0,0.8); /* Notranja senca za globino */
+    box-shadow: inset 0 0 50px rgba(0,0,0,0.8); 
+  }
+
+  /* NOVO: Stil za sliko pesmi (Album Art) */
+  .album-art {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 2px solid #bc13fe;
+    box-shadow: 0 0 25px rgba(188, 19, 254, 0.6);
+    margin-bottom: 25px;
+    transition: all 0.5s ease;
+    background-color: #111; /* Za ozadje, če se slika še nalaga */
   }
 
   .now-playing-container {
@@ -334,12 +346,11 @@
     display: flex;
     align-items: center;
     gap: 15px;
-    background: rgba(17, 17, 17, 0.5); /* Stekleno prosojno namesto polne črne */
+    background: rgba(17, 17, 17, 0.5);
     padding: 15px 25px;
     border-radius: 30px;
     border: 2px solid #00d4ff;
     box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
-    /* Glassmorphism efekt */
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
   }
@@ -354,6 +365,8 @@
     .custom-audio-player { min-height: 500px; padding: 40px 15px; }
     .now-playing-container { font-size: 1.1rem; }
     .btn-play { width: 80px; height: 80px; font-size: 2.2rem; }
+    /* Zmanjšaj sliko na mobitelih */
+    .album-art { width: 180px; height: 180px; margin-bottom: 15px; } 
   }
   
   /* Footer styles */
@@ -764,9 +777,11 @@
 
   <div class="purple-frame custom-audio-player">
   <div class="player-title-static">
-   ⋆ ✮ 𖤐 RADIO WISH BOOSTER 𖤐 ✮ ⋆ <span class="blink-on-air" id="stream-status">PRIPRAVLJEN</span>
+    📻 RADIO WISH BOOSTER <span class="blink-on-air" id="stream-status">PRIPRAVLJEN</span>
   </div>
   
+  <img id="now-playing-art" src="star.png" alt="Naslovnica pesmi" class="album-art" />
+
   <div class="now-playing-container">
     <i class="fas fa-music fa-spin" style="color: #ff00ff;"></i> 
     <span id="now-playing-text">Nalagam pesem...</span>
@@ -1423,16 +1438,34 @@ function changeVolume() {
   }
 }
 
-// AZURACAST API - VLEČENJE TRENUTNE PESMI
+// AZURACAST API - VLEČENJE TRENUTNE PESMI IN SLIKE
 function updateNowPlaying() {
   fetch('https://a13.asurahosting.com/api/nowplaying/wish_booster_radio')
     .then(response => response.json())
     .then(data => {
       const nowPlayingText = document.getElementById('now-playing-text');
+      const nowPlayingArt = document.getElementById('now-playing-art');
+      
+      let songText = '';
+      let songArtUrl = '';
+
+      // AzuraCast vrne podatke, poiščemo besedilo in url slike (art)
       if(data && data.now_playing && data.now_playing.song) {
-        nowPlayingText.innerText = data.now_playing.song.text;
+        songText = data.now_playing.song.text;
+        songArtUrl = data.now_playing.song.art;
       } else if (data && data[0] && data[0].now_playing) {
-        nowPlayingText.innerText = data[0].now_playing.song.text;
+        songText = data[0].now_playing.song.text;
+        songArtUrl = data[0].now_playing.song.art;
+      }
+
+      // Posodobitev besedila
+      if (songText) {
+          nowPlayingText.innerText = songText;
+      }
+
+      // Posodobitev slike, če je drugačna kot trenutna (da ne utripa ob vsaki osvežitvi)
+      if (songArtUrl && nowPlayingArt.src !== songArtUrl) {
+          nowPlayingArt.src = songArtUrl;
       }
     })
     .catch(error => {
