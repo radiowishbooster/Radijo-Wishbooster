@@ -726,7 +726,7 @@
           <div class="show-card">
               <img src="slika2.png" alt="Glasbeni Vrtiljak">
               <h4>⭐ GLASBENI 🎸 VRTILJAK ⭐</h4>
-              <p>Ali imaš glasbeno željo? Potem je pravi čas za glasbeni vrtiljak. Vsak <span class="text-blue-noglow">ČETRTEK</span> od &nbsp;<span class="text-blue-noglow">18.</span> ure naprej na Radiu Wish Booster zavrtimo glasbo po vašem okusu. Pošljite svojo glasbeno željo, pozdravite prijatelje, družino ali sodelavce in skupaj ustvarimo večer, poln dobre energije.</p>
+              <p>Ali imaš glasbeno željo? Potem je pravi čas za glasbeni vrtiljak. Vsak <span class="text-blue-noglow">ČETRTEK</span> od  <span class="text-blue-noglow">18.</span> ure naprej na Radiu Wish Booster zavrtimo glasbo po vašem okusu. Pošljite svojo glasbeno željo, pozdravite prijatelje, družino ali sodelavce in skupaj ustvarimo večer, poln dobre energije.</p>
           </div>
           <div class="show-card">
               <img src="slika3.png" alt="Nedeljski Večer">
@@ -777,7 +777,10 @@
 
   <div class="purple-frame custom-audio-player">
   <div class="player-title-static">
-   ⭐ RADIO WISH BOOSTER <span class="blink-on-air" id="stream-status">PRIPRAVLJEN</span>
+    ⭐ RADIO WISH BOOSTER <span class="blink-on-air" id="stream-status">PRIPRAVLJEN</span>
+    <div id="player-current-show" style="font-size: 0.65em; color: #ff00ff; text-shadow: 0 0 8px #ff00ff; margin-top: 10px; display: block; font-weight: 900; letter-spacing: 2px;">
+      🔴 TRENUTNO: 24/7 NON-STOP GLASBA
+    </div>
   </div>
   
   <img id="now-playing-art" src="star.png" alt="Naslovnica pesmi" class="album-art" />
@@ -1325,11 +1328,12 @@ function acceptCookies() {
     const currentHour = now.getHours();
 
     const allDays = document.querySelectorAll('.schedule-day');
+    let currentShowText = "24/7 NON-STOP GLASBA"; // Privzeto
 
     allDays.forEach(day => {
         day.classList.remove('active-day','live-now');
-        const oldLabel = day.querySelector('.live-label');
-        if(oldLabel) oldLabel.remove();
+        const oldLabels = day.querySelectorAll('.live-label');
+        oldLabels.forEach(label => label.remove());
 
         const dayNumber = parseInt(day.getAttribute('data-day'));
 
@@ -1357,11 +1361,31 @@ function acceptCookies() {
                     label.className = 'live-label';
                     label.innerText = '🔴 TRENUTNO NA SPOREDU';
                     day.appendChild(label);
+
+                    currentShowText = show.querySelector('.show-name').innerText;
                 }
             });
+        } else {
+            // Preveri prejšnji dan za nočne oddaje (čez polnoč)
+            const prevDay = today === 0 ? 6 : today - 1;
+            if (dayNumber === prevDay) {
+                const shows = day.querySelectorAll('.show-row');
+                shows.forEach(show => {
+                    const start = parseInt(show.getAttribute('data-start'));
+                    const end = parseInt(show.getAttribute('data-end'));
+                    if (start > end && currentHour < end) {
+                        currentShowText = show.querySelector('.show-name').innerText;
+                    }
+                });
+            }
         }
     });
-}
+
+    const playerShowEl = document.getElementById('player-current-show');
+    if (playerShowEl) {
+        playerShowEl.innerText = "🔴 TRENUTNO: " + currentShowText;
+    }
+  }
 
 // FUNKCIJA ZA STUDIJSKO URO
 function updateClock() {
