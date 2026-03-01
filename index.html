@@ -361,12 +361,33 @@
     width: 150px;
   }
 
+  /* DODANA PRAVILA ZA MOBILNE NAPRAVE (Možnost 1 + Pisava) */
   @media(max-width: 768px) {
-    .custom-audio-player { min-height: 500px; padding: 40px 15px; }
-    .now-playing-container { font-size: 1.1rem; }
+    .custom-audio-player { 
+        min-height: 500px; 
+        padding: 40px 15px; 
+        background-size: 100% 100% !important; /* Stisne sliko ozadja v predvajalnik */
+    }
+    .now-playing-container { 
+        font-size: 1.05rem !important; 
+        padding: 12px 15px !important;
+        width: 95% !important;
+    }
     .btn-play { width: 80px; height: 80px; font-size: 2.2rem; }
     /* Zmanjšaj sliko na mobitelih */
     .album-art { width: 180px; height: 180px; margin-bottom: 15px; } 
+
+    /* POPRAVEK PISAVE ZA TELEFONE DA NE REŽE ČRK */
+    .player-title-static {
+        font-size: 1.35rem !important; 
+        line-height: 1.4;
+        padding: 0 10px; 
+    }
+    #player-current-show {
+        font-size: 0.8rem !important; 
+        letter-spacing: 1px !important; 
+        word-wrap: break-word; 
+    }
   }
   
   /* Footer styles */
