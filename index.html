@@ -250,145 +250,7 @@
       grid-template-columns: 1fr;
     }
   }
-  
-  /* --- CUSTOM RADIO PREDVAJALNIK Z OZADJEM --- */
-  .custom-audio-player {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: linear-gradient(rgba(10, 5, 20, 0.4), rgba(10, 5, 20, 0.8)), url('ozadje-radio.jpg') no-repeat center center;
-    background-size: 100% 100%;
-    min-height: 700px; 
-    padding: 50px 20px;
-    box-shadow: inset 0 0 50px rgba(0,0,0,0.8); 
-  }
 
-  /* NOVO: Stil za sliko pesmi (Album Art) */
-  .album-art {
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 15px;
-    border: 2px solid #bc13fe;
-    box-shadow: 0 0 25px rgba(188, 19, 254, 0.6);
-    margin-bottom: 25px;
-    transition: all 0.5s ease;
-    background-color: #111; /* Za ozadje, če se slika še nalaga */
-  }
-
-  .now-playing-container {
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: #fff;
-    background: rgba(188, 19, 254, 0.25);
-    border: 1px dashed #bc13fe;
-    padding: 15px 25px;
-    border-radius: 12px;
-    margin-bottom: 40px;
-    width: 90%;
-    max-width: 600px;
-    box-shadow: 0 0 15px rgba(188, 19, 254, 0.3);
-    /* Glassmorphism efekt */
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-  }
-
-  #now-playing-text {
-    margin-left: 10px;
-    text-shadow: 0 0 5px #bc13fe, 0 0 10px #000;
-  }
-
-  .player-controls {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-  }
-
-  .btn-play {
-    background: linear-gradient(45deg, #00d4ff, #bc13fe);
-    border: none;
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    font-size: 3rem;
-    color: white;
-    cursor: pointer;
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-left: 10px; 
-  }
-
-  .btn-play:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 40px rgba(188, 19, 254, 0.8);
-  }
-
-  .btn-play.playing {
-    background: linear-gradient(45deg, #ff00ff, #ff8c00);
-    box-shadow: 0 0 30px rgba(255, 0, 255, 0.8);
-    animation: pulsePlay 1.5s infinite ease-in-out;
-    padding-left: 0; 
-  }
-
-  @keyframes pulsePlay {
-    0% { box-shadow: 0 0 20px rgba(255, 0, 255, 0.5); transform: scale(1); }
-    50% { box-shadow: 0 0 50px rgba(255, 0, 255, 1); transform: scale(1.05); }
-    100% { box-shadow: 0 0 20px rgba(255, 0, 255, 0.5); transform: scale(1); }
-  }
-
-  .volume-container {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    background: rgba(17, 17, 17, 0.5);
-    padding: 15px 25px;
-    border-radius: 30px;
-    border: 2px solid #00d4ff;
-    box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-  }
-
-  #volume-slider {
-    accent-color: #bc13fe;
-    cursor: pointer;
-    width: 150px;
-  }
-
-  /* DODANA PRAVILA ZA MOBILNE NAPRAVE (Možnost 1 + Pisava) */
-  @media(max-width: 768px) {
-    .custom-audio-player { 
-        min-height: 500px; 
-        padding: 40px 15px; 
-    }
-    .now-playing-container { 
-        font-size: 1.05rem !important; 
-        padding: 12px 15px !important;
-        width: 95% !important;
-    }
-    .btn-play { width: 80px; height: 80px; font-size: 2.2rem; }
-    /* Zmanjšaj sliko na mobitelih */
-    .album-art { width: 180px; height: 180px; margin-bottom: 15px; } 
-
-    /* POPRAVEK PISAVE ZA TELEFONE DA NE REŽE ČRK */
-    .player-title-static {
-        font-size: 1.35rem !important; 
-        line-height: 1.4;
-        padding: 0 10px; 
-    }
-    #player-current-show {
-        font-size: 0.8rem !important; 
-        letter-spacing: 1px !important; 
-        word-wrap: break-word; 
-    }
-  }
-  
   /* Footer styles */
   footer {
     background: #111;
@@ -481,66 +343,7 @@
       height: auto;
     }
   }
-</style>
-</head>
-<body>
 
-<header>
-  <h1>Radio Wish Booster & Dj K-Boost</h1>
-</header>
-
-<div id="cookie-banner">
-  <span>To spletno mesto uporablja piškotke za boljšo izkušnjo.</span>
-  <button class="cookie-btn" onclick="acceptCookies()">Sprejmem</button>
-</div>
-
-<div class="radio-status">
-  <span class="rotate-text"> ONLINE RADIO - 24/7</span>
-</div>
-
-<div class="btn-container">
-  <div class="btn-wrapper">
-    <button class="btn btn-about" onclick="toggleAbout()"><i class="fas fa-fire"></i> KDO SMO?</button>
-    <p class="btn-hint">&nbsp;</p>
-  </div>
-  
-  <div class="btn-wrapper">
-      <button class="btn btn-shows" onclick="toggleShows()">
-          <i class="fas fa-podcast"></i> NAŠE ODDAJE
-      </button>
-      <p class="btn-hint" style="color: #ff8c00; opacity: 0.9;">
-          Spoznaj vsebino in ritem
-      </p>
-  </div>
-  
-  <div class="btn-wrapper">
-      <a id="sms-button" href="sms:+38641772470?&body=Moje ime:%0APozdravil bi:%0AZaželel sem si pesem od: " class="btn sms-inactive">
-        <i class="fas fa-comment-dots"></i> SMS ŽELJA
-      </a>
-      <p id="sms-hint" class="btn-hint">
-        SMS želje sprejemamo v živo: Tor, Čet in Ned (18:00 - 22:00).
-      </p>
-  </div>
-
-  <div class="btn-wrapper">
-      <button class="btn btn-request" onclick="openRequests()">
-          <i class="fas fa-music"></i> GLASBENA ŽELJA
-      </button>
-      <p class="btn-hint" style="color: #ff00ff; opacity: 0.9;">
-          Samostojen izbor iz arhiva strežnika (na voljo 24/7).
-      </p>
-  </div>
-
-  <div class="btn-wrapper">
-      <button id="bookingBtn" class="btn btn-booking" onclick="showPhone()"><i class="fas fa-calendar-check"></i> BOOKING</button>
-      <a id="phoneLink" href="tel:041772470" class="phone-link"><i class="fas fa-phone-alt"></i> 041 772 470</a>
-      <p class="btn-hint">&nbsp;</p>
-  </div>
-</div>
-
-<div class="main-content">
-
-  <style>
   /* CSS ZA LEBDEČE OKNO KDO SMO (MODAL) */
   #about {
       position: fixed !important; 
@@ -682,7 +485,6 @@
       line-height: 1.6;
       margin: 0;
   }
-  /* DODAN RAZRED ZA MODRO BESEDILO BREZ SIJAJA */
   .text-blue-noglow {
       color: #00d4ff;
       font-weight: 900;
@@ -692,7 +494,91 @@
   @media(max-width: 768px) {
       .shows-grid { grid-template-columns: 1fr; }
   }
-  </style>
+
+  /* ČIST NEONSKI PREDVAJALNIK (Samo okvir) */
+  .neon-player-wrapper {
+      margin: 40px auto; /* Centrirano. Če želiš levo, spremeni "auto" v "0" in dodaj margin-left: 20px; */
+      max-width: 1000px;
+      background: transparent;
+      border: 2px solid #ff00ff; /* Neonsko roza okvir */
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255, 0, 255, 0.5), inset 0 0 15px rgba(255, 0, 255, 0.2);
+      overflow: hidden; 
+      display: block;
+  }
+
+  .radio-iframe {
+      width: 100%;
+      height: 650px;
+      border: 0;
+      background: transparent;
+      display: block;
+  }
+
+  @media (max-width: 768px) {
+      .radio-iframe {
+          height: 850px;
+      }
+  }
+
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Radio Wish Booster & Dj K-Boost</h1>
+</header>
+
+<div id="cookie-banner">
+  <span>To spletno mesto uporablja piškotke za boljšo izkušnjo.</span>
+  <button class="cookie-btn" onclick="acceptCookies()">Sprejmem</button>
+</div>
+
+<div class="radio-status">
+  <span class="rotate-text"> ONLINE RADIO - 24/7</span>
+</div>
+
+<div class="btn-container">
+  <div class="btn-wrapper">
+    <button class="btn btn-about" onclick="toggleAbout()"><i class="fas fa-fire"></i> KDO SMO?</button>
+    <p class="btn-hint">&nbsp;</p>
+  </div>
+  
+  <div class="btn-wrapper">
+      <button class="btn btn-shows" onclick="toggleShows()">
+          <i class="fas fa-podcast"></i> NAŠE ODDAJE
+      </button>
+      <p class="btn-hint" style="color: #ff8c00; opacity: 0.9;">
+          Spoznaj vsebino in ritem
+      </p>
+  </div>
+  
+  <div class="btn-wrapper">
+      <a id="sms-button" href="sms:+38641772470?&body=Moje ime:%0APozdravil bi:%0AZaželel sem si pesem od: " class="btn sms-inactive">
+        <i class="fas fa-comment-dots"></i> SMS ŽELJA
+      </a>
+      <p id="sms-hint" class="btn-hint">
+        SMS želje sprejemamo v živo: Tor, Čet in Ned (20:00 - 22:00).
+      </p>
+  </div>
+
+  <div class="btn-wrapper">
+      <button class="btn btn-request" onclick="openRequests()">
+          <i class="fas fa-music"></i> GLASBENA ŽELJA
+      </button>
+      <p class="btn-hint" style="color: #ff00ff; opacity: 0.9;">
+          Samostojen izbor iz arhiva strežnika (na voljo 24/7).
+      </p>
+  </div>
+
+  <div class="btn-wrapper">
+      <button id="bookingBtn" class="btn btn-booking" onclick="showPhone()"><i class="fas fa-calendar-check"></i> BOOKING</button>
+      <a id="phoneLink" href="tel:041772470" class="phone-link"><i class="fas fa-phone-alt"></i> 041 772 470</a>
+      <p class="btn-hint">&nbsp;</p>
+  </div>
+</div>
+
+<div class="main-content">
 
   <div id="about" style="display:none;" class="purple-frame">
       <span style="position:absolute; top:15px; right:20px; cursor:pointer; font-size: 2rem; color: #ff00ff; z-index: 10; transition: transform 0.2s;" onclick="toggleAbout()" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
@@ -741,17 +627,17 @@
           <div class="show-card">
               <img src="slika1.png" alt="Flash Back 80 & 90">
               <h4>FLASH⚡BACK - 80 & 90</h4>
-              <p>Se še spomniš tistega zvoka? Zvoka, ki je definiral generacije in spremenil glasbo za vedno? Pripravi se na časovni stroj! <span class="text-blue-noglow">FLASH⚡BACK 80 & 90</span> – samo na Radiu Wish Booster! Vsak <span class="text-blue-noglow">TOREK</span> med <span class="text-blue-noglow">18.</span> in <span class="text-blue-noglow">22.</span> uro te popeljemo nazaj v zlata leta glasbene scene. Čakajo te legendarni hiti, nepozabni refreni in tisti suvereni ritem, ki ga je zaznamovala generacija osemdesetih. Torej, imaš samo eno izbiro: Zapri oči. Povečaj glasnost. In se vrni v osemdeseta!</p>
+              <p>Se še spomniš tistega zvoka? Zvoka, ki je definiral generacije in spremenil glasbo za vedno? Pripravi se na časovni stroj! <span class="text-blue-noglow">FLASH⚡BACK 80 & 90</span> – samo na Radiu Wish Booster! Vsak <span class="text-blue-noglow">TOREK</span> med <span class="text-blue-noglow">20.</span> in <span class="text-blue-noglow">22.</span> uro te popeljemo nazaj v zlata leta glasbene scene. Čakajo te legendarni hiti, nepozabni refreni in tisti suvereni ritem, ki ga je zaznamovala generacija osemdesetih. Torej, imaš samo eno izbiro: Zapri oči. Povečaj glasnost. In se vrni v osemdeseta!</p>
           </div>
           <div class="show-card">
               <img src="slika2.png" alt="Glasbeni Vrtiljak">
               <h4>⭐ GLASBENI 🎸 VRTILJAK ⭐</h4>
-              <p>Ali imaš glasbeno željo? Potem je pravi čas za glasbeni vrtiljak. Vsak <span class="text-blue-noglow">ČETRTEK</span> od  <span class="text-blue-noglow">18.</span> ure naprej na Radiu Wish Booster zavrtimo glasbo po vašem okusu. Pošljite svojo glasbeno željo, pozdravite prijatelje, družino ali sodelavce in skupaj ustvarimo večer, poln dobre energije.</p>
+              <p>Ali imaš glasbeno željo? Potem je pravi čas za glasbeni vrtiljak. Vsak <span class="text-blue-noglow">ČETRTEK</span> od &nbsp;<span class="text-blue-noglow">20.</span> ure naprej na Radiu Wish Booster zavrtimo glasbo po vašem okusu. Pošljite svojo glasbeno željo, pozdravite prijatelje, družino ali sodelavce in skupaj ustvarimo večer, poln dobre energije.</p>
           </div>
           <div class="show-card">
               <img src="slika3.png" alt="Nedeljski Večer">
               <h4>♥️ NEDELJSKI ꨄ︎ VEČER ♥️</h4>
-              <p>Ste kdaj začutili, da so najlepši trenutki ujeti v tišino večera? Zdaj je čas, da tišina dobi svoj glas. Vsako <span class="text-blue-noglow">NEDELJO</span> med <span class="text-blue-noglow">18.</span> in <span class="text-blue-noglow">22.</span> uro na vašem najljubšem radiju prižigamo luči za ljubezen. To je oddaja <span class="text-blue-noglow">NEDELJSKI VEČER</span> na Radiu Wish Booster. Skupaj bomo potovali skozi najlepše ljubezenske pesmi vseh časov, prebirali vaša pisma in izpovedi, ter iskali navdih v verzih iz srca. Vključite se v oddajo, pošljite <span class="text-blue-noglow">SMS</span> ali pišite na <a href="mailto:radiowishbooster@gmail.com" style="color: #ff00ff; font-weight: 900; text-decoration: none; display: inline-block; margin-top: 5px;">radiowishbooster@gmail.com</a>.</p>
+              <p>Ste kdaj začutili, da so najlepši trenutki ujeti v tišino večera? Zdaj je čas, da tišina dobi svoj glas. Vsako <span class="text-blue-noglow">NEDELJO</span> med <span class="text-blue-noglow">20.</span> in <span class="text-blue-noglow">22.</span> uro na vašem najljubšem radiju prižigamo luči za ljubezen. To je oddaja <span class="text-blue-noglow">NEDELJSKI VEČER</span> na Radiu Wish Booster. Skupaj bomo potovali skozi najlepše ljubezenske pesmi vseh časov, prebirali vaša pisma in izpovedi, ter iskali navdih v verzih iz srca. Vključite se v oddajo, pošljite <span class="text-blue-noglow">SMS</span> ali pišite na <a href="mailto:radiowishbooster@gmail.com" style="color: #ff00ff; font-weight: 900; text-decoration: none; display: inline-block; margin-top: 5px;">radiowishbooster@gmail.com</a>.</p>
           </div>
           <div class="show-card">
               <img src="slika4.png" alt="Podcast Meseca">
@@ -773,59 +659,9 @@
     <a href="https://www.tiktok.com/@wishbooster/live" target="_blank" class="btn-tt-live"><i class="fab fa-tiktok"></i> TIKTOK LIVE stream</a>
   </div>
 
-  <style>
-  .player-title-static {
-      font-family: sans-serif;
-      font-size: 1.8em;
-      font-weight: bold;
-      color: #00f6ff; 
-      text-shadow: 0 0 2px #00f6ff, 0 0 5px #00f6ff, 0 0 10px #00f6ff;
-      text-align: center;
-      display: block; 
-      margin-bottom: 15px;
-  }
-
-  .blink-on-air {
-      animation: blinkOnAir 1.5s infinite ease-in-out;
-  }
-
-  @keyframes blinkOnAir {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.2; } 
-  }
-  </style>
-
-  <div class="purple-frame custom-audio-player">
-  <div class="player-title-static">
-    ⭐ RADIO WISH BOOSTER <span class="blink-on-air" id="stream-status">PRIPRAVLJEN</span>
-    <div id="player-current-show" style="font-size: 0.65em; color: #ff00ff; text-shadow: 0 0 8px #ff00ff; margin-top: 10px; display: block; font-weight: 900; letter-spacing: 2px;">
-      🔴 TRENUTNO: 24/7 NON-STOP GLASBA
-    </div>
+  <div class="neon-player-wrapper">
+      <iframe class="radio-iframe" src="https://a13.asurahosting.com/public/wish_booster_radio" scrolling="yes" allowtransparency="true"></iframe>
   </div>
-  
-  <img id="now-playing-art" src="star.png" alt="Naslovnica pesmi" class="album-art" />
-
-  <div class="now-playing-container">
-    <i class="fas fa-music fa-spin" style="color: #ff00ff;"></i> 
-    <span id="now-playing-text">Nalagam pesem...</span>
-  </div>
-
-  <audio id="radio-stream" preload="none">
-    <source src="https://a13.asurahosting.com/listen/wish_booster_radio/radio.mp3" type="audio/mpeg">
-  </audio>
-
-  <div class="player-controls">
-    <button id="play-btn" class="btn-play" onclick="togglePlay()">
-      <i class="fas fa-play"></i>
-    </button>
-    
-    <div class="volume-container">
-      <i class="fas fa-volume-down" style="color: #00d4ff;"></i>
-      <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.8" onchange="changeVolume()">
-      <i class="fas fa-volume-up" style="color: #00d4ff;"></i>
-    </div>
-  </div>
-</div>
 
   <div class="content-grid">
 
@@ -911,24 +747,24 @@
             
         /* STILI ZA URE V URNIKU */
         .show-time {
-            font-size: 1.15rem; /* Ojačana vidljivost */
-            font-weight: 900;   /* Močnejši text */
+            font-size: 1.15rem; 
+            font-weight: 900;   
             display: flex;
             align-items: center;
             gap: 6px;
-            text-shadow: none !important; /* Brez sijaja */
+            text-shadow: none !important; 
         }
         .show-time i {
-            color: inherit; /* Ikona prevzame enako barvo kot besedilo ure */
+            color: inherit; 
         }
         .time-replay {
-            color: #00ff00; /* Zelena barva */
+            color: #00ff00; 
         }
         .time-live {
-            color: #ff00ff; /* Roza barva */
+            color: #ff00ff; 
         }
         .time-mixi {
-            color: #ffffff; /* Bela barva */
+            color: #ffffff; 
         }
 
         .show-name {
@@ -969,7 +805,7 @@
         <div class="schedule-container">
             <div class="schedule-day" data-day="1">
                 <h4 class="day-title">Ponedeljek</h4>
-                <div class="show-row" data-start="18" data-end="22">
+                <div class="show-row" data-start="20" data-end="22">
                     <div class="show-info">
                         <span class="show-time time-replay"><i class="far fa-clock"></i> 20:00 - 22:00</span>
                         <span class="show-name">FLASH⚡BACK - 80 & 90</span>
@@ -980,9 +816,9 @@
 
             <div class="schedule-day" data-day="2">
                 <h4 class="day-title">Torek</h4>
-                <div class="show-row" data-start="18" data-end="22">
+                <div class="show-row" data-start="20" data-end="22">
                     <div class="show-info">
-                        <span class="show-time time-live"><i class="far fa-clock"></i> 18:00 - 22:00</span>
+                        <span class="show-time time-live"><i class="far fa-clock"></i> 20:00 - 22:00</span>
                         <span class="show-name">FLASH⚡BACK - 80 & 90</span>
                     </div>
                     <span class="show-badge badge-live">V ŽIVO!</span>
@@ -991,7 +827,7 @@
 
             <div class="schedule-day" data-day="3">
                 <h4 class="day-title">Sreda</h4>
-                <div class="show-row" data-start="18" data-end="22">
+                <div class="show-row" data-start="20" data-end="22">
                     <div class="show-info">
                         <span class="show-time time-replay"><i class="far fa-clock"></i> 20:00 - 22:00</span>
                         <span class="show-name">♥️ NEDELJSKI ꨄ︎ VEČER ♥️</span>
@@ -1002,9 +838,9 @@
 
             <div class="schedule-day" data-day="4">
                 <h4 class="day-title">Četrtek</h4>
-                <div class="show-row" data-start="18" data-end="22">
+                <div class="show-row" data-start="20" data-end="22">
                     <div class="show-info">
-                        <span class="show-time time-live"><i class="far fa-clock"></i> 18:00 - 22:00</span>
+                        <span class="show-time time-live"><i class="far fa-clock"></i> 20:00 - 22:00</span>
                         <span class="show-name">⭐ GLASBENI 🎸 VRTILJAK ⭐</span>
                     </div>
                     <span class="show-badge badge-live">V ŽIVO!</span>
@@ -1047,9 +883,9 @@
                     </div>
                     <span class="show-badge badge-replay">PONOVITEV</span>
                 </div>
-                <div class="show-row" data-start="18" data-end="22">
+                <div class="show-row" data-start="20" data-end="22">
                     <div class="show-info">
-                        <span class="show-time time-live"><i class="far fa-clock"></i> 18:00 - 22:00</span>
+                        <span class="show-time time-live"><i class="far fa-clock"></i> 20:00 - 22:00</span>
                         <span class="show-name">♥️ NEDELJSKI ꨄ︎ VEČER ♥️</span>
                     </div>
                     <span class="show-badge badge-live">V ŽIVO!</span>
@@ -1068,7 +904,7 @@
         </div>
 
         <h3><i class="fas fa-poll-h"></i> RADIJSKA ANKETA</h3>
-        <iframe src="https://forms.gle/CeEsDj29RdEivJD37" style="width:100%; height:650px; border:none; border-radius:12px; flex-grow: 1; filter: invert(0.88) hue-rotate(180deg);"></iframe>
+        <iframe src="https://forms.gle/CeEsDj29RdEivJD37" style="width:100%; height:650px; border:none; border-radius:12px; flex-grow: 1;"></iframe>
       </div>
 
       <div class="purple-frame full-width-box" style="margin-bottom: 0;">
@@ -1231,6 +1067,10 @@
       z-index: 10;
   }
 
+<h3><i class="fas fa-poll-h"></i> RADIJSKA ANKETA</h3>
+        <iframe src="https://forms.gle/CeEsDj29RdEivJD37" style="width:100%; height:650px; border:none; border-radius:12px; flex-grow: 1; filter: invert(0.88) hue-rotate(180deg);"></iframe>
+      </div>
+  
   .close-btn-request:hover {
       transform: scale(1.2);
       text-shadow: 0 0 15px #ff00ff;
@@ -1292,7 +1132,7 @@ function updateSmsButton() {
   const smsHint = document.getElementById('sms-hint');
 
   const isLiveDay = (day === 2 || day === 4 || day === 0);
-  const isLiveTime = (hour >= 18 && hour < 22);
+  const isLiveTime = (hour >= 20 && hour < 22);
 
   if (isLiveDay && isLiveTime) {
     smsBtn.classList.remove('sms-inactive');
@@ -1303,10 +1143,62 @@ function updateSmsButton() {
     smsBtn.classList.remove('sms-live');
     smsBtn.classList.add('sms-inactive');
     smsBtn.style.pointerEvents = 'none'; 
-    smsHint.innerHTML = "SMS želje sprejemamo v živo: Tor, Čet in Ned (18:00 - 22:00).";
+    smsHint.innerHTML = "SMS želje sprejemamo v živo: Tor, Čet in Ned (20:00 - 22:00).";
   }
 }
 
+// FUNKCIJA ZA SAMODEJNO SPREMINJANJE IMENA ODDAJE IN SLIKE (ohranjeno v primeru, da boš uporabil drugje)
+function updateCurrentShowInfo() {
+    const now = new Date();
+    const day = now.getDay(); 
+    const hour = now.getHours();
+
+    let showName = "WISH BOOSTER 24/7 MIX"; 
+    let showImage = "Logo Radio Wish Booster - TRANSPARENT.png"; 
+    
+    if (day === 1 && hour >= 20 && hour < 22) {
+        showName = "FLASH⚡BACK - 80 & 90 (Ponovitev)";
+        showImage = "slika1.png";
+    } else if (day === 2 && hour >= 20 && hour < 22) {
+        showName = "FLASH⚡BACK - 80 & 90 <span style='color: #fff; background: #ff00ff; padding: 2px 6px; border-radius: 4px; font-size: 0.8rem;'>V ŽIVO</span>";
+        showImage = "slika1.png";
+    } else if (day === 3 && hour >= 20 && hour < 22) {
+        showName = "♥️ NEDELJSKI ꨄ︎ VEČER ♥️ (Ponovitev)";
+        showImage = "slika3.png";
+    } else if (day === 4 && hour >= 20 && hour < 22) {
+        showName = "⭐ GLASBENI 🎸 VRTILJAK ⭐ <span style='color: #fff; background: #ff00ff; padding: 2px 6px; border-radius: 4px; font-size: 0.8rem;'>V ŽIVO</span>";
+        showImage = "slika2.png";
+    } else if ((day === 5 && hour >= 18) || (day === 6 && hour < 6)) {
+        showName = "🎧 WEEKEND PARTY 💥 MIXI 🎧";
+    } else if (day === 6) {
+        if (hour >= 13 && hour < 15) {
+            showName = "⭐ GLASBENI 🎸 VRTILJAK ⭐ (Ponovitev)";
+            showImage = "slika2.png";
+        } else if (hour >= 18) { 
+            showName = "🎧 WEEKEND PARTY 💥 MIXI 🎧";
+        }
+    } else if (day === 0) {
+        if (hour < 6) {
+            showName = "🎧 WEEKEND PARTY 💥 MIXI 🎧";
+        } else if (hour >= 15 && hour < 17) {
+            showName = "🎙️ PODCAST 🔴 MESECA 🎙️ (Ponovitev)";
+            showImage = "slika4.png";
+        } else if (hour >= 20 && hour < 22) {
+            showName = "♥️ NEDELJSKI ꨄ︎ VEČER ♥️ <span style='color: #fff; background: #ff00ff; padding: 2px 6px; border-radius: 4px; font-size: 0.8rem;'>V ŽIVO</span>";
+            showImage = "slika3.png";
+        }
+    }
+
+    const nameEl = document.querySelector('.current-show-name');
+    const imgEl = document.querySelector('.player-image');
+
+    if (nameEl) nameEl.innerHTML = showName;
+    if (imgEl) imgEl.src = showImage;
+}
+
+updateCurrentShowInfo();
+setInterval(updateCurrentShowInfo, 60000); 
+  
 function toggleAbout() {
   const about = document.getElementById("about");
   about.style.display = (about.style.display === "none") ? "block" : "none";
@@ -1348,12 +1240,11 @@ function acceptCookies() {
     const currentHour = now.getHours();
 
     const allDays = document.querySelectorAll('.schedule-day');
-    let currentShowText = "24/7 NON-STOP GLASBA"; // Privzeto
 
     allDays.forEach(day => {
         day.classList.remove('active-day','live-now');
-        const oldLabels = day.querySelectorAll('.live-label');
-        oldLabels.forEach(label => label.remove());
+        const oldLabel = day.querySelector('.live-label');
+        if(oldLabel) oldLabel.remove();
 
         const dayNumber = parseInt(day.getAttribute('data-day'));
 
@@ -1381,31 +1272,11 @@ function acceptCookies() {
                     label.className = 'live-label';
                     label.innerText = '🔴 TRENUTNO NA SPOREDU';
                     day.appendChild(label);
-
-                    currentShowText = show.querySelector('.show-name').innerText;
                 }
             });
-        } else {
-            // Preveri prejšnji dan za nočne oddaje (čez polnoč)
-            const prevDay = today === 0 ? 6 : today - 1;
-            if (dayNumber === prevDay) {
-                const shows = day.querySelectorAll('.show-row');
-                shows.forEach(show => {
-                    const start = parseInt(show.getAttribute('data-start'));
-                    const end = parseInt(show.getAttribute('data-end'));
-                    if (start > end && currentHour < end) {
-                        currentShowText = show.querySelector('.show-name').innerText;
-                    }
-                });
-            }
         }
     });
-
-    const playerShowEl = document.getElementById('player-current-show');
-    if (playerShowEl) {
-        playerShowEl.innerText = "🔴 TRENUTNO: " + currentShowText;
-    }
-  }
+}
 
 // FUNKCIJA ZA STUDIJSKO URO
 function updateClock() {
@@ -1442,84 +1313,6 @@ function showPhone() {
 window.addEventListener('keydown', function(e) {
   if(e.key === 'Escape') closeRequests();
 });
-
-// KONTROLE ZA CUSTOM PREDVAJALNIK
-const audio = document.getElementById('radio-stream');
-const playBtn = document.getElementById('play-btn');
-const streamStatus = document.getElementById('stream-status');
-const volumeSlider = document.getElementById('volume-slider');
-
-if (audio && volumeSlider) {
-  audio.volume = volumeSlider.value;
-}
-
-function togglePlay() {
-  if (audio.paused) {
-    audio.load(); 
-    audio.play().then(() => {
-      playBtn.innerHTML = '<i class="fas fa-stop"></i>';
-      playBtn.classList.add('playing');
-      streamStatus.innerText = '🔴 ON AIR';
-      streamStatus.style.color = '#ff00ff';
-    }).catch(e => {
-      console.error("Napaka pri predvajanju:", e);
-      streamStatus.innerText = 'NAPAKA PRENOSA';
-    });
-    streamStatus.innerText = 'POVEZOVANJE...';
-    streamStatus.style.color = '#00d4ff';
-  } else {
-    audio.pause();
-    playBtn.innerHTML = '<i class="fas fa-play"></i>';
-    playBtn.classList.remove('playing');
-    streamStatus.innerText = 'PRIPRAVLJEN';
-    streamStatus.style.color = '#00f6ff';
-  }
-}
-
-function changeVolume() {
-  if(audio && volumeSlider) {
-    audio.volume = volumeSlider.value;
-  }
-}
-
-// AZURACAST API - VLEČENJE TRENUTNE PESMI IN SLIKE
-function updateNowPlaying() {
-  fetch('https://a13.asurahosting.com/api/nowplaying/wish_booster_radio')
-    .then(response => response.json())
-    .then(data => {
-      const nowPlayingText = document.getElementById('now-playing-text');
-      const nowPlayingArt = document.getElementById('now-playing-art');
-      
-      let songText = '';
-      let songArtUrl = '';
-
-      // AzuraCast vrne podatke, poiščemo besedilo in url slike (art)
-      if(data && data.now_playing && data.now_playing.song) {
-        songText = data.now_playing.song.text;
-        songArtUrl = data.now_playing.song.art;
-      } else if (data && data[0] && data[0].now_playing) {
-        songText = data[0].now_playing.song.text;
-        songArtUrl = data[0].now_playing.song.art;
-      }
-
-      // Posodobitev besedila
-      if (songText) {
-          nowPlayingText.innerText = songText;
-      }
-
-      // Posodobitev slike, če je drugačna kot trenutna (da ne utripa ob vsaki osvežitvi)
-      if (songArtUrl && nowPlayingArt.src !== songArtUrl) {
-          nowPlayingArt.src = songArtUrl;
-      }
-    })
-    .catch(error => {
-      console.error('Napaka pri pridobivanju pesmi:', error);
-      document.getElementById('now-playing-text').innerText = 'Radio Wish Booster (V Živo)';
-    });
-}
-
-updateNowPlaying();
-setInterval(updateNowPlaying, 10000);
 </script>
 </body>
 </html>
