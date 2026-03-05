@@ -495,17 +495,16 @@
       .shows-grid { grid-template-columns: 1fr; }
   }
 
-  /* IZBOLJŠAN PREDVAJALNIK - ZDRUŽEN DIZAJN */
-  .player-wrapper {
-      /* Zgoraj 40px, desno auto, spodaj 40px, LEVO 20px (Tukaj nastavljaš odmik!) */
-      margin: 40px auto 40px 20px; 
-      
+  /* ČIST NEONSKI PREDVAJALNIK (Samo okvir) */
+  .neon-player-wrapper {
+      margin: 40px auto; /* Centrirano. Če želiš levo, spremeni "auto" v "0" in dodaj margin-left: 20px; */
       max-width: 1000px;
-      box-shadow: 0 0 40px rgba(0, 212, 255, 0.5), inset 0 0 20px rgba(0, 212, 255, 0.2);
-      border: 2px solid #00d4ff;
+      background: transparent;
+      border: 2px solid #ff00ff; /* Neonsko roza okvir */
       border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255, 0, 255, 0.5), inset 0 0 15px rgba(255, 0, 255, 0.2);
       overflow: hidden; 
-      background: transparent; 
+      display: block;
   }
 
   .radio-iframe {
@@ -516,111 +515,12 @@
       display: block;
   }
 
-  /* Prilagoditev za telefone */
   @media (max-width: 768px) {
       .radio-iframe {
           height: 850px;
       }
   }
 
-  .player-header {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 25px;
-      background: linear-gradient(to bottom, rgba(25, 10, 45, 0.9), rgba(11, 3, 18, 1));
-      padding: 25px 30px;
-      border-bottom: 2px solid #00d4ff;
-      flex-wrap: wrap;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
-      z-index: 2;
-  }
-
-  .player-image {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 0 15px #00d4ff;
-      animation: pulseRecord 2s infinite linear;
-      border: 3px solid #bc13fe;
-  }
-
-  @keyframes pulseRecord {
-      0% { box-shadow: 0 0 10px #00d4ff; transform: scale(1); }
-      50% { box-shadow: 0 0 25px #00d4ff; transform: scale(1.05); }
-      100% { box-shadow: 0 0 10px #00d4ff; transform: scale(1); }
-  }
-
-  .player-info {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      text-align: left;
-  }
-
-  .player-title-static {
-      font-family: sans-serif;
-      font-size: 1.8em;
-      font-weight: bold;
-      color: #00f6ff; 
-      text-shadow: 0 0 2px #00f6ff, 0 0 5px #00f6ff, 0 0 10px #00f6ff;
-      margin-bottom: 10px;
-  }
-
-  .current-show-label {
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: #fff;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      background: rgba(138, 43, 226, 0.2);
-      padding: 8px 20px;
-      border-radius: 8px;
-      border-left: 5px solid #ff00ff;
-      box-shadow: 0 0 15px rgba(255, 0, 255, 0.2);
-  }
-
-  .current-show-name {
-      color: #ff00ff;
-      text-shadow: 0 0 10px rgba(255, 0, 255, 0.6);
-      margin-left: 8px;
-  }
-
-  .radio-iframe {
-      width: 100%;
-      height: 650px;
-      border: 0;
-      border-radius: 0 0 20px 20px; 
-      background: transparent;
-  }
-
-  @media (max-width: 768px) {
-      .player-header {
-          flex-direction: column;
-          text-align: center;
-          padding: 20px 15px;
-      }
-      .player-info {
-          align-items: center;
-          text-align: center;
-      }
-      .current-show-label {
-          font-size: 1.1rem;
-      }
-      .radio-iframe {
-          height: 950px;
-      }
-  }
-
-  .blink-on-air {
-      animation: blinkOnAir 1.5s infinite ease-in-out;
-  }
-
-  @keyframes blinkOnAir {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.2; } 
-  }
 </style>
 </head>
 <body>
@@ -759,23 +659,7 @@
     <a href="https://www.tiktok.com/@wishbooster/live" target="_blank" class="btn-tt-live"><i class="fab fa-tiktok"></i> TIKTOK LIVE stream</a>
   </div>
 
-<div class="player-wrapper">
-      <div class="player-header">
-          <img src="Logo Radio Wish Booster - TRANSPARENT.png" alt="Trenutno predvajanje" class="player-image" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3255/3255502.png'">
-          
-          <div class="player-info">
-              <div class="player-title-static" style="margin-bottom: 5px;">
-                  Interaktivni predvajalnik <span class="blink-on-air" style="color: #ff00ff;">🔴 ON AIR</span>
-              </div>
-              
-              <div class="current-show-label">
-                  <i class="fas fa-broadcast-tower" style="color: #00d4ff;"></i> Na sporedu: 
-                  <span class="current-show-name">WISH BOOSTER 24/7 MIX</span>
-              </div>
-          </div>
-      </div>
-      
-     <div class="player-wrapper">
+  <div class="neon-player-wrapper">
       <iframe class="radio-iframe" src="https://a13.asurahosting.com/public/wish_booster_radio" scrolling="yes" allowtransparency="true"></iframe>
   </div>
 
@@ -1259,51 +1143,37 @@ function updateSmsButton() {
   }
 }
 
-// FUNKCIJA ZA SAMODEJNO SPREMINJANJE IMENA ODDAJE IN SLIKE
+// FUNKCIJA ZA SAMODEJNO SPREMINJANJE IMENA ODDAJE IN SLIKE (ohranjeno v primeru, da boš uporabil drugje)
 function updateCurrentShowInfo() {
     const now = new Date();
-    const day = now.getDay(); // 0 = Nedelja, 1 = Ponedeljek, ...
+    const day = now.getDay(); 
     const hour = now.getHours();
 
-    // Privzeto stanje (ko ni posebne oddaje)
     let showName = "WISH BOOSTER 24/7 MIX"; 
-    let showImage = "Logo Radio Wish Booster - TRANSPARENT.png"; // Privzeta slika
+    let showImage = "Logo Radio Wish Booster - TRANSPARENT.png"; 
     
-    // Ponedeljek
     if (day === 1 && hour >= 20 && hour < 22) {
         showName = "FLASH⚡BACK - 80 & 90 (Ponovitev)";
         showImage = "slika1.png";
-    } 
-    // Torek
-    else if (day === 2 && hour >= 20 && hour < 22) {
+    } else if (day === 2 && hour >= 20 && hour < 22) {
         showName = "FLASH⚡BACK - 80 & 90 <span style='color: #fff; background: #ff00ff; padding: 2px 6px; border-radius: 4px; font-size: 0.8rem;'>V ŽIVO</span>";
         showImage = "slika1.png";
-    } 
-    // Sreda
-    else if (day === 3 && hour >= 20 && hour < 22) {
+    } else if (day === 3 && hour >= 20 && hour < 22) {
         showName = "♥️ NEDELJSKI ꨄ︎ VEČER ♥️ (Ponovitev)";
         showImage = "slika3.png";
-    } 
-    // Četrtek
-    else if (day === 4 && hour >= 20 && hour < 22) {
+    } else if (day === 4 && hour >= 20 && hour < 22) {
         showName = "⭐ GLASBENI 🎸 VRTILJAK ⭐ <span style='color: #fff; background: #ff00ff; padding: 2px 6px; border-radius: 4px; font-size: 0.8rem;'>V ŽIVO</span>";
         showImage = "slika2.png";
-    } 
-    // Petek (od 18h do polnoči) in Sobota (do 6h zjutraj)
-    else if ((day === 5 && hour >= 18) || (day === 6 && hour < 6)) {
+    } else if ((day === 5 && hour >= 18) || (day === 6 && hour < 6)) {
         showName = "🎧 WEEKEND PARTY 💥 MIXI 🎧";
-    } 
-    // Sobota
-    else if (day === 6) {
+    } else if (day === 6) {
         if (hour >= 13 && hour < 15) {
             showName = "⭐ GLASBENI 🎸 VRTILJAK ⭐ (Ponovitev)";
             showImage = "slika2.png";
-        } else if (hour >= 18) { // Sobota zvečer
+        } else if (hour >= 18) { 
             showName = "🎧 WEEKEND PARTY 💥 MIXI 🎧";
         }
-    } 
-    // Nedelja (do 6h zjutraj spada pod sobotni party mix)
-    else if (day === 0) {
+    } else if (day === 0) {
         if (hour < 6) {
             showName = "🎧 WEEKEND PARTY 💥 MIXI 🎧";
         } else if (hour >= 15 && hour < 17) {
@@ -1315,7 +1185,6 @@ function updateCurrentShowInfo() {
         }
     }
 
-    // Posodobimo elemente na strani, če obstajajo
     const nameEl = document.querySelector('.current-show-name');
     const imgEl = document.querySelector('.player-image');
 
@@ -1323,9 +1192,7 @@ function updateCurrentShowInfo() {
     if (imgEl) imgEl.src = showImage;
 }
 
-// Skripto zaženemo takoj ob naložitvi strani
 updateCurrentShowInfo();
-// Nato jo preverjamo vsako minuto, da se samodejno preklopi, ko se ura spremeni
 setInterval(updateCurrentShowInfo, 60000); 
   
 function toggleAbout() {
