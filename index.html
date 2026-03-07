@@ -742,6 +742,21 @@
             border-bottom: none;
             padding-bottom: 0;
         }
+        
+        /* NOVO: Wrapper za sliko in informacije o oddaji */
+        .show-details {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .schedule-img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.15));
+            border-radius: 6px;
+        }
+
         .show-info {
             display: flex;
             flex-direction: column;
@@ -836,7 +851,10 @@
             .show-row {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 10px;
+                gap: 15px;
+            }
+            .show-details {
+                width: 100%;
             }
         }
         </style>
@@ -845,9 +863,12 @@
             <div class="schedule-day" data-day="1">
                 <h4 class="day-title">Ponedeljek</h4>
                 <div class="show-row" data-start="20" data-end="22">
-                    <div class="show-info">
-                        <span class="show-time time-replay"><i class="far fa-clock"></i> 20:00 - 22:00</span>
-                        <span class="show-name">FLASH⚡BACK - 80 & 90</span>
+                    <div class="show-details">
+                        <img src="slika1.png" alt="Flash Back" class="schedule-img">
+                        <div class="show-info">
+                            <span class="show-time time-replay"><i class="far fa-clock"></i> 20:00 - 22:00</span>
+                            <span class="show-name">FLASH⚡BACK - 80 & 90</span>
+                        </div>
                     </div>
                     <span class="show-badge badge-replay">PONOVITEV</span>
                 </div>
@@ -856,9 +877,12 @@
             <div class="schedule-day" data-day="2">
                 <h4 class="day-title">Torek</h4>
                 <div class="show-row" data-start="20" data-end="22">
-                    <div class="show-info">
-                        <span class="show-time time-live"><i class="far fa-clock"></i> 20:00 - 22:00</span>
-                        <span class="show-name">FLASH⚡BACK - 80 & 90</span>
+                    <div class="show-details">
+                        <img src="slika1.png" alt="Flash Back" class="schedule-img">
+                        <div class="show-info">
+                            <span class="show-time time-live"><i class="far fa-clock"></i> 20:00 - 22:00</span>
+                            <span class="show-name">FLASH⚡BACK - 80 & 90</span>
+                        </div>
                     </div>
                     <span class="show-badge badge-live">V ŽIVO!</span>
                 </div>
@@ -867,9 +891,12 @@
             <div class="schedule-day" data-day="3">
                 <h4 class="day-title">Sreda</h4>
                 <div class="show-row" data-start="20" data-end="22">
-                    <div class="show-info">
-                        <span class="show-time time-replay"><i class="far fa-clock"></i> 20:00 - 22:00</span>
-                        <span class="show-name">♥️ NEDELJSKI ꨄ︎ VEČER ♥️</span>
+                    <div class="show-details">
+                        <img src="slika3.png" alt="Nedeljski Večer" class="schedule-img">
+                        <div class="show-info">
+                            <span class="show-time time-replay"><i class="far fa-clock"></i> 20:00 - 22:00</span>
+                            <span class="show-name">♥️ NEDELJSKI ꨄ︎ VEČER ♥️</span>
+                        </div>
                     </div>
                     <span class="show-badge badge-replay">PONOVITEV</span>
                 </div>
@@ -878,9 +905,12 @@
             <div class="schedule-day" data-day="4">
                 <h4 class="day-title">Četrtek</h4>
                 <div class="show-row" data-start="20" data-end="22">
-                    <div class="show-info">
-                        <span class="show-time time-live"><i class="far fa-clock"></i> 20:00 - 22:00</span>
-                        <span class="show-name">⭐ GLASBENI 🎸 VRTILJAK ⭐</span>
+                    <div class="show-details">
+                        <img src="slika2.png" alt="Glasbeni Vrtiljak" class="schedule-img">
+                        <div class="show-info">
+                            <span class="show-time time-live"><i class="far fa-clock"></i> 20:00 - 22:00</span>
+                            <span class="show-name">⭐ GLASBENI 🎸 VRTILJAK ⭐</span>
+                        </div>
                     </div>
                     <span class="show-badge badge-live">V ŽIVO!</span>
                 </div>
@@ -889,9 +919,12 @@
             <div class="schedule-day" data-day="5">
                 <h4 class="day-title">Petek</h4>
                 <div class="show-row" data-start="18" data-end="6">
-                    <div class="show-info">
-                        <span class="show-time time-mixi"><i class="far fa-clock"></i> 18:00 - 06:00</span>
-                        <span class="show-name">🎧 WEEKEND PARTY 💥 MIXI 🎧</span>
+                    <div class="show-details">
+                        <img src="slika5.png" alt="Weekend Party Mix" class="schedule-img">
+                        <div class="show-info">
+                            <span class="show-time time-mixi"><i class="far fa-clock"></i> 18:00 - 06:00</span>
+                            <span class="show-name">🎧 WEEKEND PARTY 💥 MIXI 🎧</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -899,16 +932,22 @@
             <div class="schedule-day" data-day="6">
                 <h4 class="day-title">Sobota</h4>
                 <div class="show-row" data-start="13" data-end="15">
-                    <div class="show-info">
-                        <span class="show-time time-replay"><i class="far fa-clock"></i> 13:00 - 15:00</span>
-                        <span class="show-name">⭐ GLASBENI 🎸 VRTILJAK ⭐</span>
+                    <div class="show-details">
+                        <img src="slika2.png" alt="Glasbeni Vrtiljak" class="schedule-img">
+                        <div class="show-info">
+                            <span class="show-time time-replay"><i class="far fa-clock"></i> 13:00 - 15:00</span>
+                            <span class="show-name">⭐ GLASBENI 🎸 VRTILJAK ⭐</span>
+                        </div>
                     </div>
                     <span class="show-badge badge-replay">PONOVITEV</span>
                 </div>
                 <div class="show-row" data-start="18" data-end="6">
-                    <div class="show-info">
-                        <span class="show-time time-mixi"><i class="far fa-clock"></i> 18:00 - 06:00</span>
-                        <span class="show-name">🎧 WEEKEND PARTY 💥 MIXI 🎧</span>
+                    <div class="show-details">
+                        <img src="slika5.png" alt="Weekend Party Mix" class="schedule-img">
+                        <div class="show-info">
+                            <span class="show-time time-mixi"><i class="far fa-clock"></i> 18:00 - 06:00</span>
+                            <span class="show-name">🎧 WEEKEND PARTY 💥 MIXI 🎧</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -916,16 +955,22 @@
             <div class="schedule-day" data-day="0">
                 <h4 class="day-title">Nedelja</h4>
                 <div class="show-row" data-start="15" data-end="17">
-                    <div class="show-info">
-                        <span class="show-time time-replay"><i class="far fa-clock"></i> 15:00 - 17:00</span>
-                        <span class="show-name">🎙️ PODCAST 🔴 MESECA 🎙️</span>
+                    <div class="show-details">
+                        <img src="slika4.png" alt="Podcast Meseca" class="schedule-img">
+                        <div class="show-info">
+                            <span class="show-time time-replay"><i class="far fa-clock"></i> 15:00 - 17:00</span>
+                            <span class="show-name">🎙️ PODCAST 🔴 MESECA 🎙️</span>
+                        </div>
                     </div>
                     <span class="show-badge badge-replay">PONOVITEV</span>
                 </div>
                 <div class="show-row" data-start="20" data-end="22">
-                    <div class="show-info">
-                        <span class="show-time time-live"><i class="far fa-clock"></i> 20:00 - 22:00</span>
-                        <span class="show-name">♥️ NEDELJSKI ꨄ︎ VEČER ♥️</span>
+                    <div class="show-details">
+                        <img src="slika3.png" alt="Nedeljski Večer" class="schedule-img">
+                        <div class="show-info">
+                            <span class="show-time time-live"><i class="far fa-clock"></i> 20:00 - 22:00</span>
+                            <span class="show-name">♥️ NEDELJSKI ꨄ︎ VEČER ♥️</span>
+                        </div>
                     </div>
                     <span class="show-badge badge-live">V ŽIVO!</span>
                 </div>
@@ -1223,16 +1268,19 @@ function updateCurrentShowInfo() {
         showImage = "slika2.png";
     } else if ((day === 5 && hour >= 18) || (day === 6 && hour < 6)) {
         showName = "🎧 WEEKEND PARTY 💥 MIXI 🎧";
+        showImage = "slika5.png";
     } else if (day === 6) {
         if (hour >= 13 && hour < 15) {
             showName = "⭐ GLASBENI 🎸 VRTILJAK ⭐ (Ponovitev)";
             showImage = "slika2.png";
         } else if (hour >= 18) { 
             showName = "🎧 WEEKEND PARTY 💥 MIXI 🎧";
+            showImage = "slika5.png";
         }
     } else if (day === 0) {
         if (hour < 6) {
             showName = "🎧 WEEKEND PARTY 💥 MIXI 🎧";
+            showImage = "slika5.png";
         } else if (hour >= 15 && hour < 17) {
             showName = "🎙️ PODCAST 🔴 MESECA 🎙️ (Ponovitev)";
             showImage = "slika4.png";
