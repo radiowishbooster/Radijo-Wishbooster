@@ -295,19 +295,36 @@
     gap: 10px;
     width: 100%;
     padding: 12px 10px;
-    background-color: #000;
-    border: 2px solid #8a2be2;
     border-radius: 12px;
     font-weight: bold;
     font-size: 1.15rem;
-    color: #fff;
     text-decoration: none;
     transition: all 0.3s;
     box-sizing: border-box;
   }
-  .btn-tt-live:hover {
-    background-color: #8a2be2;
-    box-shadow: 0 0 15px rgba(138, 43, 226, 0.8);
+
+  /* TT GUMB - NEAKTIVEN IN AKTIVEN STIL */
+  .tt-inactive {
+    background: #222 !important;
+    color: #555 !important;
+    border: 1px solid #333 !important;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+  .tt-live {
+    background-color: #000 !important;
+    border: 2px solid #8a2be2 !important;
+    color: #fff !important;
+    animation: ttPulse 1.5s infinite ease-in-out;
+  }
+  .tt-live:hover {
+    background-color: #8a2be2 !important;
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.8) !important;
+  }
+  @keyframes ttPulse {
+    0% { box-shadow: 0 0 10px rgba(138, 43, 226, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(138, 43, 226, 0.9); }
+    100% { box-shadow: 0 0 10px rgba(138, 43, 226, 0.5); }
   }
 
   /* Cookie banner */
@@ -565,7 +582,7 @@
       </a>
 
       <div class="tiktok-live-wrap">
-        <a href="https://www.tiktok.com/@wishbooster/live" target="_blank" class="btn-tt-live"><i class="fab fa-tiktok"></i> TIKTOK LIVE stream</a>
+        <a id="tiktok-button" href="https://www.tiktok.com/@wishbooster/live" target="_blank" class="btn-tt-live tt-inactive"><i class="fab fa-tiktok"></i> TikTok - LIVE</a>
       </div>
 
       <p id="sms-hint" class="btn-hint">
@@ -1137,26 +1154,42 @@ function showServiceDesc(service) {
     box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
-// FUNKCIJA ZA SMS GUMB
+// FUNKCIJA ZA SMS IN TIKTOK GUMB (SPOJENI LOGIKI)
 function updateSmsButton() {
   const now = new Date();
   const day = now.getDay(); 
   const hour = now.getHours();
+  
   const smsBtn = document.getElementById('sms-button');
+  const ttBtn = document.getElementById('tiktok-button');
   const smsHint = document.getElementById('sms-hint');
 
   const isLiveDay = (day === 2 || day === 4 || day === 0);
   const isLiveTime = (hour >= 20 && hour < 22);
 
   if (isLiveDay && isLiveTime) {
+    // SMS GUMB - AKTIVEN
     smsBtn.classList.remove('sms-inactive');
     smsBtn.classList.add('sms-live');
     smsBtn.style.pointerEvents = 'auto'; 
+    
+    // TIKTOK GUMB - AKTIVEN
+    ttBtn.classList.remove('tt-inactive');
+    ttBtn.classList.add('tt-live');
+    ttBtn.style.pointerEvents = 'auto';
+
     smsHint.innerHTML = "<span style='color: #00d4ff;'>🔴 V ŽIVO! Pošlji SMS željo v studio.</span>";
   } else {
+    // SMS GUMB - NEAKTIVEN
     smsBtn.classList.remove('sms-live');
     smsBtn.classList.add('sms-inactive');
     smsBtn.style.pointerEvents = 'none'; 
+    
+    // TIKTOK GUMB - NEAKTIVEN
+    ttBtn.classList.remove('tt-live');
+    ttBtn.classList.add('tt-inactive');
+    ttBtn.style.pointerEvents = 'none';
+
     smsHint.innerHTML = "SMS želje sprejemamo v ŽIVO: Torek, Četrtek in Nedeljo (20:00 - 22:00).";
   }
 }
