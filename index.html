@@ -285,23 +285,29 @@
 
   /* TikTok Live button */
   .tiktok-live-wrap {
-    text-align: center;
-    margin-bottom: 30px;
+    width: 100%;
+    margin-top: 15px;
   }
   .btn-tt-live {
-    display: inline-block;
-    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 12px 10px;
     background-color: #000;
     border: 2px solid #8a2be2;
     border-radius: 12px;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     color: #fff;
     text-decoration: none;
     transition: all 0.3s;
+    box-sizing: border-box;
   }
   .btn-tt-live:hover {
     background-color: #8a2be2;
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.8);
   }
 
   /* Cookie banner */
@@ -557,6 +563,11 @@
       <a id="sms-button" href="sms:+38641772470?&body=Moje ime:%0APozdravil bi:%0AZaželel sem si pesem od: " class="btn sms-inactive">
         <i class="fas fa-comment-dots"></i> SMS ŽELJA
       </a>
+
+      <div class="tiktok-live-wrap">
+        <a href="https://www.tiktok.com/@wishbooster/live" target="_blank" class="btn-tt-live"><i class="fab fa-tiktok"></i> TIKTOK LIVE stream</a>
+      </div>
+
       <p id="sms-hint" class="btn-hint">
         SMS želje sprejemamo v živo: Tor, Čet in Ned (20:00 - 22:00).
       </p>
@@ -653,10 +664,6 @@
     <a href="https://www.tiktok.com/@wishbooster" target="_blank"><i class="fab fa-tiktok"></i></a>
     <a href="https://www.youtube.com/@RadioWishbooster" target="_blank"><i class="fab fa-youtube"></i></a>
     <a href="https://www.facebook.com/profile.php?id=100094446477993" target="_blank"><i class="fab fa-facebook"></i></a>
-  </div>
-
-  <div class="tiktok-live-wrap">
-    <a href="https://www.tiktok.com/@wishbooster/live" target="_blank" class="btn-tt-live"><i class="fab fa-tiktok"></i> TIKTOK LIVE stream</a>
   </div>
 
   <div style="text-align: center; margin-top: 40px; margin-bottom: -20px; position: relative; z-index: 10; padding: 0 15px;">
@@ -912,7 +919,7 @@
            </div>
         </div>
 
-        <h3 style="color: #ff00ff; text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff; text-align: center; justify-content: center; margin-bottom: 5px; font-size: 1.8rem;"><i class="fas fa-poll-h"></i> ANKETA MESECA</h3>
+        <h3 style="color: #ff00ff; text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff; text-align: center; justify-content: center; margin-bottom: 5px; font-size: 1.8rem;"><i class="fas fa-poll-h"></i> RADIJSKA ANKETA</h3>
         <h4 style="color: #00d4ff; text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff; text-align: center; margin-top: 0; margin-bottom: 20px; font-weight: 900; font-size: 1.4rem; letter-spacing: 1px;">KATERO NAŠO ODDAJO POSLUŠAŠ ?</h4>
         <iframe src="https://forms.gle/CeEsDj29RdEivJD37" style="width:100%; height:650px; border:none; border-radius:12px; flex-grow: 1;"></iframe>
       </div>
