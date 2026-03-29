@@ -773,7 +773,7 @@
         <div class="show-card">
             <img src="slika4.png" alt="Podcast Meseca" loading="lazy">
             <h4>🎙️ PODCAST 🔴 MESECA 🎙️</h4>
-            <p>Na našem radiju ne ustvarjamo samo programa v živo, ampak gremo z vami še korak dalje. Vsak <span class="text-blue-noglow">MESEC</span> vzamemo pod drobnogled najzanimivejše teme, gostimo izjemne posameznike in se poglobimo v zgodbe, ki si zaslužijo več časa in pozornosti.</p>
+            <p>Na našem radiju ne ustvarjamo samo programa v živo, ampak gremo z vami še korak dalje. Vsak <span class="text-blue-noglow">MESEC</span> vzamemo pod drobnogled najzanimivejše teme, gostimo izjemne posameznike in se poglobimo v zgodbe, ki si zaslužijo več prizadevanj.</p>
         </div>
     </div>
 </div>
@@ -937,9 +937,9 @@
         <iframe src="https://forms.gle/CeEsDj29RdEivJD37" style="width:100%; height:650px; border:none; border-radius:12px; flex-grow: 1;"></iframe>
       </div>
 
-      <div class="purple-frame full-width-box" style="margin-bottom: 0;">
-        <h3><i class="fas fa-comments"></i> KLEPETALNICA</h3>
-        <iframe src="https://www5.cbox.ws/box/?boxid=961432&boxtag=Lu3k7m" width="100%" height="450" style="border-radius:15px; border:none;" loading="lazy"></iframe>
+      <div class="purple-frame full-width-box" style="margin-bottom: 0; text-align: center;">
+        <h3><i class="fas fa-users" style="color: #ff00ff; text-shadow: 0 0 10px #ff00ff;"></i> NAŠA EKIPA</h3>
+        <img src="moderatorji.PNG" alt="Ekipa K-Boost Moderatorji" style="max-width: 100%; height: auto; border-radius: 12px; border: 2px dashed #bc13fe; box-shadow: 0 0 25px rgba(188, 19, 254, 0.3); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.01)'" onmouseout="this.style.transform='scale(1)'">
       </div>
 
     <div class="purple-frame" style="margin-bottom: 0;">
@@ -954,7 +954,7 @@
                 <i class="fas fa-tshirt" style="color: #ff00ff; text-shadow: 0 0 10px #ff00ff;"></i> Naroči svojo majico!
             </h4>
             <p style="font-size: 1.2rem; color: #fff; margin-bottom: 25px; line-height: 1.8;">
-                Postani del naše zgodbe! Zagotovi si unikatno majico sive barve z logotipom <strong>Wish Booster Radia</strong> in nas podpri pri ustvarjanju najboljše zabave. <br>
+                Postani del naše zgodbe! Zagotovi si unikatno majico z logotipom <strong>Wish Booster Radija</strong> in nas podpri pri ustvarjanju najboljše zabave. <br>
             </p>
             
             <div style="margin-bottom: 25px; display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap;">
@@ -1016,17 +1016,14 @@
 <script>
 // ZAPIRANJE MODALOV S KLIKOM V PRAZNO
 window.addEventListener('click', function(event) {
-    // Za modale znotraj overlayja (Kdo smo, Naše oddaje)
     if (event.target === document.getElementById('main-modal-overlay')) {
         closeAllModals();
     }
-    // Za modal Glasbena želja
     if (event.target === document.getElementById('requestModal')) {
         closeRequests();
     }
 });
 
-// ZAPIRANJE Z ESCAPE TIPKO
 window.addEventListener('keydown', function(e) {
   if(e.key === 'Escape') {
       closeAllModals();
@@ -1034,11 +1031,10 @@ window.addEventListener('keydown', function(e) {
   }
 });
 
-// FUNKCIJE ZA ODPIRANJE IN ZAPIRANJE MODALOV (KDO SMO, NAŠE ODDAJE)
 function openModal(modalId) {
     document.getElementById('main-modal-overlay').style.display = 'block';
     document.getElementById(modalId).style.display = 'block';
-    document.body.style.overflow = 'hidden'; // Prepreči scrollanje ozadja
+    document.body.style.overflow = 'hidden';
 }
 
 function closeAllModals() {
@@ -1046,10 +1042,9 @@ function closeAllModals() {
     document.getElementById('about-modal').style.display = 'none';
     document.getElementById('shows-modal').style.display = 'none';
     document.getElementById('service-description-box').style.display = 'none';
-    document.body.style.overflow = 'auto'; // Omogoči scrollanje
+    document.body.style.overflow = 'auto';
 }
 
-// Funkcija za prikaz opisov storitev v "KDO SMO?"
 function showServiceDesc(service) {
     const box = document.getElementById('service-description-box');
     const title = document.getElementById('service-title');
@@ -1069,7 +1064,6 @@ function showServiceDesc(service) {
     box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
-// FUNKCIJA ZA MODAL GLASBENA ŽELJA
 function openRequests() {
   document.getElementById('requestFrame').src = "https://a13.asurahosting.com/public/wish_booster_radio/embed-requests";
   document.getElementById('requestModal').style.display = 'flex';
@@ -1082,8 +1076,6 @@ function closeRequests() {
   document.body.style.overflow = 'auto';
 }
 
-
-// FUNKCIJA ZA SMS IN TIKTOK GUMB
 function updateSmsButton() {
   const now = new Date();
   const day = now.getDay(); 
@@ -1119,23 +1111,15 @@ function updateSmsButton() {
   }
 }
 
-// POSODOBLJEN IN OPTIMIZIRAN SISTEM ZA TRENUTNO ODDAJO
 const scheduleData = [
-    // Nedelja (0)
     [ { start: 0, end: 6, name: "🎧 WEEKEND PARTY 💥 MIXI 🎧", img: "slika5.png" },
       { start: 15, end: 17, name: "🎙️ PODCAST 🔴 MESECA 🎙️ (Ponovitev)", img: "slika4.png" },
       { start: 20, end: 22, name: "♥️ NEDELJSKI ꨄ︎ VEČER ♥️ <span class='live-badge-inline'>V ŽIVO</span>", img: "slika3.png" } ],
-    // Ponedeljek (1)
     [ { start: 20, end: 22, name: "FLASH⚡BACK - 80 & 90 (Ponovitev)", img: "slika1.png" } ],
-    // Torek (2)
     [ { start: 20, end: 22, name: "FLASH⚡BACK - 80 & 90 <span class='live-badge-inline'>V ŽIVO</span>", img: "slika1.png" } ],
-    // Sreda (3)
     [ { start: 20, end: 22, name: "♥️ NEDELJSKI ꨄ︎ VEČER ♥️ (Ponovitev)", img: "slika3.png" } ],
-    // Četrtek (4)
     [ { start: 20, end: 22, name: "⭐ GLASBENI 🎸 VRTILJAK ⭐ <span class='live-badge-inline'>V ŽIVO</span>", img: "slika2.png" } ],
-    // Petek (5)
     [ { start: 18, end: 24, name: "🎧 WEEKEND PARTY 💥 MIXI 🎧", img: "slika5.png" } ],
-    // Sobota (6)
     [ { start: 0, end: 6, name: "🎧 WEEKEND PARTY 💥 MIXI 🎧", img: "slika5.png" },
       { start: 13, end: 15, name: "⭐ GLASBENI 🎸 VRTILJAK ⭐ (Ponovitev)", img: "slika2.png" },
       { start: 18, end: 24, name: "🎧 WEEKEND PARTY 💥 MIXI 🎧", img: "slika5.png" } ]
@@ -1149,7 +1133,6 @@ function updateCurrentShowInfo() {
     let currentName = "WISH BOOSTER 24/7 MIX"; 
     let currentImage = "Logo Radio Wish Booster - TRANSPARENT.png"; 
 
-    // Preišči današnji urnik
     if(scheduleData[day]) {
         for(let show of scheduleData[day]) {
             if(hour >= show.start && hour < show.end) {
@@ -1167,7 +1150,6 @@ function updateCurrentShowInfo() {
     if (imgEl && !imgEl.src.includes(currentImage)) imgEl.src = currentImage;
 }
 
-// OSVETLITEV URNIKA (TRENUTNA ODDAJA V KARTICI)
 function highlightTodaySchedule() {
     const now = new Date();
     const today = now.getDay();
@@ -1209,7 +1191,6 @@ function highlightTodaySchedule() {
     });
 }
 
-// FUNKCIJA ZA STUDIJSKO URO
 function updateClock() {
     const now = new Date();
     const h = now.getHours().toString().padStart(2, '0');
@@ -1222,7 +1203,6 @@ function updateClock() {
     }
 }
 
-// COOKIES
 function acceptCookies() {
   document.getElementById('cookie-banner').style.display = 'none';
   localStorage.setItem('cookiesAccepted', 'true');
@@ -1233,7 +1213,6 @@ function showPhone() {
   document.getElementById('phoneLink').style.display = 'inline-flex';
 }
 
-// INICIALIZACIJA OB NALAGANJU
 window.onload = function() {
   if(localStorage.getItem('cookiesAccepted')) {
     document.getElementById('cookie-banner').style.display = 'none';
