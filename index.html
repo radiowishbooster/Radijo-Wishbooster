@@ -25,6 +25,71 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;900&display=swap" rel="stylesheet" />
 
 <style>
+/* Gallery Styles */
+  .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 25px;
+  }
+  .gallery-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 2px solid #8a2be2;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .gallery-img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(138, 43, 226, 0.8);
+  }
+
+  /* Lightbox Styles */
+  .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 10005;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(5px);
+  }
+  .lightbox-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 80vh;
+      border: 3px solid #bc13fe;
+      border-radius: 15px;
+      box-shadow: 0 0 30px rgba(188, 19, 254, 0.5);
+      animation: zoomIn 0.3s ease;
+  }
+  @keyframes zoomIn {
+      from {transform: scale(0.8); opacity: 0;}
+      to {transform: scale(1); opacity: 1;}
+  }
+  .close-lightbox {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #ff00ff;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
+      z-index: 10006;
+  }
+  .close-lightbox:hover, .close-lightbox:focus {
+      color: #fff;
+      text-shadow: 0 0 15px #ff00ff;
+  }
+  
   body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -946,6 +1011,22 @@
         </p>
         </div>
 
+    <div class="purple-frame full-width-box" style="margin-bottom: 0; text-align: center;">
+        <h3 style="justify-content: center; color: #ff00ff; text-shadow: 0 0 10px #ff00ff; font-size: 2rem; margin-top: 0;">
+            <i class="fas fa-camera-retro" style="color: #00d4ff; margin-right: 15px;"></i> UTRINKI S PRVEGA SREČANJA
+        </h3>
+        <p style="font-size: 1.15rem; color: #ddd; font-weight: 500;">Poglejte si nekaj utrinkov z našega nepozabnega prvega radijskega druženja v živo!</p>
+        
+        <div class="gallery-grid">
+            <img src="galerija1.jpg" alt="Srečanje 1" class="gallery-img" onclick="openLightbox(this.src)" loading="lazy">
+            <img src="galerija2.jpg" alt="Srečanje 2" class="gallery-img" onclick="openLightbox(this.src)" loading="lazy">
+            <img src="galerija3.jpg" alt="Srečanje 3" class="gallery-img" onclick="openLightbox(this.src)" loading="lazy">
+            <img src="galerija4.jpg" alt="Srečanje 4" class="gallery-img" onclick="openLightbox(this.src)" loading="lazy">
+            <img src="galerija5.jpg" alt="Srečanje 5" class="gallery-img" onclick="openLightbox(this.src)" loading="lazy">
+            <img src="galerija6.jpg" alt="Srečanje 6" class="gallery-img" onclick="openLightbox(this.src)" loading="lazy">
+        </div>
+      </div>
+
       <div class="purple-frame full-width-box" style="margin-bottom: 0; text-align: center;">
         <h3><i class="fas fa-users" style="color: #ff00ff; text-shadow: 0 0 10px #ff00ff;"></i> NAŠA EKIPA</h3>
         <img src="moderatorji.png" alt="Ekipa K-Boost Moderatorji" style="max-width: 100%; height: auto; border-radius: 12px; border: 2px dashed #bc13fe; box-shadow: 0 0 25px rgba(188, 19, 254, 0.3); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.01)'" onmouseout="this.style.transform='scale(1)'">
@@ -1023,6 +1104,11 @@
   </div>
 </div>
 
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+    <img class="lightbox-content" id="lightbox-img" onclick="event.stopPropagation()">
+</div>
+
 <script>
 // ZAPIRANJE MODALOV S KLIKOM V PRAZNO
 window.addEventListener('click', function(event) {
@@ -1041,6 +1127,14 @@ window.addEventListener('keydown', function(e) {
   }
 });
 
+  window.addEventListener('keydown', function(e) {
+  if(e.key === 'Escape') {
+      closeAllModals();
+      closeRequests();
+      closeLightbox(); // TO VRSTICO DODAJ!
+  }
+});
+
 function openModal(modalId) {
     document.getElementById('main-modal-overlay').style.display = 'block';
     document.getElementById(modalId).style.display = 'block';
@@ -1055,6 +1149,17 @@ function closeAllModals() {
     document.body.style.overflow = 'auto';
 }
 
+  function openLightbox(src) {
+    document.getElementById('lightbox').style.display = 'block';
+    document.getElementById('lightbox-img').src = src;
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+  
 function showServiceDesc(service) {
     const box = document.getElementById('service-description-box');
     const title = document.getElementById('service-title');
