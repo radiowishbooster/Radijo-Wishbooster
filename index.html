@@ -25,6 +25,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;900&display=swap" rel="stylesheet" />
 
 <style>
+  
 /* Gallery Styles */
   .gallery-grid {
       display: grid;
@@ -46,6 +47,30 @@
       box-shadow: 0 0 20px rgba(138, 43, 226, 0.8);
   }
 
+/* Fotograf - Logotip in napis */
+  .photographer-credit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 30px;
+      margin-top: 10px;
+  }
+  .photographer-credit img {
+      width: 55px; /* Velikost logotipa */
+      height: auto;
+      border-radius: 50%; /* Naredi sliko okroglo */
+      filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.5)); /* Neonski sijaj okoli logotipa */
+  }
+  .photographer-credit span {
+      font-size: 1.2rem;
+      color: #00d4ff;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-shadow: 0 0 8px rgba(0, 212, 255, 0.6);
+  }
+  
   /* Lightbox Styles */
   .lightbox {
       display: none;
@@ -1011,11 +1036,16 @@
         </p>
         </div>
 
-    <div class="purple-frame full-width-box" style="margin-bottom: 0; text-align: center;">
+   <div class="purple-frame full-width-box" style="margin-bottom: 0; text-align: center;">
         <h3 style="justify-content: center; color: #ff00ff; text-shadow: 0 0 10px #ff00ff; font-size: 2rem; margin-top: 0;">
             <i class="fas fa-camera-retro" style="color: #00d4ff; margin-right: 15px;"></i> UTRINKI S PRVEGA SREČANJA
         </h3>
         <p style="font-size: 1.15rem; color: #ddd; font-weight: 500;">Poglejte si nekaj utrinkov z našega nepozabnega prvega radijskega druženja v živo ob Šmartinskem jezeru !</p>
+        
+        <div class="photographer-credit">
+            <img src="domen-logo.png" alt="Domen Merslavič Fotografija" loading="lazy">
+            <span>FOTO: Domen Merslavič</span>
+        </div>
         
         <div class="gallery-grid">
             <img src="galerija1.jpg" alt="Srečanje 1" class="gallery-img" onclick="openLightbox(this.src)" loading="lazy">
@@ -1030,7 +1060,6 @@
             <img src="galerija10.png" alt="Srečanje 10" class="gallery-img" onclick="openLightbox(this.src)" loading="lazy">
             <img src="galerija11.jpg" alt="Srečanje 11" class="gallery-img" onclick="openLightbox(this.src)" loading="lazy">
             <img src="galerija12.jpg" alt="Srečanje 12" class="gallery-img" onclick="openLightbox(this.src)" loading="lazy">
-          
         </div>
       </div>
 
