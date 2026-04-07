@@ -25,6 +25,44 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;900&display=swap" rel="stylesheet" />
 
 <style>
+
+  /* Intervjuji Sektor */
+  .interview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+  }
+  .interview-card {
+      background: rgba(25, 10, 45, 0.6);
+      border: 1px dashed #bc13fe;
+      border-radius: 12px;
+      padding: 15px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .interview-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 20px rgba(188, 19, 254, 0.4);
+      background: rgba(138, 43, 226, 0.15);
+  }
+  .interview-card h5 {
+      color: #00d4ff;
+      margin: 15px 0 5px 0;
+      font-size: 1.1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      text-shadow: 0 0 5px rgba(0, 212, 255, 0.5);
+  }
+  .interview-card p {
+      color: #ddd;
+      font-size: 0.9rem;
+      margin: 0;
+      line-height: 1.4;
+  }
+  .small-iframe {
+      border-radius: 8px;
+      border: 1px solid #8a2be2;
+  }
   
 /* Gallery Styles */
   .gallery-grid {
@@ -1068,6 +1106,68 @@
       <div class="purple-frame full-width-box" style="margin-bottom: 0; text-align: center;">
         <h3><i class="fas fa-users" style="color: #ff00ff; text-shadow: 0 0 10px #ff00ff;"></i> NAŠA EKIPA</h3>
         <img src="moderatorji.png" alt="Ekipa K-Boost Moderatorji" style="max-width: 100%; height: auto; border-radius: 12px; border: 2px dashed #bc13fe; box-shadow: 0 0 25px rgba(188, 19, 254, 0.3); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.01)'" onmouseout="this.style.transform='scale(1)'">
+      </div>
+
+   <div class="purple-frame full-width-box" style="margin-bottom: 0; text-align: center;">
+        
+        <h3 style="justify-content: center; color: #ff00ff; text-shadow: 0 0 10px #ff00ff; font-size: 2.2rem; margin-top: 0; text-transform: uppercase;">
+            <i class="fab fa-youtube" style="color: #ff0000; margin-right: 15px;"></i> PODCAST IN INTERVJU MESECA
+        </h3>
+        <p style="font-size: 1.15rem; color: #ddd; font-weight: 500; margin-bottom: 25px;">
+            Si zamudil pogovor v živo? Poglej si naš zadnji intervju v studiu Radia Wish Booster!
+        </p>
+
+        <div class="iframe-container" style="border-radius:12px; border: 2px solid #00d4ff; box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);">
+            <iframe src="https://www.youtube.com/embed/zsfWW3XkVV0" allowfullscreen loading="lazy"></iframe>
+        </div>
+        
+        <h4 style="color: #00d4ff; font-size: 1.4rem; margin: 15px 0 5px 0; text-transform: uppercase; font-weight: 900;">
+            🎙️PODCAST stranka RESNI.ca🎙️
+        </h4>
+        <p style="color: #fff; font-size: 1.1rem; margin-bottom: 0;">
+            V studiu sem se srečal z KATJO KOKOT iz stranke resni.ca
+        </p>
+
+        <hr style="border: 0; height: 1px; background: linear-gradient(90deg, transparent, #bc13fe, transparent); margin: 40px 0;">
+
+        <h4 style="color: #bc13fe; font-size: 1.6rem; margin-top: 0; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 10px rgba(188, 19, 254, 0.5);">
+            <i class="fas fa-history"></i> Arhiv preteklih gostov
+        </h4>
+        
+        <div class="interview-grid">
+            
+            <div class="interview-card">
+                <div class="iframe-container small-iframe">
+                    <iframe src="https://www.youtube.com/embed/0PhZGsuVgjc" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <h5>INTERVJU z Glasbenico Mihaelo</h5>
+                <p>Mihaela Kotnik ni le glasbenica, temveč podjetnica, strastna učiteljica bobnov in ženska, ki dokazuje, da palice v rokah ne poznajo spola.</p>
+            </div>
+
+            <div class="interview-card">
+                <div class="iframe-container small-iframe">
+                    <iframe src="https://www.youtube.com/embed/gwhIR7Wcs2A" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <h5>MARATON IZ DNEVNE SOBE</h5>
+                <p>Ni pomembno, kje začneš, pomembno je, da začneš – pa četudi s kavča.</p>
+            </div>
+
+            <div class="interview-card">
+                <div class="iframe-container small-iframe">
+                    <iframe src="https://www.youtube.com/embed/FZ3Y-zBCPFY" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <h5>PODCAST O DROGAH</h5>
+                <p>Pogovarjali se bomo brez filtrov o življenju, drogah, preizkušnjah, glasbi, padcih in novih začetkih.</p>
+            </div>
+
+        </div>
+        
+        <div style="margin-top: 35px;">
+            <a href="https://www.youtube.com/@RadioWishbooster" target="_blank" class="btn btn-about" style="display: inline-flex; max-width: 350px;">
+                <i class="fab fa-youtube" style="font-size: 1.5rem;"></i> Vsi videi na YouTube
+            </a>
+        </div>
+
       </div>
 
     <div class="purple-frame" style="margin-bottom: 0;">
