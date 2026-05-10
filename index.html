@@ -781,32 +781,32 @@
     iframe { height: auto; }
   }
 
-  /* PAYPAL PAYMENT MODAL */
-#paymentModal {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.85);
-  backdrop-filter: blur(6px);
-  z-index: 10050;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  box-sizing: border-box;
-}
+  /* PAYMENT MODAL */
+  #paymentModal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(6px);
+    z-index: 10050;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
 
-.payment-content {
-  width: 100%;
-  max-width: 500px;
-  background: #0b0312;
-  border: 2px solid #ff00ff;
-  border-radius: 20px;
-  box-shadow: 0 0 30px rgba(255,0,255,0.4), 0 0 100px rgba(0,0,0,0.9);
-  padding: 35px 20px;
-  position: relative;
-}
+  .payment-content {
+    width: 100%;
+    max-width: 500px;
+    background: #0b0312;
+    border: 2px solid #ff00ff;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(255,0,255,0.4), 0 0 100px rgba(0,0,0,0.9);
+    padding: 35px 20px;
+    position: relative;
+  }
 
 </style>
 </head>
@@ -843,9 +843,9 @@
   </div>
   
   <div class="btn-wrapper">
-    <button id="sms-button" class="btn sms-inactive" onclick="openPaymentModal()">
-  <i class="fas fa-comment-dots"></i> SMS ŽELJA   (1€)
-</button>
+      <button id="sms-button" class="btn sms-inactive" onclick="openPaymentModal()">
+        <i class="fas fa-comment-dots"></i> SMS ŽELJA (1€)
+      </button>
 
       <div class="tiktok-live-wrap">
         <a id="tiktok-button" href="https://www.tiktok.com/@wishbooster/live" target="_blank" class="btn-tt-live tt-inactive"><i class="fab fa-tiktok"></i> TikTok - LIVE</a>
@@ -1263,8 +1263,9 @@
   </div>
 </div>
 
-  <!-- PAYPAL PAYMENT MODAL -->
-<div class="payment-content">
+<!-- PAYMENT MODAL -->
+<div id="paymentModal">
+  <div class="payment-content">
     <span class="close-modal-btn" onclick="closePaymentModal()">
       <i class="fas fa-times-circle"></i>
     </span>
@@ -1274,7 +1275,7 @@
     </h2>
 
     <div style="background: rgba(255,255,255,0.1); border-radius: 12px; padding: 20px; text-align: center; margin-bottom: 20px; border: 1px dashed #00d4ff;">
-        <h3 style="color:#00d4ff; margin-top:0; margin-bottom: 10px;">Opcija 1: FLIK plačilo</h3>
+        <h3 style="color:#00d4ff; margin-top:0; margin-bottom: 10px;">Opcija 1: FLIK nakazilo</h3>
         <p style="color:#fff; font-weight:700; font-size:1.1rem; margin-bottom: 5px;">
           Odpri svojo bančno aplikacijo in nakaži 1€ preko Flika na številko:
         </p>
@@ -1283,7 +1284,6 @@
         </p>
     </div>
 
-    <!-- TUKAJ PUSTIŠ PAYPAL GUMB, ČE GA ŠE VEDNO ŽELIŠ IMETI KOT OPCIJO 2 -->
     <a href="https://www.paypal.com/ncp/payment/XR7SF9562Q4AA" target="_blank"
        class="btn btn-request"
        style="width:100%; text-align:center;">
@@ -1301,11 +1301,6 @@
        <i class="fas fa-comment-dots"></i> POŠLJI SMS ŽELJO
     </a>
   </div>
-
-    <p style="text-align:center; color:#aaa; font-size:0.95rem; margin-top:15px;">
-      Če si plačilo že izvedel, klikni "Nadaljuj".
-    </p>
-  </div>
 </div>
 
   <div id="lightbox" class="lightbox" onclick="closeLightbox()">
@@ -1322,22 +1317,29 @@ window.addEventListener('click', function(event) {
     if (event.target === document.getElementById('requestModal')) {
         closeRequests();
     }
+    if (event.target === document.getElementById('paymentModal')) {
+        closePaymentModal();
+    }
 });
 
 window.addEventListener('keydown', function(e) {
   if(e.key === 'Escape') {
       closeAllModals();
       closeRequests();
+      closeLightbox();
+      closePaymentModal();
   }
 });
 
-  window.addEventListener('keydown', function(e) {
-  if(e.key === 'Escape') {
-      closeAllModals();
-      closeRequests();
-      closeLightbox(); // TO VRSTICO DODAJ!
-  }
-});
+function openPaymentModal() {
+  document.getElementById("paymentModal").style.display = "flex";
+  document.body.style.overflow = "hidden";
+}
+
+function closePaymentModal() {
+  document.getElementById("paymentModal").style.display = "none";
+  document.body.style.overflow = "auto";
+}
 
 function openModal(modalId) {
     document.getElementById('main-modal-overlay').style.display = 'block';
@@ -1395,21 +1397,6 @@ function closeRequests() {
   document.body.style.overflow = 'auto';
 }
 
-function openPaymentModal() {
-  document.getElementById("paymentModal").style.display = "flex";
-  document.body.style.overflow = "hidden";
-}
-
-function closePaymentModal() {
-  document.getElementById("paymentModal").style.display = "none";
-  document.body.style.overflow = "auto";
-}
-
-function openRequestsAfterPay() {
-  closePaymentModal();
-  openRequests();
-}
-  
 function updateSmsButton() {
   const now = new Date();
   const day = now.getDay(); 
@@ -1419,8 +1406,8 @@ function updateSmsButton() {
   const ttBtn = document.getElementById('tiktok-button');
   const smsHint = document.getElementById('sms-hint');
 
-const isLiveDay = true;
-const isLiveTime = true;
+  const isLiveDay = (day === 2 || day === 4 || day === 0);
+  const isLiveTime = (hour >= 20 && hour < 22);
 
   if (isLiveDay && isLiveTime) {
     smsBtn.classList.remove('sms-inactive');
