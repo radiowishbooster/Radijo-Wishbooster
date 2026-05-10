@@ -781,6 +781,33 @@
     iframe { height: auto; }
   }
 
+  /* PAYPAL PAYMENT MODAL */
+#paymentModal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(6px);
+  z-index: 10050;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.payment-content {
+  width: 100%;
+  max-width: 500px;
+  background: #0b0312;
+  border: 2px solid #ff00ff;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(255,0,255,0.4), 0 0 100px rgba(0,0,0,0.9);
+  padding: 35px 20px;
+  position: relative;
+}
+
 </style>
 </head>
 <body>
@@ -817,7 +844,7 @@
   
   <div class="btn-wrapper">
       <a id="sms-button" href="sms:+38641772470?&body=Moje ime:%0APozdravil bi:%0AZaželel sem si pesem od: " class="btn sms-inactive">
-        <i class="fas fa-comment-dots"></i> SMS ŽELJA
+        <i class="fas fa-comment-dots"></i> SMS ŽELJA (1€)
       </a>
 
       <div class="tiktok-live-wrap">
@@ -1236,6 +1263,37 @@
   </div>
 </div>
 
+  <!-- PAYPAL PAYMENT MODAL -->
+<div id="paymentModal">
+  <div class="payment-content">
+    <span class="close-modal-btn" onclick="closePaymentModal()">
+      <i class="fas fa-times-circle"></i>
+    </span>
+
+    <h2 style="text-align:center; color:#ff00ff; font-weight:900; margin-top:0;">
+      GLASBENA ŽELJA (1€)
+    </h2>
+
+    <p style="text-align:center; color:#fff; font-weight:700; font-size:1.2rem;">
+      Najprej plačaj 1€, nato klikni spodaj "Nadaljuj".
+    </p>
+
+    <a href="https://www.paypal.com/ncp/payment/XR7SF9562Q4AA" target="_blank"
+       class="btn btn-request"
+       style="width:100%; text-align:center;">
+      <i class="fab fa-paypal"></i> PLAČAJ 1€ S PAYPAL
+    </a>
+
+    <button onclick="openRequestsAfterPay()" class="btn btn-about" style="width:100%; margin-top:15px;">
+      <i class="fas fa-music"></i> NADALJUJ → NAPIŠI ŽELJO
+    </button>
+
+    <p style="text-align:center; color:#aaa; font-size:0.95rem; margin-top:15px;">
+      Če si plačilo že izvedel, klikni "Nadaljuj".
+    </p>
+  </div>
+</div>
+
   <div id="lightbox" class="lightbox" onclick="closeLightbox()">
     <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
     <img class="lightbox-content" id="lightbox-img" onclick="event.stopPropagation()">
@@ -1323,6 +1381,21 @@ function closeRequests() {
   document.body.style.overflow = 'auto';
 }
 
+function openPaymentModal() {
+  document.getElementById("paymentModal").style.display = "flex";
+  document.body.style.overflow = "hidden";
+}
+
+function closePaymentModal() {
+  document.getElementById("paymentModal").style.display = "none";
+  document.body.style.overflow = "auto";
+}
+
+function openRequestsAfterPay() {
+  closePaymentModal();
+  openRequests();
+}
+  
 function updateSmsButton() {
   const now = new Date();
   const day = now.getDay(); 
