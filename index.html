@@ -1406,8 +1406,8 @@ function updateSmsButton() {
   const ttBtn = document.getElementById('tiktok-button');
   const smsHint = document.getElementById('sms-hint');
 
-  const isLiveDay = (day === 2 || day === 4 || day === 0);
-  const isLiveTime = (hour >= 20 && hour < 22);
+  const isLiveDay = true;
+  const isLiveTime = true;
 
   if (isLiveDay && isLiveTime) {
     smsBtn.classList.remove('sms-inactive');
