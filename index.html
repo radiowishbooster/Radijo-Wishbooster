@@ -1273,33 +1273,43 @@
     <h2 style="text-align:center; color:#ff00ff; font-weight:900; margin-top:0;">
       GLASBENA ŽELJA (1€)
     </h2>
-
-    <div style="background: rgba(255,255,255,0.1); border-radius: 12px; padding: 20px; text-align: center; margin-bottom: 20px; border: 1px dashed #00d4ff;">
-        <h3 style="color:#00d4ff; margin-top:0; margin-bottom: 10px;">Opcija 1: FLIK nakazilo</h3>
-        <p style="color:#fff; font-weight:700; font-size:1.1rem; margin-bottom: 5px;">
-          Odpri svojo bančno aplikacijo in nakaži 1€ preko Flika na številko:
-        </p>
-        <p style="color:#ff00ff; font-weight:900; font-size:1.8rem; letter-spacing: 2px; margin: 10px 0;">
-          041 772 470
-        </p>
-    </div>
-
-    <a href="https://www.paypal.com/ncp/payment/XR7SF9562Q4AA" target="_blank"
-       class="btn btn-request"
-       style="width:100%; text-align:center;">
-      <i class="fab fa-paypal"></i> Opcija 2: PAYPAL (1€)
-    </a>
-
-    <p style="text-align:center; color:#ddd; font-weight:700; font-size:1rem; margin-top:25px;">
-      Ko izvedeš plačilo (Flik ali PayPal), klikni spodaj:
+    
+    <p style="text-align:center; color:#ff0000; font-weight:900; font-size:1rem; margin-top:0; text-transform: uppercase; text-shadow: 0 0 5px rgba(255,0,0,0.5);">
+      ⚠️ Želja bo predvajana šele po prejetem plačilu!
     </p>
 
-    <a href="sms:+38641772470?&body=Moje ime:%0APozdravil bi:%0AZaželel sem si pesem od: "
-       class="btn btn-about"
-       onclick="closePaymentModal()"
-       style="width:100%; margin-top:10px; text-align:center; display:flex; justify-content:center; align-items:center; gap:10px;">
-       <i class="fas fa-comment-dots"></i> POŠLJI SMS ŽELJO
-    </a>
+    <div style="background: rgba(255,255,255,0.1); border-radius: 12px; padding: 15px; text-align: center; margin-bottom: 15px; border: 1px dashed #00d4ff;">
+        <h3 style="color:#00d4ff; margin-top:0; margin-bottom: 5px;">1. KORAK: PLAČILO</h3>
+        <p style="color:#fff; font-weight:500; font-size:1rem; margin-bottom: 5px;">
+          Nakaži 1€ preko <strong>FLIKA</strong> na številko:
+        </p>
+        <p style="color:#ff00ff; font-weight:900; font-size:1.6rem; letter-spacing: 2px; margin: 5px 0 15px 0;">
+          041 772 470
+        </p>
+        <p style="color:#fff; font-weight:500; font-size:0.9rem; margin-bottom: 10px;">
+          Ali pa uporabi PayPal:
+        </p>
+        <a href="https://www.paypal.com/ncp/payment/XR7SF9562Q4AA" target="_blank"
+           class="btn btn-request"
+           style="width:100%; text-align:center; min-height: 50px; font-size: 1.1rem;">
+          <i class="fab fa-paypal"></i> PAYPAL (1€)
+        </a>
+    </div>
+
+    <div style="text-align: center; margin-top: 20px;">
+        <h3 style="color:#00d4ff; margin-top:0; margin-bottom: 10px;">2. KORAK: POŠLJI SMS</h3>
+        <p style="color:#ddd; font-weight:500; font-size:0.95rem; margin-bottom: 15px;">
+          Pošlji željo. DJ v studiu bo preveril nakazilo in te uvrstil na spored!
+        </p>
+
+        <!-- TUKAJ SEM SPREMENIL PREDPRIPRAVLJEN SMS -->
+        <a href="sms:+38641772470?&body=Moje ime:%0A%0AIme plačnika (Flik/PayPal):%0A%0APozdravil bi:%0A%0AZaželel sem si pesem od: "
+           class="btn btn-about"
+           onclick="closePaymentModal()"
+           style="width:100%; text-align:center; display:flex; justify-content:center; align-items:center; gap:10px;">
+           <i class="fas fa-comment-dots"></i> POŠLJI SMS ŽELJO
+        </a>
+    </div>
   </div>
 </div>
 
