@@ -177,9 +177,17 @@
   header h1 {
     margin: 0;
     color: #bc13fe; 
-    font-size: 2rem;
+    font-size: 2.6rem; 
     font-weight: 900;
-    text-shadow: 0 0 2px #bc13fe, 0 0 8px #bc13fe; 
+    text-transform: uppercase;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.9), 0 0 3px #bc13fe; 
+    letter-spacing: 1px;
+  }
+
+  @media(max-width: 768px) {
+    header h1 {
+      font-size: 1.6rem;
+    }
   }
 
   /* Navigation buttons */
@@ -850,7 +858,7 @@
 <body>
 
 <header>
-  <h1>Radio Wish Booster & Dj K-Boost</h1>
+  <h1>DOBRODOŠLI NA RADIJU WISH BOOSTER</h1>
 </header>
 
 <div id="cookie-banner">
@@ -1128,7 +1136,7 @@
             <i class="fas fa-glass-cheers" style="color: #ff00ff; margin-right: 15px;"></i> Pridruži se nam v živo!
         </h3>
         <p style="font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 25px; line-height: 1.6;">
-            Ekipa <span style="color: #bc13fe; font-weight: 900;">K-BOOST</span> in <span style="color: #00d4ff; font-weight: 900;">Radio Wish Booster</span> vas vabita na 2. nepozabno druženje polno dobre energije, odlične glasbe in zabave v MESECU SEPTEMBRU na Štajerskem v SOBOTO 12.9 - LOKACIJO ŠE SPOROČIMO.
+            Ekipa <span style="color: #bc13fe; font-weight: 900;">K-BOOST</span> in <span style="color: #00d4ff; font-weight: 900;">Radio Wish Booster</span> vas vabita na 2. nepozabno druženje polno dobre energije, odlične glasbe in zabave v MESECU SEPTEMBRU na Štajerskem v SOBOTO 12.9 !
         </p>
         </div>
 
@@ -1468,8 +1476,8 @@ function updateSmsButton() {
   const ttBtn = document.getElementById('tiktok-button');
   const smsHint = document.getElementById('sms-hint');
 
-  const isLiveDay = (day === 2 || day === 4 || day === 0);
-  const isLiveTime = (hour >= 20 && hour < 22);
+  const isLiveDay = true;
+  const isLiveTime = true;
 
   if (isLiveDay && isLiveTime) {
     smsBtn.classList.remove('sms-inactive');
