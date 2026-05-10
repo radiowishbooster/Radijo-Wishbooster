@@ -842,11 +842,10 @@
       </p>
   </div>
   
-<button class="btn btn-request premium-btn" onclick="openPaymentModal()">
-  <i class="fas fa-music"></i>
-  GLASBENA ŽELJA
-  <span class="price-badge">1€</span>
-</button>
+  <div class="btn-wrapper">
+      <a id="sms-button" href="sms:+38641772470?&body=Moje ime:%0APozdravil bi:%0AZaželel sem si pesem od: " class="btn sms-inactive">
+        <i class="fas fa-comment-dots"></i> SMS ŽELJA   (1€)
+      </a>
 
       <div class="tiktok-live-wrap">
         <a id="tiktok-button" href="https://www.tiktok.com/@wishbooster/live" target="_blank" class="btn-tt-live tt-inactive"><i class="fab fa-tiktok"></i> TikTok - LIVE</a>
@@ -1304,37 +1303,6 @@
 </div>
 
 <script>
-
-.premium-btn {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-weight: 900;
-  overflow: hidden;
-}
-
-.price-badge {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  background: linear-gradient(135deg, #ff00ff, #7a00ff);
-  color: white;
-  font-size: 0.85rem;
-  font-weight: 900;
-  padding: 6px 10px;
-  border-radius: 50px;
-  box-shadow: 0 0 15px rgba(255,0,255,0.6);
-  animation: pulsePrice 1.5s infinite;
-}
-
-@keyframes pulsePrice {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
-}
-  
 // ZAPIRANJE MODALOV S KLIKOM V PRAZNO
 window.addEventListener('click', function(event) {
     if (event.target === document.getElementById('main-modal-overlay')) {
