@@ -781,6 +781,73 @@
     iframe { height: auto; }
   }
 
+  /* Live Pop-up v spodnjem kotu */
+  #live-popup {
+      display: none; /* Skrito by default */
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(15, 15, 15, 0.95);
+      border: 2px solid #ff00ff;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(255, 0, 255, 0.6);
+      z-index: 10001; /* Zelo visoko, da je nad vsem */
+      width: 280px;
+      text-align: center;
+      animation: slideInBottom 0.6s ease-out;
+  }
+  @keyframes slideInBottom {
+      from { transform: translateY(150px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+  }
+  .close-popup-btn {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      color: #00d4ff;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: 0.3s;
+  }
+  .close-popup-btn:hover {
+      color: #fff;
+      transform: scale(1.2);
+      text-shadow: 0 0 10px #00d4ff;
+  }
+  .popup-title {
+      color: #ff00ff;
+      font-weight: 900;
+      margin: 10px 0 5px 0;
+      font-size: 1.4rem;
+      text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+  }
+  .popup-text {
+      color: #fff;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+      line-height: 1.4;
+      font-weight: 600;
+  }
+  .live-icon-pulse {
+      font-size: 2.5rem;
+      color: #ff00ff;
+      animation: livePulseFrame 1.5s infinite ease-in-out;
+      border-radius: 50%;
+  }
+  @media(max-width: 480px) {
+      #live-popup {
+          bottom: 10px;
+          right: 50%;
+          transform: translateX(50%);
+          width: 90%;
+      }
+      @keyframes slideInBottom {
+          from { transform: translate(-50%, 150px); opacity: 0; }
+          to { transform: translate(-50%, 0); opacity: 1; }
+      }
+  }
+
 </style>
 </head>
 <body>
@@ -891,7 +958,7 @@
         <div class="show-card">
             <img src="slika2.png" alt="Glasbeni Vrtiljak" loading="lazy">
             <h4>⭐ GLASBENI 🎸 VRTILJAK ⭐</h4>
-            <p>Ali imaš glasbeno željo? Potem je pravi čas za glasbeni vrtiljak. Vsak <span class="text-blue-noglow">ČETRTEK</span> od &nbsp;<span class="text-blue-noglow">20.</span> ure naprej na Radiu Wish Booster zavrtimo glasbo po vašem okusu. Pošljite svojo glasbeno željo, pozdravite prijatelje, družino ali sodelavce in skupaj ustvarimo večer, poln dobre energije.</p>
+            <p>Ali imaš glasbeno željo? Potem je pravi čas za glasbeni vrtiljak. Vsak <span class="text-blue-noglow">ČETRTEK</span> od  <span class="text-blue-noglow">20.</span> ure naprej na Radiu Wish Booster zavrtimo glasbo po vašem okusu. Pošljite svojo glasbeno željo, pozdravite prijatelje, družino ali sodelavce in skupaj ustvarimo večer, poln dobre energije.</p>
         </div>
         <div class="show-card">
             <img src="slika3.png" alt="Nedeljski Večer" loading="lazy">
@@ -1228,7 +1295,6 @@
   </div>
 </footer>
 
-
 <div id="requestModal">
   <div class="request-content">
     <span class="close-modal-btn close-btn-request" onclick="closeRequests()"><i class="fas fa-times-circle"></i></span>
@@ -1239,6 +1305,17 @@
   <div id="lightbox" class="lightbox" onclick="closeLightbox()">
     <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
     <img class="lightbox-content" id="lightbox-img" onclick="event.stopPropagation()">
+</div>
+
+<!-- Live Pop-up Okno -->
+<div id="live-popup">
+    <span class="close-popup-btn" onclick="closeLivePopup()"><i class="fas fa-times"></i></span>
+    <i class="fas fa-broadcast-tower live-icon-pulse"></i>
+    <h3 class="popup-title">V ŽIVO SMO!</h3>
+    <p class="popup-text">Pridruži se nam v studiu, pošlji glasbeno željo ali nas spremljaj na TikToku!</p>
+    <a href="https://www.tiktok.com/@wishbooster/live" target="_blank" class="btn btn-request" style="font-size: 1rem; padding: 10px; width: 100%; min-height: auto;">
+        <i class="fab fa-tiktok"></i> GLEJ NA TIKTOKU
+    </a>
 </div>
 
 <script>
@@ -1460,6 +1537,33 @@ function showPhone() {
   document.getElementById('phoneLink').style.display = 'inline-flex';
 }
 
+// Funkcija za preverjanje in prikaz Live Pop-upa
+function checkLivePopup() {
+    const now = new Date();
+    const day = now.getDay(); 
+    const hour = now.getHours();
+
+    // Dnevi v živo: 2 (Torek), 4 (Četrtek), 0 (Nedelja) od 20:00 do 22:00
+    const isLiveDay = (day === 2 || day === 4 || day === 0);
+    const isLiveTime = (hour >= 20 && hour < 22);
+
+    // Preverimo, če je uporabnik že zaprl okno v tej seji brskalnika
+    const popupClosed = sessionStorage.getItem('livePopupClosed');
+
+    if (isLiveDay && isLiveTime && !popupClosed) {
+        document.getElementById('live-popup').style.display = 'block';
+    } else {
+        document.getElementById('live-popup').style.display = 'none';
+    }
+}
+
+// Funkcija za zaprtje Pop-upa
+function closeLivePopup() {
+    document.getElementById('live-popup').style.display = 'none';
+    // Shranimo v sessionStorage, da se ne prikaže več ob osvežitvi strani
+    sessionStorage.setItem('livePopupClosed', 'true'); 
+}
+
 window.onload = function() {
   if(localStorage.getItem('cookiesAccepted')) {
     document.getElementById('cookie-banner').style.display = 'none';
@@ -1476,6 +1580,10 @@ window.onload = function() {
 
   highlightTodaySchedule();
   setInterval(highlightTodaySchedule, 60000);
+
+  // Zagon preverjanja za Live Pop-up
+  checkLivePopup();
+  setInterval(checkLivePopup, 60000); // Preveri vsako minuto
 }
 </script>
 </body>
