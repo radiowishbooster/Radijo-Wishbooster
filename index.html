@@ -704,9 +704,9 @@
       animation: livePulseFrame 1.5s infinite ease-in-out; border-left: 6px solid #ff00ff; box-shadow: 0 0 30px rgba(255, 0, 255, 0.6);
   }
   @keyframes livePulseFrame {
-      0% { box-shadow: 0 0 15px rgba(255, 0, 255, 0.4); }
-      50% { box-shadow: 0 0 40px rgba(255, 0, 255, 1); }
-      100% { box-shadow: 0 0 15px rgba(255, 0, 255, 0.4); }
+    0% { box-shadow: 0 0 10px #ff00ff; }
+    50% { box-shadow: 0 0 20px #ff00ff; }
+    100% { box-shadow: 0 0 10px #ff00ff; }
   }
   .live-label {
       margin-top: 10px; display: inline-block; background: #ff00ff; color: #fff; padding: 6px 12px; border-radius: 8px; font-size: 0.8rem; font-weight: bold; animation: blinkLive 1s infinite;
@@ -848,6 +848,20 @@
       }
   }
 
+  /* Novi razredi za povečanje slike Domači meh */
+  .schedule-img-large {
+    width: 100px; /* Povečano iz 50px */
+    height: 100px; /* Povečano iz 50px */
+  }
+  .show-card-img-large {
+    width: 250px; /* Povečano iz 140px */
+    height: 250px; /* Povečano iz 140px */
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 15px auto;
+    filter: drop-shadow(0 0 10px rgba(0,212,255,0.3));
+  }
+
 </style>
 </head>
 <body>
@@ -951,8 +965,7 @@
     
     <div class="shows-grid">
         <div class="show-card">
-            <img src="domaci_meh.png" alt="Domači Meh" loading="lazy">
-            <h4>🪗 DOMAČI MEH 🪗</h4>
+            <img src="domaci_meh.png" alt="Domači Meh" class="show-card-img-large" loading="lazy"> <h4>🪗 DOMAČI MEH 🪗</h4>
             <p>Pripravi se na pravo domačo zabavo! Oddaja <span class="text-blue-noglow">DOMAČI MEH</span> prinaša torkovo dobro voljo in zvoke harmonike naravnost v tvoj dom. Vsak <span class="text-blue-noglow">TOREK</span> med <span class="text-blue-noglow">20.</span> in <span class="text-blue-noglow">22.</span> uro na Radiu Wish Booster vrtimo najboljše domače viže, polke in valčke. Pošlji svojo glasbeno željo, stisni se k zvočniku in zapoj z nami, saj je torek rezerviran za harmoniko!</p>
         </div>
         <div class="show-card">
@@ -1012,8 +1025,7 @@
                 <h4 class="day-title">Ponedeljek</h4>
                 <div class="show-row" data-start="20" data-end="22">
                     <div class="show-details">
-                        <img src="domaci_meh.png" alt="Domači Meh" class="schedule-img" loading="lazy">
-                        <div class="show-info">
+                        <img src="domaci_meh.png" alt="Domači Meh" class="schedule-img schedule-img-large" loading="lazy"> <div class="show-info">
                             <span class="show-time time-replay"><i class="far fa-clock"></i> 20:00 - 22:00</span>
                             <span class="show-name">🪗 DOMAČI MEH 🪗</span>
                         </div>
@@ -1026,8 +1038,7 @@
                 <h4 class="day-title">Torek</h4>
                 <div class="show-row" data-start="20" data-end="22">
                     <div class="show-details">
-                        <img src="domaci_meh.png" alt="Domači Meh" class="schedule-img" loading="lazy">
-                        <div class="show-info">
+                        <img src="domaci_meh.png" alt="Domači Meh" class="schedule-img schedule-img-large" loading="lazy"> <div class="show-info">
                             <span class="show-time time-live"><i class="far fa-clock"></i> 20:00 - 22:00</span>
                             <span class="show-name">🪗 DOMAČI MEH 🪗</span>
                         </div>
@@ -1201,7 +1212,7 @@
                 <div class="iframe-container small-iframe">
                     <iframe src="https://www.youtube.com/embed/0PhZGsuVgjc" allowfullscreen loading="lazy"></iframe>
                 </div>
-                <h5>INTERVJU z Glasbenico Mihaelo</h5>
+                <h5>INTERVJU z Glasbenico Mihaele</h5>
                 <p>Mihaela Kotnik ni le glasbenica, temveč podjetnica, strastna učiteljica bobnov in ženska, ki dokazuje, da palice v rokah ne poznajo spola.</p>
             </div>
 
@@ -1374,7 +1385,7 @@ function showServiceDesc(service) {
     const text = document.getElementById('service-text');
     
     const descriptions = {
-        'poroke': { title: 'Nepozabne Poroke', text: 'Vaš dan. Vajina glasba - moja strast. Ustvaril bom vzdušje, ki poveže vse generacije in napolni plesišče z energijo. Z mano bo vajina poročna zabava dogodek, poln veselja in nepozabnih spominov. Pripravljeni na ples do zore? Kontaktirajte me!' },
+        'poroke': { title: 'Nepozabne Poroke', text: 'Vaš dan. Vajina glasba - moja strast. Ustvaril bom vzdušje, ki poveže vse generacije in napolni plesišče z energiijo. Z mano bo vajina poročna zabava dogodek, poln veselja in nepozabnih spominov. Pripravljeni na ples do zore? Kontaktirajte me!' },
         'obletnice': { title: 'Obletnice', text: 'Vsak velik mejnik si zasluži pravo proslavo. Ne glede na to, ali obeležujete, društveni jubilej ali osebni praznik – poskrbim za glasbeno podlago, ki bo povezala preteklost s tisto pravo energijo sedanjega trenutka. Naj bo vaš jubilej dogodek, ki ostane v ponos!' },
         'rojstni_dnevi': { title: 'Rojstni Dnevi', text: 'Pozabite na povprečne zabave. Ne glede na to, ali gre za okroglo številko ali sproščen večer, prinesem energijo, ki bo premaknila vse goste. Glasba po vašem okusu in vrhunska atmosfera zagotovljena!' },
         'poslovni': { title: 'Poslovni Dogodki', text: 'Dvignite nivo vašega dogodka. Od elegantne ambientalne podlage do sproščenega druženja (teambuilding) ali nore zabave po uradnem delu. Profesionalen pristop, vrhunska tehnika in prava glasbena selekcija.' },
