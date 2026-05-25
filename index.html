@@ -853,6 +853,15 @@
           Spoznaj našo vsebino.
       </p>
   </div>
+
+  <div class="btn-wrapper">
+      <a href="studio.html" class="btn btn-request" style="background: linear-gradient(45deg, #ff00ff, #8a2be2); box-shadow: 0 0 20px #ff00ff;">
+          <i class="fas fa-video"></i> VIP STUDIO
+      </a>
+      <p class="btn-hint" style="color: #ff00ff; opacity: 0.9;">
+          Glej nas v živo in klepetaj z nami! (Samo za podpornike)
+      </p>
+  </div>
   
   <div class="btn-wrapper">
       <a id="sms-button" href="sms:+38641772470?&body=Moje ime:%0APozdravil bi:%0AZaželel sem si pesem od: " class="btn sms-inactive">
@@ -1264,9 +1273,12 @@
 
 <div id="live-popup">
     <span class="close-popup-btn" onclick="closeLivePopup()"><i class="fas fa-times"></i></span>
-    <i class="fas fa-broadcast-tower live-icon-pulse"></i>
-    <h3 class="popup-title">V ŽIVO SMO!</h3>
-    <p class="popup-text">Pridruži se nam v studiu in pošlji glasbeno željo!</p>
+    <i class="fas fa-video live-icon-pulse" style="color: #00d4ff;"></i>
+    <h3 class="popup-title" style="color: #00d4ff; text-shadow: 0 0 10px #00d4ff;">V ŽIVO SMO!</h3>
+    <p class="popup-text">Oddaja se je pravkar začela. Vstopi v VIP studio, preveri sliko v živo in klepetaj z nami!</p>
+    <a href="studio.html" class="btn btn-request" style="font-size: 1rem; padding: 10px; width: 100%; min-height: auto; margin-top: 10px; background: #00d4ff; color: #000; box-shadow: 0 0 15px #00d4ff;">
+        <i class="fas fa-sign-in-alt"></i> VSTOPI V STUDIO
+    </a>
 </div>
 
 <script>
@@ -1291,7 +1303,7 @@ window.addEventListener('keydown', function(e) {
   if(e.key === 'Escape') {
       closeAllModals();
       closeRequests();
-      closeLightbox(); // TO VRSTICO DODAJ!
+      closeLightbox(); 
   }
 });
 
