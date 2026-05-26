@@ -167,7 +167,7 @@
     .video-section {
         flex: 7; 
         position: relative;
-        padding-bottom: 39.37%; 
+        padding-bottom: 39.37%; /* 16:9 razmerje */
         height: 0;
         overflow: hidden;
         border-radius: 12px;
@@ -191,91 +191,8 @@
         border: 2px solid #00d4ff;
         box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
         background: #111;
-        display: flex;
-        flex-direction: column;
         overflow: hidden;
         min-height: 400px;
-    }
-
-    /* STIL ZA CUSTOM CHAT */
-    .chat-messages {
-        flex: 1;
-        padding: 15px;
-        overflow-y: auto;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .chat-message {
-        background: rgba(0, 212, 255, 0.1);
-        padding: 10px;
-        border-radius: 8px;
-        font-size: 0.95rem;
-        word-wrap: break-word;
-        border-left: 3px solid #00d4ff;
-    }
-
-    .chat-message.system {
-        border-left: 3px solid #ff00ff;
-        background: rgba(255, 0, 255, 0.1);
-        font-style: italic;
-    }
-
-    .chat-user {
-        font-weight: 900;
-        color: #00d4ff;
-        margin-right: 5px;
-    }
-
-    .chat-controls {
-        background: #1a1a1a;
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        border-top: 1px solid #333;
-    }
-
-    .chat-controls input {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #444;
-        border-radius: 6px;
-        background: #000;
-        color: #fff;
-        font-family: 'Poppins', sans-serif;
-        box-sizing: border-box;
-        outline: none;
-    }
-
-    .chat-controls input:focus {
-        border-color: #00d4ff;
-    }
-
-    .chat-input-row {
-        display: flex;
-        gap: 8px;
-    }
-
-    .chat-input-row input {
-        flex: 1;
-    }
-
-    .chat-input-row button {
-        background: #00d4ff;
-        color: #000;
-        border: none;
-        border-radius: 6px;
-        padding: 0 15px;
-        cursor: pointer;
-        font-size: 1.2rem;
-        transition: 0.2s;
-    }
-
-    .chat-input-row button:hover {
-        background: #fff;
-        box-shadow: 0 0 10px #00d4ff;
     }
 
     /* Prilagoditev za mobilne naprave in tablice */
@@ -304,15 +221,6 @@
     
     .btn-back:hover {
         text-shadow: 0 0 10px #00d4ff;
-    }
-    
-    /* Skrijemo scrollbar za lepši izgled klepeta */
-    .chat-messages::-webkit-scrollbar {
-        width: 6px;
-    }
-    .chat-messages::-webkit-scrollbar-thumb {
-        background-color: #00d4ff;
-        border-radius: 10px;
     }
 </style>
 </head>
@@ -354,20 +262,8 @@
                 <iframe src="https://www.youtube.com/embed/GkTs84M9fFI?autoplay=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
 
-            <!-- NOV CHAT ODSEK -->
             <div class="chat-section">
-                <div class="chat-messages" id="chat-messages">
-                    <div class="chat-message system">
-                        <span class="chat-user" style="color: #ff00ff;">Sistem:</span> Dobrodošli v VIP klepetu! Bodi spoštljiv do ostalih poslušalcev.
-                    </div>
-                </div>
-                <div class="chat-controls">
-                    <input type="text" id="chat-nickname" placeholder="Tvoj vzdevek" value="Poslušalec" />
-                    <div class="chat-input-row">
-                        <input type="text" id="chat-input" placeholder="Napiši sporočilo..." onkeypress="checkChatEnter(event)" />
-                        <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
-                    </div>
-                </div>
+                <script id="cid0020000440814782263" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 100%;height: 100%;">{"handle":"wb-chat","arch":"js","styles":{"a":"33ffff","b":100,"c":"000000","d":"000000","k":"33ffff","l":"33ffff","m":"33ffff","p":"10","q":"33ffff","r":100,"fwtickm":1}}</script>
             </div>
         </div>
         
@@ -379,7 +275,7 @@
 </div>
 
 <script>
-    // Nastavitev gesla
+    // Tukaj nastaviš geslo
     const TRENUTNO_GESLO = "STUDIO2026"; 
 
     function checkPassword() {
@@ -399,38 +295,6 @@
     function checkEnter(event) {
         if (event.key === "Enter") {
             checkPassword();
-        }
-    }
-
-    // --- CHAT LOGIKA ---
-    function sendMessage() {
-        const nicknameInput = document.getElementById('chat-nickname');
-        const messageInput = document.getElementById('chat-input');
-        const chatMessages = document.getElementById('chat-messages');
-
-        const nickname = nicknameInput.value.trim() || "Neznanec";
-        const message = messageInput.value.trim();
-
-        if (message !== "") {
-            // Ustvarimo nov element za sporočilo
-            const msgDiv = document.createElement('div');
-            msgDiv.classList.add('chat-message');
-            
-            // Sestavimo HTML za sporočilo
-            msgDiv.innerHTML = `<span class="chat-user">${nickname}:</span> ${message}`;
-            
-            // Dodamo v klepet
-            chatMessages.appendChild(msgDiv);
-            
-            // Počistimo vnosno polje in scrollamo dol
-            messageInput.value = '';
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-    }
-
-    function checkChatEnter(event) {
-        if (event.key === "Enter") {
-            sendMessage();
         }
     }
 </script>
