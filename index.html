@@ -681,6 +681,12 @@
   .time-live { color: #ff00ff; }
   .time-mixi { color: #ffffff; }
   .show-name { font-size: 1.05rem; font-weight: bold; color: #ffffff; }
+  
+  /* BADGES */
+  .badge-container {
+      display: flex;
+      gap: 8px;
+  }
   .show-badge {
       font-size: 0.75rem; font-weight: bold; padding: 5px 10px; border-radius: 6px; text-transform: uppercase; letter-spacing: 1px; white-space: nowrap; 
   }
@@ -690,6 +696,14 @@
   .badge-replay {
       background: rgba(0, 255, 0, 0.1); color: #00ff00; border: 1px solid #00ff00;
   }
+  /* NOVI VIP STIL */
+  .badge-vip {
+      background: linear-gradient(45deg, #8a2be2, #ff00ff);
+      color: #fff;
+      border: none;
+      box-shadow: 0 0 10px rgba(138, 43, 226, 0.6);
+  }
+
   @media(max-width: 480px) {
       .show-row { flex-direction: column; align-items: flex-start; gap: 15px; }
       .show-details { width: 100%; }
@@ -1006,7 +1020,10 @@
                             <span class="show-name">🪗 DOMAČI MEH 🪗</span>
                         </div>
                     </div>
-                    <span class="show-badge badge-live">V ŽIVO!</span>
+                    <div class="badge-container">
+                        <span class="show-badge badge-live">V ŽIVO!</span>
+                        <span class="show-badge badge-vip"><i class="fas fa-video"></i> VIP</span>
+                    </div>
                 </div>
             </div>
 
@@ -1034,7 +1051,10 @@
                             <span class="show-name">⭐ GLASBENI 🎸 VRTILJAK ⭐</span>
                         </div>
                     </div>
-                    <span class="show-badge badge-live">V ŽIVO!</span>
+                    <div class="badge-container">
+                        <span class="show-badge badge-live">V ŽIVO!</span>
+                        <span class="show-badge badge-vip"><i class="fas fa-video"></i> VIP</span>
+                    </div>
                 </div>
             </div>
 
@@ -1094,7 +1114,10 @@
                             <span class="show-name">♥️ NEDELJSKI ꨄ︎ VEČER ♥️</span>
                         </div>
                     </div>
-                    <span class="show-badge badge-live">V ŽIVO!</span>
+                    <div class="badge-container">
+                        <span class="show-badge badge-live">V ŽIVO!</span>
+                        <span class="show-badge badge-vip"><i class="fas fa-video"></i> VIP</span>
+                    </div>
                 </div>
             </div>
         </div>
