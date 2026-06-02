@@ -6,246 +6,17 @@
 <title>V ŽIVO IZ STUDIA | Radio Wish Booster</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet" />
-
-<style>
-    body {
-        font-family: 'Poppins', sans-serif;
-        margin: 0;
-        background: #000;
-        color: #fff;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        min-height: 100vh;
-    }
-    
-    header {
-        width: 100%;
-        background: #111;
-        padding: 20px;
-        border-bottom: 2px solid #8a2be2;
-        text-align: center;
-        box-sizing: border-box;
-    }
-
-    header h1 {
-        margin: 0;
-        color: #bc13fe; 
-        font-size: 2rem;
-        font-weight: 900;
-        text-shadow: 0 0 2px #bc13fe, 0 0 8px #bc13fe; 
-    }
-
-    .container {
-        max-width: 1000px; 
-        width: 95%;
-        margin: 40px auto;
-    }
-
-    /* ZASLON ZA PRIJAVO */
-    #login-screen {
-        max-width: 800px;
-        margin: 0 auto;
-        background: rgba(15, 15, 15, 0.95);
-        border: 2px solid #8a2be2;
-        border-radius: 20px;
-        padding: 40px 20px;
-        text-align: center;
-        box-shadow: 0 0 30px rgba(138, 43, 226, 0.3);
-    }
-
-    #login-screen h2 {
-        color: #00d4ff;
-        font-size: 2rem;
-        margin-top: 0;
-        text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
-    }
-
-    .payment-instructions {
-        background: rgba(25, 10, 45, 0.6);
-        border: 1px dashed #bc13fe;
-        border-radius: 12px;
-        padding: 20px;
-        margin: 25px 0;
-        font-size: 1.1rem;
-        line-height: 1.6;
-    }
-
-    .highlight-price {
-        color: #ff00ff;
-        font-weight: 600; /* Zmanjšana debelina */
-        font-size: 1.2rem; /* Zmanjšana velikost */
-    }
-
-    /* PAYPAL GUMB CSS */
-    .btn-paypal {
-        display: inline-block;
-        background: #003087; 
-        color: #fff;
-        padding: 12px 25px;
-        border-radius: 8px;
-        font-weight: 900;
-        font-size: 1.2rem;
-        text-decoration: none;
-        margin-top: 10px;
-        transition: all 0.3s;
-        box-shadow: 0 0 15px rgba(0, 48, 135, 0.5);
-    }
-
-    .btn-paypal:hover {
-        background: #0079C1; 
-        transform: scale(1.05);
-        box-shadow: 0 0 25px rgba(0, 121, 193, 0.8);
-        color: #fff;
-    }
-
-    .flik-number {
-        display: inline-block;
-        background: #25d366;
-        color: #000;
-        padding: 5px 15px;
-        border-radius: 8px;
-        font-weight: 900;
-        font-size: 1.2rem;
-        margin-top: 10px;
-    }
-
-    input[type="password"] {
-        width: 80%;
-        max-width: 300px;
-        padding: 15px;
-        border: 2px solid #00d4ff;
-        border-radius: 8px;
-        background: #111;
-        color: #fff;
-        font-size: 1.2rem;
-        font-family: 'Poppins', sans-serif;
-        text-align: center;
-        margin-bottom: 20px;
-        outline: none;
-    }
-
-    input[type="password"]:focus {
-        box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
-    }
-
-    .btn-login {
-        background: #ff00ff;
-        color: #fff;
-        border: none;
-        padding: 15px 30px;
-        font-size: 1.2rem;
-        font-weight: 900;
-        border-radius: 8px;
-        cursor: pointer;
-        text-transform: uppercase;
-        transition: all 0.3s;
-        box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
-    }
-
-    .btn-login:hover {
-        transform: scale(1.05);
-        box-shadow: 0 0 25px rgba(255, 0, 255, 1);
-    }
-
-    /* ZASLON S PRENOSOM IN CHATOM */
-    #stream-screen {
-        display: none;
-        width: 100%;
-        animation: fadeIn 1s;
-    }
-
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-
-    .stream-header {
-        text-align: center;
-        margin-bottom: 30px;
-    }
-
-    .stream-header h2 {
-        color: #ff00ff;
-        font-size: 2.2rem;
-        margin: 0;
-        text-shadow: 0 0 10px #ff00ff;
-        animation: livePulse 2s infinite;
-    }
-
-    @keyframes livePulse {
-        0% { opacity: 1; }
-        50% { opacity: 0.6; }
-        100% { opacity: 1; }
-    }
-
-    /* Nova vertikalna postavitev videa in klepeta */
-    .live-layout {
-        display: flex;
-        flex-direction: column; 
-        gap: 30px; 
-        align-items: center;
-    }
-
-    .video-section {
-        width: 100%; 
-        position: relative;
-        padding-bottom: 56.25%; /* 16:9 razmerje */
-        height: 0;
-        overflow: hidden;
-        border-radius: 12px;
-        border: 2px solid #8a2be2;
-        box-shadow: 0 0 30px rgba(138, 43, 226, 0.5);
-        background: #111;
-    }
-
-    .video-section iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: 0;
-    }
-
-    .chat-section {
-        width: 100%; 
-        height: 600px; 
-        border-radius: 12px;
-        border: 2px solid #00d4ff;
-        box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
-        background: #111;
-        overflow: hidden;
-    }
-
-    .btn-back {
-        display: inline-block;
-        margin-top: 40px;
-        margin-bottom: 40px;
-        color: #00d4ff;
-        text-decoration: none;
-        font-weight: bold;
-        font-size: 1.1rem;
-        padding: 10px 20px;
-        border: 1px solid #00d4ff;
-        border-radius: 8px;
-        transition: all 0.3s;
-    }
-    
-    .btn-back:hover {
-        background: rgba(0, 212, 255, 0.1);
-        text-shadow: 0 0 10px #00d4ff;
-        box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
-    }
-</style>
+<link rel="stylesheet" href="style.css" />
 </head>
-<body>
+
+<!-- Pomembno: Class 'studio-page' ohranja specifično sredinsko postavitev! -->
+<body class="studio-page">
 
 <header>
   <h1>Radio Wish Booster</h1>
 </header>
 
-<div class="container">
+<main class="container">
     
     <div id="login-screen">
         <h2><i class="fas fa-lock"></i> EKSKLUZIVNI DOSTOP</h2>
@@ -254,7 +25,6 @@
         <div class="payment-instructions">
             <p>Želiš dostop? Podpri naš trud in ekipo z mesečno naročnino v višini <span class="highlight-price">5 €</span>.</p>
             
-            <!-- PAYPAL GUMB -->
             <a href="https://www.paypal.com/ncp/payment/XR7SF9562Q4AA" target="_blank" class="btn-paypal">
                 <i class="fab fa-paypal"></i> Plačaj s PayPal
             </a>
@@ -266,62 +36,15 @@
         </div>
 
         <div>
-            <input type="password" id="passwordInput" placeholder="Vnesi mesečno geslo..." onkeypress="checkEnter(event)">
+            <input type="password" id="passwordInput" placeholder="Vnesi mesečno kodo..." onkeypress="checkEnter(event)">
             <br>
             <button class="btn-login" onclick="checkPassword()"><i class="fas fa-play-circle"></i> Vstopi v studio</button>
         </div>
         <p id="error-message" style="color: red; font-weight: bold; margin-top: 15px; display: none;">Napačno geslo! Poskusi znova.</p>
     </div>
 
-    <div id="stream-screen">
-        <div class="stream-header">
-            <h2><i class="fas fa-broadcast-tower"></i> V ŽIVO IZ STUDIA</h2>
-            <p style="color: #00d4ff; font-weight: bold;">Dobrodošli v VIP studiu! Klepetajte z nami med oddajo.</p>
-        </div>
+</main>
 
-        <div class="live-layout">
-            <div class="video-section">
-                <iframe src="https://www.youtube.com/embed/NoPkuq338eE?autoplay=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-
-            <div class="chat-section">
-                <!-- CBOX KODA -->
-                <iframe src="https://www5.cbox.ws/box/?boxid=961432&boxtag=Lu3k7m" width="100%" height="100%" allowtransparency="yes" allow="autoplay" frameborder="0" marginheight="0" marginwidth="0" scrolling="auto"></iframe>
-                <!-- KONEC CBOX KODE -->
-            </div>
-        </div>
-        
-        <div style="text-align: center;">
-            <a href="index.html" class="btn-back"><i class="fas fa-arrow-left"></i> Nazaj na glavno stran radia</a>
-        </div>
-    </div>
-
-</div>
-
-<script>
-    // Tukaj nastaviš geslo
-    const TRENUTNO_GESLO = "JUNIJ6"; 
-
-    function checkPassword() {
-        const input = document.getElementById('passwordInput').value;
-        const errorMessage = document.getElementById('error-message');
-        
-        if (input === TRENUTNO_GESLO) {
-            document.getElementById('login-screen').style.display = 'none';
-            document.getElementById('stream-screen').style.display = 'block';
-            errorMessage.style.display = 'none';
-        } else {
-            errorMessage.style.display = 'block';
-            document.getElementById('passwordInput').value = '';
-        }
-    }
-
-    function checkEnter(event) {
-        if (event.key === "Enter") {
-            checkPassword();
-        }
-    }
-</script>
-
+<script src="script.js" defer></script>
 </body>
 </html>
