@@ -25,7 +25,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;900&display=swap" rel="stylesheet" />
 
 <style>
-
   /* Intervjuji Sektor */
   .interview-grid {
       display: grid;
@@ -95,10 +94,10 @@
       margin-top: 10px;
   }
   .photographer-credit img {
-      width: 120px; /* Velikost logotipa */
+      width: 120px; 
       height: auto;
-      border-radius: 50%; /* Naredi sliko okroglo */
-      filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.5)); /* Neonski sijaj okoli logotipa */
+      border-radius: 50%; 
+      filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.5)); 
   }
   .photographer-credit span {
       font-size: 1.2rem;
@@ -174,13 +173,12 @@
     text-align: center;
   }
   
-  /* TUKAJ JE ZMANJŠANA SVETILNOST IN POPRAVLJENA BERLJIVOST NASLOVA */
   header h1 {
     margin: 0;
     color: #bc13fe; 
     font-size: 2rem;
-    font-weight: 800; /* Malenkost stanjšano za berljivost */
-    text-shadow: 0 0 3px #bc13fe; /* Odstranjen močan sijaj */
+    font-weight: 800; 
+    text-shadow: 0 0 3px #bc13fe; 
   }
 
   /* Navigation buttons */
@@ -285,6 +283,31 @@
     max-width: 1100px;
     margin: 0 auto;
     padding: 20px;
+  }
+  
+  /* PROMO SLIKE (DODANO) */
+  .promo-banner-wrapper {
+      max-width: 100%;
+      margin: 30px auto 10px auto;
+      text-align: center;
+  }
+  .promo-banner-link {
+      display: inline-block;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 15px;
+      overflow: hidden;
+      border: 2px solid #00d4ff;
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+      width: 100%;
+  }
+  .promo-banner-link:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 30px rgba(0, 212, 255, 0.8);
+  }
+  .promo-banner-link img {
+      width: 100%;
+      height: auto;
+      display: block;
   }
 
   /* Sections */
@@ -431,7 +454,7 @@
     background: #a52be2;
   }
 
-  /* Modals Base (About, Shows) */
+  /* Modals Base */
   .modal-overlay {
       display: none; 
       position: fixed; 
@@ -456,7 +479,7 @@
       max-height: 90vh; 
       overflow-y: auto;
       box-sizing: border-box;
-      display: none; /* Skrito by default */
+      display: none; 
   }
   
   .close-modal-btn {
@@ -595,11 +618,11 @@
   /* Player Wrapper */
   .neon-player-wrapper {
       margin: 40px auto;
-      max-width: 100%; /* Popravljeno na 100% za enako širino */
+      max-width: 100%; 
       background: transparent;
-      border: 2px solid #8a2be2; /* Spremenjeno v vijolično */
+      border: 2px solid #8a2be2; 
       border-radius: 20px;
-      box-shadow: 0 0 30px rgba(138, 43, 226, 0.5), inset 0 0 15px rgba(138, 43, 226, 0.2); /* Spremenjeno v vijolično */
+      box-shadow: 0 0 30px rgba(138, 43, 226, 0.5), inset 0 0 15px rgba(138, 43, 226, 0.2); 
       overflow: hidden; 
       display: block;
   }
@@ -616,7 +639,7 @@
 
   /* Current Program Section */
   .current-program-box {
-      text-align: center; margin-top: 40px; margin-bottom: -20px; position: relative; z-index: 10; padding: 0 15px; display: flex; flex-direction: column; align-items: center;
+      text-align: center; margin-top: 20px; margin-bottom: -20px; position: relative; z-index: 10; padding: 0 15px; display: flex; flex-direction: column; align-items: center;
   }
   .player-image {
       height: 120px; max-width: 100%; object-fit: contain; margin-bottom: 15px; filter: drop-shadow(0 0 15px rgba(0,212,255,0.6)); transition: all 0.5s ease;
@@ -742,7 +765,7 @@
 
   /* Live Pop-up v spodnjem kotu */
   #live-popup {
-      display: none; /* Skrito by default */
+      display: none; 
       position: fixed;
       bottom: 20px;
       right: 20px;
@@ -751,7 +774,7 @@
       border-radius: 15px;
       padding: 20px;
       box-shadow: 0 0 20px rgba(255, 0, 255, 0.6);
-      z-index: 10001; /* Zelo visoko, da je nad vsem */
+      z-index: 10001; 
       width: 280px;
       text-align: center;
       animation: slideInBottom 0.6s ease-out;
@@ -807,14 +830,13 @@
       }
   }
 
-  /* Novi razredi za povečanje slike Domači meh */
   .schedule-img-large {
-    width: 100px; /* Povečano iz 50px */
-    height: 100px; /* Povečano iz 50px */
+    width: 100px; 
+    height: 100px; 
   }
   .show-card-img-large {
-    width: 250px; /* Povečano iz 140px */
-    height: 250px; /* Povečano iz 140px */
+    width: 250px; 
+    height: 250px; 
     object-fit: contain;
     display: block;
     margin: 0 auto 15px auto;
@@ -960,6 +982,11 @@
     <a href="https://www.facebook.com/profile.php?id=100094446477993" target="_blank"><i class="fab fa-facebook"></i></a>
   </div>
 
+  <div class="promo-banner-wrapper" id="glavna-promo-slika">
+      <a href="#TVOJA_POVEZAVA_TUKAJ" target="_blank" class="promo-banner-link">
+          <img src="slika-radio-promo.jpg" alt="Pridruži se Radiu Wish Booster">
+      </a>
+  </div>
   <div class="current-program-box">
       <img class="player-image" src="Logo Radio Wish Booster - TRANSPARENT.png" alt="Trenutna oddaja">
       <h3 style="color: #00d4ff; font-size: 1.2rem; margin: 0; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 10px rgba(0,212,255,0.7);">
@@ -1109,7 +1136,7 @@
             Ekipa <span style="color: #00d4ff; font-weight: 900;">Radia Wish Booster</span> vas vabita na 2. nepozabno druženje polno dobre energije, odlične glasbe in zabave v MESECU SEPTEMBRU na Štajerskem !
         </p>
         </div>
-     
+      
    <div class="purple-frame full-width-box" style="margin-bottom: 0; text-align: center;">
         <h3 style="justify-content: center; color: #ff00ff; text-shadow: 0 0 10px #ff00ff; font-size: 2rem; margin-top: 0;">
             <i class="fas fa-camera-retro" style="color: #00d4ff; margin-right: 15px;"></i> UTRINKI S PRVEGA SREČANJA
@@ -1370,35 +1397,27 @@ function closeRequests() {
   document.body.style.overflow = 'auto';
 }
 
-// NOVA FUNKCIJA ZA PREVERJANJE VIP KODE
 function preveriVIPSMS(event) {
-  event.preventDefault(); // Prepreči navadno odpiranje povezave
+  event.preventDefault(); 
   
   const smsBtn = document.getElementById('sms-button');
   
-  // Preverimo, če radio NI v živo
   if (smsBtn.classList.contains('sms-inactive')) {
     alert("SMS želje trenutno niso na voljo. V živo smo ob torkih, četrtkih in nedeljah (20:00 - 22:00).");
     return;
   }
 
-  // Vprašamo za kodo
   const vnesenaKoda = prompt("Vnesi mesečno VIP kodo z naše YT platforme:");
   
-  // TUKAJ NASTAVIŠ TRENUTNO KODO (vsak mesec jo spremeniš v kodi tukaj)
   const veljavnaKoda = "JUNIJ6"; 
 
-  // Preverjanje
   if (vnesenaKoda === veljavnaKoda) {
-    // Če je koda prava, odpremo SMS aplikacijo
     window.location.href = "sms:+38641772470?&body=Moje ime:%0APozdravil bi:%0AZaželel sem si pesem od: ";
   } else if (vnesenaKoda !== null) {
-    // Če je koda napačna in uporabnik ni kliknil "Prekliči"
     alert("Napačna koda! Za dostop do VIP želja potrebuješ mesečno kodo.");
   }
 }
 
-// POSODOBLJENA FUNKCIJA ZA GUMB
 function updateSmsButton() {
   const now = new Date();
   const day = now.getDay(); 
@@ -1419,7 +1438,7 @@ function updateSmsButton() {
   } else {
     smsBtn.classList.remove('sms-live');
     smsBtn.classList.add('sms-inactive');
-    smsBtn.style.pointerEvents = 'auto'; // Spremenjeno na auto, da deluje opozorilo, če kliknejo, ko ni v živo
+    smsBtn.style.pointerEvents = 'auto'; 
     
     smsHint.innerHTML = "SMS želje samo za VIP člane (v živo: Tor, Čet, Ned 20:00 - 22:00).";
   }
@@ -1527,17 +1546,14 @@ function showPhone() {
   document.getElementById('phoneLink').style.display = 'inline-flex';
 }
 
-// Funkcija za preverjanje in prikaz Live Pop-upa
 function checkLivePopup() {
     const now = new Date();
     const day = now.getDay(); 
     const hour = now.getHours();
 
-    // Dnevi v živo: 2 (Torek), 4 (Četrtek), 0 (Nedelja) od 20:00 do 22:00
     const isLiveDay = (day === 2 || day === 4 || day === 0);
     const isLiveTime = (hour >= 20 && hour < 22);
 
-    // Preverimo, če je uporabnik že zaprl okno v tej seji brskalnika
     const popupClosed = sessionStorage.getItem('livePopupClosed');
 
     if (isLiveDay && isLiveTime && !popupClosed) {
@@ -1547,10 +1563,8 @@ function checkLivePopup() {
     }
 }
 
-// Funkcija za zaprtje Pop-upa
 function closeLivePopup() {
     document.getElementById('live-popup').style.display = 'none';
-    // Shranimo v sessionStorage, da se ne prikaže več ob osvežitvi strani
     sessionStorage.setItem('livePopupClosed', 'true'); 
 }
 
@@ -1571,9 +1585,8 @@ window.onload = function() {
   highlightTodaySchedule();
   setInterval(highlightTodaySchedule, 60000);
 
-  // Zagon preverjanja za Live Pop-up
   checkLivePopup();
-  setInterval(checkLivePopup, 60000); // Preveri vsako minuto
+  setInterval(checkLivePopup, 60000); 
 }
 </script>
 </body>
