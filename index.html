@@ -438,6 +438,44 @@
     }
   }
 
+  /* Countdown Odštevalnik */
+  .countdown-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 30px auto 10px auto;
+      flex-wrap: wrap;
+  }
+  .countdown-box {
+      background: rgba(25, 10, 45, 0.8);
+      border: 2px solid #ff00ff;
+      border-radius: 12px;
+      padding: 15px 20px;
+      min-width: 90px;
+      box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  }
+  .countdown-box span {
+      display: block;
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #00d4ff;
+      text-shadow: 0 0 15px #00d4ff;
+      line-height: 1.1;
+      font-variant-numeric: tabular-nums;
+  }
+  .countdown-box .label {
+      font-size: 1rem;
+      color: #fff;
+      text-transform: uppercase;
+      margin-top: 5px;
+      font-weight: bold;
+      letter-spacing: 1px;
+  }
+
   /* Footer */
   footer {
     background: #111;
@@ -1196,7 +1234,19 @@
         <p style="font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 25px; line-height: 1.6;">
             Ekipa <span style="color: #00d4ff; font-weight: 900;">Radia Wish Booster</span> vas vabita na 2. nepozabno druženje polno dobre energije, odlične glasbe in zabave v MESECU SEPTEMBRU na Štajerskem !
         </p>
+
+        <!-- NOVI ODŠTEVALNIK ČASA -->
+        <div id="event-countdown-container">
+            <h4 style="color: #bc13fe; margin-bottom: -10px; font-size: 1.3rem; text-transform: uppercase; letter-spacing: 2px;">Odštevamo do srečanja</h4>
+            <div class="countdown-wrapper">
+                <div class="countdown-box"><span id="cd-days">00</span><div class="label">Dni</div></div>
+                <div class="countdown-box"><span id="cd-hours">00</span><div class="label">Ur</div></div>
+                <div class="countdown-box"><span id="cd-minutes">00</span><div class="label">Min</div></div>
+                <div class="countdown-box"><span id="cd-seconds">00</span><div class="label">Sek</div></div>
+            </div>
         </div>
+        
+    </div>
       
    <div class="purple-frame full-width-box" style="margin-bottom: 0; text-align: center;">
         <h3 style="justify-content: center; color: #ff00ff; text-shadow: 0 0 10px #ff00ff; font-size: 2rem; margin-top: 0;">
@@ -1598,58 +1648,35 @@ function updateClock() {
     }
 }
 
-function acceptCookies() {
-  document.getElementById('cookie-banner').style.display = 'none';
-  localStorage.setItem('cookiesAccepted', 'true');
-}
+// Funkcija za odštevalnik
+function updateEventCountdown() {
+    // 20. september 2026 ob 15:00
+    const targetDate = new Date("September 20, 2026 15:00:00").getTime(); 
+    const now = new Date().getTime();
+    const distance = targetDate - now;
 
-function showPhone() {
-  document.getElementById('bookingBtn').style.display = 'none';
-  document.getElementById('phoneLink').style.display = 'inline-flex';
-}
-
-function checkLivePopup() {
-    const now = new Date();
-    const day = now.getDay(); 
-    const hour = now.getHours();
-
-    const isLiveDay = (day === 2 || day === 4 || day === 0);
-    const isLiveTime = (hour >= 20 && hour < 22);
-
-    const popupClosed = sessionStorage.getItem('livePopupClosed');
-
-    if (isLiveDay && isLiveTime && !popupClosed) {
-        document.getElementById('live-popup').style.display = 'block';
-    } else {
-        document.getElementById('live-popup').style.display = 'none';
+    if (distance < 0) {
+        document.getElementById("event-countdown-container").innerHTML = "<h4 style='color:#ff00ff; font-size:2rem; text-transform:uppercase;'>Srečanje poteka!</h4>";
+        return;
     }
-}
 
-function closeLivePopup() {
-    document.getElementById('live-popup').style.display = 'none';
-    sessionStorage.setItem('livePopupClosed', 'true'); 
-}
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 10Zaradi omejitev glede dolžine odgovora in prepisovanja celotne kode (da se izognemo napakam sistema), ti bom tokrat poslal samo **dva manjša dela kode**, ki ju moraš zamenjati oziroma dodati v svojo obstoječo kodo.
 
-window.onload = function() {
-  if(localStorage.getItem('cookiesAccepted')) {
-    document.getElementById('cookie-banner').style.display = 'none';
-  }
+Tako boš najlažje in najhitreje dodal odštevalnik!
 
-  updateClock();
-  setInterval(updateClock, 1000); 
+### 1. KORAK: Zamenjaj HTML del za "Pridruži se nam v živo"
 
-  updateSmsButton();
-  setInterval(updateSmsButton, 60000);
+Poišči ta del kode (kjer piše *Pridruži se nam v živo!* in *MESECU SEPTEMBRU*):
 
-  updateCurrentShowInfo();
-  setInterval(updateCurrentShowInfo, 60000); 
-
-  highlightTodaySchedule();
-  setInterval(highlightTodaySchedule, 60000);
-
-  checkLivePopup();
-  setInterval(checkLivePopup, 60000); 
-}
-</script>
-</body>
-</html>
+```html
+   <div class="purple-frame full-width-box" style="margin-bottom: 0; text-align: center;">
+        <h3 style="justify-content: center; color: #00d4ff; text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff; font-size: 2.2rem; margin-top: 0; text-transform: uppercase;">
+            <i class="fas fa-glass-cheers" style="color: #ff00ff; margin-right: 15px;"></i> Pridruži se nam v živo!
+        </h3>
+        <p style="font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 25px; line-height: 1.6;">
+            Ekipa <span style="color: #00d4ff; font-weight: 900;">Radia Wish Booster</span> vas vabita na 2. nepozabno druženje polno dobre energije, odlične glasbe in zabave v MESECU SEPTEMBRU na Štajerskem !
+        </p>
+   </div>
