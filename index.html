@@ -239,9 +239,8 @@
   .btn-booking:hover { transform: scale(1.05); box-shadow: 0 0 20px #25d366; }
   .btn-shows { background: linear-gradient(45deg, #ff8c00, #ff0080); color: #fff; }
   .btn-shows:hover { transform: scale(1.05); box-shadow: 0 0 20px #ff0080; }
-  /* Nov gumb urnik */
-  .btn-schedule { background: linear-gradient(45deg, #00d4ff, #8a2be2); color: #fff; box-shadow: 0 0 15px rgba(0, 212, 255, 0.5); }
-  .btn-schedule:hover { transform: scale(1.05); box-shadow: 0 0 25px rgba(0, 212, 255, 1); }
+  .btn-schedule { background: linear-gradient(45deg, #00d4ff, #8a2be2); color: #fff; }
+  .btn-schedule:hover { transform: scale(1.05); box-shadow: 0 0 20px #00d4ff; }
 
   /* SMS Button */
   .sms-inactive {
@@ -618,6 +617,15 @@
       .shows-grid { grid-template-columns: 1fr; }
   }
 
+  /* Schedule Modal Specifics */
+  #schedule-modal {
+     border-color: #00d4ff;
+     box-shadow: 0 0 40px rgba(0, 212, 255, 0.4), 0 0 100px rgba(0, 0, 0, 0.9);
+  }
+  #schedule-modal .close-modal-btn {
+     color: #00d4ff;
+  }
+
   /* Player Wrapper */
   .neon-player-wrapper {
       margin: 40px auto;
@@ -880,13 +888,12 @@
       </p>
   </div>
 
-  <!-- NOVI GUMB ZA URNIK -->
   <div class="btn-wrapper">
       <button class="btn btn-schedule" onclick="openModal('schedule-modal')">
           <i class="fas fa-calendar-alt"></i> RADIJSKI URNIK
       </button>
       <p class="btn-hint" style="color: #00d4ff; opacity: 0.9;">
-          Celotedenski spored oddaj.
+          Preveri naš tedenski program.
       </p>
   </div>
 
@@ -929,7 +936,6 @@
 
 <div id="main-modal-overlay" class="modal-overlay" onclick="closeAllModals()"></div>
 
-<!-- MODAL: KDO SMO -->
 <div id="about-modal" class="modal-content-box">
     <span class="close-modal-btn" onclick="closeAllModals()"><i class="fas fa-times-circle"></i></span>
     <div style="text-align:center;">
@@ -956,7 +962,6 @@
     </div>
 </div>
 
-<!-- MODAL: NAŠE ODDAJE -->
 <div id="shows-modal" class="modal-content-box">
     <span class="close-modal-btn" onclick="closeAllModals()"><i class="fas fa-times-circle"></i></span>
     <div style="text-align:center;">
@@ -987,12 +992,11 @@
     </div>
 </div>
 
-<!-- NOVI MODAL: RADIJSKI URNIK -->
-<div id="schedule-modal" class="modal-content-box" style="border-color: #00d4ff; box-shadow: 0 0 40px rgba(0, 212, 255, 0.4), 0 0 100px rgba(0, 0, 0, 0.9);">
-    <span class="close-modal-btn" onclick="closeAllModals()" style="color: #00d4ff;"><i class="fas fa-times-circle"></i></span>
+<div id="schedule-modal" class="modal-content-box">
+    <span class="close-modal-btn" onclick="closeAllModals()"><i class="fas fa-times-circle"></i></span>
     <div style="text-align:center;">
-        <h2 style="margin:0; font-size: 2.5rem; text-shadow: 0 0 15px #00d4ff; font-weight: 900; color: #fff;"><i class="fas fa-calendar-alt"></i> RADIJSKI URNIK</h2>
-        <p style="color:#00d4ff; font-weight: bold; text-transform: uppercase; letter-spacing: 3px;">Celotedenski spored oddaj</p>
+        <h2 style="margin:0; font-size: 2.5rem; text-shadow: 0 0 15px #00d4ff; font-weight: 900; color: #fff;">RADIJSKI URNIK</h2>
+        <p style="color:#bc13fe; font-weight: bold; text-transform: uppercase; letter-spacing: 3px;">Naš tedenski program</p>
     </div>
     
     <div class="schedule-container">
@@ -1142,12 +1146,13 @@
   
   <div class="content-grid">
 
-      <!-- Posodobljen prostor za uro (urnik je prestavljen v modal) -->
-      <div class="purple-frame full-width-box" style="margin-bottom: 0; text-align: center;">
-         <div class="clock-container" style="margin: 20px 0;">
-            <div class="clock-title">TOČEN ČAS</div>
-            <span id="live-clock">00:00:00</span>
-         </div>
+      <div class="purple-frame full-width-box" style="margin-bottom: 0;">
+        <div style="text-align: center;">
+           <div class="clock-container">
+              <div class="clock-title">TOČEN ČAS</div>
+              <span id="live-clock">00:00:00</span>
+           </div>
+        </div>
       </div>
 
    <div class="purple-frame full-width-box" style="margin-bottom: 0; text-align: center;">
@@ -1373,7 +1378,7 @@ function closeAllModals() {
     document.getElementById('main-modal-overlay').style.display = 'none';
     document.getElementById('about-modal').style.display = 'none';
     document.getElementById('shows-modal').style.display = 'none';
-    document.getElementById('schedule-modal').style.display = 'none'; // DODANO ZA ZAPIRANJE URNIKA
+    document.getElementById('schedule-modal').style.display = 'none';
     document.getElementById('service-description-box').style.display = 'none';
     document.body.style.overflow = 'auto';
 }
@@ -1511,7 +1516,7 @@ function highlightTodaySchedule() {
     const today = now.getDay();
     const currentHour = now.getHours();
 
-    const allDays = document.querySelectorAll('.schedule-day');
+    const allDays = document.querySelectorAll('#schedule-modal .schedule-day');
 
     allDays.forEach(day => {
         day.classList.remove('active-day','live-now');
