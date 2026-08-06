@@ -227,7 +227,9 @@
       .header-content {
           flex-direction: row;
           gap: 40px;
-          text-align: left;
+          justify-content: center; /* STROGO CENTRIRANJE CELEGA SKLOPA */
+          align-items: center; /* Obe polovici poravnani po višini */
+          text-align: left; /* Samo besedilo naj ostane poravnano levo glede na logotip */
       }
       .main-title {
           font-size: 2.6rem;
@@ -236,7 +238,7 @@
           font-size: 1.4rem;
       }
       .header-logo {
-          max-width: 700px; /* Še večji logotip na namizju */
+          max-width: 500px; /* Zmanjšan logotip iz 700px, da ne odriva besedila */
       }
   }
 
