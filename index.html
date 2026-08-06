@@ -177,13 +177,13 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 2px; /* Zelo tesno skupaj na mobitelu */
+      gap: 2px;
       max-width: 1300px;
       margin: 0 auto;
       text-align: center;
   }
   .header-logo {
-      max-width: 320px; /* Manjši logotip na mobitelu, da se lepo prilagodi in ne dela praznine */
+      max-width: 320px; 
       width: 100%;
       height: auto;
       filter: drop-shadow(0 0 8px rgba(255, 0, 255, 0.8));
@@ -199,9 +199,9 @@
       justify-content: center;
   }
   .main-title {
-      font-size: 1.4rem;
+      font-size: 1.35rem; /* Prilagojeno, da ne preseže okvirja na manjših zaslonih */
       font-weight: 900;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
       color: #00d4ff;
       text-transform: uppercase;
       margin: 0;
@@ -209,7 +209,7 @@
   }
   .header-slogan {
       margin: 0;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 700;
       color: #bc13fe;
       text-transform: uppercase;
@@ -229,13 +229,14 @@
           text-align: right;
       }
       .main-title {
-          font-size: 2.2rem;
+          font-size: 2rem;
+          letter-spacing: 2px;
       }
       .header-slogan {
-          font-size: 1.2rem;
+          font-size: 1.1rem;
       }
       .header-logo {
-          max-width: 520px; /* Polna velikost na računalniku */
+          max-width: 520px; 
       }
   }
 
@@ -782,7 +783,7 @@
       .show-details { width: 100%; }
   }
 
-  /* Ura v Headerju (Kompaktna in popolnoma v sredini na mobitelu) */
+  /* Ura v Headerju */
   .header-clock-container {
       background: rgba(5, 5, 5, 0.7); 
       border: 2px solid #00d4ff; 
@@ -802,7 +803,7 @@
   }
   #live-clock {
       font-family: 'Poppins', sans-serif; 
-      font-size: 2rem; /* Ravno pravšnja velikost, da lepo sede med logotip in napis */
+      font-size: 2rem; 
       font-weight: 900; 
       color: #00d4ff; 
       text-shadow: 0 0 10px #00d4ff; 
@@ -955,7 +956,7 @@
 
         <!-- Naslov in slogan -->
         <div class="header-text">
-            <h1 class="main-title">ONLINE RADIO - 24/7</h1>
+            <h1 class="main-title">SPLETNI RADIO - 24/7</h1>
             <p class="header-slogan">Kjer so vaše želje na prvem mestu !</p>
         </div>
     </div>
