@@ -186,7 +186,6 @@
       max-width: 480px; 
       width: 100%;
       height: auto;
-      /* Nežen neonski sijaj brez belih napak na robovih */
       filter: drop-shadow(0 0 8px rgba(255, 0, 255, 0.8));
       transition: transform 0.4s ease, filter 0.4s ease;
   }
@@ -782,6 +781,36 @@
       .show-row { flex-direction: column; align-items: flex-start; gap: 15px; }
       .show-details { width: 100%; }
   }
+
+  /* Ura v Headerju */
+  .header-clock-container {
+      background: rgba(5, 5, 5, 0.7); 
+      border: 2px solid #00d4ff; 
+      border-radius: 12px; 
+      padding: 8px 15px; 
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.3); 
+      display: inline-block;
+  }
+  .header-clock-title {
+      font-size: 0.75rem; 
+      color: #00d4ff; 
+      font-weight: bold; 
+      letter-spacing: 2px; 
+      margin-bottom: -4px; 
+      text-transform: uppercase;
+  }
+  #live-clock {
+      font-family: 'Poppins', sans-serif; 
+      font-size: 2.2rem; 
+      font-weight: 900; 
+      color: #00d4ff; 
+      text-shadow: 0 0 10px #00d4ff; 
+      letter-spacing: 3px; 
+      font-variant-numeric: tabular-nums;
+  }
+  @media(min-width: 768px) {
+      #live-clock { font-size: 2.5rem; }
+  }
   
   .tshirt-promo {
       margin-top: 30px; text-align: center; background: rgba(25, 10, 45, 0.6); padding: 40px 25px; border-radius: 12px; border: 2px dashed #bc13fe; transition: transform 0.3s;
@@ -901,13 +930,22 @@
 </head>
 <body>
 
+<!-- Združen in prenovljen Header -->
 <header class="main-header">
     <div class="header-content">
+        <!-- Logotip na levi -->
         <img src="Logo Radio Wish Booster - TRANSPARENT.png" alt="Radio Wish Booster" class="header-logo" loading="lazy">
         
+        <!-- Točen čas na sredini -->
+        <div class="header-clock-container">
+           <div class="header-clock-title">TOČEN ČAS</div>
+           <span id="live-clock">00:00:00</span>
+        </div>
+
+        <!-- Naslov in slogan na desni -->
         <div class="header-text">
             <h1 class="main-title">SPLETNI RADIO - 24/7</h1>
-            <p class="header-slogan">⭐ Kjer so vaše želje na prvem mestu ⭐</p>
+            <p class="header-slogan">Kjer so vaše želje na prvem mestu !</p>
         </div>
     </div>
 </header>
