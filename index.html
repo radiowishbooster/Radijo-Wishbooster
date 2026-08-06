@@ -165,10 +165,10 @@
     user-select: none;
   }
 
-  /* Združen Header z Logotipom in Napisom */
+  /* Združen Header z Logotipom, Uro in Napisom */
   .main-header {
       background: #111;
-      padding: 20px;
+      padding: 15px 20px;
       border-bottom: 2px solid #8a2be2;
       box-shadow: 0 0 30px rgba(138, 43, 226, 0.3);
   }
@@ -177,16 +177,16 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 1px;
-      max-width: 1200px;
+      gap: 15px;
+      max-width: 1300px;
       margin: 0 auto;
       text-align: center;
   }
   .header-logo {
-      max-width: 550px; 
+      max-width: 480px; 
       width: 100%;
       height: auto;
-      /* Nežnejši sijaj, ki prepreči nastanek belih kvadratov na sliki */
+      /* Nežen neonski sijaj brez belih napak na robovih */
       filter: drop-shadow(0 0 8px rgba(255, 0, 255, 0.8));
       transition: transform 0.4s ease, filter 0.4s ease;
   }
@@ -209,8 +209,8 @@
       animation: neonFlicker 5s infinite, pulse 2s infinite;
   }
   .header-slogan {
-      margin: 8px 0 0 0;
-      font-size: 1.2rem;
+      margin: 5px 0 0 0;
+      font-size: 1.1rem;
       font-weight: 700;
       color: #bc13fe;
       text-transform: uppercase;
@@ -221,17 +221,22 @@
   @media(min-width: 768px) {
       .header-content {
           flex-direction: row;
-          gap: 40px;
+          justify-content: space-between;
+          align-items: center;
+          gap: 20px;
           text-align: left;
       }
+      .header-text {
+          text-align: right;
+      }
       .main-title {
-          font-size: 2.6rem;
+          font-size: 2.2rem;
       }
       .header-slogan {
-          font-size: 1.4rem;
+          font-size: 1.2rem;
       }
       .header-logo {
-          max-width: 700px; /* Še večji logotip na namizju */
+          max-width: 550px; 
       }
   }
 
@@ -798,15 +803,34 @@
       .show-details { width: 100%; }
   }
 
-  /* Right column utilities (Clock, Promo, Contacts) */
-  .clock-container {
-      background: rgba(5, 5, 5, 0.8); border: 2px solid #00d4ff; border-radius: 15px; padding: 15px; box-shadow: 0 0 20px rgba(0, 212, 255, 0.3); display: inline-block;
+  /* Ura v Headerju (Prilagojena za vmesno pozicijo) */
+  .header-clock-container {
+      background: rgba(5, 5, 5, 0.7); 
+      border: 2px solid #00d4ff; 
+      border-radius: 12px; 
+      padding: 8px 15px; 
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.3); 
+      display: inline-block;
   }
-  .clock-title {
-      font-size: 1rem; color: #00d4ff; font-weight: bold; letter-spacing: 2px; margin-bottom: -10px; text-transform: uppercase;
+  .header-clock-title {
+      font-size: 0.75rem; 
+      color: #00d4ff; 
+      font-weight: bold; 
+      letter-spacing: 2px; 
+      margin-bottom: -4px; 
+      text-transform: uppercase;
   }
   #live-clock {
-      font-family: 'Poppins', sans-serif; font-size: 4rem; font-weight: 900; color: #00d4ff; text-shadow: 0 0 15px #00d4ff; letter-spacing: 5px; font-variant-numeric: tabular-nums;
+      font-family: 'Poppins', sans-serif; 
+      font-size: 2.2rem; 
+      font-weight: 900; 
+      color: #00d4ff; 
+      text-shadow: 0 0 10px #00d4ff; 
+      letter-spacing: 3px; 
+      font-variant-numeric: tabular-nums;
+  }
+  @media(min-width: 768px) {
+      #live-clock { font-size: 2.5rem; }
   }
   
   .tshirt-promo {
@@ -927,24 +951,25 @@
 </head>
 <body>
 
-<!-- Združen in prenovljen Header -->
+<!-- Združen in prenovljen Header z vstavljeno uro v sredini -->
 <header class="main-header">
     <div class="header-content">
-        <!-- Spremenjen, povečan in v celoti bel logotip z roza sijajem -->
+        <!-- Logotip na levi -->
         <img src="Logo Radio Wish Booster - TRANSPARENT.png" alt="Radio Wish Booster" class="header-logo" loading="lazy">
+        
+        <!-- Točen čas v vmesni poziciji -->
+        <div class="header-clock-container">
+           <div class="header-clock-title">TOČEN ČAS</div>
+           <span id="live-clock">00:00:00</span>
+        </div>
+
+        <!-- Naslov in slogan na desni -->
         <div class="header-text">
             <h1 class="main-title">ONLINE RADIO - 24/7</h1>
-            <p class="header-slogan">Kjer so vaše glasbene želje na prvem mestu !</p>
+            <p class="header-slogan">Kjer so vaše želje na prvem mestu !</p>
         </div>
     </div>
 </header>
-
-<div style="text-align: center; margin-top: 25px;">
-   <div class="clock-container">
-      <div class="clock-title">TOČEN ČAS</div>
-      <span id="live-clock">00:00:00</span>
-   </div>
-</div>
 
 <div id="cookie-banner">
   <span>To spletno mesto uporablja piškotke za boljšo izkušnjo.</span>
@@ -1210,7 +1235,7 @@
   </div>
 
   <div class="current-program-box">
-      <img class="player-image" src="LOGO RADIO WISH BOOSTER - bel- transparent.png" alt="Trenutna oddaja">
+      <img class="player-image" src="Logo Radio Wish Booster - TRANSPARENT.png" alt="Trenutna oddaja">
       <h3 style="color: #00d4ff; font-size: 1.2rem; margin: 0; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 10px rgba(0,212,255,0.7);">
           <i class="fas fa-broadcast-tower" style="color: #ff00ff;"></i> Trenutno na sporedu
       </h3>
@@ -1380,7 +1405,7 @@
         <h3 style="justify-content: center; margin: 0 0 30px 0;"><i class="fas fa-envelope"></i> KONTAKT</h3>
         
         <div class="contact-group">
-            <img src="LOGO RADIO WISH BOOSTER - bel- transparent.png" alt="Radio Logo" style="width: 100%; max-width: 350px; object-fit: contain; filter: drop-shadow(0 0 15px #bc13fe); margin-bottom: 15px;" loading="lazy">
+            <img src="Logo Radio Wish Booster - TRANSPARENT.png" alt="Radio Logo" style="width: 100%; max-width: 350px; object-fit: contain; filter: drop-shadow(0 0 15px #bc13fe); margin-bottom: 15px;" loading="lazy">
             <a href="mailto:radiowishbooster@gmail.com" class="email-link">
                 <i class="fas fa-broadcast-tower"></i> radiowishbooster@gmail.com
             </a>
@@ -1579,7 +1604,7 @@ function updateCurrentShowInfo() {
     const hour = now.getHours();
 
     let currentName = "WISH BOOSTER 24/7 MIX"; 
-    let currentImage = "LOGO RADIO WISH BOOSTER - bel- transparent.png"; 
+    let currentImage = "Logo Radio Wish Booster - TRANSPARENT.png"; 
 
     if(scheduleData[day]) {
         for(let show of scheduleData[day]) {
