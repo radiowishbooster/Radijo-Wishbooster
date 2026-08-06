@@ -168,7 +168,7 @@
   /* Združen Header z Logotipom, Uro in Napisom */
   .main-header {
       background: #111;
-      padding: 15px 20px;
+      padding: 10px 15px;
       border-bottom: 2px solid #8a2be2;
       box-shadow: 0 0 30px rgba(138, 43, 226, 0.3);
   }
@@ -177,13 +177,13 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 4px;
+      gap: 2px; /* Zelo tesno skupaj na mobitelu */
       max-width: 1300px;
       margin: 0 auto;
       text-align: center;
   }
   .header-logo {
-      max-width: 440px; 
+      max-width: 320px; /* Manjši logotip na mobitelu, da se lepo prilagodi in ne dela praznine */
       width: 100%;
       height: auto;
       filter: drop-shadow(0 0 8px rgba(255, 0, 255, 0.8));
@@ -199,7 +199,7 @@
       justify-content: center;
   }
   .main-title {
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       font-weight: 900;
       letter-spacing: 2px;
       color: #00d4ff;
@@ -208,8 +208,8 @@
       animation: neonFlicker 5s infinite, pulse 2s infinite;
   }
   .header-slogan {
-      margin: 2px 0 0 0;
-      font-size: 1rem;
+      margin: 0;
+      font-size: 0.9rem;
       font-weight: 700;
       color: #bc13fe;
       text-transform: uppercase;
@@ -235,7 +235,7 @@
           font-size: 1.2rem;
       }
       .header-logo {
-          max-width: 520px; 
+          max-width: 520px; /* Polna velikost na računalniku */
       }
   }
 
@@ -782,39 +782,45 @@
       .show-details { width: 100%; }
   }
 
-  /* Ura v Headerju */
+  /* Ura v Headerju (Kompaktna in popolnoma v sredini na mobitelu) */
   .header-clock-container {
       background: rgba(5, 5, 5, 0.7); 
       border: 2px solid #00d4ff; 
-      border-radius: 10px; 
-      padding: 4px 12px; 
-      box-shadow: 0 0 15px rgba(0, 212, 255, 0.3); 
+      border-radius: 8px; 
+      padding: 2px 10px; 
+      box-shadow: 0 0 12px rgba(0, 212, 255, 0.3); 
       display: inline-block;
-      margin: 2px 0; 
+      margin: 1px 0; 
   }
   .header-clock-title {
-      font-size: 0.7rem; 
+      font-size: 0.6rem; 
       color: #00d4ff; 
       font-weight: bold; 
-      letter-spacing: 2px; 
-      margin-bottom: -4px; 
+      letter-spacing: 1px; 
+      margin-bottom: -5px; 
       text-transform: uppercase;
   }
   #live-clock {
       font-family: 'Poppins', sans-serif; 
-      font-size: 2.5rem; 
+      font-size: 2rem; /* Ravno pravšnja velikost, da lepo sede med logotip in napis */
       font-weight: 900; 
       color: #00d4ff; 
       text-shadow: 0 0 10px #00d4ff; 
-      letter-spacing: 3px; 
+      letter-spacing: 2px; 
       font-variant-numeric: tabular-nums;
   }
   @media(min-width: 768px) {
       .header-clock-container {
           padding: 8px 15px;
           margin: 0;
+          border-radius: 12px;
       }
-      #live-clock { font-size: 3.2rem; }
+      .header-clock-title {
+          font-size: 0.8rem;
+          margin-bottom: -4px;
+          letter-spacing: 2px;
+      }
+      #live-clock { font-size: 3.2rem; letter-spacing: 3px; }
   }
   
   .tshirt-promo {
@@ -1569,16 +1575,12 @@ function showPhone() {
 }
 
 // Zagon funkcij ob nalaganju strani
-updateCurrentShowInfo();
-highlightTodaySchedule();
 updateClock();
 updateCountdown();
 
 // Intervali za redno posodabljanje
 setInterval(updateClock, 1000);
 setInterval(updateCountdown, 1000);
-setInterval(updateCurrentShowInfo, 60000);
-setInterval(highlightTodaySchedule, 60000);
 
 </script>
 </body>
