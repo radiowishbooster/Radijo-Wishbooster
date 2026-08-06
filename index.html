@@ -1507,6 +1507,45 @@ function closeRequests() {
   document.body.style.overflow = 'auto';
 }
 
+const scheduleData = [
+    [ { start: 0, end: 6, name: "🎧 WEEKEND PARTY 💥 MIXI 🎧", img: "slika5.png" },
+      { start: 15, end: 17, name: "🎙️ PODCAST 🔴 MESECA 🎙️ (Ponovitev)", img: "slika4.png" },
+      { start: 20, end: 22, name: "♥️ NEDELJSKI ꨄ︎ VEČER ♥️ <span class='live-badge-inline'>V ŽIVO</span>", img: "slika3.png" } ],
+    [ { start: 20, end: 22, name: "🪗 DOMAČI MEH 🪗 (Ponovitev)", img: "domaci_meh.png" } ],
+    [ { start: 20, end: 22, name: "🪗 DOMAČI MEH 🪗 <span class='live-badge-inline'>V ŽIVO</span>", img: "domaci_meh.png" } ],
+    [ { start: 20, end: 22, name: "♥️ NEDELJSKI ꨄ︎ VEČER ♥️ (Ponovitev)", img: "slika3.png" } ],
+    [ { start: 20, end: 22, name: "⭐ GLASBENI 🎸 VRTILJAK ⭐ <span class='live-badge-inline'>V ŽIVO</span>", img: "slika2.png" } ],
+    [ { start: 18, end: 24, name: "🎧 WEEKEND PARTY 💥 MIXI 🎧", img: "slika5.png" } ],
+    [ { start: 0, end: 6, name: "🎧 WEEKEND PARTY 💥 MIXI 🎧", img: "slika5.png" },
+      { start: 13, end: 15, name: "⭐ GLASBENI 🎸 VRTILJAK ⭐ (Ponovitev)", img: "slika2.png" },
+      { start: 18, end: 24, name: "🎧 WEEKEND PARTY 💥 MIXI 🎧", img: "slika5.png" } ]
+];
+
+function updateCurrentShowInfo() {
+    const now = new Date();
+    const day = now.getDay(); 
+    const hour = now.getHours();
+
+    let currentName = "WISH BOOSTER 24/7 MIX"; 
+    let currentImage = "Logo Radio Wish Booster - TRANSPARENT.png"; 
+
+    if(scheduleData[day]) {
+        for(let show of scheduleData[day]) {
+            if(hour >= show.start && hour < show.end) {
+                currentName = show.name;
+                currentImage = show.img;
+                break;
+            }
+        }
+    }
+
+    const nameEl = document.querySelector('.current-show-name');
+    const imgEl = document.querySelector('.player-image');
+
+    if (nameEl && nameEl.innerHTML !== currentName) nameEl.innerHTML = currentName;
+    if (imgEl && !imgEl.src.includes(currentImage)) imgEl.src = currentImage;
+}
+
 function updateClock() {
     const now = new Date();
     const h = now.getHours().toString().padStart(2, '0');
@@ -1520,7 +1559,6 @@ function updateClock() {
 }
 
 function updateCountdown() {
-    // Odštevanje do dogodka: 20. september 2026 ob 13:00
     const countToDate = new Date("September 20, 2026 13:00:00").getTime();
     const now = new Date().getTime();
     const distance = countToDate - now;
@@ -1565,12 +1603,14 @@ function showPhone() {
 }
 
 // Zagon funkcij ob nalaganju strani
+updateCurrentShowInfo();
 updateClock();
 updateCountdown();
 
 // Intervali za redno posodabljanje
 setInterval(updateClock, 1000);
 setInterval(updateCountdown, 1000);
+setInterval(updateCurrentShowInfo, 60000);
 
 </script>
 </body>
