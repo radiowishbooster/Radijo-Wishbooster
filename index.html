@@ -239,10 +239,9 @@
   .btn-booking:hover { transform: scale(1.05); box-shadow: 0 0 20px #25d366; }
   .btn-shows { background: linear-gradient(45deg, #ff8c00, #ff0080); color: #fff; }
   .btn-shows:hover { transform: scale(1.05); box-shadow: 0 0 20px #ff0080; }
-  
-  /* DODAN NOVI GUMB ZA URNIK */
-  .btn-schedule { background: linear-gradient(45deg, #00d4ff, #8a2be2); color: #fff; }
-  .btn-schedule:hover { transform: scale(1.05); box-shadow: 0 0 20px #00d4ff; }
+  /* Nov gumb urnik */
+  .btn-schedule { background: linear-gradient(45deg, #00d4ff, #8a2be2); color: #fff; box-shadow: 0 0 15px rgba(0, 212, 255, 0.5); }
+  .btn-schedule:hover { transform: scale(1.05); box-shadow: 0 0 25px rgba(0, 212, 255, 1); }
 
   /* SMS Button */
   .sms-inactive {
@@ -289,7 +288,7 @@
     padding: 20px;
   }
   
-  /* PROMO SLIKE */
+  /* PROMO SLIKE (DODANO) */
   .promo-banner-wrapper {
       max-width: 100%;
       margin: 30px auto 10px auto;
@@ -619,15 +618,6 @@
       .shows-grid { grid-template-columns: 1fr; }
   }
 
-  /* NOVO: Schedule Modal Specifics */
-  #schedule-modal {
-     border-color: #00d4ff;
-     box-shadow: 0 0 40px rgba(0, 212, 255, 0.4), 0 0 100px rgba(0, 0, 0, 0.9);
-  }
-  #schedule-modal .close-modal-btn {
-     color: #00d4ff;
-  }
-
   /* Player Wrapper */
   .neon-player-wrapper {
       margin: 40px auto;
@@ -873,7 +863,6 @@
   <span class="rotate-text"> ONLINE RADIO - 24/7</span>
 </div>
 
-<!-- TUKAJ SO ZDAJ VSI GUMBI, VKLJUČNO Z NOVIM "RADIJSKI URNIK" -->
 <div class="btn-container">
   <div class="btn-wrapper">
     <button class="btn btn-about" onclick="openModal('about-modal')"><i class="fas fa-fire"></i> KDO SMO?</button>
@@ -891,12 +880,13 @@
       </p>
   </div>
 
+  <!-- NOVI GUMB ZA URNIK -->
   <div class="btn-wrapper">
       <button class="btn btn-schedule" onclick="openModal('schedule-modal')">
           <i class="fas fa-calendar-alt"></i> RADIJSKI URNIK
       </button>
       <p class="btn-hint" style="color: #00d4ff; opacity: 0.9;">
-          Preveri naš tedenski program.
+          Celotedenski spored oddaj.
       </p>
   </div>
 
@@ -913,6 +903,7 @@
       <a id="sms-button" href="#" onclick="preveriVIPSMS(event)" class="btn sms-inactive">
         <i class="fas fa-comment-dots"></i> VIP SMS ŽELJA
       </a>
+
       <p id="sms-hint" class="btn-hint">
         Samo za VIP člane (Torek, Četrtek in Nedelja 20:00 - 22:00).
       </p>
@@ -996,12 +987,12 @@
     </div>
 </div>
 
-<!-- NOVO MODAL OKNO: RADIJSKI URNIK (Prestavljeno z glavne strani) -->
-<div id="schedule-modal" class="modal-content-box">
-    <span class="close-modal-btn" onclick="closeAllModals()"><i class="fas fa-times-circle"></i></span>
+<!-- NOVI MODAL: RADIJSKI URNIK -->
+<div id="schedule-modal" class="modal-content-box" style="border-color: #00d4ff; box-shadow: 0 0 40px rgba(0, 212, 255, 0.4), 0 0 100px rgba(0, 0, 0, 0.9);">
+    <span class="close-modal-btn" onclick="closeAllModals()" style="color: #00d4ff;"><i class="fas fa-times-circle"></i></span>
     <div style="text-align:center;">
-        <h2 style="margin:0; font-size: 2.5rem; text-shadow: 0 0 15px #00d4ff; font-weight: 900; color: #fff;">RADIJSKI URNIK</h2>
-        <p style="color:#bc13fe; font-weight: bold; text-transform: uppercase; letter-spacing: 3px;">Naš tedenski program</p>
+        <h2 style="margin:0; font-size: 2.5rem; text-shadow: 0 0 15px #00d4ff; font-weight: 900; color: #fff;"><i class="fas fa-calendar-alt"></i> RADIJSKI URNIK</h2>
+        <p style="color:#00d4ff; font-weight: bold; text-transform: uppercase; letter-spacing: 3px;">Celotedenski spored oddaj</p>
     </div>
     
     <div class="schedule-container">
@@ -1151,14 +1142,12 @@
   
   <div class="content-grid">
 
-      <!-- GLAVNA STRAN: Samo še ura, urnika tukaj NI več! -->
-      <div class="purple-frame full-width-box" style="margin-bottom: 0;">
-        <div style="text-align: center;">
-           <div class="clock-container">
-              <div class="clock-title">TOČEN ČAS</div>
-              <span id="live-clock">00:00:00</span>
-           </div>
-        </div>
+      <!-- Posodobljen prostor za uro (urnik je prestavljen v modal) -->
+      <div class="purple-frame full-width-box" style="margin-bottom: 0; text-align: center;">
+         <div class="clock-container" style="margin: 20px 0;">
+            <div class="clock-title">TOČEN ČAS</div>
+            <span id="live-clock">00:00:00</span>
+         </div>
       </div>
 
    <div class="purple-frame full-width-box" style="margin-bottom: 0; text-align: center;">
@@ -1384,7 +1373,7 @@ function closeAllModals() {
     document.getElementById('main-modal-overlay').style.display = 'none';
     document.getElementById('about-modal').style.display = 'none';
     document.getElementById('shows-modal').style.display = 'none';
-    document.getElementById('schedule-modal').style.display = 'none'; /* Novo okno za urnik */
+    document.getElementById('schedule-modal').style.display = 'none'; // DODANO ZA ZAPIRANJE URNIKA
     document.getElementById('service-description-box').style.display = 'none';
     document.body.style.overflow = 'auto';
 }
@@ -1522,8 +1511,7 @@ function highlightTodaySchedule() {
     const today = now.getDay();
     const currentHour = now.getHours();
 
-    /* Povezava preusmerjena samo na nov modal za urnik */
-    const allDays = document.querySelectorAll('#schedule-modal .schedule-day');
+    const allDays = document.querySelectorAll('.schedule-day');
 
     allDays.forEach(day => {
         day.classList.remove('active-day','live-now');
