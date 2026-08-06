@@ -168,7 +168,7 @@
   /* Združen Header z Logotipom, Uro in Napisom */
   .main-header {
       background: #111;
-      padding: 10px 20px;
+      padding: 15px 20px;
       border-bottom: 2px solid #8a2be2;
       box-shadow: 0 0 30px rgba(138, 43, 226, 0.3);
   }
@@ -177,7 +177,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 4px; /* Zelo majhen razmik za mobitel, da so elementi tesno skupaj */
+      gap: 4px;
       max-width: 1300px;
       margin: 0 auto;
       text-align: center;
@@ -222,7 +222,7 @@
           flex-direction: row;
           justify-content: space-between;
           align-items: center;
-          gap: 15px; /* Normalen razmik na računalniku */
+          gap: 15px;
           text-align: left;
       }
       .header-text {
@@ -315,26 +315,6 @@
   .btn-shows:hover { transform: scale(1.05); box-shadow: 0 0 20px #ff0080; }
   .btn-schedule { background: linear-gradient(45deg, #00d4ff, #8a2be2); color: #fff; box-shadow: 0 0 15px rgba(0, 212, 255, 0.5); }
   .btn-schedule:hover { transform: scale(1.05); box-shadow: 0 0 25px rgba(0, 212, 255, 1); }
-
-  /* SMS Button */
-  .sms-inactive {
-    background: #222 !important;
-    color: #555 !important;
-    border: 1px solid #333 !important;
-    cursor: not-allowed;
-    opacity: 0.6;
-  }
-  .sms-live {
-    background: linear-gradient(45deg, #00d4ff, #0055ff) !important;
-    color: #fff !important;
-    box-shadow: 0 0 15px rgba(0, 212, 255, 0.7);
-    animation: smsPulse 1.5s infinite ease-in-out;
-  }
-  @keyframes smsPulse {
-    0% { transform: scale(1); box-shadow: 0 0 10px rgba(0, 212, 255, 0.5); }
-    50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(0, 212, 255, 1); }
-    100% { transform: scale(1); box-shadow: 0 0 10px rgba(0, 212, 255, 0.5); }
-  }
 
   /* Phone Link */
   .phone-link {
@@ -802,15 +782,15 @@
       .show-details { width: 100%; }
   }
 
-  /* Ura v Headerju (Optimizirani notranji odmiki in velikost) */
+  /* Ura v Headerju */
   .header-clock-container {
       background: rgba(5, 5, 5, 0.7); 
       border: 2px solid #00d4ff; 
       border-radius: 10px; 
-      padding: 4px 12px; /* Zmanjšan vertikalni padding, da je ura bolj kompaktna */
+      padding: 4px 12px; 
       box-shadow: 0 0 15px rgba(0, 212, 255, 0.3); 
       display: inline-block;
-      margin: 2px 0; /* Zmanjšan zunanji prostor okoli ure na mobitelu */
+      margin: 2px 0; 
   }
   .header-clock-title {
       font-size: 0.7rem; 
@@ -822,7 +802,7 @@
   }
   #live-clock {
       font-family: 'Poppins', sans-serif; 
-      font-size: 2.5rem; /* Zmerna in pregledna velikost ure, da se lepo prilega na mobitelu */
+      font-size: 2.5rem; 
       font-weight: 900; 
       color: #00d4ff; 
       text-shadow: 0 0 10px #00d4ff; 
@@ -955,7 +935,7 @@
 </head>
 <body>
 
-<!-- Združen in prenovljen Header z zbalansirano sredinsko uro -->
+<!-- Združen in prenovljen Header -->
 <header class="main-header">
     <div class="header-content">
         <!-- Logotip -->
@@ -1012,16 +992,6 @@
       </a>
       <p class="btn-hint" style="color: #ff00ff; opacity: 0.9;">
           Glej nas v živo in klepetaj z nami! (Samo za podpornike)
-      </p>
-  </div>
-  
-  <div class="btn-wrapper">
-      <a id="sms-button" href="#" onclick="preveriVIPSMS(event)" class="btn sms-inactive">
-        <i class="fas fa-comment-dots"></i> VIP SMS ŽELJA
-      </a>
-
-      <p id="sms-hint" class="btn-hint">
-        Samo za VIP člane (Torek, Četrtek in Nedelja 20:00 - 22:00).
       </p>
   </div>
 
@@ -1541,133 +1511,6 @@ function closeRequests() {
   document.body.style.overflow = 'auto';
 }
 
-function preveriVIPSMS(event) {
-  event.preventDefault(); 
-  
-  const smsBtn = document.getElementById('sms-button');
-  
-  if (smsBtn.classList.contains('sms-inactive')) {
-    alert("SMS želje trenutno niso na voljo. V živo smo ob torkih, četrtkih in nedeljah (20:00 - 22:00).");
-    return;
-  }
-
-  const vnesenaKoda = prompt("Vnesi mesečno VIP kodo z naše YT platforme:");
-  
-  const veljavnaKoda = "JUNIJ6"; 
-
-  if (vnesenaKoda === veljavnaKoda) {
-    window.location.href = "sms:+38641772470?&body=Moje ime:%0APozdravil bi:%0AZaželel sem si pesem od: ";
-  } else if (vnesenaKoda !== null) {
-    alert("Napačna koda! Za dostop do VIP želja potrebuješ mesečno kodo.");
-  }
-}
-
-function updateSmsButton() {
-  const now = new Date();
-  const day = now.getDay(); 
-  const hour = now.getHours();
-  
-  const smsBtn = document.getElementById('sms-button');
-  const smsHint = document.getElementById('sms-hint');
-
-  const isLiveDay = (day === 2 || day === 4 || day === 0);
-  const isLiveTime = (hour >= 20 && hour < 22);
-
-  if (isLiveDay && isLiveTime) {
-    smsBtn.classList.remove('sms-inactive');
-    smsBtn.classList.add('sms-live');
-    smsBtn.style.pointerEvents = 'auto'; 
-    
-    smsHint.innerHTML = "<span style='color: #00d4ff;'>🔴 V ŽIVO! Samo za VIP člane z mesečno kodo.</span>";
-  } else {
-    smsBtn.classList.remove('sms-live');
-    smsBtn.classList.add('sms-inactive');
-    smsBtn.style.pointerEvents = 'auto'; 
-    
-    smsHint.innerHTML = "SMS želje samo za VIP člane (v živo: Tor, Čet, Ned 20:00 - 22:00).";
-  }
-}
-
-const scheduleData = [
-    [ { start: 0, end: 6, name: "🎧 WEEKEND PARTY 💥 MIXI 🎧", img: "slika5.png" },
-      { start: 15, end: 17, name: "🎙️ PODCAST 🔴 MESECA 🎙️ (Ponovitev)", img: "slika4.png" },
-      { start: 20, end: 22, name: "♥️ NEDELJSKI ꨄ︎ VEČER ♥️ <span class='live-badge-inline'>V ŽIVO</span>", img: "slika3.png" } ],
-    [ { start: 20, end: 22, name: "🪗 DOMAČI MEH 🪗 (Ponovitev)", img: "domaci_meh.png" } ],
-    [ { start: 20, end: 22, name: "🪗 DOMAČI MEH 🪗 <span class='live-badge-inline'>V ŽIVO</span>", img: "domaci_meh.png" } ],
-    [ { start: 20, end: 22, name: "♥️ NEDELJSKI ꨄ︎ VEČER ♥️ (Ponovitev)", img: "slika3.png" } ],
-    [ { start: 20, end: 22, name: "⭐ GLASBENI 🎸 VRTILJAK ⭐ <span class='live-badge-inline'>V ŽIVO</span>", img: "slika2.png" } ],
-    [ { start: 18, end: 24, name: "🎧 WEEKEND PARTY 💥 MIXI 🎧", img: "slika5.png" } ],
-    [ { start: 0, end: 6, name: "🎧 WEEKEND PARTY 💥 MIXI 🎧", img: "slika5.png" },
-      { start: 13, end: 15, name: "⭐ GLASBENI 🎸 VRTILJAK ⭐ (Ponovitev)", img: "slika2.png" },
-      { start: 18, end: 24, name: "🎧 WEEKEND PARTY 💥 MIXI 🎧", img: "slika5.png" } ]
-];
-
-function updateCurrentShowInfo() {
-    const now = new Date();
-    const day = now.getDay(); 
-    const hour = now.getHours();
-
-    let currentName = "WISH BOOSTER 24/7 MIX"; 
-    let currentImage = "Logo Radio Wish Booster - TRANSPARENT.png"; 
-
-    if(scheduleData[day]) {
-        for(let show of scheduleData[day]) {
-            if(hour >= show.start && hour < show.end) {
-                currentName = show.name;
-                currentImage = show.img;
-                break;
-            }
-        }
-    }
-
-    const nameEl = document.querySelector('.current-show-name');
-    const imgEl = document.querySelector('.player-image');
-
-    if (nameEl && nameEl.innerHTML !== currentName) nameEl.innerHTML = currentName;
-    if (imgEl && !imgEl.src.includes(currentImage)) imgEl.src = currentImage;
-}
-
-function highlightTodaySchedule() {
-    const now = new Date();
-    const today = now.getDay();
-    const currentHour = now.getHours();
-
-    const allDays = document.querySelectorAll('.schedule-day');
-
-    allDays.forEach(day => {
-        day.classList.remove('active-day','live-now');
-        const oldLabel = day.querySelector('.live-label');
-        if(oldLabel) oldLabel.remove();
-
-        const dayNumber = parseInt(day.getAttribute('data-day'));
-
-        if (dayNumber === today) {
-            day.classList.add('active-day');
-            const shows = day.querySelectorAll('.show-row');
-
-            shows.forEach(show => {
-                const start = parseInt(show.getAttribute('data-start'));
-                const end = parseInt(show.getAttribute('data-end'));
-                let isLive = false;
-
-                if (start < end) {
-                    isLive = currentHour >= start && currentHour < end;
-                } else {
-                    isLive = currentHour >= start || currentHour < end;
-                }
-
-                if (isLive) {
-                    day.classList.add('live-now');
-                    const label = document.createElement('div');
-                    label.className = 'live-label';
-                    label.innerText = '🔴 TRENUTNO NA SPOREDU';
-                    day.appendChild(label);
-                }
-            });
-        }
-    });
-}
-
 function updateClock() {
     const now = new Date();
     const h = now.getHours().toString().padStart(2, '0');
@@ -1728,7 +1571,6 @@ function showPhone() {
 // Zagon funkcij ob nalaganju strani
 updateCurrentShowInfo();
 highlightTodaySchedule();
-updateSmsButton();
 updateClock();
 updateCountdown();
 
@@ -1737,7 +1579,6 @@ setInterval(updateClock, 1000);
 setInterval(updateCountdown, 1000);
 setInterval(updateCurrentShowInfo, 60000);
 setInterval(highlightTodaySchedule, 60000);
-setInterval(updateSmsButton, 60000);
 
 </script>
 </body>
