@@ -183,16 +183,16 @@
       text-align: center;
   }
   .header-logo {
-      max-width: 550px; /* Precej večji logotip na mobilcih */
+      max-width: 550px; 
       width: 100%;
       height: auto;
-      /* Naredi logotip bel z močnim roza/magenta sijajem */
-      filter: brightness(0) invert(1) drop-shadow(0 0 20px #ff00ff) drop-shadow(0 0 40px #ff00ff);
+      /* Nežnejši sijaj, ki prepreči nastanek belih kvadratov na sliki */
+      filter: drop-shadow(0 0 8px rgba(255, 0, 255, 0.8));
       transition: transform 0.4s ease, filter 0.4s ease;
   }
   .header-logo:hover {
       transform: scale(1.05);
-      filter: brightness(0) invert(1) drop-shadow(0 0 30px #ff00ff) drop-shadow(0 0 50px #ff00ff);
+      filter: drop-shadow(0 0 12px rgba(255, 0, 255, 1)) drop-shadow(0 0 20px rgba(0, 212, 255, 0.6));
   }
   .header-text {
       display: flex;
