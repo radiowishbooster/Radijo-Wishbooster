@@ -182,16 +182,17 @@
       margin: 0 auto;
       text-align: center;
   }
- .header-logo {
-      max-width: 350px; /* Osnovna velikost za mobilne naprave */
+  .header-logo {
+      max-width: 550px; /* Precej večji logotip na mobilcih */
       width: 100%;
       height: auto;
-      filter: drop-shadow(0 0 15px #ff00ff) drop-shadow(0 0 30px #ff00ff);
+      /* Naredi logotip bel z močnim roza/magenta sijajem */
+      filter: brightness(0) invert(1) drop-shadow(0 0 20px #ff00ff) drop-shadow(0 0 40px #ff00ff);
       transition: transform 0.4s ease, filter 0.4s ease;
   }
   .header-logo:hover {
       transform: scale(1.05);
-      filter: drop-shadow(0 0 25px #ff00ff) drop-shadow(0 0 45px #ff00ff);
+      filter: brightness(0) invert(1) drop-shadow(0 0 30px #ff00ff) drop-shadow(0 0 50px #ff00ff);
   }
   .header-text {
       display: flex;
@@ -220,18 +221,17 @@
   @media(min-width: 768px) {
       .header-content {
           flex-direction: row;
-          gap: 30px; /* Zmanjšan razmik na 30px */
+          gap: 40px;
           text-align: left;
-          justify-content: center; /* Drži elemente lepo na sredini */
       }
       .main-title {
-          font-size: 2.2rem;
+          font-size: 2.6rem;
       }
       .header-slogan {
-          font-size: 1.2rem;
+          font-size: 1.4rem;
       }
       .header-logo {
-          max-width: 400px; /* Velikost logotipa na računalnikih */
+          max-width: 700px; /* Še večji logotip na namizju */
       }
   }
 
