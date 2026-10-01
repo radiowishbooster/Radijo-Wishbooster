@@ -388,45 +388,6 @@
     color: #00d4ff;
   }
 
-  /* Odštevalnik časa (Countdown) CSS */
-  .countdown-container {
-      margin-top: 30px;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-  }
-  .cd-box {
-      background: rgba(25, 10, 45, 0.8);
-      border: 2px solid #ff00ff;
-      border-radius: 12px;
-      padding: 15px 20px;
-      min-width: 90px;
-      box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
-      text-align: center;
-      transition: transform 0.3s ease;
-  }
-  .cd-box:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 5px 25px rgba(255, 0, 255, 0.8);
-  }
-  .cd-box span {
-      display: block;
-      font-size: 2.8rem;
-      font-weight: 900;
-      color: #fff;
-      text-shadow: 0 0 10px #ff00ff;
-      line-height: 1;
-  }
-  .cd-label {
-      font-size: 1rem;
-      color: #00d4ff;
-      font-weight: bold;
-      margin-top: 8px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-  }
-
   /* Responsive iframe */
   .iframe-container {
     position: relative;
@@ -1111,7 +1072,7 @@
                     <img src="slika3.png" alt="Nedeljski Večer" class="schedule-img" loading="lazy">
                     <div class="show-info">
                         <span class="show-time time-replay"><i class="far fa-clock"></i> 20:00 - 22:00</span>
-                        <span class="show-name">♥️ NEDELJSKI ꨄ︎ VEČER ♥️</span>
+                        <span class="show-name">♥️ NEDELJSKI ꨄ︎ VEČER ♥️️</span>
                     </div>
                 </div>
                 <span class="show-badge badge-replay">PONOVITEV</span>
@@ -1223,28 +1184,6 @@
   </div>
   
   <div class="content-grid">
-
-   <div class="purple-frame full-width-box" style="margin-bottom: 0; text-align: center;">
-        <h3 style="justify-content: center; color: #00d4ff; text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff; font-size: 2.2rem; margin-top: 0; text-transform: uppercase;">
-            <i class="fas fa-glass-cheers" style="color: #ff00ff; margin-right: 15px;"></i> Pridruži se nam v živo!
-        </h3>
-        <p style="font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 10px; line-height: 1.6;">
-            Ekipa <span style="color: #00d4ff; font-weight: 900;">Radia Wish Booster</span> vas vabi na 2. nepozabno druženje polno dobre energije, odlične glasbe in zabave v NEDELJO 20.9.2026 na ŠTAJERSKEM !
-            <br>
-            <strong style="color: #ff00ff; font-size: 1.4rem; display: block; margin-top: 15px;">Začetek srečanja: ob 13.00 uri</strong>
-        </p>
-
-        <!-- Odštevalnik do 20.9.2026 -->
-        <div class="countdown-container">
-            <div id="countdown-timer" style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-                <div class="cd-box"><span id="cd-days">00</span><div class="cd-label">DNI</div></div>
-                <div class="cd-box"><span id="cd-hours">00</span><div class="cd-label">UR</div></div>
-                <div class="cd-box"><span id="cd-minutes">00</span><div class="cd-label">MINUT</div></div>
-                <div class="cd-box"><span id="cd-seconds">00</span><div class="cd-label">SEKUND</div></div>
-            </div>
-        </div>
-
-    </div>
       
    <div class="purple-frame full-width-box" style="margin-bottom: 0; text-align: center;">
         <h3 style="justify-content: center; color: #ff00ff; text-shadow: 0 0 10px #ff00ff; font-size: 2rem; margin-top: 0;">
@@ -1551,34 +1490,6 @@ function updateClock() {
     }
 }
 
-function updateCountdown() {
-    const countToDate = new Date("September 20, 2026 13:00:00").getTime();
-    const now = new Date().getTime();
-    const distance = countToDate - now;
-
-    const timerElement = document.getElementById("countdown-timer");
-
-    if (distance < 0) {
-        if(timerElement) timerElement.innerHTML = "<h3 style='color:#00d4ff; font-size:2rem; text-shadow:0 0 15px #00d4ff;'>DOGODEK SE JE ZAČEL!</h3>";
-        return;
-    }
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    const elDays = document.getElementById("cd-days");
-    const elHours = document.getElementById("cd-hours");
-    const elMinutes = document.getElementById("cd-minutes");
-    const elSeconds = document.getElementById("cd-seconds");
-
-    if(elDays) elDays.innerText = days.toString().padStart(2, '0');
-    if(elHours) elHours.innerText = hours.toString().padStart(2, '0');
-    if(elMinutes) elMinutes.innerText = minutes.toString().padStart(2, '0');
-    if(elSeconds) elSeconds.innerText = seconds.toString().padStart(2, '0');
-}
-
 // Piškotki
 function acceptCookies() {
     document.getElementById('cookie-banner').style.display = 'none';
@@ -1598,11 +1509,9 @@ function showPhone() {
 // Zagon funkcij ob nalaganju strani
 updateCurrentShowInfo();
 updateClock();
-updateCountdown();
 
 // Intervali za redno posodabljanje
 setInterval(updateClock, 1000);
-setInterval(updateCountdown, 1000);
 setInterval(updateCurrentShowInfo, 60000);
 
 </script>
