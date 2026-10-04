@@ -165,95 +165,20 @@
     user-select: none;
   }
 
-  /* Združen Header z Logotipom, Uro in Napisom */
-  .main-header {
-      background: #111;
-      padding: 15px 20px;
-      border-bottom: 2px solid #8a2be2;
-      box-shadow: 0 0 30px rgba(138, 43, 226, 0.3);
+  /* Header */
+  header {
+    background: #111;
+    padding: 20px;
+    border-bottom: 2px solid #8a2be2;
+    text-align: center;
   }
-  .header-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-      max-width: 1300px;
-      margin: 0 auto;
-      text-align: center;
-  }
-  .header-logo {
-      max-width: 480px; 
-      width: 100%;
-      height: auto;
-      filter: drop-shadow(0 0 8px rgba(255, 0, 255, 0.8));
-      transition: transform 0.4s ease, filter 0.4s ease;
-  }
-  .header-logo:hover {
-      transform: scale(1.05);
-      filter: drop-shadow(0 0 12px rgba(255, 0, 255, 1)) drop-shadow(0 0 20px rgba(0, 212, 255, 0.6));
-  }
-  .header-text {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-  }
-  .main-title {
-      font-size: 1.8rem;
-      font-weight: 900;
-      letter-spacing: 3px;
-      color: #00d4ff;
-      text-transform: uppercase;
-      margin: 0;
-      animation: neonFlicker 5s infinite, pulse 2s infinite;
-  }
-  .header-slogan {
-      margin: 15px 0 0 0;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #bc13fe;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      text-shadow: 0 0 10px rgba(188, 19, 254, 0.7);
-  }
-
-  @media(min-width: 768px) {
-      .header-content {
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: center;
-          gap: 20px;
-          text-align: left;
-      }
-      .header-text {
-          text-align: right;
-      }
-      .main-title {
-          font-size: 2.2rem;
-      }
-      .header-slogan {
-          font-size: 1.2rem;
-          margin-top: 12px;
-      }
-      .header-logo {
-          max-width: 550px; 
-      }
-  }
-
-  @keyframes neonFlicker {
-    0%, 10%, 12%, 14%, 50%, 100% {
-      text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff;
-      opacity: 1;
-    }
-    11%, 13% {
-      text-shadow: none;
-      opacity: 0.6;
-    }
-  }
-  @keyframes pulse {
-    0% { box-shadow: 0 0 10px #00d4ff; }
-    50% { box-shadow: 0 0 20px #00d4ff; }
-    100% { box-shadow: 0 0 10px #00d4ff; }
+  
+  header h1 {
+    margin: 0;
+    color: #bc13fe; 
+    font-size: 2rem;
+    font-weight: 800; 
+    text-shadow: 0 0 3px #bc13fe; 
   }
 
   /* Navigation buttons */
@@ -262,7 +187,7 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 15px;
-    margin: 30px auto 20px auto;
+    margin: 20px auto;
     max-width: 1200px;
     align-items: stretch;
   }
@@ -314,8 +239,29 @@
   .btn-booking:hover { transform: scale(1.05); box-shadow: 0 0 20px #25d366; }
   .btn-shows { background: linear-gradient(45deg, #ff8c00, #ff0080); color: #fff; }
   .btn-shows:hover { transform: scale(1.05); box-shadow: 0 0 20px #ff0080; }
+  /* Nov gumb urnik */
   .btn-schedule { background: linear-gradient(45deg, #00d4ff, #8a2be2); color: #fff; box-shadow: 0 0 15px rgba(0, 212, 255, 0.5); }
   .btn-schedule:hover { transform: scale(1.05); box-shadow: 0 0 25px rgba(0, 212, 255, 1); }
+
+  /* SMS Button */
+  .sms-inactive {
+    background: #222 !important;
+    color: #555 !important;
+    border: 1px solid #333 !important;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+  .sms-live {
+    background: linear-gradient(45deg, #00d4ff, #0055ff) !important;
+    color: #fff !important;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.7);
+    animation: smsPulse 1.5s infinite ease-in-out;
+  }
+  @keyframes smsPulse {
+    0% { transform: scale(1); box-shadow: 0 0 10px rgba(0, 212, 255, 0.5); }
+    50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(0, 212, 255, 1); }
+    100% { transform: scale(1); box-shadow: 0 0 10px rgba(0, 212, 255, 0.5); }
+  }
 
   /* Phone Link */
   .phone-link {
@@ -342,7 +288,7 @@
     padding: 20px;
   }
   
-  /* PROMO SLIKE */
+  /* PROMO SLIKE (DODANO) */
   .promo-banner-wrapper {
       max-width: 100%;
       margin: 30px auto 10px auto;
@@ -404,6 +350,37 @@
     height: 100%;
     border: 0;
     border-radius: 12px;
+  }
+
+  /* Radio status text */
+  .radio-status {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .rotate-text {
+    display: inline-block;
+    font-size: 1.6rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: #00d4ff;
+    text-transform: uppercase;
+    animation: neonFlicker 5s infinite, pulse 2s infinite;
+  }
+
+  @keyframes neonFlicker {
+    0%, 10%, 12%, 14%, 50%, 100% {
+      text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff;
+      opacity: 1;
+    }
+    11%, 13% {
+      text-shadow: none;
+      opacity: 0.6;
+    }
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 10px #00d4ff; }
+    50% { box-shadow: 0 0 20px #00d4ff; }
+    100% { box-shadow: 0 0 10px #00d4ff; }
   }
 
   /* Grid */
@@ -744,34 +721,15 @@
       .show-details { width: 100%; }
   }
 
-  /* Ura v Headerju */
-  .header-clock-container {
-      background: rgba(5, 5, 5, 0.7); 
-      border: 2px solid #00d4ff; 
-      border-radius: 12px; 
-      padding: 8px 15px; 
-      box-shadow: 0 0 15px rgba(0, 212, 255, 0.3); 
-      display: inline-block;
+  /* Right column utilities (Clock, Promo, Contacts) */
+  .clock-container {
+      background: rgba(5, 5, 5, 0.8); border: 2px solid #00d4ff; border-radius: 15px; padding: 15px; box-shadow: 0 0 20px rgba(0, 212, 255, 0.3); display: inline-block;
   }
-  .header-clock-title {
-      font-size: 0.75rem; 
-      color: #00d4ff; 
-      font-weight: bold; 
-      letter-spacing: 2px; 
-      margin-bottom: -4px; 
-      text-transform: uppercase;
+  .clock-title {
+      font-size: 1rem; color: #00d4ff; font-weight: bold; letter-spacing: 2px; margin-bottom: -10px; text-transform: uppercase;
   }
   #live-clock {
-      font-family: 'Poppins', sans-serif; 
-      font-size: 2.2rem; 
-      font-weight: 900; 
-      color: #00d4ff; 
-      text-shadow: 0 0 10px #00d4ff; 
-      letter-spacing: 3px; 
-      font-variant-numeric: tabular-nums;
-  }
-  @media(min-width: 768px) {
-      #live-clock { font-size: 2.5rem; }
+      font-family: 'Poppins', sans-serif; font-size: 4rem; font-weight: 900; color: #00d4ff; text-shadow: 0 0 15px #00d4ff; letter-spacing: 5px; font-variant-numeric: tabular-nums;
   }
   
   .tshirt-promo {
@@ -892,29 +850,17 @@
 </head>
 <body>
 
-<!-- Združen in prenovljen Header -->
-<header class="main-header">
-    <div class="header-content">
-        <!-- Logotip na levi -->
-        <img src="Logo Radio Wish Booster - TRANSPARENT.png" alt="Radio Wish Booster" class="header-logo" loading="lazy">
-        
-        <!-- Točen čas na sredini -->
-        <div class="header-clock-container">
-           <div class="header-clock-title">TOČEN ČAS</div>
-           <span id="live-clock">00:00:00</span>
-        </div>
-
-        <!-- Naslov in slogan na desni -->
-        <div class="header-text">
-            <h1 class="main-title">SPLETNI RADIO - 24/7</h1>
-            <p class="header-slogan">Kjer so vaše želje na prvem mestu !</p>
-        </div>
-    </div>
+<header>
+  <h1>Radio Wish Booster</h1>
 </header>
 
 <div id="cookie-banner">
   <span>To spletno mesto uporablja piškotke za boljšo izkušnjo.</span>
   <button class="cookie-btn" onclick="acceptCookies()">Sprejmem</button>
+</div>
+
+<div class="radio-status">
+  <span class="rotate-text"> ONLINE RADIO - 24/7</span>
 </div>
 
 <div class="btn-container">
@@ -934,6 +880,7 @@
       </p>
   </div>
 
+  <!-- NOVI GUMB ZA URNIK -->
   <div class="btn-wrapper">
       <button class="btn btn-schedule" onclick="openModal('schedule-modal')">
           <i class="fas fa-calendar-alt"></i> RADIJSKI URNIK
@@ -949,6 +896,16 @@
       </a>
       <p class="btn-hint" style="color: #ff00ff; opacity: 0.9;">
           Glej nas v živo in klepetaj z nami! (Samo za podpornike)
+      </p>
+  </div>
+  
+  <div class="btn-wrapper">
+      <a id="sms-button" href="#" onclick="preveriVIPSMS(event)" class="btn sms-inactive">
+        <i class="fas fa-comment-dots"></i> VIP SMS ŽELJA
+      </a>
+
+      <p id="sms-hint" class="btn-hint">
+        Samo za VIP člane (Torek, Četrtek in Nedelja 20:00 - 22:00).
       </p>
   </div>
 
@@ -1030,7 +987,7 @@
     </div>
 </div>
 
-<!-- MODAL: RADIJSKI URNIK -->
+<!-- NOVI MODAL: RADIJSKI URNIK -->
 <div id="schedule-modal" class="modal-content-box" style="border-color: #00d4ff; box-shadow: 0 0 40px rgba(0, 212, 255, 0.4), 0 0 100px rgba(0, 0, 0, 0.9);">
     <span class="close-modal-btn" onclick="closeAllModals()" style="color: #00d4ff;"><i class="fas fa-times-circle"></i></span>
     <div style="text-align:center;">
@@ -1072,7 +1029,7 @@
                     <img src="slika3.png" alt="Nedeljski Večer" class="schedule-img" loading="lazy">
                     <div class="show-info">
                         <span class="show-time time-replay"><i class="far fa-clock"></i> 20:00 - 22:00</span>
-                        <span class="show-name">♥️ NEDELJSKI ꨄ︎ VEČER ♥️️</span>
+                        <span class="show-name">♥️ NEDELJSKI ꨄ︎ VEČER ♥️</span>
                     </div>
                 </div>
                 <span class="show-badge badge-replay">PONOVITEV</span>
@@ -1184,12 +1141,36 @@
   </div>
   
   <div class="content-grid">
+
+      <!-- Posodobljen prostor za uro (urnik je prestavljen v modal) -->
+      <div class="purple-frame full-width-box" style="margin-bottom: 0; text-align: center;">
+         <div class="clock-container" style="margin: 20px 0;">
+            <div class="clock-title">TOČEN ČAS</div>
+            <span id="live-clock">00:00:00</span>
+         </div>
+      </div>
+
+   <div class="purple-frame full-width-box" style="margin-bottom: 0; text-align: center;">
+        <h3 style="justify-content: center; color: #00d4ff; text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff; font-size: 2.2rem; margin-top: 0; text-transform: uppercase;">
+            <i class="fas fa-glass-cheers" style="color: #ff00ff; margin-right: 15px;"></i> Pridruži se nam v živo!
+        </h3>
+        <p style="font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 25px; line-height: 1.6;">
+            Ekipa <span style="color: #00d4ff; font-weight: 900;">Radia Wish Booster</span> vas vabita na 2. nepozabno druženje polno dobre energije, odlične glasbe in zabave v MESECU SEPTEMBRU na Štajerskem !
+        </p>
+        </div>
       
    <div class="purple-frame full-width-box" style="margin-bottom: 0; text-align: center;">
         <h3 style="justify-content: center; color: #ff00ff; text-shadow: 0 0 10px #ff00ff; font-size: 2rem; margin-top: 0;">
             <i class="fas fa-camera-retro" style="color: #00d4ff; margin-right: 15px;"></i> UTRINKI S PRVEGA SREČANJA
         </h3>
         <p style="font-size: 1.15rem; color: #ddd; font-weight: 500;">Poglejte si nekaj utrinkov z našega nepozabnega prvega radijskega druženja v živo ob Šmartinskem jezeru !</p>
+        
+        <div class="photographer-credit">
+            <a href="https://www.instagram.com/domenmerslavicphotography/" target="_blank">
+                <img src="domen-logo.png" alt="Domen Merslavič Fotografija" loading="lazy">
+            </a>
+            <span>FOTO: <a href="https://www.instagram.com/domenmerslavicphotography/" target="_blank" style="color: inherit; text-decoration: none;">Domen Merslavič</a> (uradni sponzorski fotograf)</span>
+        </div>
         
         <div class="gallery-grid">
             <img src="galerija1.jpg" alt="Srečanje 1" class="gallery-img" onclick="openLightbox(this.src)" loading="lazy">
@@ -1218,14 +1199,14 @@
         </p>
 
         <div class="iframe-container" style="border-radius:12px; border: 2px solid #00d4ff; box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);">
-    <iframe src="https://www.youtube.com/embed/nseE1mK9ZEY?start=2739" allowfullscreen loading="lazy"></iframe>
+            <iframe src="https://www.youtube.com/embed/fhdm7xjVU8s?start=1813" allowfullscreen loading="lazy"></iframe>
         </div>
         
         <h4 style="color: #00d4ff; font-size: 1.4rem; margin: 15px 0 5px 0; text-transform: uppercase; font-weight: 900;">
-            PODCAST - ⭐BASTINO⭐
+            🎙️PODCAST MOTORIZEM🎙️
         </h4>
         <p style="color: #fff; font-size: 1.1rem; margin-bottom: 0;">
-            Pogovor z našim slovenskim pevcem in producentom !
+            Motorizem ni le hobi, je način življenja. Poskrbi, da bo tvoj začetek sezone pameten in varen!
         </p>
 
         <hr style="border: 0; height: 1px; background: linear-gradient(90deg, transparent, #bc13fe, transparent); margin: 40px 0;">
@@ -1392,7 +1373,7 @@ function closeAllModals() {
     document.getElementById('main-modal-overlay').style.display = 'none';
     document.getElementById('about-modal').style.display = 'none';
     document.getElementById('shows-modal').style.display = 'none';
-    document.getElementById('schedule-modal').style.display = 'none';
+    document.getElementById('schedule-modal').style.display = 'none'; // DODANO ZA ZAPIRANJE URNIKA
     document.getElementById('service-description-box').style.display = 'none';
     document.body.style.overflow = 'auto';
 }
@@ -1439,6 +1420,53 @@ function closeRequests() {
   document.body.style.overflow = 'auto';
 }
 
+function preveriVIPSMS(event) {
+  event.preventDefault(); 
+  
+  const smsBtn = document.getElementById('sms-button');
+  
+  if (smsBtn.classList.contains('sms-inactive')) {
+    alert("SMS želje trenutno niso na voljo. V živo smo ob torkih, četrtkih in nedeljah (20:00 - 22:00).");
+    return;
+  }
+
+  const vnesenaKoda = prompt("Vnesi mesečno VIP kodo z naše YT platforme:");
+  
+  const veljavnaKoda = "JUNIJ6"; 
+
+  if (vnesenaKoda === veljavnaKoda) {
+    window.location.href = "sms:+38641772470?&body=Moje ime:%0APozdravil bi:%0AZaželel sem si pesem od: ";
+  } else if (vnesenaKoda !== null) {
+    alert("Napačna koda! Za dostop do VIP želja potrebuješ mesečno kodo.");
+  }
+}
+
+function updateSmsButton() {
+  const now = new Date();
+  const day = now.getDay(); 
+  const hour = now.getHours();
+  
+  const smsBtn = document.getElementById('sms-button');
+  const smsHint = document.getElementById('sms-hint');
+
+  const isLiveDay = (day === 2 || day === 4 || day === 0);
+  const isLiveTime = (hour >= 20 && hour < 22);
+
+  if (isLiveDay && isLiveTime) {
+    smsBtn.classList.remove('sms-inactive');
+    smsBtn.classList.add('sms-live');
+    smsBtn.style.pointerEvents = 'auto'; 
+    
+    smsHint.innerHTML = "<span style='color: #00d4ff;'>🔴 V ŽIVO! Samo za VIP člane z mesečno kodo.</span>";
+  } else {
+    smsBtn.classList.remove('sms-live');
+    smsBtn.classList.add('sms-inactive');
+    smsBtn.style.pointerEvents = 'auto'; 
+    
+    smsHint.innerHTML = "SMS želje samo za VIP člane (v živo: Tor, Čet, Ned 20:00 - 22:00).";
+  }
+}
+
 const scheduleData = [
     [ { start: 0, end: 6, name: "🎧 WEEKEND PARTY 💥 MIXI 🎧", img: "slika5.png" },
       { start: 15, end: 17, name: "🎙️ PODCAST 🔴 MESECA 🎙️ (Ponovitev)", img: "slika4.png" },
@@ -1478,6 +1506,47 @@ function updateCurrentShowInfo() {
     if (imgEl && !imgEl.src.includes(currentImage)) imgEl.src = currentImage;
 }
 
+function highlightTodaySchedule() {
+    const now = new Date();
+    const today = now.getDay();
+    const currentHour = now.getHours();
+
+    const allDays = document.querySelectorAll('.schedule-day');
+
+    allDays.forEach(day => {
+        day.classList.remove('active-day','live-now');
+        const oldLabel = day.querySelector('.live-label');
+        if(oldLabel) oldLabel.remove();
+
+        const dayNumber = parseInt(day.getAttribute('data-day'));
+
+        if (dayNumber === today) {
+            day.classList.add('active-day');
+            const shows = day.querySelectorAll('.show-row');
+
+            shows.forEach(show => {
+                const start = parseInt(show.getAttribute('data-start'));
+                const end = parseInt(show.getAttribute('data-end'));
+                let isLive = false;
+
+                if (start < end) {
+                    isLive = currentHour >= start && currentHour < end;
+                } else {
+                    isLive = currentHour >= start || currentHour < end;
+                }
+
+                if (isLive) {
+                    day.classList.add('live-now');
+                    const label = document.createElement('div');
+                    label.className = 'live-label';
+                    label.innerText = '🔴 TRENUTNO NA SPOREDU';
+                    day.appendChild(label);
+                }
+            });
+        }
+    });
+}
+
 function updateClock() {
     const now = new Date();
     const h = now.getHours().toString().padStart(2, '0');
@@ -1490,30 +1559,58 @@ function updateClock() {
     }
 }
 
-// Piškotki
 function acceptCookies() {
-    document.getElementById('cookie-banner').style.display = 'none';
+  document.getElementById('cookie-banner').style.display = 'none';
+  localStorage.setItem('cookiesAccepted', 'true');
 }
 
-// Zapri live popup
+function showPhone() {
+  document.getElementById('bookingBtn').style.display = 'none';
+  document.getElementById('phoneLink').style.display = 'inline-flex';
+}
+
+function checkLivePopup() {
+    const now = new Date();
+    const day = now.getDay(); 
+    const hour = now.getHours();
+
+    const isLiveDay = (day === 2 || day === 4 || day === 0);
+    const isLiveTime = (hour >= 20 && hour < 22);
+
+    const popupClosed = sessionStorage.getItem('livePopupClosed');
+
+    if (isLiveDay && isLiveTime && !popupClosed) {
+        document.getElementById('live-popup').style.display = 'block';
+    } else {
+        document.getElementById('live-popup').style.display = 'none';
+    }
+}
+
 function closeLivePopup() {
     document.getElementById('live-popup').style.display = 'none';
+    sessionStorage.setItem('livePopupClosed', 'true'); 
 }
 
-// Prikaži telefon ob kliku na booking
-function showPhone() {
-    document.getElementById('bookingBtn').style.display = 'none';
-    document.getElementById('phoneLink').style.display = 'inline-flex';
+window.onload = function() {
+  if(localStorage.getItem('cookiesAccepted')) {
+    document.getElementById('cookie-banner').style.display = 'none';
+  }
+
+  updateClock();
+  setInterval(updateClock, 1000); 
+
+  updateSmsButton();
+  setInterval(updateSmsButton, 60000);
+
+  updateCurrentShowInfo();
+  setInterval(updateCurrentShowInfo, 60000); 
+
+  highlightTodaySchedule();
+  setInterval(highlightTodaySchedule, 60000);
+
+  checkLivePopup();
+  setInterval(checkLivePopup, 60000); 
 }
-
-// Zagon funkcij ob nalaganju strani
-updateCurrentShowInfo();
-updateClock();
-
-// Intervali za redno posodabljanje
-setInterval(updateClock, 1000);
-setInterval(updateCurrentShowInfo, 60000);
-
 </script>
 </body>
 </html>
