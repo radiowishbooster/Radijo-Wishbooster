@@ -256,13 +256,70 @@
     100% { box-shadow: 0 0 10px #00d4ff; }
   }
 
+  /* ODŠTEVALNIK DO 1. ROJSTNEGA DNE */
+  .countdown-container {
+      max-width: 900px;
+      margin: 40px auto 10px auto;
+      text-align: center;
+      background: rgba(15, 15, 15, 0.9);
+      border: 2px solid #00d4ff;
+      border-radius: 20px;
+      padding: 30px 20px;
+      box-shadow: 0 0 25px rgba(0, 212, 255, 0.4), inset 0 0 15px rgba(0, 212, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+  }
+  .countdown-title {
+      color: #ff00ff;
+      font-size: 1.6rem;
+      text-transform: uppercase;
+      font-weight: 900;
+      margin-bottom: 25px;
+      margin-top: 0;
+      text-shadow: 0 0 10px rgba(255, 0, 255, 0.8);
+      letter-spacing: 2px;
+  }
+  .countdown-timer {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+  }
+  .time-box {
+      background: rgba(25, 10, 45, 0.8);
+      border: 1px dashed #bc13fe;
+      border-radius: 12px;
+      padding: 15px 20px;
+      min-width: 70px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 5px 15px rgba(188, 19, 254, 0.2);
+  }
+  .time-box span.number {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #00d4ff;
+      text-shadow: 0 0 15px #00d4ff;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+  }
+  .time-box span.label {
+      font-size: 0.9rem;
+      color: #fff;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-top: 8px;
+      letter-spacing: 1px;
+  }
+
   /* Navigation buttons */
   .btn-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 15px;
-    margin: 30px auto 20px auto;
+    margin: 40px auto 20px auto;
     max-width: 1200px;
     align-items: stretch;
   }
@@ -308,8 +365,6 @@
 
   .btn-about { background: linear-gradient(45deg, #8a2be2, #00d4ff); color: #fff; }
   .btn-about:hover { transform: scale(1.05); box-shadow: 0 0 20px #8a2be2; }
-  .btn-request { background: #ff00ff; color: #fff; box-shadow: 0 0 15px rgba(255, 0, 255, 0.7); }
-  .btn-request:hover { transform: scale(1.05); box-shadow: 0 0 25px rgba(255, 0, 255, 1); }
   .btn-booking { background: #25d366; color: #000; }
   .btn-booking:hover { transform: scale(1.05); box-shadow: 0 0 20px #25d366; }
   .btn-shows { background: linear-gradient(45deg, #ff8c00, #ff0080); color: #fff; }
@@ -340,31 +395,6 @@
     max-width: 1100px;
     margin: 0 auto;
     padding: 20px;
-  }
-  
-  /* PROMO SLIKE */
-  .promo-banner-wrapper {
-      max-width: 100%;
-      margin: 30px auto 10px auto;
-      text-align: center;
-  }
-  .promo-banner-link {
-      display: inline-block;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border-radius: 15px;
-      overflow: hidden;
-      border: 2px solid #00d4ff;
-      box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
-      width: 100%;
-  }
-  .promo-banner-link:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 30px rgba(0, 212, 255, 0.8);
-  }
-  .promo-banner-link img {
-      width: 100%;
-      height: auto;
-      display: block;
   }
 
   /* Sections */
@@ -404,6 +434,16 @@
     height: 100%;
     border: 0;
     border-radius: 12px;
+  }
+  
+  /* Klepetalnica iFrame (fixed height) */
+  .chat-iframe-wrapper {
+    width: 100%;
+    height: 600px;
+    border-radius: 12px;
+    border: 2px dashed #00d4ff;
+    overflow: hidden;
+    box-shadow: 0 0 25px rgba(0, 212, 255, 0.3);
   }
 
   /* Grid */
@@ -808,73 +848,6 @@
     iframe { height: auto; }
   }
 
-  /* Live Pop-up v spodnjem kotu */
-  #live-popup {
-      display: none; 
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: rgba(15, 15, 15, 0.95);
-      border: 2px solid #ff00ff;
-      border-radius: 15px;
-      padding: 20px;
-      box-shadow: 0 0 20px rgba(255, 0, 255, 0.6);
-      z-index: 10001; 
-      width: 280px;
-      text-align: center;
-      animation: slideInBottom 0.6s ease-out;
-  }
-  @keyframes slideInBottom {
-      from { transform: translateY(150px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-  }
-  .close-popup-btn {
-      position: absolute;
-      top: 8px;
-      right: 12px;
-      color: #00d4ff;
-      font-size: 1.5rem;
-      cursor: pointer;
-      transition: 0.3s;
-  }
-  .close-popup-btn:hover {
-      color: #fff;
-      transform: scale(1.2);
-      text-shadow: 0 0 10px #00d4ff;
-  }
-  .popup-title {
-      color: #ff00ff;
-      font-weight: 900;
-      margin: 10px 0 5px 0;
-      font-size: 1.4rem;
-      text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
-  }
-  .popup-text {
-      color: #fff;
-      font-size: 0.9rem;
-      margin-bottom: 15px;
-      line-height: 1.4;
-      font-weight: 600;
-  }
-  .live-icon-pulse {
-      font-size: 2.5rem;
-      color: #ff00ff;
-      animation: livePulseFrame 1.5s infinite ease-in-out;
-      border-radius: 50%;
-  }
-  @media(max-width: 480px) {
-      #live-popup {
-          bottom: 10px;
-          right: 50%;
-          transform: translateX(50%);
-          width: 90%;
-      }
-      @keyframes slideInBottom {
-          from { transform: translate(-50%, 150px); opacity: 0; }
-          to { transform: translate(-50%, 0); opacity: 1; }
-      }
-  }
-
   .schedule-img-large {
     width: 100px; 
     height: 100px; 
@@ -887,7 +860,6 @@
     margin: 0 auto 15px auto;
     filter: drop-shadow(0 0 10px rgba(0,212,255,0.3));
   }
-
 </style>
 </head>
 <body>
@@ -917,6 +889,29 @@
   <button class="cookie-btn" onclick="acceptCookies()">Sprejmem</button>
 </div>
 
+<!-- ODŠTEVALNIK DO 1. ROJSTNEGA DNE (1. 1. 2027) -->
+<div class="countdown-container">
+    <h2 class="countdown-title"><i class="fas fa-glass-cheers" style="color: #00d4ff;"></i> Odštevamo do 1. rojstnega dne radia!</h2>
+    <div id="birthday-countdown" class="countdown-timer">
+        <div class="time-box">
+            <span class="number" id="cd-days">00</span>
+            <span class="label">Dni</span>
+        </div>
+        <div class="time-box">
+            <span class="number" id="cd-hours">00</span>
+            <span class="label">Ur</span>
+        </div>
+        <div class="time-box">
+            <span class="number" id="cd-minutes">00</span>
+            <span class="label">Min</span>
+        </div>
+        <div class="time-box">
+            <span class="number" id="cd-seconds">00</span>
+            <span class="label">Sek</span>
+        </div>
+    </div>
+</div>
+
 <div class="btn-container">
   <div class="btn-wrapper">
     <button class="btn btn-about" onclick="openModal('about-modal')"><i class="fas fa-fire"></i> KDO SMO?</button>
@@ -944,19 +939,10 @@
   </div>
 
   <div class="btn-wrapper">
-      <a href="studio.html" class="btn btn-request" style="background: linear-gradient(45deg, #ff00ff, #8a2be2); box-shadow: 0 0 20px #ff00ff;">
-          <i class="fas fa-video"></i> VIP STUDIO
-      </a>
-      <p class="btn-hint" style="color: #ff00ff; opacity: 0.9;">
-          Glej nas v živo in klepetaj z nami! (Samo za podpornike)
-      </p>
-  </div>
-
-  <div class="btn-wrapper">
-      <button class="btn btn-about" onclick="openRequests()">
+      <button class="btn btn-about" style="background: linear-gradient(45deg, #ff00ff, #8a2be2); box-shadow: 0 0 20px rgba(255,0,255,0.7);" onclick="openRequests()">
           <i class="fas fa-music"></i> GLASBENA ŽELJA
       </button>
-      <p class="btn-hint" style="color: #00d4ff; opacity: 0.9;">
+      <p class="btn-hint" style="color: #ff00ff; opacity: 0.9;">
           Izberi iz našega radijskega strežnika - na voljo 24 ur.
       </p>
   </div>
@@ -1039,6 +1025,7 @@
     </div>
     
     <div class="schedule-container">
+        <!-- Vsebina urnika ostane nespremenjena -->
         <div class="schedule-day" data-day="1">
             <h4 class="day-title">Ponedeljek</h4>
             <div class="show-row" data-start="20" data-end="22">
@@ -1072,7 +1059,7 @@
                     <img src="slika3.png" alt="Nedeljski Večer" class="schedule-img" loading="lazy">
                     <div class="show-info">
                         <span class="show-time time-replay"><i class="far fa-clock"></i> 20:00 - 22:00</span>
-                        <span class="show-name">♥️ NEDELJSKI ꨄ︎ VEČER ♥️️</span>
+                        <span class="show-name">♥️ NEDELJSKI ꨄ︎ VEČER ♥</span>
                     </div>
                 </div>
                 <span class="show-badge badge-replay">PONOVITEV</span>
@@ -1177,14 +1164,22 @@
       <iframe class="radio-iframe" src="https://a13.asurahosting.com/public/wish_booster_radio" scrolling="yes" allowtransparency="true"></iframe>
   </div>
 
-  <div class="promo-banner-wrapper" id="glavna-promo-slika">
-      <a href="https://www.radiowishbooster.com/studio.html" target="_blank" class="promo-banner-link">
-          <img src="slika-radio-promo.png" alt="Pridruži se Radiu Wish Booster">
-      </a>
-  </div>
-  
   <div class="content-grid">
       
+   <!-- KLEPETALNICA V ŽIVO -->
+   <div class="purple-frame full-width-box" style="text-align: center; margin-bottom: 0;">
+        <h3 style="justify-content: center; color: #ff00ff; text-shadow: 0 0 10px #ff00ff; font-size: 2.2rem; margin-top: 0; text-transform: uppercase;">
+            <i class="fas fa-comments" style="color: #00d4ff; margin-right: 15px;"></i> KLEPETALNICA V ŽIVO
+        </h3>
+        <p style="font-size: 1.15rem; color: #ddd; font-weight: 500; margin-bottom: 25px;">
+            Pridruži se debati, deli svoje misli in klepetaj z nami in ostalimi poslušalci!
+        </p>
+        
+        <div class="chat-iframe-wrapper">
+            <iframe src="https://minnit.chat/RadioWishBooster?embed&nickname=" style="border:none; width:100%; height:100%; background: #000;" allowTransparency="true"></iframe>
+        </div>
+   </div>
+
    <div class="purple-frame full-width-box" style="margin-bottom: 0; text-align: center;">
         <h3 style="justify-content: center; color: #ff00ff; text-shadow: 0 0 10px #ff00ff; font-size: 2rem; margin-top: 0;">
             <i class="fas fa-camera-retro" style="color: #00d4ff; margin-right: 15px;"></i> UTRINKI S PRVEGA SREČANJA
@@ -1346,16 +1341,6 @@
     <img class="lightbox-content" id="lightbox-img" onclick="event.stopPropagation()">
 </div>
 
-<div id="live-popup">
-    <span class="close-popup-btn" onclick="closeLivePopup()"><i class="fas fa-times"></i></span>
-    <i class="fas fa-video live-icon-pulse" style="color: #00d4ff;"></i>
-    <h3 class="popup-title" style="color: #00d4ff; text-shadow: 0 0 10px #00d4ff;">V ŽIVO SMO!</h3>
-    <p class="popup-text">Oddaja se je pravkar začela. Vstopi v VIP studio, preveri sliko v živo in klepetaj z nami!</p>
-    <a href="studio.html" class="btn btn-request" style="font-size: 1rem; padding: 10px; width: 100%; min-height: auto; margin-top: 10px; background: #00d4ff; color: #000; box-shadow: 0 0 15px #00d4ff;">
-        <i class="fas fa-sign-in-alt"></i> VSTOPI V STUDIO
-    </a>
-</div>
-
 <script>
 // ZAPIRANJE MODALOV S KLIKOM V PRAZNO
 window.addEventListener('click', function(event) {
@@ -1368,13 +1353,6 @@ window.addEventListener('click', function(event) {
 });
 
 window.addEventListener('keydown', function(e) {
-  if(e.key === 'Escape') {
-      closeAllModals();
-      closeRequests();
-  }
-});
-
-  window.addEventListener('keydown', function(e) {
   if(e.key === 'Escape') {
       closeAllModals();
       closeRequests();
@@ -1397,7 +1375,7 @@ function closeAllModals() {
     document.body.style.overflow = 'auto';
 }
 
-  function openLightbox(src) {
+function openLightbox(src) {
     document.getElementById('lightbox').style.display = 'block';
     document.getElementById('lightbox-img').src = src;
     document.body.style.overflow = 'hidden';
@@ -1445,7 +1423,7 @@ const scheduleData = [
       { start: 20, end: 22, name: "♥️ NEDELJSKI ꨄ︎ VEČER ♥️ <span class='live-badge-inline'>V ŽIVO</span>", img: "slika3.png" } ],
     [ { start: 20, end: 22, name: "🪗 DOMAČI MEH 🪗 (Ponovitev)", img: "domaci_meh.png" } ],
     [ { start: 20, end: 22, name: "🪗 DOMAČI MEH 🪗 <span class='live-badge-inline'>V ŽIVO</span>", img: "domaci_meh.png" } ],
-    [ { start: 20, end: 22, name: "♥️ NEDELJSKI ꨄ︎ VEČER ♥️ (Ponovitev)", img: "slika3.png" } ],
+    [ { start: 20, end: 22, name: "♥️ NEDELJSKI ꨄ︎ VEČER ♥️️ (Ponovitev)", img: "slika3.png" } ],
     [ { start: 20, end: 22, name: "⭐ GLASBENI 🎸 VRTILJAK ⭐ <span class='live-badge-inline'>V ŽIVO</span>", img: "slika2.png" } ],
     [ { start: 18, end: 24, name: "🎧 WEEKEND PARTY 💥 MIXI 🎧", img: "slika5.png" } ],
     [ { start: 0, end: 6, name: "🎧 WEEKEND PARTY 💥 MIXI 🎧", img: "slika5.png" },
@@ -1490,14 +1468,36 @@ function updateClock() {
     }
 }
 
+// LOGIKA ZA ODŠTEVALNIK DO ROJSTNEGA DNE
+function startBirthdayCountdown() {
+    // 1. januar 2027 ob 00:00
+    const countdownDate = new Date("Jan 1, 2027 00:00:00").getTime();
+    
+    const x = setInterval(function() {
+        const now = new Date().getTime();
+        const distance = countdownDate - now;
+
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("birthday-countdown").innerHTML = "<h3 style='color:#00d4ff; text-shadow: 0 0 15px #00d4ff; font-size: 2rem; margin:0;'>VSE NAJBOLJŠE, RADIO WISH BOOSTER! 🎉</h3>";
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("cd-days").innerText = days;
+        document.getElementById("cd-hours").innerText = hours < 10 ? "0" + hours : hours;
+        document.getElementById("cd-minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+        document.getElementById("cd-seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+    }, 1000);
+}
+
 // Piškotki
 function acceptCookies() {
     document.getElementById('cookie-banner').style.display = 'none';
-}
-
-// Zapri live popup
-function closeLivePopup() {
-    document.getElementById('live-popup').style.display = 'none';
 }
 
 // Prikaži telefon ob kliku na booking
@@ -1509,6 +1509,7 @@ function showPhone() {
 // Zagon funkcij ob nalaganju strani
 updateCurrentShowInfo();
 updateClock();
+startBirthdayCountdown();
 
 // Intervali za redno posodabljanje
 setInterval(updateClock, 1000);
