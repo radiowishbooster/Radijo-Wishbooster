@@ -1020,11 +1020,11 @@
             <p>Popoln uvod v nor vikend se začne tukaj! Vsak <span class="text-blue-noglow">PETEK</span> med <span class="text-blue-noglow">20.</span> in <span class="text-blue-noglow">22.</span> uro se Radio Vish Booster prelevi v tvoj najljubši virtualni klub. <span class="text-blue-noglow">VEČER ELEKTRONSKE GLASBE</span> prinaša vrhunske EDM, house in techno ritme. Ogrej se za petkovo noč z udarnimi beati in vibracijami, ki poskrbijo za pravo klubsko atmosfero!</p>
         </div>
 
-        <!-- SOBOTA: TECHNO CLASSICA (NOVO) -->
+        <!-- SOBOTA: TECHNO CLASSICA -->
         <div class="show-card">
             <img src="techno_classica.png" alt="Techno Classica" loading="lazy">
             <h4>🎻 TECHNO CLASSICA 🎹</h4>
-            <p>Dobrodošli v Techno Classica, edinstvenem zvočnem potovanju, kjer se brišejo meje med stoletja staro glasbeno tradicijo in sodobno elektronsko produkcijo. V tej oddaji raziskujemo fascinantno stičišče dveh na videz nezdružljivih svetov: brezčasne elegance, kompleksnosti in čustvene globine klasične glasbe ter surove, pulzirajoče energije in hipnotičnih ritmov tehna. Bodite z nami vsako <span class="text-blue-noglow">SOBOTO</span> med <span class="text-blue-noglow">20.</span> in <span class="text-blue-noglow">22.</span> uro!</p>
+            <p>Dobrodošli v Techno Classica, edinstvenem zvočnem potovanju, kjer se brišejo meje med stoletja staro glasbeno tradicijo in sodobno elektronsko produkcijo. V tej oddaji raziskujemo fascinantno stičišče dveh na videz nezdružljivih svetov: brezčasne elegance, kompleksnosti in čustvene globine klasične glasbe ter surove, pulzirajoče energije in hipnotičnih ritmov tehna. Bodite z nami vsako <span class="text-blue-noglow">SOBOTO</span> med <span class="text-blue-noglow">22.</span> in <span class="text-blue-noglow">06.</span> uro!</p>
         </div>
 
         <div class="show-card">
@@ -1134,28 +1134,9 @@
             </div>
         </div>
 
-        <!-- Sobota (popravljen blok) -->
+        <!-- Sobota (popravljen blok - odstranjen weekend party, techno classica 22-06) -->
         <div class="schedule-day" data-day="6">
             <h4 class="day-title">Sobota</h4>
-            <div class="show-row" data-start="0" data-end="6">
-                <div class="show-details">
-                    <img src="slika5.png" alt="Weekend Party Mix" class="schedule-img" loading="lazy">
-                    <div class="show-info">
-                        <span class="show-time time-mixi"><i class="far fa-clock"></i> 00:00 - 06:00</span>
-                        <span class="show-name">🎧 WEEKEND PARTY 💥 MIXI 🎧</span>
-                    </div>
-                </div>
-                <span class="show-badge badge-replay">PONOVITEV</span>
-            </div>
-            <div class="show-row" data-start="18" data-end="20">
-                <div class="show-details">
-                    <img src="slika5.png" alt="Weekend Party Mix" class="schedule-img" loading="lazy">
-                    <div class="show-info">
-                        <span class="show-time time-mixi"><i class="far fa-clock"></i> 18:00 - 20:00</span>
-                        <span class="show-name">🎧 WEEKEND PARTY 💥 MIXI 🎧</span>
-                    </div>
-                </div>
-            </div>
             <div class="show-row" data-start="20" data-end="22">
                 <div class="show-details">
                     <img src="techno_classica.png" alt="Techno Classica" class="schedule-img" loading="lazy">
@@ -1166,12 +1147,12 @@
                 </div>
                 <span class="show-badge badge-live">V ŽIVO!</span>
             </div>
-            <div class="show-row" data-start="22" data-end="24">
+            <div class="show-row" data-start="22" data-end="6">
                 <div class="show-details">
-                    <img src="slika5.png" alt="Weekend Party Mix" class="schedule-img" loading="lazy">
+                    <img src="techno_classica.png" alt="Techno Classica" class="schedule-img" loading="lazy">
                     <div class="show-info">
-                        <span class="show-time time-mixi"><i class="far fa-clock"></i> 22:00 - 24:00</span>
-                        <span class="show-name">🎧 WEEKEND PARTY 💥 MIXI 🎧</span>
+                        <span class="show-time time-mixi"><i class="far fa-clock"></i> 22:00 - 06:00</span>
+                        <span class="show-name">🎻 TECHNO CLASSICA 🎹</span>
                     </div>
                 </div>
             </div>
@@ -1676,11 +1657,8 @@ const scheduleData = [
     [ { start: 20, end: 22, name: "⭐ GLASBENI 🎸 VRTILJAK ⭐ <span class='live-badge-inline'>V ŽIVO</span>", img: "slika2.png" } ],
     [ { start: 20, end: 22, name: "⚡ VEČER ELEKTRONSKE GLASBE ⚡ <span class='live-badge-inline'>V ŽIVO</span>", img: "elektronska.png" },
       { start: 22, end: 24, name: "🎧 WEEKEND PARTY 💥 MIXI 🎧", img: "slika5.png" } ],
-    [ { start: 0, end: 6, name: "🎧 WEEKEND PARTY 💥 MIXI 🎧", img: "slika5.png" },
-      { start: 13, end: 15, name: "⭐ GLASBENI 🎸 VRTILJAK ⭐ (Ponovitev)", img: "slika2.png" },
-      { start: 18, end: 20, name: "🎧 WEEKEND PARTY 💥 MIXI 🎧", img: "slika5.png" },
-      { start: 20, end: 22, name: "🎻 TECHNO CLASSICA 🎹 <span class='live-badge-inline'>V ŽIVO</span>", img: "techno_classica.png" },
-      { start: 22, end: 24, name: "🎧 WEEKEND PARTY 💥 MIXI 🎧", img: "slika5.png" } ]
+    [ { start: 20, end: 22, name: "🎻 TECHNO CLASSICA 🎹 <span class='live-badge-inline'>V ŽIVO</span>", img: "techno_classica.png" },
+      { start: 22, end: 6, name: "🎻 TECHNO CLASSICA 🎹", img: "techno_classica.png" } ]
 ];
 
 function updateCurrentShowInfo() {
