@@ -1019,17 +1019,18 @@
     </div>
     
     <div class="schedule-container">
-        <!-- Vsebina urnika ostane nespremenjena -->
+        <!-- Ponedeljek - Oktoberfest Zabava -->
         <div class="schedule-day" data-day="1">
             <h4 class="day-title">Ponedeljek</h4>
             <div class="show-row" data-start="20" data-end="22">
                 <div class="show-details">
-                    <img src="domaci_meh.png" alt="Domači Meh" class="schedule-img schedule-img-large" loading="lazy"> <div class="show-info">
-                        <span class="show-time time-replay"><i class="far fa-clock"></i> 20:00 - 22:00</span>
-                        <span class="show-name">🪗 DOMAČI MEH 🪗</span>
+                    <img src="oktoberfest.png" alt="Oktoberfest Zabava" class="schedule-img schedule-img-large" loading="lazy">
+                    <div class="show-info">
+                        <span class="show-time time-live"><i class="far fa-clock"></i> 20:00 - 22:00</span>
+                        <span class="show-name">🍻 OKTOBERFEST ZABAVA 🍻</span>
                     </div>
                 </div>
-                <span class="show-badge badge-replay">PONOVITEV</span>
+                <span class="show-badge badge-live">V ŽIVO!</span>
             </div>
         </div>
 
@@ -1046,17 +1047,18 @@
             </div>
         </div>
 
+        <!-- Sreda - Balkan Zabava -->
         <div class="schedule-day" data-day="3">
             <h4 class="day-title">Sreda</h4>
             <div class="show-row" data-start="20" data-end="22">
                 <div class="show-details">
-                    <img src="slika3.png" alt="Nedeljski Večer" class="schedule-img" loading="lazy">
+                    <img src="balkan.png" alt="Balkan Zabava" class="schedule-img schedule-img-large" loading="lazy">
                     <div class="show-info">
-                        <span class="show-time time-replay"><i class="far fa-clock"></i> 20:00 - 22:00</span>
-                        <span class="show-name">♥️ NEDELJSKI ꨄ︎ VEČER ♥</span>
+                        <span class="show-time time-live"><i class="far fa-clock"></i> 20:00 - 22:00</span>
+                        <span class="show-name">🎶 BALKAN ZABAVA 🎶</span>
                     </div>
                 </div>
-                <span class="show-badge badge-replay">PONOVITEV</span>
+                <span class="show-badge badge-live">V ŽIVO!</span>
             </div>
         </div>
 
@@ -1074,13 +1076,33 @@
             </div>
         </div>
 
+        <!-- Petek - Razdeljen z Večerom elektronske glasbe -->
         <div class="schedule-day" data-day="5">
             <h4 class="day-title">Petek</h4>
-            <div class="show-row" data-start="18" data-end="6">
+            <div class="show-row" data-start="18" data-end="20">
                 <div class="show-details">
                     <img src="slika5.png" alt="Weekend Party Mix" class="schedule-img" loading="lazy">
                     <div class="show-info">
-                        <span class="show-time time-mixi"><i class="far fa-clock"></i> 18:00 - 06:00</span>
+                        <span class="show-time time-mixi"><i class="far fa-clock"></i> 18:00 - 20:00</span>
+                        <span class="show-name">🎧 WEEKEND PARTY 💥 MIXI 🎧</span>
+                    </div>
+                </div>
+            </div>
+            <div class="show-row" data-start="20" data-end="22">
+                <div class="show-details">
+                    <img src="elektronska.png" alt="Večer Elektronske Glasbe" class="schedule-img schedule-img-large" loading="lazy">
+                    <div class="show-info">
+                        <span class="show-time time-live"><i class="far fa-clock"></i> 20:00 - 22:00</span>
+                        <span class="show-name">⚡ VEČER ELEKTRONSKE GLASBE ⚡</span>
+                    </div>
+                </div>
+                <span class="show-badge badge-live">V ŽIVO!</span>
+            </div>
+            <div class="show-row" data-start="22" data-end="6">
+                <div class="show-details">
+                    <img src="slika5.png" alt="Weekend Party Mix" class="schedule-img" loading="lazy">
+                    <div class="show-info">
+                        <span class="show-time time-mixi"><i class="far fa-clock"></i> 22:00 - 06:00</span>
                         <span class="show-name">🎧 WEEKEND PARTY 💥 MIXI 🎧</span>
                     </div>
                 </div>
@@ -1603,11 +1625,13 @@ const scheduleData = [
     [ { start: 0, end: 6, name: "🎧 WEEKEND PARTY 💥 MIXI 🎧", img: "slika5.png" },
       { start: 15, end: 17, name: "🎙️ PODCAST 🔴 MESECA 🎙️ (Ponovitev)", img: "slika4.png" },
       { start: 20, end: 22, name: "♥️ NEDELJSKI ꨄ︎ VEČER ♥️ <span class='live-badge-inline'>V ŽIVO</span>", img: "slika3.png" } ],
-    [ { start: 20, end: 22, name: "🪗 DOMAČI MEH 🪗 (Ponovitev)", img: "domaci_meh.png" } ],
+    [ { start: 20, end: 22, name: "🍻 OKTOBERFEST ZABAVA 🍻 <span class='live-badge-inline'>V ŽIVO</span>", img: "oktoberfest.png" } ],
     [ { start: 20, end: 22, name: "🪗 DOMAČI MEH 🪗 <span class='live-badge-inline'>V ŽIVO</span>", img: "domaci_meh.png" } ],
-    [ { start: 20, end: 22, name: "♥️ NEDELJSKI ꨄ︎ VEČER ♥ (Ponovitev)", img: "slika3.png" } ],
+    [ { start: 20, end: 22, name: "🎶 BALKAN ZABAVA 🎶 <span class='live-badge-inline'>V ŽIVO</span>", img: "balkan.png" } ],
     [ { start: 20, end: 22, name: "⭐ GLASBENI 🎸 VRTILJAK ⭐ <span class='live-badge-inline'>V ŽIVO</span>", img: "slika2.png" } ],
-    [ { start: 18, end: 24, name: "🎧 WEEKEND PARTY 💥 MIXI 🎧", img: "slika5.png" } ],
+    [ { start: 18, end: 20, name: "🎧 WEEKEND PARTY 💥 MIXI 🎧", img: "slika5.png" },
+      { start: 20, end: 22, name: "⚡ VEČER ELEKTRONSKE GLASBE ⚡ <span class='live-badge-inline'>V ŽIVO</span>", img: "elektronska.png" },
+      { start: 22, end: 24, name: "🎧 WEEKEND PARTY 💥 MIXI 🎧", img: "slika5.png" } ],
     [ { start: 0, end: 6, name: "🎧 WEEKEND PARTY 💥 MIXI 🎧", img: "slika5.png" },
       { start: 13, end: 15, name: "⭐ GLASBENI 🎸 VRTILJAK ⭐ (Ponovitev)", img: "slika2.png" },
       { start: 18, end: 24, name: "🎧 WEEKEND PARTY 💥 MIXI 🎧", img: "slika5.png" } ]
