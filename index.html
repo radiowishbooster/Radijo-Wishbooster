@@ -13,11 +13,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Radio Vish Booster</title>
 <meta name="description" content="Radio Vishbooster in DJ K-Boost - več kot 25 let izkušenj z ustvarjanjem nepozabne atmosfere na Štajerskem in v Prekmurju. Poslušaj online radio 24/7 v živo ali rezerviraj DJ-ja!" />
-<meta name="keywords" content="Radio Vishbooster, DJ K-Boost, spletni radio, DJ za poroke, Štajerska, Prekmurje, glasbene želje, najboljša glasba" />
-<meta name="author" content="Boris - Ekipa K-BOOST" />
+<meta name="keywords" content="Radio Vishbooster, DJ K-Boost, Magic 4 DJ Team, spletni radio, DJ za poroke, Štajerska, Prekmurje, glasbene želje, najboljša glasba" />
+<meta name="author" content="Boris - MAGIC 4 DJ TEAM" />
 <meta property="og:url" content="https://www.radiowishbooster.com" />
-<meta property="og:title" content="Radio Vishbooster & Dj K-Boost | Kjer glasba oživi" />
-<meta property="og:description" content="Pridruži se najboljši zabavi! Poslušaj Radio Vishbooster 24/7 ali rezerviraj DJ K-Boosta za tvoj naslednji dogodek." />
+<meta property="og:title" content="Radio Vishbooster & DJ Team Magic 4 | Kjer glasba oživi" />
+<meta property="og:description" content="Pridruži se najboljši zabavi! Poslušaj Radio Vishbooster 24/7 ali rezerviraj DJ-ja za tvoj naslednji dogodek." />
 <meta property="og:image" content="https://www.radiowishbooster.com/star.png" /> 
 <meta property="og:type" content="website" />
 <link rel="icon" type="image/png" href="star.png" />
@@ -389,22 +389,46 @@
   .btn-schedule { background: linear-gradient(45deg, #00d4ff, #8a2be2); color: #fff; box-shadow: 0 0 15px rgba(0, 212, 255, 0.5); }
   .btn-schedule:hover { transform: scale(1.05); box-shadow: 0 0 25px rgba(0, 212, 255, 1); }
 
-  /* Phone Link */
+  /* Booking Phones List */
+  .booking-phones-list {
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    background: rgba(15, 25, 20, 0.95);
+    border: 2px solid #25d366;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+    box-sizing: border-box;
+    animation: fadeIn 0.3s ease;
+  }
   .phone-link {
     color: #00d4ff !important; 
-    font-size: 1.6rem !important; 
-    font-weight: 900 !important; 
+    font-size: 1rem !important; 
+    font-weight: 800 !important; 
     text-decoration: none !important; 
-    text-shadow: 0 0 10px #00d4ff !important; 
-    display: none; 
+    text-shadow: 0 0 8px rgba(0, 212, 255, 0.6) !important; 
+    display: flex; 
     align-items: center;
-    gap: 10px; 
-    padding: 10px 20px;
-    transition: all 0.3s ease;
+    justify-content: space-between;
+    gap: 8px; 
+    padding: 6px 10px;
+    border-radius: 8px;
+    background: rgba(25, 10, 45, 0.6);
+    border: 1px solid rgba(37, 211, 102, 0.3);
+    transition: all 0.25s ease;
+  }
+  .phone-link span.dj-label {
+    color: #25d366;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    text-shadow: none !important;
   }
   .phone-link:hover {
-      text-shadow: 0 0 20px #00d4ff, 0 0 30px #00d4ff !important; 
-      transform: scale(1.05);
+      background: rgba(37, 211, 102, 0.2);
+      border-color: #25d366;
+      transform: scale(1.03);
   }
 
   /* Main content container */
@@ -585,6 +609,53 @@
       color: #00d4ff; 
       font-weight: bold;
       text-shadow: 0 0 8px rgba(0, 212, 255, 0.7); 
+  }
+  .dj-team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin: 25px 0 30px 0;
+  }
+  .dj-member-card {
+      background: rgba(25, 10, 45, 0.6);
+      border: 1px dashed #bc13fe;
+      border-radius: 14px;
+      padding: 12px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .dj-member-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 20px rgba(0, 212, 255, 0.4);
+      border-color: #00d4ff;
+  }
+  .dj-member-card h4 {
+      color: #00d4ff;
+      margin: 0 0 10px 0;
+      font-size: 1.05rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-shadow: 0 0 8px rgba(0, 212, 255, 0.6);
+  }
+  .dj-member-card img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid #8a2be2;
+      cursor: pointer;
+      display: block;
+  }
+  @media(max-width: 768px) {
+      .dj-team-grid {
+          grid-template-columns: repeat(2, 1fr);
+      }
+  }
+  @media(max-width: 480px) {
+      .dj-team-grid {
+          grid-template-columns: 1fr;
+      }
   }
   .service-grid {
       display: flex;
@@ -947,9 +1018,14 @@
 
   <div class="btn-wrapper">
       <button id="bookingBtn" class="btn btn-booking" onclick="showPhone()"><i class="fas fa-calendar-check"></i> BOOKING</button>
-      <a id="phoneLink" href="tel:041772470" class="phone-link"><i class="fas fa-phone-alt"></i> 041 772 470</a>
+      <div id="phoneLinksBox" class="booking-phones-list">
+          <a href="tel:041772470" class="phone-link"><span class="dj-label">DJ K-Boost:</span> <span>041 772 470</span></a>
+          <a href="tel:040772470" class="phone-link"><span class="dj-label">DJ Marex:</span> <span>040 / 772 - 470</span></a>
+          <a href="tel:051341026" class="phone-link"><span class="dj-label">DJ Matjaž:</span> <span>051 / 341 - 026</span></a>
+          <a href="tel:041442168" class="phone-link"><span class="dj-label">DJ Georgio Dee:</span> <span>041 / 442 - 168</span></a>
+      </div>
       <p class="btn-hint" style="color: #25d366; opacity: 0.9;">
-          Rezerviraj  DJ-ja za tvoj dogodek!
+          Rezerviraj DJ-ja za tvoj dogodek!
       </p>
   </div>
 </div>
@@ -960,14 +1036,34 @@
 <div id="about-modal" class="modal-content-box">
     <span class="close-modal-btn" onclick="closeAllModals()"><i class="fas fa-times-circle"></i></span>
     <div style="text-align:center;">
-        <h2 style="margin:0; font-size: 2.8rem; text-shadow: 0 0 15px #8a2be2; font-weight: 900;">DISKO JOKER <span style="margin-left: 20px;">K-BOOST</span></h2>
+        <h2 style="margin:0; font-size: 2.8rem; text-shadow: 0 0 15px #8a2be2; font-weight: 900;">DJ TEAM MAGIC 4</h2>
         <p style="color:#00d4ff; font-weight: bold; text-transform: uppercase; letter-spacing: 5px;">Kjer glasba oživi</p>
     </div>
     
     <div style="text-align:center; max-width:900px; margin:20px auto; line-height: 1.6;">
-        <p style="color: #ffffff; font-weight: 700;">Smo ekipa <span class="about-highlight">K-BOOST</span>, ki že več kot <span class="about-highlight">25 let</span> premika meje zabave na terenu na <span class="text-blue-noglow">Štajerskem</span> in <span class="text-blue-noglow">Prekmurju</span>. Naše poslanstvo ni zgolj predvajanje glasbe, temveč ustvarjanje <span class="text-blue-noglow">nepozabne</span> <span class="text-blue-noglow">atmosfere</span>, ki se je boste spominjali <span class="text-blue-noglow">celo</span> <span class="text-blue-noglow">življenje</span>.</p>
+        <p style="color: #ffffff; font-weight: 700;">Smo <span class="about-highlight">MAGIC 4 DJ TEAM</span>, ki že več kot <span class="about-highlight">25 let</span> premika meje zabave na terenu na <span class="text-blue-noglow">Štajerskem</span> in <span class="text-blue-noglow">Prekmurju</span>. Naše poslanstvo ni zgolj predvajanje glasbe, temveč ustvarjanje <span class="text-blue-noglow">nepozabne</span> <span class="text-blue-noglow">atmosfere</span>, ki se je boste spominjali <span class="text-blue-noglow">celo</span> <span class="text-blue-noglow">življenje</span>.</p>
         <p style="margin-top: 15px; color: #ffffff; font-weight: 700;">Z vrhunsko opremo, profesionalnim pristopom in občutkom za publiko poskrbimo, da vsak dogodek postane legenda. Od romantičnih začetkov na porokah do nore energije na obletnicah – <span class="about-highlight">mi smo tisti, ki držimo ritem do jutranjih ur!</span></p>
         
+        <!-- SLIKE 4 DJ-JEV -->
+        <div class="dj-team-grid">
+            <div class="dj-member-card">
+                <h4>Dj K-Boost</h4>
+                <img src="dj_kboost.jpg" alt="Dj K-Boost" onclick="openLightbox(this.src)" loading="lazy">
+            </div>
+            <div class="dj-member-card">
+                <h4>Dj Georgio Dee</h4>
+                <img src="dj_georgio.jpg" alt="Dj Georgio Dee" onclick="openLightbox(this.src)" loading="lazy">
+            </div>
+            <div class="dj-member-card">
+                <h4>Dj Matjaž</h4>
+                <img src="dj_matjaz.jpg" alt="Dj Matjaž" onclick="openLightbox(this.src)" loading="lazy">
+            </div>
+            <div class="dj-member-card">
+                <h4>Dj Marex</h4>
+                <img src="dj_marex.jpg" alt="Dj Marex" onclick="openLightbox(this.src)" loading="lazy">
+            </div>
+        </div>
+
         <div class="service-grid">
             <div class="service-card" onclick="showServiceDesc('poroke')"><i class="fas fa-heart"></i><span>Nepozabne<br>Poroke</span></div>
             <div class="service-card" onclick="showServiceDesc('obletnice')"><i class="fas fa-glass-cheers"></i><span>Obletnice</span></div>
@@ -1055,7 +1151,7 @@
                     <img src="Yugo Rock Zabava_2.png" alt="Yugo Rock Zabava" class="schedule-img" loading="lazy">
                     <div class="show-info">
                         <span class="show-time time-live"><i class="far fa-clock"></i> 20:00 - 22:00</span>
-                        <span class="show-name">🎸 YUGO ROCK ZABAVA 🎸 <span class="dj-name-highlight">⯪ DJ MAREX ⯫</span></span>
+                        <span class="show-name">🎸 YUGO ROCK ZABAVA 🎸 <span class="dj-name-highlight">- DJ MAREX</span></span>
                     </div>
                 </div>
                 <span class="show-badge badge-live">V ŽIVO!</span>
@@ -1070,7 +1166,7 @@
                     <img src="domaci_meh.png" alt="Domači Meh" class="schedule-img" loading="lazy">
                     <div class="show-info">
                         <span class="show-time time-live"><i class="far fa-clock"></i> 20:00 - 22:00</span>
-                        <span class="show-name">🪗 DOMAČI MEH 🪗 <span class="dj-name-highlight">⯪ DJ MATJAŽ ⯫</span></span>
+                        <span class="show-name">🪗 DOMAČI MEH 🪗 <span class="dj-name-highlight">- DJ MATJAŽ</span></span>
                     </div>
                 </div>
                 <span class="show-badge badge-live">V ŽIVO!</span>
@@ -1085,7 +1181,7 @@
                     <img src="balkan.png" alt="Balkan Zabava" class="schedule-img" loading="lazy">
                     <div class="show-info">
                         <span class="show-time time-live"><i class="far fa-clock"></i> 20:00 - 22:00</span>
-                        <span class="show-name">🎶 BALKAN ZABAVA 🎶 <span class="dj-name-highlight">⯪ DJ MAREX ⯫</span></span>
+                        <span class="show-name">🎶 BALKAN ZABAVA 🎶 <span class="dj-name-highlight">- DJ MAREX</span></span>
                     </div>
                 </div>
                 <span class="show-badge badge-live">V ŽIVO!</span>
@@ -1100,7 +1196,7 @@
                     <img src="techno_classica.png" alt="Techno Classica" class="schedule-img" loading="lazy">
                     <div class="show-info">
                         <span class="show-time time-live"><i class="far fa-clock"></i> 20:00 - 22:00</span>
-                        <span class="show-name">🔊 TECHNO CLASSICA 🔊 <span class="dj-name-highlight">⯪ DJ K-BOOST ⯫</span></span>
+                        <span class="show-name">🔊 TECHNO CLASSICA 🔊 <span class="dj-name-highlight">- DJ K-BOOST</span></span>
                     </div>
                 </div>
                 <span class="show-badge badge-live">V ŽIVO!</span>
@@ -1115,7 +1211,7 @@
                     <img src="elektronska.png" alt="Večer Elektronske Glasbe" class="schedule-img" loading="lazy">
                     <div class="show-info">
                         <span class="show-time time-live"><i class="far fa-clock"></i> 20:00 - 22:00</span>
-                        <span class="show-name">⚡ ELEKTRONSKI VEČER ⚡ <span class="dj-name-highlight">⯪ DJ GEORGIO DEE ⯫</span></span>
+                        <span class="show-name">⚡ ELEKTRONSKI VEČER ⚡ <span class="dj-name-highlight">- DJ GEORGIO DEE</span></span>
                     </div>
                 </div>
                 <span class="show-badge badge-live">V ŽIVO!</span>
@@ -1153,7 +1249,7 @@
                     <img src="slika3.png" alt="Nedeljski Večer" class="schedule-img" loading="lazy">
                     <div class="show-info">
                         <span class="show-time time-live"><i class="far fa-clock"></i> 20:00 - 22:00</span>
-                        <span class="show-name">♥️ NEDELJSKI ꨄ︎ VEČER ♥️ <span class="dj-name-highlight">⯪ DJ K-BOOST ⯫</span></span>
+                        <span class="show-name">♥️ NEDELJSKI ꨄ︎ VEČER ♥️ <span class="dj-name-highlight">- DJ K-BOOST</span></span>
                     </div>
                 </div>
                 <span class="show-badge badge-live">V ŽIVO!</span>
@@ -1514,7 +1610,7 @@
 
   <div class="footer-legal" style="margin-top: 25px; padding: 0 15px;">
     <p style="font-size: 1.15rem; color: #ddd; line-height: 1.8; max-width: 1000px; margin: 0 auto;">
-        Wish Booster Radio je ljubiteljski, nekomercialni in testni projekt ekipe K-BOOST. Spletno mesto je namenjeno izključno promociji glasbene dejavnosti in preizkušanju interaktivnih vsebin.<br><br>
+        Wish Booster Radio je ljubiteljski, nekomercialni in testni projekt ekipe MAGIC 4 DJ TEAM. Spletno mesto je namenjeno izključno promociji glasbene dejavnosti in preizkušanju interaktivnih vsebin.<br><br>
         Vse avtorske pravice so last njihovih lastnikov. &copy; 2025-2026.<br>
         Vse pravice pridržane.
     </p>
@@ -1699,10 +1795,10 @@ function acceptCookies() {
     document.getElementById('cookie-banner').style.display = 'none';
 }
 
-// Prikaži telefon ob kliku na booking
+// Prikaži telefone ob kliku na booking
 function showPhone() {
     document.getElementById('bookingBtn').style.display = 'none';
-    document.getElementById('phoneLink').style.display = 'inline-flex';
+    document.getElementById('phoneLinksBox').style.display = 'flex';
 }
 
 // Zagon funkcij ob nalaganju strani
